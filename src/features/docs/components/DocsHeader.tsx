@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@tanstack/react-router';
 import { Search, Menu, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,7 +15,7 @@ export function DocsHeader() {
             <Menu className="h-4 w-4" />
           </Button>
           
-          <Link href="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
+          <Link to="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
             {/* Ozzios Logo - matches TopNav */}
             <img
               src="/images/dark-theme-logo.svg"
@@ -68,7 +68,7 @@ export function DocsHeader() {
               asChild 
               className="h-8 px-3 text-[13px] text-muted-foreground hover:text-foreground"
             >
-              <Link href="https://app.ozzios.com/sign-in">Sign In</Link>
+              <a href="https://app.ozzios.com/sign-in">Sign In</a>
             </Button>
             
             <Button 
@@ -76,7 +76,7 @@ export function DocsHeader() {
               asChild 
               className="h-8 px-3 text-[13px]"
             >
-              <Link href="https://app.ozzios.com/sign-up">Get Started</Link>
+              <a href="https://app.ozzios.com/sign-up">Get Started</a>
             </Button>
           </nav>
         </div>

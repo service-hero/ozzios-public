@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TableOfContents } from './TableOfContents';
-import Link from 'next/link';
+import { Link } from '@tanstack/react-router';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -36,7 +36,7 @@ export function DocsPage({
                 {i > 0 && <ChevronRight className="h-3 w-3 opacity-50" />}
                 {crumb.href ? (
                   <Link 
-                    href={crumb.href}
+                    to={crumb.href}
                     className="transition-colors hover:text-foreground"
                   >
                     {crumb.title}

@@ -1,8 +1,6 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, Sparkles, Zap, Bot, Workflow, Users, CheckCircle2, PlayCircle, HelpCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 
 // Animation variants for staggered reveals
@@ -102,7 +100,7 @@ export function DocsHomeView() {
             return (
               <Link
                 key={card.title}
-                href={card.href}
+                to={card.href}
                 className="group relative"
               >
                 <div className={cn(
@@ -252,7 +250,7 @@ function ExploreCard({
 }) {
   return (
     <Link
-      href={href}
+      to={href}
       className={cn(
         "group flex items-center gap-3 rounded-lg border border-border/50 bg-card p-3",
         "transition-all hover:border-border hover:bg-muted/30"
@@ -282,7 +280,7 @@ function QuickLink({
 }) {
   return (
     <Link
-      href={href}
+      to={href}
       className={cn(
         "group flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4",
         "transition-all hover:border-border hover:bg-card"

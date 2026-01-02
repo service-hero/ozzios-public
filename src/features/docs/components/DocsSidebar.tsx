@@ -1,7 +1,4 @@
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useRouterState } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 import { BookOpen, Compass, Sparkles, Zap, Code2 } from 'lucide-react';
 
@@ -17,7 +14,7 @@ const docsConfig: DocsNavItem[] = [
     title: "Getting Started",
     icon: Zap,
     items: [
-      { title: "Welcome", href: "/docs" },
+      { title: "Welcome", href: "/" },
       { title: "Setting Up", href: "/docs/installation" },
       { title: "How It Works", href: "/docs/architecture" },
     ]
@@ -49,7 +46,8 @@ const docsConfig: DocsNavItem[] = [
 ];
 
 export function DocsSidebar() {
-  const currentPath = usePathname();
+  const routerState = useRouterState();
+  const currentPath = routerState.location.pathname;
 
   return (
     <nav className="w-full px-4">
@@ -76,7 +74,7 @@ export function DocsSidebar() {
                     return (
                       <Link
                         key={itemIndex}
-                        href={item.href || '#'}
+                        to={item.href || '/'}
                         className={cn(
                           "group relative flex items-center gap-2 rounded-md px-2 py-1.5 text-[13px] transition-all duration-150",
                           isActive
