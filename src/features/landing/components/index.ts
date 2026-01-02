@@ -5,4 +5,6 @@ export { BentoSection } from './BentoSection';
 export { StatsSection } from './StatsSection';
 export { FeaturesSection } from './FeaturesSection';
 export { AgentsSection } from './AgentsSection';
+export { TestimonialsSection } from './TestimonialsSection';
+export { FAQSection } from './FAQSection';
 export { CTASection } from './CTASection';

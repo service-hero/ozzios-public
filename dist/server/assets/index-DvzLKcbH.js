@@ -1,16 +1,16 @@
-import { a as reactExports, n as jsxRuntimeExports } from "./worker-entry-BHZ-CRVX.js";
-import { c as createLucideIcon, S as Sparkles, Z as Zap, B as BookOpen, a as cn, D as DocsLayout } from "./DocsLayout-DsapyWHD.js";
-import { L as Link } from "./router-B7WZ1K67.js";
+import { a as reactExports, n as jsxRuntimeExports } from "./worker-entry-BXnig_gh.js";
+import { L as Link } from "./router-DVLPoq2j.js";
+import { c as createLucideIcon, S as Sparkles, B as BookOpen, a as cn, b as Button, M as Menu, d as Search } from "./button-CWRdlThr.js";
 import "node:events";
 import "node:async_hooks";
 import "node:stream";
 import "node:stream/web";
-const __iconNode$6 = [
+const __iconNode$o = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$6);
-const __iconNode$5 = [
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$o);
+const __iconNode$n = [
   ["path", { d: "M12 8V4H8", key: "hb8ula" }],
   ["rect", { width: "16", height: "12", x: "4", y: "8", rx: "2", key: "enze0r" }],
   ["path", { d: "M2 14h2", key: "vft8re" }],
@@ -18,42 +18,234 @@ const __iconNode$5 = [
   ["path", { d: "M15 13v2", key: "1xurst" }],
   ["path", { d: "M9 13v2", key: "rq6x2g" }]
 ];
-const Bot = createLucideIcon("bot", __iconNode$5);
-const __iconNode$4 = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+const Bot = createLucideIcon("bot", __iconNode$n);
+const __iconNode$m = [
+  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
+  ["path", { d: "M18 17V9", key: "2bz60n" }],
+  ["path", { d: "M13 17V5", key: "1frdt8" }],
+  ["path", { d: "M8 17v-3", key: "17ska0" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$4);
-const __iconNode$3 = [
+const ChartColumn = createLucideIcon("chart-column", __iconNode$m);
+const __iconNode$l = [
+  ["path", { d: "M5 21v-6", key: "1hz6c0" }],
+  ["path", { d: "M12 21V3", key: "1lcnhd" }],
+  ["path", { d: "M19 21V9", key: "unv183" }]
+];
+const ChartNoAxesColumn = createLucideIcon("chart-no-axes-column", __iconNode$l);
+const __iconNode$k = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$k);
+const __iconNode$j = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$j);
+const __iconNode$i = [
+  ["path", { d: "m16 18 6-6-6-6", key: "eg8j8" }],
+  ["path", { d: "m8 6-6 6 6 6", key: "ppft3o" }]
+];
+const Code = createLucideIcon("code", __iconNode$i);
+const __iconNode$h = [
   [
     "path",
     {
-      d: "M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z",
-      key: "kmsa83"
+      d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+      key: "1oefj6"
     }
   ],
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]
+  ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
 ];
-const CirclePlay = createLucideIcon("circle-play", __iconNode$3);
+const FileText = createLucideIcon("file-text", __iconNode$h);
+const __iconNode$g = [
+  [
+    "path",
+    {
+      d: "M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z",
+      key: "zw3jo"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12",
+      key: "1wduqc"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17",
+      key: "kqbvx6"
+    }
+  ]
+];
+const Layers = createLucideIcon("layers", __iconNode$g);
+const __iconNode$f = [
+  [
+    "path",
+    {
+      d: "M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5",
+      key: "1gvzjb"
+    }
+  ],
+  ["path", { d: "M9 18h6", key: "x1upvd" }],
+  ["path", { d: "M10 22h4", key: "ceow96" }]
+];
+const Lightbulb = createLucideIcon("lightbulb", __iconNode$f);
+const __iconNode$e = [
+  ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
+  ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+];
+const Mail = createLucideIcon("mail", __iconNode$e);
+const __iconNode$d = [
+  [
+    "path",
+    {
+      d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",
+      key: "1r0f0z"
+    }
+  ],
+  ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }]
+];
+const MapPin = createLucideIcon("map-pin", __iconNode$d);
+const __iconNode$c = [
+  [
+    "path",
+    {
+      d: "M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z",
+      key: "q8bfy3"
+    }
+  ],
+  ["path", { d: "M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14", key: "1853fq" }],
+  ["path", { d: "M8 6v8", key: "15ugcq" }]
+];
+const Megaphone = createLucideIcon("megaphone", __iconNode$c);
+const __iconNode$b = [
+  [
+    "path",
+    {
+      d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+      key: "18887p"
+    }
+  ]
+];
+const MessageSquare = createLucideIcon("message-square", __iconNode$b);
+const __iconNode$a = [
+  [
+    "path",
+    {
+      d: "M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z",
+      key: "e79jfc"
+    }
+  ],
+  ["circle", { cx: "13.5", cy: "6.5", r: ".5", fill: "currentColor", key: "1okk4w" }],
+  ["circle", { cx: "17.5", cy: "10.5", r: ".5", fill: "currentColor", key: "f64h9f" }],
+  ["circle", { cx: "6.5", cy: "12.5", r: ".5", fill: "currentColor", key: "qy21gx" }],
+  ["circle", { cx: "8.5", cy: "7.5", r: ".5", fill: "currentColor", key: "fotxhn" }]
+];
+const Palette = createLucideIcon("palette", __iconNode$a);
+const __iconNode$9 = [
+  [
+    "path",
+    {
+      d: "M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z",
+      key: "nt11vn"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18",
+      key: "15qc1e"
+    }
+  ],
+  ["path", { d: "m2.3 2.3 7.286 7.286", key: "1wuzzi" }],
+  ["circle", { cx: "11", cy: "11", r: "2", key: "xmgehs" }]
+];
+const PenTool = createLucideIcon("pen-tool", __iconNode$9);
+const __iconNode$8 = [
+  [
+    "path",
+    {
+      d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
+      key: "10ikf1"
+    }
+  ]
+];
+const Play = createLucideIcon("play", __iconNode$8);
+const __iconNode$7 = [
+  [
+    "path",
+    {
+      d: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z",
+      key: "m3kijz"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z",
+      key: "1fmvmk"
+    }
+  ],
+  ["path", { d: "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0", key: "1f8sc4" }],
+  ["path", { d: "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5", key: "qeys4" }]
+];
+const Rocket = createLucideIcon("rocket", __iconNode$7);
+const __iconNode$6 = [
+  [
+    "path",
+    {
+      d: "M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915",
+      key: "1i5ecw"
+    }
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+];
+const Settings = createLucideIcon("settings", __iconNode$6);
+const __iconNode$5 = [
+  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
+  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
+  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
+  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
+  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
+];
+const Share2 = createLucideIcon("share-2", __iconNode$5);
+const __iconNode$4 = [
+  [
+    "path",
+    {
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
+    }
+  ]
+];
+const Shield = createLucideIcon("shield", __iconNode$4);
+const __iconNode$3 = [
+  ["path", { d: "M16 7h6v6", key: "box55l" }],
+  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+];
+const TrendingUp = createLucideIcon("trending-up", __iconNode$3);
 const __iconNode$2 = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3", key: "1u773s" }],
-  ["path", { d: "M12 17h.01", key: "p32p05" }]
-];
-const CircleQuestionMark = createLucideIcon("circle-question-mark", __iconNode$2);
-const __iconNode$1 = [
   ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
   ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
   ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
   ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
 ];
-const Users = createLucideIcon("users", __iconNode$1);
-const __iconNode = [
+const Users = createLucideIcon("users", __iconNode$2);
+const __iconNode$1 = [
   ["rect", { width: "8", height: "8", x: "3", y: "3", rx: "2", key: "by2w9f" }],
   ["path", { d: "M7 11v4a2 2 0 0 0 2 2h4", key: "xkn7yn" }],
   ["rect", { width: "8", height: "8", x: "13", y: "13", rx: "2", key: "1cgmvn" }]
 ];
-const Workflow = createLucideIcon("workflow", __iconNode);
+const Workflow = createLucideIcon("workflow", __iconNode$1);
+const __iconNode = [
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+];
+const X = createLucideIcon("x", __iconNode);
 const LayoutGroupContext = reactExports.createContext({});
 function useConstant(init) {
   const ref = reactExports.useRef(null);
@@ -292,11 +484,11 @@ function createRenderBatcher(scheduleNextBatch, allowKeepAlive) {
     isProcessing: false
   };
   const flagRunNextFrame = () => runNextFrame = true;
-  const steps = stepsOrder.reduce((acc, key) => {
+  const steps2 = stepsOrder.reduce((acc, key) => {
     acc[key] = createRenderStep(flagRunNextFrame);
     return acc;
   }, {});
-  const { setup, read, resolveKeyframes, preUpdate, update, preRender, render, postRender } = steps;
+  const { setup, read, resolveKeyframes, preUpdate, update, preRender, render, postRender } = steps2;
   const processBatch = () => {
     const timestamp = MotionGlobalConfig.useManualTiming ? state.timestamp : performance.now();
     runNextFrame = false;
@@ -327,7 +519,7 @@ function createRenderBatcher(scheduleNextBatch, allowKeepAlive) {
     }
   };
   const schedule = stepsOrder.reduce((acc, key) => {
-    const step = steps[key];
+    const step = steps2[key];
     acc[key] = (process, keepAlive = false, immediate = false) => {
       if (!runNextFrame)
         wake();
@@ -337,10 +529,10 @@ function createRenderBatcher(scheduleNextBatch, allowKeepAlive) {
   }, {});
   const cancel = (process) => {
     for (let i = 0; i < stepsOrder.length; i++) {
-      steps[stepsOrder[i]].cancel(process);
+      steps2[stepsOrder[i]].cancel(process);
     }
   };
-  return { schedule, cancel, state, steps };
+  return { schedule, cancel, state, steps: steps2 };
 }
 const { schedule: frame, cancel: cancelFrame, state: frameData, steps: frameSteps } = /* @__PURE__ */ createRenderBatcher(typeof requestAnimationFrame !== "undefined" ? requestAnimationFrame : noop, true);
 let now;
@@ -2386,7 +2578,7 @@ function resolveElements(elementOrSelector, scope, selectorCache) {
     return [elementOrSelector];
   } else if (typeof elementOrSelector === "string") {
     let root = document;
-    const elements = selectorCache?.[elementOrSelector] ?? root.querySelectorAll(elementOrSelector);
+    const elements = root.querySelectorAll(elementOrSelector);
     return elements ? Array.from(elements) : [];
   }
   return Array.from(elementOrSelector);
@@ -2850,6 +3042,148 @@ const MotionConfigContext = reactExports.createContext({
   isStatic: false,
   reducedMotion: "never"
 });
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    return ref(value);
+  } else if (ref !== null && ref !== void 0) {
+    ref.current = value;
+  }
+}
+function composeRefs(...refs) {
+  return (node) => {
+    let hasCleanup = false;
+    const cleanups = refs.map((ref) => {
+      const cleanup = setRef(ref, node);
+      if (!hasCleanup && typeof cleanup === "function") {
+        hasCleanup = true;
+      }
+      return cleanup;
+    });
+    if (hasCleanup) {
+      return () => {
+        for (let i = 0; i < cleanups.length; i++) {
+          const cleanup = cleanups[i];
+          if (typeof cleanup === "function") {
+            cleanup();
+          } else {
+            setRef(refs[i], null);
+          }
+        }
+      };
+    }
+  };
+}
+function useComposedRefs(...refs) {
+  return reactExports.useCallback(composeRefs(...refs), refs);
+}
+class PopChildMeasure extends reactExports.Component {
+  getSnapshotBeforeUpdate(prevProps) {
+    const element = this.props.childRef.current;
+    if (element && prevProps.isPresent && !this.props.isPresent) {
+      const parent = element.offsetParent;
+      const parentWidth = isHTMLElement(parent) ? parent.offsetWidth || 0 : 0;
+      const size = this.props.sizeRef.current;
+      size.height = element.offsetHeight || 0;
+      size.width = element.offsetWidth || 0;
+      size.top = element.offsetTop;
+      size.left = element.offsetLeft;
+      size.right = parentWidth - size.width - size.left;
+    }
+    return null;
+  }
+  /**
+   * Required with getSnapshotBeforeUpdate to stop React complaining.
+   */
+  componentDidUpdate() {
+  }
+  render() {
+    return this.props.children;
+  }
+}
+function PopChild({ children, isPresent, anchorX, root }) {
+  const id2 = reactExports.useId();
+  const ref = reactExports.useRef(null);
+  const size = reactExports.useRef({
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+    right: 0
+  });
+  const { nonce } = reactExports.useContext(MotionConfigContext);
+  const composedRef = useComposedRefs(ref, children?.ref);
+  reactExports.useInsertionEffect(() => {
+    const { width, height, top, left, right } = size.current;
+    if (isPresent || !ref.current || !width || !height)
+      return;
+    const x = anchorX === "left" ? `left: ${left}` : `right: ${right}`;
+    ref.current.dataset.motionPopId = id2;
+    const style = document.createElement("style");
+    if (nonce)
+      style.nonce = nonce;
+    const parent = root ?? document.head;
+    parent.appendChild(style);
+    if (style.sheet) {
+      style.sheet.insertRule(`
+          [data-motion-pop-id="${id2}"] {
+            position: absolute !important;
+            width: ${width}px !important;
+            height: ${height}px !important;
+            ${x}px !important;
+            top: ${top}px !important;
+          }
+        `);
+    }
+    return () => {
+      if (parent.contains(style)) {
+        parent.removeChild(style);
+      }
+    };
+  }, [isPresent]);
+  return jsxRuntimeExports.jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, children: reactExports.cloneElement(children, { ref: composedRef }) });
+}
+const PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode, anchorX, root }) => {
+  const presenceChildren = useConstant(newChildrenMap);
+  const id2 = reactExports.useId();
+  let isReusedContext = true;
+  let context = reactExports.useMemo(() => {
+    isReusedContext = false;
+    return {
+      id: id2,
+      initial,
+      isPresent,
+      custom,
+      onExitComplete: (childId) => {
+        presenceChildren.set(childId, true);
+        for (const isComplete of presenceChildren.values()) {
+          if (!isComplete)
+            return;
+        }
+        onExitComplete && onExitComplete();
+      },
+      register: (childId) => {
+        presenceChildren.set(childId, false);
+        return () => presenceChildren.delete(childId);
+      }
+    };
+  }, [isPresent, presenceChildren, onExitComplete]);
+  if (presenceAffectsLayout && isReusedContext) {
+    context = { ...context };
+  }
+  reactExports.useMemo(() => {
+    presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
+  }, [isPresent]);
+  reactExports.useEffect(() => {
+    !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
+  }, [isPresent]);
+  if (mode === "popLayout") {
+    children = jsxRuntimeExports.jsx(PopChild, { isPresent, anchorX, root, children });
+  }
+  return jsxRuntimeExports.jsx(PresenceContext.Provider, { value: context, children });
+};
+function newChildrenMap() {
+  return /* @__PURE__ */ new Map();
+}
 function usePresence(subscribe = true) {
   const context = reactExports.useContext(PresenceContext);
   if (context === null)
@@ -2864,6 +3198,81 @@ function usePresence(subscribe = true) {
   const safeToRemove = reactExports.useCallback(() => subscribe && onExitComplete && onExitComplete(id2), [id2, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
+const getChildKey = (child) => child.key || "";
+function onlyElements(children) {
+  const filtered = [];
+  reactExports.Children.forEach(children, (child) => {
+    if (reactExports.isValidElement(child))
+      filtered.push(child);
+  });
+  return filtered;
+}
+const AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", root }) => {
+  const [isParentPresent, safeToRemove] = usePresence(propagate);
+  const presentChildren = reactExports.useMemo(() => onlyElements(children), [children]);
+  const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
+  const isInitialRender = reactExports.useRef(true);
+  const pendingPresentChildren = reactExports.useRef(presentChildren);
+  const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
+  const [diffedChildren, setDiffedChildren] = reactExports.useState(presentChildren);
+  const [renderedChildren, setRenderedChildren] = reactExports.useState(presentChildren);
+  useIsomorphicLayoutEffect(() => {
+    isInitialRender.current = false;
+    pendingPresentChildren.current = presentChildren;
+    for (let i = 0; i < renderedChildren.length; i++) {
+      const key = getChildKey(renderedChildren[i]);
+      if (!presentKeys.includes(key)) {
+        if (exitComplete.get(key) !== true) {
+          exitComplete.set(key, false);
+        }
+      } else {
+        exitComplete.delete(key);
+      }
+    }
+  }, [renderedChildren, presentKeys.length, presentKeys.join("-")]);
+  const exitingChildren = [];
+  if (presentChildren !== diffedChildren) {
+    let nextChildren = [...presentChildren];
+    for (let i = 0; i < renderedChildren.length; i++) {
+      const child = renderedChildren[i];
+      const key = getChildKey(child);
+      if (!presentKeys.includes(key)) {
+        nextChildren.splice(i, 0, child);
+        exitingChildren.push(child);
+      }
+    }
+    if (mode === "wait" && exitingChildren.length) {
+      nextChildren = exitingChildren;
+    }
+    setRenderedChildren(onlyElements(nextChildren));
+    setDiffedChildren(presentChildren);
+    return null;
+  }
+  const { forceRender } = reactExports.useContext(LayoutGroupContext);
+  return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: renderedChildren.map((child) => {
+    const key = getChildKey(child);
+    const isPresent = propagate && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
+    const onExit = () => {
+      if (exitComplete.has(key)) {
+        exitComplete.set(key, true);
+      } else {
+        return;
+      }
+      let isEveryExitComplete = true;
+      exitComplete.forEach((isExitComplete) => {
+        if (!isExitComplete)
+          isEveryExitComplete = false;
+      });
+      if (isEveryExitComplete) {
+        forceRender?.();
+        setRenderedChildren(pendingPresentChildren.current);
+        propagate && safeToRemove?.();
+        onExitComplete && onExitComplete();
+      }
+    };
+    return jsxRuntimeExports.jsx(PresenceChild, { isPresent, initial: !isInitialRender.current || initial ? void 0 : false, custom, presenceAffectsLayout, mode, root, onExitComplete: isPresent ? void 0 : onExit, anchorX, children: child }, key);
+  }) });
+};
 const LazyContext = reactExports.createContext({ strict: false });
 const featureProps = {
   animation: [
@@ -7185,261 +7594,2109 @@ const featureBundle = {
   ...layout
 };
 const motion = /* @__PURE__ */ createMotionProxy(featureBundle, createDomVisualElement);
+const thresholds = {
+  some: 0,
+  all: 1
+};
+function inView(elementOrSelector, onStart, { root, margin: rootMargin, amount = "some" } = {}) {
+  const elements = resolveElements(elementOrSelector);
+  const activeIntersections = /* @__PURE__ */ new WeakMap();
+  const onIntersectionChange = (entries) => {
+    entries.forEach((entry) => {
+      const onEnd = activeIntersections.get(entry.target);
+      if (entry.isIntersecting === Boolean(onEnd))
+        return;
+      if (entry.isIntersecting) {
+        const newOnEnd = onStart(entry.target, entry);
+        if (typeof newOnEnd === "function") {
+          activeIntersections.set(entry.target, newOnEnd);
+        } else {
+          observer.unobserve(entry.target);
+        }
+      } else if (typeof onEnd === "function") {
+        onEnd(entry);
+        activeIntersections.delete(entry.target);
+      }
+    });
+  };
+  const observer = new IntersectionObserver(onIntersectionChange, {
+    root,
+    rootMargin,
+    threshold: typeof amount === "number" ? amount : thresholds[amount]
+  });
+  elements.forEach((element) => observer.observe(element));
+  return () => observer.disconnect();
+}
+function useInView(ref, { root, margin, amount, once = false, initial = false } = {}) {
+  const [isInView, setInView] = reactExports.useState(initial);
+  reactExports.useEffect(() => {
+    if (!ref.current || once && isInView)
+      return;
+    const onEnter = () => {
+      setInView(true);
+      return once ? void 0 : () => setInView(false);
+    };
+    const options = {
+      root: root && root.current || void 0,
+      margin,
+      amount
+    };
+    return inView(ref.current, onEnter, options);
+  }, [root, ref, margin, once, amount]);
+  return isInView;
+}
+const navItems = [
+  {
+    label: "Product",
+    megaMenu: {
+      sections: [
+        {
+          title: "Platform",
+          items: [
+            { icon: Bot, label: "AI Agents", description: "14 specialized employees", href: "#agents" },
+            { icon: Workflow, label: "Workflows", description: "Durable automation engine", href: "#workflows" },
+            { icon: MessageSquare, label: "Channels", description: "Slack-class communication", href: "#channels" },
+            { icon: Users, label: "CRM", description: "Full lead management", href: "#crm" }
+          ]
+        },
+        {
+          title: "Capabilities",
+          items: [
+            { icon: ChartColumn, label: "Marketing Suite", description: "Ads, email, social", href: "#marketing" },
+            { icon: Mail, label: "Gmail & Calendar", description: "Two-way sync", href: "#integrations" },
+            { icon: Sparkles, label: "77+ Tools", description: "Built into every agent", href: "#tools" }
+          ]
+        }
+      ],
+      cta: {
+        title: "See OzziOS in action",
+        description: "Watch a 2-minute demo of AI agents at work",
+        href: "#demo"
+      }
+    }
+  },
+  {
+    label: "Solutions",
+    megaMenu: {
+      sections: [
+        {
+          title: "By team size",
+          items: [
+            { label: "For Solo Agencies", description: "Scale without hiring", href: "#solo" },
+            { label: "For Teams", description: "Collaborate with AI", href: "#teams" },
+            { label: "For Enterprises", description: "Unlimited sub-accounts", href: "#enterprise" }
+          ]
+        },
+        {
+          title: "By use case",
+          items: [
+            { label: "Lead Generation", description: "Automate outreach", href: "#leads" },
+            { label: "Content Marketing", description: "AI-powered creation", href: "#content" },
+            { label: "Client Management", description: "Multi-tenant CRM", href: "#clients" }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    label: "Resources",
+    megaMenu: {
+      sections: [
+        {
+          title: "Learn",
+          items: [
+            { icon: BookOpen, label: "Documentation", description: "Guides and tutorials", href: "/docs" },
+            { icon: FileText, label: "Blog", description: "Updates and insights", href: "/blog" },
+            { icon: Code, label: "API Reference", description: "Build integrations", href: "/docs/api" }
+          ]
+        }
+      ]
+    }
+  },
+  { label: "Pricing", href: "#pricing" }
+];
+function Navigation() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = reactExports.useState(false);
+  const [activeMenu, setActiveMenu] = reactExports.useState(null);
+  const [isMounted, setIsMounted] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  reactExports.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "fixed top-0 left-0 right-0 z-50", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "absolute inset-0 pointer-events-none",
+          style: {
+            background: "linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(23, 23, 23) 100%)"
+          }
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "relative mx-auto max-w-[1200px] h-[60px] sm:h-[70px] flex items-center justify-between px-4 sm:px-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center gap-2 transition-opacity hover:opacity-80", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src: "/images/dark-theme-logo.svg",
+            alt: "OzziOS",
+            className: "h-5 sm:h-6 w-auto"
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden lg:flex items-center gap-1", children: navItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "relative",
+            onMouseEnter: () => item.megaMenu && setActiveMenu(item.label),
+            onMouseLeave: () => setActiveMenu(null),
+            children: item.megaMenu ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                className: cn(
+                  "flex items-center gap-1 px-4 py-2 text-[14px] font-medium transition-colors rounded-lg",
+                  activeMenu === item.label ? "text-white bg-white/5" : "text-white/70 hover:text-white hover:bg-white/5"
+                ),
+                children: [
+                  item.label,
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: cn(
+                    "h-3.5 w-3.5 transition-transform duration-200",
+                    activeMenu === item.label && "rotate-180"
+                  ) })
+                ]
+              }
+            ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: item.href,
+                className: "px-4 py-2 text-[14px] font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5",
+                children: item.label
+              }
+            )
+          },
+          item.label
+        )) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden lg:flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: "https://app.ozzios.com/sign-in",
+              className: "px-4 py-2 text-[14px] font-medium text-white/70 hover:text-white transition-colors",
+              children: "Sign in"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              size: "sm",
+              asChild: true,
+              className: "h-10 px-5 text-[13px] font-medium bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://app.ozzios.com/sign-up", children: "Get started" })
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            onClick: () => setIsMobileMenuOpen(!isMobileMenuOpen),
+            className: "lg:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors",
+            "aria-label": isMobileMenuOpen ? "Close menu" : "Open menu",
+            children: isMobileMenuOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-6 w-6" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { className: "h-6 w-6" })
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: activeMenu && isMounted && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.div,
+        {
+          initial: { opacity: 0, y: -10 },
+          animate: { opacity: 1, y: 0 },
+          exit: { opacity: 0, y: -10 },
+          transition: { duration: 0.15 },
+          className: "absolute top-[70px] left-0 right-0 hidden lg:flex justify-center pointer-events-none",
+          onMouseEnter: () => setActiveMenu(activeMenu),
+          onMouseLeave: () => setActiveMenu(null),
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-auto mx-6 w-full max-w-[1000px]", children: navItems.map((item) => {
+            if (item.label !== activeMenu || !item.megaMenu) return null;
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "rounded-2xl border border-[rgb(53,47,75)] bg-[rgb(23,23,23)] p-6 shadow-2xl",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-12 gap-6", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                    "col-span-12 grid gap-8",
+                    item.megaMenu.cta ? "lg:col-span-8" : "lg:col-span-12",
+                    item.megaMenu.sections.length > 1 ? "sm:grid-cols-2" : "sm:grid-cols-1"
+                  ), children: item.megaMenu.sections.map((section, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    section.title && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] font-medium text-white/40 uppercase tracking-wider mb-4", children: section.title }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1", children: section.items.map((subItem) => {
+                      const Icon = subItem.icon;
+                      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                        "a",
+                        {
+                          href: subItem.href,
+                          className: "flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-white/5 group",
+                          children: [
+                            Icon && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-5 w-5 text-orange-400" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] font-medium text-white group-hover:text-orange-400 transition-colors", children: subItem.label }),
+                              subItem.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] text-white/40 mt-0.5", children: subItem.description })
+                            ] })
+                          ]
+                        },
+                        subItem.label
+                      );
+                    }) })
+                  ] }, idx)) }),
+                  item.megaMenu.cta && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-12 lg:col-span-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "a",
+                    {
+                      href: item.megaMenu.cta.href,
+                      className: "block h-full rounded-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 p-6 transition-all hover:border-orange-500/40 hover:from-orange-500/15 hover:to-amber-500/15",
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[15px] font-semibold text-white mb-2", children: item.megaMenu.cta.title }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] text-white/50 leading-relaxed", children: item.megaMenu.cta.description }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 text-[13px] font-medium text-orange-400", children: "Watch demo →" })
+                      ]
+                    }
+                  ) })
+                ] })
+              },
+              item.label
+            );
+          }) })
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: isMobileMenuOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.2 },
+        className: "fixed inset-0 z-40 bg-[rgb(23,23,23)] lg:hidden",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full overflow-y-auto pt-[60px] pb-safe", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-6 space-y-2", children: [
+          navItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: item.megaMenu ? /* @__PURE__ */ jsxRuntimeExports.jsx(MobileMenuSection, { item, onClose: () => setIsMobileMenuOpen(false) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: item.href,
+              className: "flex items-center h-12 px-4 text-[16px] font-medium text-white rounded-xl hover:bg-white/5 transition-colors",
+              onClick: () => setIsMobileMenuOpen(false),
+              children: item.label
+            }
+          ) }, item.label)),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-6 mt-4 border-t border-white/10 space-y-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: "https://app.ozzios.com/sign-in",
+                className: "flex items-center justify-center h-12 text-[15px] font-medium text-white/70 rounded-xl border border-white/10 hover:bg-white/5 transition-colors",
+                onClick: () => setIsMobileMenuOpen(false),
+                children: "Sign in"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                size: "lg",
+                asChild: true,
+                className: "w-full h-12 text-[15px] font-medium bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://app.ozzios.com/sign-up", onClick: () => setIsMobileMenuOpen(false), children: "Get started" })
+              }
+            )
+          ] })
+        ] }) })
+      }
+    ) })
+  ] });
+}
+function MobileMenuSection({ item, onClose }) {
+  const [isOpen, setIsOpen] = reactExports.useState(false);
+  if (!item.megaMenu) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-xl overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        onClick: () => setIsOpen(!isOpen),
+        className: cn(
+          "flex items-center justify-between w-full h-12 px-4 text-[16px] font-medium text-white rounded-xl transition-colors",
+          isOpen ? "bg-white/5" : "hover:bg-white/5"
+        ),
+        children: [
+          item.label,
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: cn(
+            "h-5 w-5 text-white/40 transition-transform duration-200",
+            isOpen && "rotate-180"
+          ) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { height: 0, opacity: 0 },
+        animate: { height: "auto", opacity: 1 },
+        exit: { height: 0, opacity: 0 },
+        transition: { duration: 0.2 },
+        className: "overflow-hidden",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-4 py-3 space-y-4", children: item.megaMenu.sections.map((section, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          section.title && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[11px] font-medium text-white/40 uppercase tracking-wider mb-2 px-2", children: section.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1", children: section.items.map((subItem) => {
+            const Icon = subItem.icon;
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: subItem.href,
+                className: "flex items-center gap-3 px-2 py-2.5 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-colors",
+                onClick: onClose,
+                children: [
+                  Icon && /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-4 w-4 text-orange-400" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[14px]", children: subItem.label })
+                ]
+              },
+              subItem.label
+            );
+          }) })
+        ] }, idx)) })
+      }
+    ) })
+  ] });
+}
+const footerLinks = {
+  product: {
+    title: "Product",
+    links: [
+      { label: "AI Agents", href: "#agents" },
+      { label: "Workflows", href: "#workflows" },
+      { label: "Channels", href: "#channels" },
+      { label: "CRM", href: "#crm" },
+      { label: "Marketing Suite", href: "#marketing" },
+      { label: "Pricing", href: "/pricing" }
+    ]
+  },
+  resources: {
+    title: "Resources",
+    links: [
+      { label: "Documentation", href: "/docs" },
+      { label: "Blog", href: "/blog" },
+      { label: "Changelog", href: "/changelog" },
+      { label: "API Reference", href: "/docs/api" }
+    ]
+  },
+  company: {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" }
+    ]
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Security", href: "/security" }
+    ]
+  }
+};
+const socialLinks = [
+  {
+    label: "Twitter",
+    href: "https://twitter.com/ozzios",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "h-4 w-4", fill: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" }) })
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/company/ozzios",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "h-4 w-4", fill: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" }) })
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/ozzios",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "h-4 w-4", fill: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" }) })
+  }
+];
+function Footer() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "relative border-t border-white/10 bg-[rgb(18,18,18)] overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.4 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute inset-0",
+        style: {
+          backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            `,
+          backgroundSize: "60px 60px"
+        }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none",
+        style: {
+          background: "radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.04) 0%, transparent 70%)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-12 lg:py-16", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "col-span-2 md:col-span-4 lg:col-span-1 lg:pr-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "inline-block transition-opacity hover:opacity-80", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "img",
+            {
+              src: "/images/dark-theme-logo.svg",
+              alt: "OzziOS",
+              className: "h-6 w-auto"
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-[13px] leading-relaxed text-white/40 max-w-xs", children: "The AI-powered operating system for marketing agencies. Replace entire teams with specialized AI agents." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 flex items-center gap-3", children: socialLinks.map((social) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: social.href,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "text-white/30 hover:text-white transition-colors",
+              "aria-label": social.label,
+              children: social.icon
+            },
+            social.label
+          )) })
+        ] }),
+        Object.entries(footerLinks).map(([key, section]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[12px] font-semibold uppercase tracking-wider text-white/60", children: section.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "mt-4 space-y-3", children: section.links.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: link.href,
+              className: "text-[13px] text-white/40 hover:text-white transition-colors",
+              children: link.label
+            }
+          ) }, link.label)) })
+        ] }, key))
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-white/10 py-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-between gap-4 sm:flex-row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-[12px] text-white/30", children: [
+          "© ",
+          (/* @__PURE__ */ new Date()).getFullYear(),
+          " OzziOS. All rights reserved."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 text-[11px] text-white/40", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-emerald-500" })
+          ] }),
+          "All systems operational"
+        ] }) })
+      ] }) })
+    ] })
+  ] });
+}
+function LandingLayout({ children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative min-h-screen w-full flex flex-col bg-[rgb(23,23,23)] overflow-x-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 pointer-events-none z-0", style: { opacity: 0.5 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute inset-0",
+        style: {
+          backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px)
+            `,
+          backgroundSize: "60px 60px"
+        }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex min-h-screen flex-col", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Navigation, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
+  ] });
+}
+const containerVariants$5 = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1
+    }
+  }
+};
+const itemVariants$4 = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+const floatVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+function HeroSection() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "section",
+    {
+      id: "hero",
+      className: "relative min-h-[100svh] flex items-center justify-center overflow-x-hidden overflow-y-visible bg-[rgb(23,23,23)]",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.6 }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "absolute inset-0",
+              style: {
+                backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+            `,
+                backgroundSize: "40px 40px"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "absolute inset-0",
+              style: {
+                background: "radial-gradient(ellipse at center, transparent 0%, rgb(23, 23, 23) 70%)"
+              }
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute top-1/4 left-1/2 -translate-x-1/2 h-[300px] w-[300px] sm:h-[400px] sm:w-[500px] lg:h-[500px] lg:w-[700px] rounded-full blur-[100px] sm:blur-[150px]",
+            style: {
+              background: "linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(249, 115, 22, 0.1) 100%)"
+            }
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 w-full mx-auto max-w-[1000px] px-4 sm:px-6 pt-24 pb-16 sm:py-28 lg:py-40 overflow-hidden", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              initial: "hidden",
+              animate: "visible",
+              variants: containerVariants$5,
+              className: "text-center",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$4, className: "mb-6 sm:mb-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-[13px] font-medium text-white/60 backdrop-blur-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-1.5 w-1.5 sm:h-2 sm:w-2", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-orange-500" })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden xs:inline", children: "Introducing the future of agency automation" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "xs:hidden", children: "The future of agency automation" })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  motion.h1,
+                  {
+                    variants: itemVariants$4,
+                    className: "text-[26px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-semibold tracking-tight text-white leading-[1.15] sm:leading-[1.1] max-w-4xl mx-auto",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block sm:inline", children: "The " }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500 bg-clip-text text-transparent", children: "AI-powered" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block sm:inline", children: " operating system" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block", children: "for marketing agencies" })
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  motion.p,
+                  {
+                    variants: itemVariants$4,
+                    className: "mt-5 sm:mt-8 text-[14px] sm:text-[16px] md:text-[18px] text-white/50 leading-relaxed max-w-[320px] sm:max-w-xl md:max-w-2xl mx-auto font-light",
+                    children: "14 specialized AI agents. Unified CRM, workflows, and communication. One platform to run your entire agency."
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  motion.div,
+                  {
+                    variants: itemVariants$4,
+                    className: "mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Button,
+                        {
+                          size: "lg",
+                          asChild: true,
+                          className: "w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 text-[14px] sm:text-[15px] font-medium gap-2 bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full",
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://app.ozzios.com/sign-up", children: [
+                            "Start for free",
+                            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4" })
+                          ] })
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                        Button,
+                        {
+                          variant: "outline",
+                          size: "lg",
+                          className: "w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 text-[14px] sm:text-[15px] font-medium gap-2 rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white",
+                          children: [
+                            /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "h-4 w-4" }),
+                            "Watch demo"
+                          ]
+                        }
+                      )
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  motion.div,
+                  {
+                    variants: itemVariants$4,
+                    className: "mt-12 sm:mt-16 relative",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-4xl", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          className: "absolute inset-0 blur-[60px] opacity-30",
+                          style: {
+                            background: "linear-gradient(135deg, rgba(251, 146, 60, 0.4) 0%, rgba(249, 115, 22, 0.2) 100%)"
+                          }
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative rounded-xl sm:rounded-2xl border border-white/10 bg-[rgb(30,30,30)] overflow-hidden shadow-2xl", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-[rgb(25,25,25)]", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-1.5", children: [
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-3 w-3 rounded-full bg-white/10" }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-3 w-3 rounded-full bg-white/10" }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-3 w-3 rounded-full bg-white/10" })
+                          ] }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 mx-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-6 rounded-md bg-white/5 max-w-xs mx-auto flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[11px] text-white/30", children: "app.ozzios.com" }) }) })
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-[16/10] bg-gradient-to-br from-[rgb(20,20,20)] to-[rgb(30,30,30)]", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "img",
+                            {
+                              src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=750&fit=crop&auto=format",
+                              alt: "OzziOS Dashboard",
+                              className: "w-full h-full object-cover opacity-80"
+                            }
+                          ),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-[rgb(30,30,30)] via-transparent to-transparent opacity-60" })
+                        ] })
+                      ] })
+                    ] })
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  motion.section,
+                  {
+                    variants: itemVariants$4,
+                    className: "mt-12 sm:mt-16 pt-8 sm:pt-12 -mx-4 sm:mx-0",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] sm:text-[14px] text-white/40 font-medium mb-4 sm:mb-6 px-4 sm:px-0", children: "Trusted by top teams" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          className: "relative overflow-hidden w-screen sm:w-full left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0",
+                          style: {
+                            maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
+                            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)"
+                          },
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            motion.div,
+                            {
+                              className: "flex items-center gap-8 sm:gap-10 md:gap-12 w-max",
+                              animate: {
+                                x: ["0%", "-50%"]
+                              },
+                              transition: {
+                                x: {
+                                  repeat: Infinity,
+                                  repeatType: "loop",
+                                  duration: 20,
+                                  ease: "linear"
+                                }
+                              },
+                              children: [...Array(2)].map((_, setIndex) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-8 sm:gap-10 md:gap-12 shrink-0", children: ["Acme", "Globex", "Initech", "Umbrella", "Stark", "Wayne"].map((name, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                                "div",
+                                {
+                                  className: "flex items-center gap-2 text-white/30 shrink-0",
+                                  children: [
+                                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-5 w-5 sm:h-6 sm:w-6 rounded bg-white/10 shrink-0" }),
+                                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[12px] sm:text-[14px] font-medium whitespace-nowrap", children: name })
+                                  ]
+                                },
+                                `${setIndex}-${i}`
+                              )) }, setIndex))
+                            }
+                          )
+                        }
+                      )
+                    ]
+                  }
+                )
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
+            {
+              initial: "hidden",
+              animate: "visible",
+              variants: floatVariants,
+              className: "absolute -right-4 lg:right-0 top-1/3 hidden xl:block",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                FloatingCard,
+                {
+                  title: "SEO Specialist",
+                  subtitle: "Optimizing rankings...",
+                  color: "emerald"
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
+            {
+              initial: "hidden",
+              animate: "visible",
+              variants: floatVariants,
+              transition: { delay: 0.2 },
+              className: "absolute -left-4 lg:left-0 top-[45%] hidden xl:block",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                FloatingCard,
+                {
+                  title: "Content Writer",
+                  subtitle: "Drafting campaign...",
+                  color: "blue"
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
+            {
+              initial: "hidden",
+              animate: "visible",
+              variants: floatVariants,
+              transition: { delay: 0.4 },
+              className: "absolute left-[10%] top-[70%] hidden xl:block",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                FloatingCard,
+                {
+                  title: "Social Media Manager",
+                  subtitle: "Scheduling posts...",
+                  color: "amber"
+                }
+              )
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+function FloatingCard({
+  title,
+  subtitle,
+  color: color2
+}) {
+  const colorClasses2 = {
+    emerald: "bg-emerald-500/20 text-emerald-400",
+    blue: "bg-blue-500/20 text-blue-400",
+    amber: "bg-amber-500/20 text-amber-400"
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      animate: {
+        y: [0, -8, 0]
+      },
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      },
+      className: "rounded-2xl border border-white/10 bg-[rgb(30,30,30)]/90 backdrop-blur-xl p-4 shadow-2xl",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn("h-10 w-10 rounded-xl flex items-center justify-center", colorClasses2[color2]), children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-3 w-3 rounded-full bg-current animate-pulse" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] font-medium text-white", children: title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-white/50", children: subtitle })
+        ] })
+      ] })
+    }
+  );
+}
+const containerVariants$4 = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1
+    }
+  }
+};
+const itemVariants$3 = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+function BentoSection() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "section",
+    {
+      id: "features",
+      className: "relative py-24 lg:py-32 bg-[rgb(23,23,23)] overflow-hidden",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.3 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute inset-0",
+            style: {
+              backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            `,
+              backgroundSize: "60px 60px"
+            }
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 mx-auto max-w-[1100px] px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: "hidden",
+            whileInView: "visible",
+            viewport: { once: true, margin: "-100px" },
+            variants: containerVariants$4,
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { variants: itemVariants$3, className: "mb-16 text-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] font-medium text-orange-400/80 uppercase tracking-wider mb-4", children: "Everything you need" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-[32px] sm:text-[40px] lg:text-[48px] font-semibold text-white leading-tight max-w-3xl mx-auto", children: [
+                  "One platform to run your",
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white/40", children: "entire agency" })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, className: "lg:col-span-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BentoCard, { size: "lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-start justify-between mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-12 w-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Bot, { className: "h-6 w-6 text-orange-400" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[24px] font-semibold text-white", children: "14 Specialized AI Agents" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[15px] text-white/50 mt-2 max-w-md", children: "From SEO specialists to content writers, each agent is trained for a specific marketing role." })
+                  ] }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-3 mt-auto", children: [
+                    { name: "SEO Specialist", status: "active" },
+                    { name: "Content Writer", status: "active" },
+                    { name: "Data Analyst", status: "idle" },
+                    { name: "Social Manager", status: "active" }
+                  ].map((agent) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "div",
+                    {
+                      className: "p-3 rounded-xl bg-white/5 border border-white/10",
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-2", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                            "h-2 w-2 rounded-full",
+                            agent.status === "active" ? "bg-emerald-400 animate-pulse" : "bg-white/30"
+                          ) }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[11px] text-white/40 uppercase", children: agent.status })
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] font-medium text-white truncate", children: agent.name })
+                      ]
+                    },
+                    agent.name
+                  )) })
+                ] }) }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-12 w-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-6 w-6 text-blue-400" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[20px] font-semibold text-white mb-2", children: "77+ Native Tools" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] text-white/50 leading-relaxed mb-4", children: "Tasks, scheduling, reports, memory, and more—built into every agent." }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap gap-2 mt-auto", children: ["Tasks", "Reports", "Memory", "Search"].map((tool) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "span",
+                    {
+                      className: "px-2.5 py-1 text-[11px] font-medium text-white/60 bg-white/5 rounded-full border border-white/10",
+                      children: tool
+                    },
+                    tool
+                  )) })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { className: "p-0 overflow-hidden", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-32 overflow-hidden", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=300&fit=crop&auto=format",
+                        alt: "Team collaboration",
+                        className: "w-full h-full object-cover opacity-60"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-[rgb(23,23,23)] to-transparent" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-3 left-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-10 w-10 rounded-xl bg-violet-500/20 flex items-center justify-center backdrop-blur-sm border border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "h-5 w-5 text-violet-400" }) }) })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[18px] font-semibold text-white mb-2", children: "Slack-class Communication" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] text-white/50 leading-relaxed mb-3", children: "Channels, DMs, threads, huddles—with AI agents as team members." }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-[11px] text-white/40", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 w-1.5 rounded-full bg-emerald-400" }),
+                        "Real-time"
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "•" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "<200ms" })
+                    ] })
+                  ] })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, className: "lg:col-span-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BentoCard, { size: "lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4 mb-6", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-12 w-12 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Workflow, { className: "h-6 w-6 text-emerald-400" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[24px] font-semibold text-white", children: "Durable Workflow Engine" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[15px] text-white/50 mt-2", children: "22 triggers, 8 node types. Survives failures, supports human-in-the-loop." })
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-4 gap-3 mt-auto", children: [
+                    { name: "Lead Created", type: "trigger" },
+                    { name: "AI Agent", type: "agent" },
+                    { name: "Approval", type: "approval" },
+                    { name: "Send Email", type: "delivery" }
+                  ].map((node, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-3 rounded-xl bg-white/5 border border-white/10 text-center", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[11px] text-white/40 uppercase mb-1", children: node.type }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] font-medium text-white truncate", children: node.name })
+                    ] }),
+                    i < 3 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-1/2 -right-2 w-4 h-px bg-white/20 hidden sm:block" })
+                  ] }, node.name)) })
+                ] }) }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { className: "p-0 overflow-hidden", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-32 overflow-hidden", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&auto=format",
+                        alt: "CRM Dashboard",
+                        className: "w-full h-full object-cover opacity-60"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-[rgb(23,23,23)] to-transparent" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-3 left-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-10 w-10 rounded-xl bg-amber-500/20 flex items-center justify-center backdrop-blur-sm border border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "h-5 w-5 text-amber-400" }) }) })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[18px] font-semibold text-white mb-2", children: "Full CRM & Lead Management" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] text-white/50 leading-relaxed mb-3", children: "Pipeline, contacts, smart lists, duplicate detection—all built in." }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-baseline gap-2", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[28px] font-semibold text-white", children: "31" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-white/40", children: "contact fields" })
+                    ] })
+                  ] })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { className: "p-0 overflow-hidden", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-32 overflow-hidden", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=300&fit=crop&auto=format",
+                        alt: "Marketing Analytics",
+                        className: "w-full h-full object-cover opacity-60"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-[rgb(23,23,23)] to-transparent" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-3 left-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-10 w-10 rounded-xl bg-pink-500/20 flex items-center justify-center backdrop-blur-sm border border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Megaphone, { className: "h-5 w-5 text-pink-400" }) }) })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[18px] font-semibold text-white mb-2", children: "Complete Marketing Suite" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] text-white/50 leading-relaxed mb-3", children: "Email builder, social scheduling, ad management across 4 platforms." }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2", children: ["Meta", "Google", "LinkedIn", "TikTok"].map((platform) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-2 py-0.5 text-[10px] text-white/50 bg-white/5 rounded border border-white/10", children: platform }, platform)) })
+                  ] })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-12 w-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChartColumn, { className: "h-6 w-6 text-cyan-400" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[20px] font-semibold text-white mb-2", children: "Multi-Tenant Architecture" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] text-white/50 leading-relaxed mb-4", children: "Unlimited sub-accounts for clients. Perfect for agency-client model." }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-white/40 mt-auto", children: "650+ indexes • Workspace isolation" })
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BentoCard, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-12 w-12 rounded-xl bg-red-500/20 flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "h-6 w-6 text-red-400" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[20px] font-semibold text-white mb-2", children: "Enterprise-Grade Security" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] text-white/50 leading-relaxed mb-4", children: "4-category guardrails: PII detection, content moderation, jailbreak prevention." }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mt-auto", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-2 w-2 rounded-full bg-emerald-400" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[12px] text-emerald-400", children: "SOC 2 Ready" })
+                  ] })
+                ] }) })
+              ] })
+            ]
+          }
+        ) })
+      ]
+    }
+  );
+}
+function BentoCard({
+  children,
+  className,
+  size = "md"
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: cn(
+        "relative h-full rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm",
+        "overflow-hidden transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]",
+        size === "lg" ? "p-6 lg:p-8" : size === "sm" ? "p-4 lg:p-5" : "p-5 lg:p-6",
+        className
+      ),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute inset-0 pointer-events-none opacity-50",
+            style: {
+              background: "radial-gradient(ellipse at top right, rgba(251, 146, 60, 0.03) 0%, transparent 50%)"
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 h-full flex flex-col", children })
+      ]
+    }
+  );
+}
+const stats = [
+  { value: "14", suffix: "", label: "AI Agents", description: "Specialized for marketing" },
+  { value: "77", suffix: "+", label: "Native Tools", description: "Built into every agent" },
+  { value: "500", suffix: "K+", label: "Tasks Completed", description: "By AI employees" },
+  { value: "99.9", suffix: "%", label: "Uptime", description: "Enterprise reliability" }
+];
+const containerVariants$3 = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+const itemVariants$2 = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+function StatsSection() {
+  const ref = reactExports.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "metrics", className: "relative py-24 lg:py-32 bg-[rgb(20,20,20)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-[1100px] px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.div,
+    {
+      ref,
+      initial: "hidden",
+      animate: isInView ? "visible" : "hidden",
+      variants: containerVariants$3,
+      className: "relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-8 sm:p-12 lg:p-16",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "absolute inset-0 rounded-3xl overflow-hidden pointer-events-none",
+            style: { opacity: 0.4 },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute inset-0",
+                  style: {
+                    backgroundImage: `
+                  linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+                `,
+                    backgroundSize: "50px 50px"
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute inset-0",
+                  style: {
+                    background: "radial-gradient(ellipse at center, transparent 0%, rgb(20, 20, 20) 70%)"
+                  }
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$2, className: "text-center mb-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-[28px] sm:text-[36px] lg:text-[40px] font-semibold tracking-tight text-white leading-tight", children: [
+            "Performance You Can",
+            " ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent", children: "Measure" })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-12 mb-12", children: stats.map((stat) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              variants: itemVariants$2,
+              className: "text-center",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-[40px] sm:text-[52px] lg:text-[64px] font-semibold tracking-tight text-white leading-none", children: [
+                  stat.value,
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-orange-400", children: stat.suffix })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 text-[14px] font-medium text-white", children: stat.label }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-1 text-[12px] text-white/40", children: stat.description })
+              ]
+            },
+            stat.label
+          )) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants$2, className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              size: "lg",
+              asChild: true,
+              className: "h-14 px-8 text-[15px] font-medium gap-2 bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://app.ozzios.com/sign-up", children: [
+                "Start free trial",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4" })
+              ] })
+            }
+          ) })
+        ] })
+      ]
+    }
+  ) }) });
+}
+const steps = [
+  {
+    number: "01",
+    icon: Rocket,
+    title: "Set up your workspace",
+    description: "Create your agency workspace in minutes. Invite your team, configure channels, and connect your existing tools.",
+    color: "orange",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    number: "02",
+    icon: Bot,
+    title: "Deploy AI agents",
+    description: "Activate specialized AI agents for SEO, content, analytics, and more. They join your channels like team members.",
+    color: "violet",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    number: "03",
+    icon: Users,
+    title: "Onboard your clients",
+    description: "Create sub-accounts for each client. Isolated data, shared workflows, unified billing. The agency model, perfected.",
+    color: "emerald",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    number: "04",
+    icon: TrendingUp,
+    title: "Scale without limits",
+    description: "Automate repetitive tasks, run campaigns at scale, and grow revenue per employee. Your AI workforce never sleeps.",
+    color: "blue",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format"
+  }
+];
+const colorClasses = {
+  orange: {
+    bg: "bg-orange-500/20",
+    text: "text-orange-400",
+    border: "border-orange-500/30",
+    number: "text-orange-500"
+  },
+  violet: {
+    bg: "bg-violet-500/20",
+    text: "text-violet-400",
+    border: "border-violet-500/30",
+    number: "text-violet-500"
+  },
+  emerald: {
+    bg: "bg-emerald-500/20",
+    text: "text-emerald-400",
+    border: "border-emerald-500/30",
+    number: "text-emerald-500"
+  },
+  blue: {
+    bg: "bg-blue-500/20",
+    text: "text-blue-400",
+    border: "border-blue-500/30",
+    number: "text-blue-500"
+  }
+};
+const containerVariants$2 = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+const itemVariants$1 = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+function FeaturesSection() {
+  const ref = reactExports.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "how-it-works", className: "relative py-24 lg:py-32 bg-[rgb(20,20,20)]", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute inset-0",
+        style: {
+          backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            `,
+          backgroundSize: "60px 60px"
+        }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1100px] px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          transition: { duration: 0.5 },
+          className: "text-center mb-16 lg:mb-20",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4", children: "How it works" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-[32px] sm:text-[40px] font-semibold tracking-tight text-white leading-tight", children: [
+              "From setup to scale",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white/40", children: "in four simple steps" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-[16px] text-white/50 max-w-2xl mx-auto", children: "Get your agency running on OzziOS in less than a day. No complex migrations, no training required." })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.div,
+        {
+          ref,
+          initial: "hidden",
+          animate: isInView ? "visible" : "hidden",
+          variants: containerVariants$2,
+          className: "space-y-6",
+          children: steps.map((step, index) => {
+            const Icon = step.icon;
+            const colors = colorClasses[step.color];
+            const isEven = index % 2 === 0;
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(
+              motion.div,
+              {
+                variants: itemVariants$1,
+                className: cn(
+                  "group relative rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden",
+                  "transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
+                ),
+                children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: cn(
+                  "flex flex-col lg:flex-row items-stretch",
+                  !isEven && "lg:flex-row-reverse"
+                ), children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative lg:w-2/5 h-48 lg:h-auto min-h-[200px]", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src: step.image,
+                        alt: step.title,
+                        className: "absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-opacity"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                      "absolute inset-0",
+                      isEven ? "bg-gradient-to-r from-transparent via-transparent to-[rgb(20,20,20)]" : "bg-gradient-to-l from-transparent via-transparent to-[rgb(20,20,20)]",
+                      "lg:block hidden"
+                    ) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-[rgb(20,20,20)] to-transparent lg:hidden" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                      "absolute top-6 font-bold text-[64px] leading-none opacity-20",
+                      isEven ? "left-6" : "right-6",
+                      colors.number
+                    ), children: step.number })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 p-8 lg:p-10 flex flex-col justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                      "shrink-0 h-12 w-12 rounded-xl flex items-center justify-center",
+                      colors.bg
+                    ), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: cn("h-6 w-6", colors.text) }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-3 mb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: cn("text-[13px] font-medium", colors.text), children: [
+                        "Step ",
+                        step.number
+                      ] }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[22px] font-semibold text-white mb-3", children: step.title }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[15px] leading-relaxed text-white/50 mb-4", children: step.description }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
+                        index === 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "5-minute setup" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "No credit card required" })
+                        ] }),
+                        index === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "14 agent types" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "77+ built-in tools" })
+                        ] }),
+                        index === 2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "Unlimited sub-accounts" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "Full data isolation" })
+                        ] }),
+                        index === 3 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "Durable workflows" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Benefit, { text: "24/7 automation" })
+                        ] })
+                      ] })
+                    ] })
+                  ] }) })
+                ] })
+              },
+              step.number
+            );
+          })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          transition: { duration: 0.5, delay: 0.6 },
+          className: "mt-12 text-center",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: "https://app.ozzios.com/sign-up",
+              className: "inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-[rgb(20,20,20)] font-medium text-[15px] hover:bg-white/90 transition-colors",
+              children: [
+                "Get started free",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4" })
+              ]
+            }
+          )
+        }
+      )
+    ] })
+  ] });
+}
+function Benefit({ text }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 text-[12px] text-white/40", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-3.5 w-3.5 text-emerald-400/70" }),
+    text
+  ] });
+}
+const channelAgents = [
+  { name: "Ozzi", role: "Onboarding Wizard", icon: Sparkles, description: "Workspace setup, team building, feature education" },
+  { name: "Supervisor", role: "Project Coordinator", icon: Users, description: "Task oversight, team coordination, sub-agent delegation" },
+  { name: "SEO Specialist", role: "Search Optimization", icon: Search, description: "Keyword research, technical SEO, competitor analysis" },
+  { name: "Content Writer", role: "Content Creation", icon: PenTool, description: "Blog writing, email copy, marketing copy, brand voice" },
+  { name: "Data Analyst", role: "Performance Insights", icon: ChartNoAxesColumn, description: "Analytics deep-dives, ROI tracking, engagement metrics" },
+  { name: "Social Manager", role: "Community Manager", icon: Share2, description: "Content planning, platform strategy, engagement" },
+  { name: "Research Assistant", role: "Information Specialist", icon: Lightbulb, description: "Market research, competitor analysis, synthesis" },
+  { name: "Graphic Designer", role: "Creative Director", icon: Palette, description: "Visual concepts, design briefs, art direction" },
+  { name: "GBP Expert", role: "Local SEO", icon: MapPin, description: "Google Business Profile optimization, review management" }
+];
+const executiveAgents = [
+  { name: "CEO Agent", scope: "Portfolio-wide", icon: TrendingUp, description: "Revenue insights, strategic planning" },
+  { name: "General Manager", scope: "Cross-client", icon: Users, description: "Team coordination, resource allocation" },
+  { name: "Analytics Director", scope: "All clients", icon: ChartNoAxesColumn, description: "ROI comparison, trend analysis" },
+  { name: "Operations Manager", scope: "Workflows", icon: Settings, description: "Task management, capacity planning" }
+];
+const containerVariants$1 = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05
+    }
+  }
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }
+  }
+};
+function AgentsSection() {
+  const ref = reactExports.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeAgent, setActiveAgent] = reactExports.useState(null);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "agents", className: "relative py-24 lg:py-32 bg-[rgb(20,20,20)] border-y border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-[1100px] px-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+        transition: { duration: 0.5 },
+        className: "text-center mb-16",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4", children: "AI Agents" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-[32px] sm:text-[40px] font-semibold tracking-tight text-white leading-tight", children: [
+            "14 specialized employees",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white/40", children: "ready to work" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-[16px] text-white/50 max-w-2xl mx-auto", children: "Each agent has access to 77+ native tools, extended thinking up to 128K tokens, and persistent memory for context continuity." })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { ref, className: "space-y-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-white/10" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[11px] font-medium uppercase tracking-wider text-white/40", children: "Channel Agents" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-white/10" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: "hidden",
+            animate: isInView ? "visible" : "hidden",
+            variants: containerVariants$1,
+            className: "grid gap-3 sm:grid-cols-2 lg:grid-cols-3",
+            children: channelAgents.map((agent) => {
+              const Icon = agent.icon;
+              const isActive = activeAgent === agent.name;
+              return /* @__PURE__ */ jsxRuntimeExports.jsx(
+                motion.div,
+                {
+                  variants: itemVariants,
+                  onMouseEnter: () => setActiveAgent(agent.name),
+                  onMouseLeave: () => setActiveAgent(null),
+                  className: cn(
+                    "group relative rounded-xl border bg-white/[0.02] p-4 transition-all duration-200 cursor-pointer",
+                    isActive ? "border-orange-500/40 bg-orange-500/5" : "border-white/10 hover:border-white/20 hover:bg-white/[0.04]"
+                  ),
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors",
+                      isActive ? "bg-orange-500/20 text-orange-400" : "bg-white/5 text-white/40 group-hover:text-white/60"
+                    ), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-5 w-5" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[14px] font-semibold text-white truncate", children: agent.name }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-white/40 mb-1", children: agent.role }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: cn(
+                        "text-[12px] leading-relaxed transition-all duration-200",
+                        isActive ? "text-white/70" : "text-white/30"
+                      ), children: agent.description })
+                    ] })
+                  ] })
+                },
+                agent.name
+              );
+            })
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-white/10" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[11px] font-medium uppercase tracking-wider text-white/40", children: "Executive Agents" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-white/10" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: "hidden",
+            animate: isInView ? "visible" : "hidden",
+            variants: containerVariants$1,
+            className: "grid gap-3 sm:grid-cols-2 lg:grid-cols-4",
+            children: executiveAgents.map((agent) => {
+              const Icon = agent.icon;
+              const isActive = activeAgent === agent.name;
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                motion.div,
+                {
+                  variants: itemVariants,
+                  onMouseEnter: () => setActiveAgent(agent.name),
+                  onMouseLeave: () => setActiveAgent(null),
+                  className: cn(
+                    "group relative rounded-xl border bg-white/[0.02] p-4 transition-all duration-200 cursor-pointer",
+                    isActive ? "border-blue-500/40 bg-blue-500/5" : "border-white/10 hover:border-white/20 hover:bg-white/[0.04]"
+                  ),
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
+                      "mb-3 flex h-10 w-10 items-center justify-center rounded-xl transition-colors",
+                      isActive ? "bg-blue-500/20 text-blue-400" : "bg-white/5 text-white/40 group-hover:text-white/60"
+                    ), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-5 w-5" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[14px] font-semibold text-white mb-0.5", children: agent.name }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-orange-400/80 mb-1", children: agent.scope }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-white/40", children: agent.description })
+                  ]
+                },
+                agent.name
+              );
+            })
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+        transition: { duration: 0.5, delay: 0.3 },
+        className: "mt-12 grid gap-4 sm:grid-cols-3",
+        children: [
+          { label: "Extended Thinking", value: "Up to 128K tokens" },
+          { label: "Tool Approval", value: "Auto / Approval / Blocked" },
+          { label: "Safety Controls", value: "4-category guardrails" }
+        ].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "rounded-xl border border-white/10 bg-white/[0.02] p-4 text-center",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[14px] font-medium text-white", children: item.value }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[12px] text-white/40 mt-0.5", children: item.label })
+            ]
+          },
+          item.label
+        ))
+      }
+    )
+  ] }) });
+}
+const testimonials = [
+  {
+    name: "Sarah Mitchell",
+    role: "CEO",
+    company: "GrowthLab Agency",
+    content: "OzziOS completely transformed how we operate. We replaced 3 full-time employees with AI agents and our output actually increased. The SEO Specialist agent alone saves us 20+ hours per week.",
+    avatar: "SM"
+  },
+  {
+    name: "Marcus Chen",
+    role: "Founder",
+    company: "Digital Edge",
+    content: "The workflow automation is incredible. We set up lead nurturing sequences that run 24/7 without any manual intervention. Our conversion rate jumped 40% in the first month.",
+    avatar: "MC"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Operations Director",
+    company: "Spark Creative",
+    content: "Finally, a platform that actually understands agency workflows. The multi-tenant architecture is perfect for managing all our clients in one place. Support team is phenomenal too.",
+    avatar: "ER"
+  },
+  {
+    name: "David Park",
+    role: "Co-Founder",
+    company: "Velocity Marketing",
+    content: "We were skeptical about AI agents at first, but the Content Writer produces better first drafts than most freelancers we've hired. It learns our brand voice and just gets better over time.",
+    avatar: "DP"
+  },
+  {
+    name: "Jessica Williams",
+    role: "Managing Partner",
+    company: "Apex Digital",
+    content: "The Slack-like communication with AI agents feels so natural. Our team adapted instantly. Being able to @mention an agent and get an intelligent response is game-changing.",
+    avatar: "JW"
+  },
+  {
+    name: "Alex Thompson",
+    role: "CEO",
+    company: "NorthStar Agency",
+    content: "Best ROI on any software we've purchased. The credit system is transparent, no hidden fees, and the agents actually deliver value. Cancelled 5 other subscriptions after switching.",
+    avatar: "AT"
+  },
+  {
+    name: "Rachel Kim",
+    role: "Director of Marketing",
+    company: "Elevate Media",
+    content: "The Data Analyst agent produces reports that used to take our team days to compile. Now we get them in minutes. Our clients are impressed with how fast we deliver insights.",
+    avatar: "RK"
+  },
+  {
+    name: "Michael Foster",
+    role: "Founder",
+    company: "Catalyst Growth",
+    content: "Incredible capabilities. The durable workflows mean we never lose progress even if something fails. The human-approval nodes give us control over critical decisions.",
+    avatar: "MF"
+  }
+];
+const leftColumn = testimonials.filter((_, i) => i % 2 === 0);
+const rightColumn = testimonials.filter((_, i) => i % 2 === 1);
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: 0.1
     }
   }
 };
-const itemVariants = {
+const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
+    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }
   }
 };
-const quickStartCards = [
+function TestimonialsSection() {
+  const headerRef = reactExports.useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, margin: "-50px" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "section",
+    {
+      id: "testimonials",
+      className: "relative py-20 sm:py-24 lg:py-32 bg-[rgb(20,20,20)] overflow-hidden",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.5 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute inset-0",
+            style: {
+              backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px)
+            `,
+              backgroundSize: "60px 60px"
+            }
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              ref: headerRef,
+              initial: { opacity: 0, y: 20 },
+              animate: isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+              transition: { duration: 0.5 },
+              className: "text-center mb-10 sm:mb-16",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4", children: "Testimonials" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-[28px] sm:text-[36px] md:text-[40px] font-semibold tracking-tight text-white leading-tight", children: [
+                  "Loved by agencies",
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white/40 block sm:inline", children: "worldwide" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-[14px] sm:text-[16px] text-white/50 max-w-lg mx-auto", children: "See what forward-thinking agencies are saying about OzziOS." })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
+            {
+              className: "md:hidden space-y-4",
+              initial: "hidden",
+              whileInView: "visible",
+              viewport: { once: true, margin: "-50px" },
+              variants: containerVariants,
+              children: testimonials.slice(0, 4).map((testimonial, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: cardVariants, children: /* @__PURE__ */ jsxRuntimeExports.jsx(TestimonialCard, { testimonial }) }, index))
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden md:block relative", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[rgb(20,20,20)] to-transparent z-10 pointer-events-none" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgb(20,20,20)] to-transparent z-10 pointer-events-none" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-4 max-h-[650px] overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                motion.div,
+                {
+                  animate: { y: [0, 30, 0] },
+                  transition: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  },
+                  className: "space-y-4",
+                  children: leftColumn.map((testimonial, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    motion.div,
+                    {
+                      initial: { opacity: 0, y: 30 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: true, margin: "-50px" },
+                      transition: { duration: 0.5, delay: index * 0.1 },
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(TestimonialCard, { testimonial })
+                    },
+                    index
+                  ))
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                motion.div,
+                {
+                  animate: { y: [0, -30, 0] },
+                  transition: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  },
+                  className: "space-y-4 pt-12",
+                  children: rightColumn.map((testimonial, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    motion.div,
+                    {
+                      initial: { opacity: 0, y: 30 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: true, margin: "-50px" },
+                      transition: { duration: 0.5, delay: index * 0.1 + 0.15 },
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(TestimonialCard, { testimonial })
+                    },
+                    index
+                  ))
+                }
+              )
+            ] })
+          ] })
+        ] })
+      ]
+    }
+  );
+}
+function TestimonialCard({
+  testimonial
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: cn(
+        "rounded-2xl p-5 sm:p-6 transition-all duration-300",
+        "border border-[rgba(112,69,54,0.5)] bg-gradient-to-b from-white/[0.03] to-transparent",
+        "hover:border-[rgba(112,69,54,0.8)] hover:bg-white/[0.04]"
+      ),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3 sm:mb-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-gradient-to-br from-orange-500/30 to-amber-500/30 flex items-center justify-center text-[12px] sm:text-[13px] font-semibold text-orange-300 shrink-0", children: testimonial.avatar }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] sm:text-[14px] font-semibold text-white truncate", children: testimonial.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-[11px] sm:text-[12px] text-white/40 truncate", children: [
+              testimonial.role,
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-orange-400/70", children: [
+                "@",
+                testimonial.company
+              ] })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-[13px] sm:text-[14px] leading-relaxed text-white/60", children: [
+          '"',
+          testimonial.content,
+          '"'
+        ] })
+      ]
+    }
+  );
+}
+const faqs = [
   {
-    title: "Get Started",
-    description: "Set up your account and add your first client in minutes.",
-    icon: Zap,
-    href: "/docs/installation",
-    gradient: "from-amber-500/20 via-orange-500/10 to-rose-500/20",
-    iconColor: "text-amber-500"
+    question: "How do the AI agents actually work?",
+    answer: "Each AI agent is powered by Claude and specialized for a specific marketing role. They have access to 77+ native tools, can execute workflows, and maintain persistent memory across conversations. Agents can collaborate with each other, delegate tasks, and work 24/7 without supervision."
   },
   {
-    title: "AI Assistants",
-    description: "Learn how AI can help you save time on everyday tasks.",
-    icon: Bot,
-    href: "/docs/concepts/agents",
-    gradient: "from-emerald-500/20 via-teal-500/10 to-cyan-500/20",
-    iconColor: "text-emerald-500"
+    question: "How fast can I get set up?",
+    answer: "Most agencies are up and running within a day. Our onboarding wizard, Ozzi, guides you through workspace setup, team configuration, and connecting your existing tools. You can import contacts, set up workflows, and start using AI agents immediately."
   },
   {
-    title: "Automations",
-    description: "Set up automatic follow-ups, reminders, and more.",
-    icon: Workflow,
-    href: "/docs/concepts/workflows",
-    gradient: "from-blue-500/20 via-indigo-500/10 to-violet-500/20",
-    iconColor: "text-blue-500"
+    question: "What integrations are supported?",
+    answer: "OzziOS connects to 14+ platforms via MCP integrations including Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads, Gmail, Google Calendar, WordPress, Wix, and more. We also support webhooks for custom integrations."
   },
   {
-    title: "How-To Guides",
-    description: "Step-by-step instructions for common tasks.",
-    icon: BookOpen,
-    href: "/docs/guides/first-agent",
-    gradient: "from-violet-500/20 via-purple-500/10 to-fuchsia-500/20",
-    iconColor: "text-violet-500"
+    question: "Are there any hidden fees?",
+    answer: "No hidden fees. You pay for your subscription tier and AI credits. Credit usage is transparent—you can see exactly how many credits each action costs before it runs. Unused credits roll over, and you can purchase additional credit packs anytime."
+  },
+  {
+    question: "Can I customize the AI agents?",
+    answer: "Yes. Each agent can be configured with custom instructions, personality, and tool access. You can control which tools require approval before execution, set up guardrails, and fine-tune agent behavior for your specific workflows."
+  },
+  {
+    question: "Is my data secure?",
+    answer: "Absolutely. OzziOS uses enterprise-grade security with workspace isolation, 4-category AI guardrails (PII detection, content moderation, jailbreak prevention, hallucination detection), and encrypted data transmission. Each workspace is completely isolated."
+  },
+  {
+    question: "Can I manage multiple clients?",
+    answer: "Yes—OzziOS is built for agencies. Create unlimited sub-accounts for clients with full workspace isolation. Parent workspace admins automatically inherit access to child workspaces, making client management seamless."
+  },
+  {
+    question: "What happens if a workflow fails?",
+    answer: "Our durable workflow engine automatically checkpoints after every step and retries failed operations with exponential backoff. Workflows survive server restarts and infrastructure issues. You can also add human-approval nodes for critical decisions."
   }
 ];
-const highlights = [
-  "Keep all your clients organized in one place",
-  "AI assistants that help with emails, research, and more",
-  "Automatic follow-ups so you never miss an opportunity",
-  "Work together with your team in real-time"
-];
-function DocsHomeView() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    motion.div,
-    {
-      initial: "hidden",
-      animate: "visible",
-      variants: containerVariants,
-      className: "w-full min-w-0 px-6 py-10 md:px-8 lg:py-12",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { variants: itemVariants, className: "mb-12", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4 inline-flex items-center gap-2 rounded-full border border-border/50 bg-muted/30 px-3 py-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "h-3.5 w-3.5 text-amber-500" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[12px] font-medium text-muted-foreground", children: "Help Center" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-[32px] font-semibold tracking-tight text-foreground lg:text-[40px]", children: "Welcome to Ozzios" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 max-w-2xl text-[16px] leading-relaxed text-muted-foreground", children: "Learn how to manage your clients, save time with AI assistants, and grow your business—all in one place." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants, className: "mb-12", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid gap-4 sm:grid-cols-2", children: quickStartCards.map((card) => {
-          const IconComponent = card.icon;
-          return /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Link,
+function FAQSection() {
+  const ref = reactExports.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [openIndex, setOpenIndex] = reactExports.useState(null);
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "faq", className: "relative py-24 lg:py-32 bg-[rgb(23,23,23)]", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute inset-0",
+        style: {
+          backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            `,
+          backgroundSize: "60px 60px"
+        }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[800px] px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.div,
+        {
+          ref,
+          initial: { opacity: 0, y: 20 },
+          animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          transition: { duration: 0.5 },
+          className: "text-center mb-12",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4", children: "FAQ" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-[32px] sm:text-[40px] font-semibold tracking-tight text-white leading-tight", children: "Frequently asked questions" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-[16px] text-white/50 max-w-lg mx-auto", children: "Everything you need to know about OzziOS and how it can transform your agency." })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          transition: { duration: 0.5, delay: 0.1 },
+          className: "rounded-2xl border border-white/10 overflow-hidden",
+          children: faqs.map((faq, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            FAQItem,
             {
-              to: card.href,
-              className: "group relative",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: cn(
-                "relative overflow-hidden rounded-xl border border-border/50 bg-card p-5 transition-all duration-200",
-                "hover:border-border hover:shadow-sm"
-              ), children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
-                  "absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100",
-                  `bg-gradient-to-br ${card.gradient}`
-                ) }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(
-                    "mb-3 flex h-10 w-10 items-center justify-center rounded-lg",
-                    "bg-muted/50 transition-colors group-hover:bg-background/80"
-                  ), children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconComponent, { className: cn("h-5 w-5", card.iconColor) }) }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-2", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[15px] font-semibold text-foreground", children: card.title }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-[13px] leading-relaxed text-muted-foreground", children: card.description })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" })
-                  ] })
-                ] })
-              ] })
-            },
-            card.title
-          );
-        }) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { variants: itemVariants, className: "mb-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-xl border border-border/50 bg-card/50 p-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "img",
-              {
-                src: "/images/dark-theme-logo.svg",
-                alt: "Ozzios",
-                className: "h-6 w-auto dark:invert-0 invert"
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-[18px] font-semibold text-foreground", children: "What Ozzios Does For You" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-5 text-[14px] leading-relaxed text-muted-foreground", children: "Ozzios is your all-in-one business management platform. It helps you stay organized, communicate with clients, and automate repetitive tasks—so you can focus on what you do best." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "grid gap-2.5 sm:grid-cols-2", children: highlights.map((item, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            motion.li,
-            {
-              initial: { opacity: 0, x: -10 },
-              animate: { opacity: 1, x: 0 },
-              transition: { delay: 0.4 + index * 0.1, duration: 0.3 },
-              className: "flex items-start gap-2.5 text-[13px] text-foreground",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "h-4 w-4 shrink-0 mt-0.5 text-emerald-500" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item })
-              ]
+              question: faq.question,
+              answer: faq.answer,
+              isOpen: openIndex === index,
+              onToggle: () => toggleFAQ(index),
+              isLast: index === faqs.length - 1
             },
             index
-          )) })
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { variants: itemVariants, className: "mb-12", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mb-4 text-[16px] font-semibold text-foreground", children: "Popular Topics" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid gap-3 sm:grid-cols-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              ExploreCard,
-              {
-                icon: Bot,
-                title: "AI Assistants",
-                description: "How to use AI help",
-                href: "/docs/concepts/agents"
-              }
+          ))
+        }
+      )
+    ] })
+  ] });
+}
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+  isLast
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: cn(
+        "transition-colors",
+        !isLast && "border-b border-[rgb(46,46,46)]"
+      ),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            onClick: onToggle,
+            className: cn(
+              "w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors",
+              "hover:bg-white/[0.02]",
+              isOpen && "bg-white/[0.02]"
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              ExploreCard,
-              {
-                icon: Workflow,
-                title: "Automations",
-                description: "Set up auto follow-ups",
-                href: "/docs/concepts/workflows"
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              ExploreCard,
-              {
-                icon: Users,
-                title: "Team & Clients",
-                description: "Manage your workspace",
-                href: "/docs/concepts/workspaces"
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { variants: itemVariants, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mb-4 text-[16px] font-semibold text-foreground", children: "Quick Guides" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              QuickLink,
-              {
-                icon: CirclePlay,
-                title: "Add your first AI assistant",
-                description: "Get a specialist agent working for you in 2 minutes",
-                href: "/docs/guides/first-agent"
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              QuickLink,
-              {
-                icon: Workflow,
-                title: "Create your first automation",
-                description: "Set up automatic follow-ups for new leads",
-                href: "/docs/guides/workflows"
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              QuickLink,
-              {
-                icon: CircleQuestionMark,
-                title: "How Ozzios works",
-                description: "A simple overview of the platform",
-                href: "/docs/architecture"
-              }
-            )
-          ] })
-        ] })
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[15px] sm:text-[16px] font-medium text-white pr-4", children: question }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                motion.div,
+                {
+                  animate: { rotate: isOpen ? 180 : 0 },
+                  transition: { duration: 0.2 },
+                  className: "shrink-0",
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "h-5 w-5 text-white/40" })
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { initial: false, children: isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: { height: 0, opacity: 0 },
+            animate: { height: "auto", opacity: 1 },
+            exit: { height: 0, opacity: 0 },
+            transition: { duration: 0.2, ease: "easeInOut" },
+            className: "overflow-hidden",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-5 sm:px-6 pb-5 sm:pb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] sm:text-[15px] leading-relaxed text-white/50", children: answer }) })
+          }
+        ) })
       ]
     }
   );
 }
-function ExploreCard({
-  icon: IconComponent,
-  title,
-  description,
-  href
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    Link,
-    {
-      to: href,
-      className: cn(
-        "group flex items-center gap-3 rounded-lg border border-border/50 bg-card p-3",
-        "transition-all hover:border-border hover:bg-muted/30"
-      ),
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-9 w-9 items-center justify-center rounded-md bg-muted/50", children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconComponent, { className: "h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[13px] font-medium text-foreground", children: title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[11px] text-muted-foreground", children: description })
-        ] })
-      ]
-    }
-  );
+function CTASection() {
+  const ref = reactExports.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-24 lg:py-32 bg-[rgb(23,23,23)] overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 pointer-events-none", style: { opacity: 0.5 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute inset-0",
+        style: {
+          backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px)
+            `,
+          backgroundSize: "60px 60px"
+        }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 mx-auto max-w-[1100px] px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        ref,
+        initial: { opacity: 0, y: 24 },
+        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
+        transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+        className: "relative overflow-hidden rounded-3xl border border-white/10 bg-[rgb(20,20,20)] p-10 sm:p-16 lg:p-20",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "absolute inset-0 pointer-events-none",
+              style: { opacity: 0.6 },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    className: "absolute inset-0",
+                    style: {
+                      backgroundImage: `
+                  linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+                `,
+                      backgroundSize: "50px 50px"
+                    }
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    className: "absolute inset-0",
+                    style: {
+                      background: "radial-gradient(ellipse at center, transparent 0%, rgb(20, 20, 20) 70%)"
+                    }
+                  }
+                )
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "absolute inset-0 pointer-events-none",
+              style: {
+                background: "radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.12) 0%, transparent 50%)"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 text-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              motion.h2,
+              {
+                initial: { opacity: 0, y: 16 },
+                animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
+                transition: { duration: 0.5, delay: 0.1 },
+                className: "text-[32px] sm:text-[44px] lg:text-[56px] font-semibold tracking-tight text-white leading-[1.1]",
+                children: [
+                  "Ready to hire your first",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400 bg-clip-text text-transparent", children: "AI employee?" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              motion.p,
+              {
+                initial: { opacity: 0, y: 16 },
+                animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
+                transition: { duration: 0.5, delay: 0.2 },
+                className: "mt-6 text-[17px] sm:text-[19px] text-white/50 max-w-lg mx-auto leading-relaxed",
+                children: "Start with 50 free credits. No credit card required."
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              motion.div,
+              {
+                initial: { opacity: 0, y: 16 },
+                animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
+                transition: { duration: 0.5, delay: 0.3 },
+                className: "mt-10 flex flex-col sm:flex-row items-center justify-center gap-4",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      size: "lg",
+                      asChild: true,
+                      className: "h-14 px-8 text-[15px] font-medium gap-2 bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full",
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://app.ozzios.com/sign-up", children: [
+                        "Get started for free",
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4" })
+                      ] })
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      variant: "outline",
+                      size: "lg",
+                      asChild: true,
+                      className: "h-14 px-8 text-[15px] font-medium rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white",
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#contact", children: "Talk to sales" })
+                    }
+                  )
+                ]
+              }
+            )
+          ] })
+        ]
+      }
+    ) })
+  ] });
 }
-function QuickLink({
-  icon: IconComponent,
-  title,
-  description,
-  href
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    Link,
-    {
-      to: href,
-      className: cn(
-        "group flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4",
-        "transition-all hover:border-border hover:bg-card"
-      ),
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconComponent, { className: "h-5 w-5 text-primary" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0 flex-1", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[14px] font-medium text-foreground group-hover:text-primary transition-colors", children: title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[12px] text-muted-foreground", children: description })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 shrink-0" })
-      ]
-    }
-  );
+function LandingHomeView() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(BentoSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(StatsSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FeaturesSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AgentsSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TestimonialsSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FAQSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CTASection, {})
+  ] });
 }
 function HomePage() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(DocsLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(DocsHomeView, {}) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(LandingLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LandingHomeView, {}) });
 }
 export {
   HomePage as component

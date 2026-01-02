@@ -71,8 +71,30 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-muted/20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <footer className="relative border-t border-white/10 bg-[rgb(18,18,18)] overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.4 }}>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
+
+      {/* Subtle top gradient glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.04) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6">
         {/* Main footer content */}
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
@@ -82,11 +104,11 @@ export function Footer() {
                 <img
                   src="/images/dark-theme-logo.svg"
                   alt="OzziOS"
-                  className="h-6 w-auto dark:invert-0 invert"
+                  className="h-6 w-auto"
                 />
               </Link>
-              <p className="mt-4 text-[13px] leading-relaxed text-muted-foreground max-w-xs">
-                The first agentic AI employee platform. Replace human employees with specialized AI agents.
+              <p className="mt-4 text-[13px] leading-relaxed text-white/40 max-w-xs">
+                The AI-powered operating system for marketing agencies. Replace entire teams with specialized AI agents.
               </p>
               {/* Social links */}
               <div className="mt-6 flex items-center gap-3">
@@ -96,7 +118,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-white/30 hover:text-white transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -108,7 +130,7 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <h3 className="text-[12px] font-semibold uppercase tracking-wider text-white/60">
                   {section.title}
                 </h3>
                 <ul className="mt-4 space-y-3">
@@ -116,7 +138,7 @@ export function Footer() {
                     <li key={link.label}>
                       <Link
                         to={link.href}
-                        className="text-[13px] text-muted-foreground hover:text-foreground transition-colors"
+                        className="text-[13px] text-white/40 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -129,13 +151,13 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border/40 py-6">
+        <div className="border-t border-white/10 py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-muted-foreground">
-              {new Date().getFullYear()} OzziOS. All rights reserved.
+            <p className="text-[12px] text-white/30">
+              © {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
-              <span className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5 text-[11px] text-white/40">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />

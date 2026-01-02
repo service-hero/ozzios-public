@@ -1,4 +1,4 @@
-import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-BHZ-CRVX.js";
+import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-BXnig_gh.js";
 const preloadWarning = "Error preloading route! ☝️";
 class BaseRoute {
   constructor(options) {
@@ -1058,11 +1058,11 @@ const Route$2 = createRootRoute({
         content: "width=device-width, initial-scale=1"
       },
       {
-        title: "Ozzios Documentation"
+        title: "OzziOS - Your First AI Employee"
       },
       {
         name: "description",
-        content: "Learn how to manage your clients, save time with AI assistants, and grow your business—all in one place."
+        content: "The first agentic AI employee platform. Replace entire marketing teams with 14 specialized AI agents. Unified CRM, workflows, communication, and marketing suite."
       }
     ],
     links: [
@@ -1087,11 +1087,11 @@ function RootDocument({ children }) {
     ] })
   ] });
 }
-const $$splitComponentImporter$1 = () => import("./index-Cqp-zgqt.js");
+const $$splitComponentImporter$1 = () => import("./index-DvzLKcbH.js");
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./_-Tn-3a9vD.js");
+const $$splitComponentImporter = () => import("./_-jf2HkE-S.js");
 const Route2 = createFileRoute("/docs/$")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
