@@ -20,6 +20,13 @@ export const Route = createRootRoute({
         content: 'Learn how to manage your clients, save time with AI assistants, and grow your business—all in one place.',
       },
     ],
+    links: [
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/images/favicon.svg',
+      },
+    ],
   }),
   component: RootComponent,
 })
