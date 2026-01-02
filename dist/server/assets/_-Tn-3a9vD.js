@@ -1,6 +1,6 @@
-import { a as reactExports, n as jsxRuntimeExports } from "./worker-entry-DG84cuki.js";
-import { c as createLucideIcon, a as cn, D as DocsLayout } from "./DocsLayout-BhonSBpG.js";
-import { L as Link, R as Route } from "./router-Jwtmj7U_.js";
+import { a as reactExports, n as jsxRuntimeExports } from "./worker-entry-BHZ-CRVX.js";
+import { c as createLucideIcon, a as cn, D as DocsLayout } from "./DocsLayout-DsapyWHD.js";
+import { L as Link, R as Route } from "./router-B7WZ1K67.js";
 import "node:events";
 import "node:async_hooks";
 import "node:stream";
@@ -249,7 +249,7 @@ function DocsRoute() {
       title: "Not Found"
     }], children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Check the URL or navigate using the sidebar." }) }) });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(DocsLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(DocsPage, { title: content.title, description: content.description, breadcrumbs: content.breadcrumbs, children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Content for this page coming soon." }) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(DocsLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(DocsPage, { title: content.title, description: content.description, breadcrumbs: content.breadcrumbs, children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Content for this page coming soon!" }) }) });
 }
 export {
   DocsRoute as component

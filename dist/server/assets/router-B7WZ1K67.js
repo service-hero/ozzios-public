@@ -1,4 +1,4 @@
-import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-DG84cuki.js";
+import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-BHZ-CRVX.js";
 const preloadWarning = "Error preloading route! ☝️";
 class BaseRoute {
   constructor(options) {
@@ -1064,6 +1064,13 @@ const Route$2 = createRootRoute({
         name: "description",
         content: "Learn how to manage your clients, save time with AI assistants, and grow your business—all in one place."
       }
+    ],
+    links: [
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/images/favicon.svg"
+      }
     ]
   }),
   component: RootComponent
@@ -1080,11 +1087,11 @@ function RootDocument({ children }) {
     ] })
   ] });
 }
-const $$splitComponentImporter$1 = () => import("./index-BVeqsDWv.js");
+const $$splitComponentImporter$1 = () => import("./index-Cqp-zgqt.js");
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./_-CVy08Vto.js");
+const $$splitComponentImporter = () => import("./_-Tn-3a9vD.js");
 const Route2 = createFileRoute("/docs/$")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
