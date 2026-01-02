@@ -74,7 +74,7 @@ function DocsRoute() {
         description={content.description}
         breadcrumbs={content.breadcrumbs}
       >
-        <p>Content for this page coming soon.</p>
+        <p>Content for this page coming soon..</p>
       </DocsPage>
     </DocsLayout>
   )
