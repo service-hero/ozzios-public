@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocsLayout } from '@/features/docs/layouts/DocsLayout'
-import { DocsHomeView } from '@/features/docs/views/DocsHomeView'
+import { LandingLayout } from '@/features/landing/layouts/LandingLayout'
+import { LandingHomeView } from '@/features/landing/views/LandingHomeView'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -8,8 +8,8 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   return (
-    <DocsLayout>
-      <DocsHomeView />
-    </DocsLayout>
+    <LandingLayout>
+      <LandingHomeView />
+    </LandingLayout>
   )
 }

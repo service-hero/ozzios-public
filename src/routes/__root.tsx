@@ -13,11 +13,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Ozzios Documentation',
+        title: 'OzziOS - Your First AI Employee',
       },
       {
         name: 'description',
-        content: 'Learn how to manage your clients, save time with AI assistants, and grow your business—all in one place.',
+        content: 'The first agentic AI employee platform. Replace entire marketing teams with 14 specialized AI agents. Unified CRM, workflows, communication, and marketing suite.',
       },
     ],
     links: [
