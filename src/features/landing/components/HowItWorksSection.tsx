@@ -14,37 +14,37 @@ const steps = [
   {
     number: '01',
     icon: Rocket,
-    title: 'Set up your workspace',
-    description: 'Create your agency workspace in minutes. Invite your team, configure channels, and connect your existing tools.',
+    title: 'Fire your agency today',
+    description: 'Stop paying for black-box retainers. Set up your AI workforce in minutes and own the results.',
     color: 'amber',
-    benefits: ['5-minute setup', 'No credit card required'],
+    benefits: ['5-minute setup', 'See everything your AI does'],
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
   },
   {
     number: '02',
     icon: Bot,
-    title: 'Deploy AI agents',
-    description: 'Activate specialized AI agents for SEO, content, analytics, and more. They join your channels like team members.',
+    title: 'Hire employees who never leave',
+    description: '14 AI employees join your team. They learn your brand, remember everything, and never take clients when they go.',
     color: 'indigo',
-    benefits: ['14 agent types', '77+ built-in tools'],
+    benefits: ['$0 turnover cost', 'Infinite institutional memory'],
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format',
   },
   {
     number: '03',
     icon: Users,
-    title: 'Onboard your clients',
-    description: 'Create sub-accounts for each client. Isolated data, shared workflows, unified billing.',
+    title: 'Work runs while you sleep',
+    description: 'Campaigns launch at 3am. Reports generate overnight. You wake up to results, not to-do lists.',
     color: 'emerald',
-    benefits: ['Unlimited sub-accounts', 'Full data isolation'],
+    benefits: ['24/7 automation', 'No night shifts'],
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format',
   },
   {
     number: '04',
     icon: TrendingUp,
-    title: 'Scale without limits',
-    description: 'Automate repetitive tasks, run campaigns at scale, and grow revenue per employee.',
+    title: 'Grow without the hiring pain',
+    description: 'Scale revenue without scaling headcount. Add clients, not overhead.',
     color: 'violet',
-    benefits: ['Durable workflows', '24/7 automation'],
+    benefits: ['Revenue not capped by seats', '65% fewer hires'],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
   },
 ];
@@ -100,9 +100,9 @@ export function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="how-it-works" className="relative py-32 lg:py-40 bg-[#0A0A0B]">
+    <section id="how-it-works" className="relative py-32 lg:py-40 bg-background">
       {/* Subtle divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Section header */}
@@ -115,13 +115,13 @@ export function FeaturesSection() {
           <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
             How it works
           </p>
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
-            From setup to scale
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
+            The hiring treadmill
             <br />
-            <span className="text-white/30">in four simple steps</span>
+            <span className="text-foreground/30">stops here.</span>
           </h2>
-          <p className="text-lg text-white/40 leading-relaxed max-w-xl">
-            Get your agency running on OzziOS in less than a day. No complex migrations, no training required.
+          <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
+            Stop paying $15-25K per hire. Stop losing institutional knowledge. Start building a team that stays forever.
           </p>
         </motion.div>
 
@@ -158,11 +158,11 @@ export function FeaturesSection() {
                     <div className={cn(
                       'absolute inset-0',
                       isEven
-                        ? 'bg-gradient-to-r from-transparent via-transparent to-[#0A0A0B]'
-                        : 'bg-gradient-to-l from-transparent via-transparent to-[#0A0A0B]',
+                        ? 'bg-gradient-to-r from-transparent via-transparent to-background'
+                        : 'bg-gradient-to-l from-transparent via-transparent to-background',
                       'hidden lg:block'
                     )} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/50 to-transparent lg:hidden" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent lg:hidden" />
 
                     {/* Step number overlay */}
                     <div className={cn(
@@ -188,10 +188,10 @@ export function FeaturesSection() {
                         <div className={cn('text-[12px] font-semibold mb-2', colors.text)}>
                           Step {step.number}
                         </div>
-                        <h3 className="text-xl lg:text-2xl font-display text-white mb-3">
+                        <h3 className="text-xl lg:text-2xl font-display text-foreground mb-3">
                           {step.title}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-white/40 mb-4">
+                        <p className="text-[15px] leading-relaxed text-foreground/40 mb-4">
                           {step.description}
                         </p>
 
@@ -200,7 +200,7 @@ export function FeaturesSection() {
                           {step.benefits.map((benefit) => (
                             <span
                               key={benefit}
-                              className="inline-flex items-center gap-1.5 text-[12px] text-white/40"
+                              className="inline-flex items-center gap-1.5 text-[12px] text-foreground/40"
                             >
                               <CheckCircle className="h-3.5 w-3.5 text-emerald-400/60" />
                               {benefit}

@@ -28,27 +28,24 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  shellComponent: RootShell,
   component: RootComponent,
 })
 
-function RootComponent() {
+function RootShell({ children }: { children: ReactNode }) {
   return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  )
-}
-
-function RootDocument({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
-        <div id="root">{children}</div>
+      <body suppressHydrationWarning>
+        {children}
         <Scripts />
       </body>
     </html>
   )
+}
+
+function RootComponent() {
+  return <Outlet />
 }

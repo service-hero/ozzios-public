@@ -36,7 +36,7 @@ export function BentoSection() {
   return (
     <section
       id="features"
-      className="relative py-32 lg:py-40 bg-[#0A0A0B] overflow-hidden"
+      className="relative py-32 lg:py-40 bg-background overflow-hidden"
     >
       {/* Subtle ambient glow */}
       <div
@@ -58,13 +58,13 @@ export function BentoSection() {
             <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
               Platform
             </p>
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
-              Everything you need,
+            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
+              Cancel 8+ subscriptions.
               <br />
-              <span className="text-white/30">nothing you don't.</span>
+              <span className="text-foreground/30">One platform does it all.</span>
             </h2>
-            <p className="text-lg text-white/40 leading-relaxed max-w-xl">
-              A complete operating system that unifies your tools, automates your workflows, and scales with your agency.
+            <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
+              Stop paying for tools that don't talk to each other. Your AI team works in one unified workspace.
             </p>
           </motion.div>
 
@@ -81,8 +81,8 @@ export function BentoSection() {
                       alt="Team collaboration"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0A0B] hidden lg:block" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] to-transparent lg:hidden" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden lg:block" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
                   </div>
 
                   {/* Content side */}
@@ -93,11 +93,11 @@ export function BentoSection() {
                         AI Workforce
                       </span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-display text-white mb-3">
-                      14 Specialized AI Agents
+                    <h3 className="text-2xl lg:text-3xl font-display text-foreground mb-3">
+                      Employees who never quit
                     </h3>
-                    <p className="text-[15px] text-white/40 leading-relaxed mb-6">
-                      Each agent is trained for a specific marketing role. They work 24/7, learn your brand voice, and collaborate seamlessly.
+                    <p className="text-[15px] text-foreground/40 leading-relaxed mb-6">
+                      14 AI employees working 24/7. They remember everything, never call in sick, and never take your best clients when they leave.
                     </p>
 
                     {/* Agent visualization */}
@@ -117,11 +117,11 @@ export function BentoSection() {
                               'h-2 w-2 rounded-full',
                               agent.status === 'active' ? 'bg-emerald-400 animate-pulse' : 'bg-white/20'
                             )} />
-                            <span className="text-[10px] text-white/30 uppercase tracking-wider">
+                            <span className="text-[10px] text-foreground/30 uppercase tracking-wider">
                               {agent.status}
                             </span>
                           </div>
-                          <p className="text-[12px] font-medium text-white/70 group-hover:text-white transition-colors">
+                          <p className="text-[12px] font-medium text-foreground/70 group-hover:text-foreground transition-colors">
                             {agent.name}
                           </p>
                         </div>
@@ -141,23 +141,23 @@ export function BentoSection() {
                     alt="Developer workspace"
                     className="absolute inset-0 w-full h-full object-cover opacity-60"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
                 </div>
                 <div className="p-6 lg:p-8 -mt-8 relative z-10">
                   <div className="h-12 w-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6">
                     <Layers className="h-5 w-5 text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    77+ Native Tools
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    No more tool switching
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    Tasks, scheduling, reports, memory—built into every agent.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    77+ tools built in. Tasks, scheduling, reports, memory—one platform, zero tab switching.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['Tasks', 'Reports', 'Memory', 'Search'].map((tool) => (
                       <span
                         key={tool}
-                        className="px-2.5 py-1 text-[11px] font-medium text-white/40 bg-white/[0.03] rounded-md border border-white/[0.06]"
+                        className="px-2.5 py-1 text-[11px] font-medium text-foreground/40 bg-white/[0.03] rounded-md border border-white/[0.06]"
                       >
                         {tool}
                       </span>
@@ -176,24 +176,24 @@ export function BentoSection() {
                     alt="Team communication"
                     className="absolute inset-0 w-full h-full object-cover opacity-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
                 </div>
                 <div className="p-6 lg:p-8 -mt-6 relative z-10">
                   <div className="h-12 w-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-6">
                     <MessageSquare className="h-5 w-5 text-violet-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    Slack-Class Channels
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    Your AI team, always online
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    Channels, DMs, threads, huddles—with AI agents as team members.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    Chat with AI employees like Slack. They respond instantly, 24/7, 365.
                   </p>
                   <div className="flex items-center gap-4 text-[12px]">
-                    <span className="flex items-center gap-1.5 text-white/30">
+                    <span className="flex items-center gap-1.5 text-foreground/30">
                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                       Real-time
                     </span>
-                    <span className="text-white/30">&lt;200ms latency</span>
+                    <span className="text-foreground/30">&lt;200ms latency</span>
                   </div>
                 </div>
               </BentoCard>
@@ -210,8 +210,8 @@ export function BentoSection() {
                       alt="Analytics dashboard"
                       className="absolute inset-0 w-full h-full object-cover opacity-70"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0A0A0B] hidden lg:block" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] to-transparent lg:hidden" />
+                    <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background hidden lg:block" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
                   </div>
 
                   {/* Content side */}
@@ -219,11 +219,11 @@ export function BentoSection() {
                     <div className="h-12 w-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
                       <Workflow className="h-5 w-5 text-emerald-400" />
                     </div>
-                    <h3 className="text-2xl font-display text-white mb-3">
-                      Durable Workflow Engine
+                    <h3 className="text-2xl font-display text-foreground mb-3">
+                      Work that happens while you sleep
                     </h3>
-                    <p className="text-[15px] text-white/40 leading-relaxed mb-6">
-                      22 triggers, 8 node types. Survives failures, supports human-in-the-loop approval.
+                    <p className="text-[15px] text-foreground/40 leading-relaxed mb-6">
+                      Automate anything. Campaigns run at 3am. Reports generate overnight. You wake up to results.
                     </p>
 
                     {/* Metrics */}
@@ -234,8 +234,8 @@ export function BentoSection() {
                         { value: '99.9%', label: 'Uptime' },
                       ].map((metric) => (
                         <div key={metric.label}>
-                          <div className="text-2xl font-semibold text-white">{metric.value}</div>
-                          <div className="text-[11px] text-white/30 uppercase tracking-wider">{metric.label}</div>
+                          <div className="text-2xl font-semibold text-foreground">{metric.value}</div>
+                          <div className="text-[11px] text-foreground/30 uppercase tracking-wider">{metric.label}</div>
                         </div>
                       ))}
                     </div>
@@ -253,21 +253,21 @@ export function BentoSection() {
                     alt="Business meeting"
                     className="absolute inset-0 w-full h-full object-cover opacity-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
                 </div>
                 <div className="p-6 lg:p-8 -mt-6 relative z-10">
                   <div className="h-12 w-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6">
                     <Users className="h-5 w-5 text-amber-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    Full CRM Suite
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    Never lose a lead again
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    Pipeline, contacts, smart lists, duplicate detection—all built in.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    AI remembers every conversation, every preference, every detail. Institutional memory that never walks out.
                   </p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-semibold text-white">31</span>
-                    <span className="text-[12px] text-white/30">contact fields</span>
+                    <span className="text-3xl font-semibold text-foreground">31</span>
+                    <span className="text-[12px] text-foreground/30">contact fields</span>
                   </div>
                 </div>
               </BentoCard>
@@ -280,15 +280,15 @@ export function BentoSection() {
                   <div className="h-12 w-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
                     <Megaphone className="h-5 w-5 text-pink-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    Marketing Suite
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    Cancel 4 subscriptions
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    Email builder, social scheduling, ad management across 4 platforms.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    Email, social, ads—all in one. Stop paying for Mailchimp, Hootsuite, and the rest.
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
                     {['Meta', 'Google', 'LinkedIn', 'TikTok'].map((platform) => (
-                      <span key={platform} className="px-2 py-1 text-[10px] text-white/40 bg-white/[0.03] rounded border border-white/[0.06]">
+                      <span key={platform} className="px-2 py-1 text-[10px] text-foreground/40 bg-white/[0.03] rounded border border-white/[0.06]">
                         {platform}
                       </span>
                     ))}
@@ -304,13 +304,13 @@ export function BentoSection() {
                   <div className="h-12 w-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
                     <BarChart3 className="h-5 w-5 text-cyan-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    Multi-Tenant
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    One dashboard, all clients
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    Unlimited sub-accounts for clients. Perfect for agency-client model.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    Unlimited sub-accounts. See everything in one place. No more juggling logins.
                   </p>
-                  <div className="mt-auto text-[12px] text-white/30">
+                  <div className="mt-auto text-[12px] text-foreground/30">
                     650+ indexes • Workspace isolation
                   </div>
                 </div>
@@ -324,11 +324,11 @@ export function BentoSection() {
                   <div className="h-12 w-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
                     <Shield className="h-5 w-5 text-emerald-400" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2">
-                    Enterprise Security
+                  <h3 className="text-xl font-display text-foreground mb-2">
+                    AI you can trust
                   </h3>
-                  <p className="text-[14px] text-white/40 leading-relaxed mb-4">
-                    4-category guardrails: PII detection, content moderation, jailbreak prevention.
+                  <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
+                    Enterprise-grade safety. Your data stays yours. SOC 2 compliant.
                   </p>
                   <div className="mt-auto flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-emerald-400" />
@@ -343,7 +343,7 @@ export function BentoSection() {
           <motion.div variants={itemVariants} className="mt-12 text-center">
             <a
               href="#all-features"
-              className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors group"
+              className="inline-flex items-center gap-2 text-[13px] font-medium text-foreground/40 hover:text-foreground transition-colors group"
             >
               Explore all features
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -373,10 +373,7 @@ function BentoCard({
     >
       {/* Subtle top gradient */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-50"
-        style={{
-          background: 'linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 40%)',
-        }}
+        className="absolute inset-0 pointer-events-none opacity-50 bg-gradient-to-b from-foreground/[0.02] to-transparent"
       />
       <div className="relative z-10">{children}</div>
     </div>

@@ -1,4 +1,4 @@
-import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-4ZKVM8Ft.js";
+import { r as rootRouteId, i as invariant, t as trimPathLeft, j as joinPaths, a as reactExports, d as dummyMatchContext, m as matchContext, u as useRouterState, b as useRouter, c as requireReactDom, e as useForwardedRef, f as useIntersectionObserver, g as functionalUpdate, h as exactPathTest, k as removeTrailingSlash, l as deepEqual, R as React__default, n as jsxRuntimeExports, w as warning, o as isModuleNotFoundError, p as RouterCore, O as Outlet } from "./worker-entry-cO9V1xjw.js";
 const preloadWarning = "Error preloading route! ☝️";
 class BaseRoute {
   constructor(options) {
@@ -478,7 +478,7 @@ const Link = reactExports.forwardRef(
 function isCtrlEvent(e) {
   return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 }
-let Route$3 = class Route extends BaseRoute {
+let Route$6 = class Route extends BaseRoute {
   /**
    * @deprecated Use the `createRoute` function instead.
    */
@@ -530,7 +530,7 @@ let Route$3 = class Route extends BaseRoute {
   }
 };
 function createRoute(options) {
-  return new Route$3(
+  return new Route$6(
     // TODO: Help us TypeChris, you're our only hope!
     options
   );
@@ -1047,7 +1047,7 @@ const Scripts = () => {
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ reactExports.createElement(Asset, { ...asset, key: `tsr-scripts-${asset.tag}-${i}` })) });
 };
-const Route$2 = createRootRoute({
+const Route$5 = createRootRoute({
   head: () => ({
     meta: [
       {
@@ -1073,43 +1073,77 @@ const Route$2 = createRootRoute({
       }
     ]
   }),
+  shellComponent: RootShell,
   component: RootComponent
 });
-function RootComponent() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(RootDocument, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
-}
-function RootDocument({ children }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", suppressHydrationWarning: true, children: [
+function RootShell({ children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", className: "dark", suppressHydrationWarning: true, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("head", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "root", children }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { suppressHydrationWarning: true, children: [
+      children,
       /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})
     ] })
   ] });
 }
-const $$splitComponentImporter$1 = () => import("./index-LYUKO_Tz.js");
-const Route$1 = createFileRoute("/")({
+function RootComponent() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
+}
+const $$splitComponentImporter$4 = () => import("./blog-CL6Pjp1K.js");
+const Route$4 = createFileRoute("/blog")({
+  component: lazyRouteComponent($$splitComponentImporter$4, "component")
+});
+const $$splitComponentImporter$3 = () => import("./index-BhxmlaJK.js");
+const Route$3 = createFileRoute("/")({
+  component: lazyRouteComponent($$splitComponentImporter$3, "component")
+});
+const $$splitComponentImporter$2 = () => import("./blog.index-0DVPashK.js");
+const Route$2 = createFileRoute("/blog/")({
+  component: lazyRouteComponent($$splitComponentImporter$2, "component")
+});
+const $$splitComponentImporter$1 = () => import("./_-D-zF-0Jy.js");
+const Route$1 = createFileRoute("/docs/$")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./_-CelKnpES.js");
-const Route2 = createFileRoute("/docs/$")({
+const $$splitComponentImporter = () => import("./blog._postId-D_5PkzS9.js");
+const Route2 = createFileRoute("/blog/$postId")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
-const IndexRoute = Route$1.update({
+const BlogRoute = Route$4.update({
+  id: "/blog",
+  path: "/blog",
+  getParentRoute: () => Route$5
+});
+const IndexRoute = Route$3.update({
   id: "/",
   path: "/",
-  getParentRoute: () => Route$2
+  getParentRoute: () => Route$5
 });
-const DocsSplatRoute = Route2.update({
+const BlogIndexRoute = Route$2.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => BlogRoute
+});
+const DocsSplatRoute = Route$1.update({
   id: "/docs/$",
   path: "/docs/$",
-  getParentRoute: () => Route$2
+  getParentRoute: () => Route$5
 });
+const BlogPostIdRoute = Route2.update({
+  id: "/$postId",
+  path: "/$postId",
+  getParentRoute: () => BlogRoute
+});
+const BlogRouteChildren = {
+  BlogPostIdRoute,
+  BlogIndexRoute
+};
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren);
 const rootRouteChildren = {
   IndexRoute,
+  BlogRoute: BlogRouteWithChildren,
   DocsSplatRoute
 };
-const routeTree = Route$2._addFileChildren(rootRouteChildren)._addFileTypes();
+const routeTree = Route$5._addFileChildren(rootRouteChildren)._addFileTypes();
 function getRouter() {
   const router2 = createRouter({
     routeTree,
@@ -1124,6 +1158,7 @@ const router = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   Link as L,
-  Route2 as R,
+  Route$1 as R,
+  Route2 as a,
   router as r
 };

@@ -7,7 +7,7 @@ interface LandingLayoutProps {
 
 export function LandingLayout({ children }: LandingLayoutProps) {
   return (
-    <div className="relative min-h-screen w-full flex flex-col bg-[#0A0A0B] overflow-x-hidden">
+    <div className="relative min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       {/* Premium noise texture overlay */}
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.015]"

@@ -11,7 +11,7 @@ export function CTASection() {
   return (
     <section className="relative py-32 lg:py-40 bg-[#0A0A0B] overflow-hidden">
       {/* Subtle divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       {/* Ambient background glow */}
       <div
@@ -30,7 +30,7 @@ export function CTASection() {
           className="relative"
         >
           {/* Main CTA card */}
-          <div className="relative rounded-3xl border border-white/[0.06] bg-white/[0.01] overflow-hidden">
+          <div className="relative rounded-3xl border border-border bg-card/50 overflow-hidden">
             {/* Inner glow effect */}
             <div
               className="absolute inset-0 pointer-events-none"
@@ -43,8 +43,8 @@ export function CTASection() {
             <div
               className="absolute inset-0 pointer-events-none opacity-[0.03]"
               style={{
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
-                                 linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`,
+                backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                                 linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
                 backgroundSize: '60px 60px',
               }}
             />
@@ -69,12 +69,12 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className="text-[clamp(2rem,6vw,4rem)] font-display leading-[1.05] tracking-[-0.02em] text-white mb-6"
+                  className="text-[clamp(2rem,6vw,4rem)] font-display leading-[1.05] tracking-[-0.02em] text-foreground mb-6"
                 >
-                  Ready to hire your first
+                  Stop paying for humans
                   <br />
                   <span className="bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                    AI employee?
+                    who leave.
                   </span>
                 </motion.h2>
 
@@ -83,11 +83,11 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-lg text-white/40 mb-10 max-w-lg mx-auto"
+                  className="text-lg text-foreground/40 mb-10 max-w-lg mx-auto"
                 >
-                  Start with 50 free credits. No credit card required.
+                  Your first AI employee is free. No credit card.
                   <br className="hidden sm:block" />
-                  Cancel anytime.
+                  Start building a team that stays forever.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -100,7 +100,7 @@ export function CTASection() {
                   <Button
                     size="lg"
                     asChild
-                    className="h-14 px-8 text-[15px] font-medium gap-3 bg-white text-[#0A0A0B] hover:bg-white/90 rounded-full btn-enterprise group"
+                    className="h-14 px-8 text-[15px] font-medium gap-3 dark:bg-white dark:text-[#0A0A0B] bg-[#0A0A0B] text-white hover:opacity-90 rounded-full btn-enterprise group"
                   >
                     <a href="https://app.ozzios.com/sign-up">
                       Get started for free
@@ -111,7 +111,7 @@ export function CTASection() {
                     variant="ghost"
                     size="lg"
                     asChild
-                    className="h-14 px-8 text-[15px] font-medium text-white/60 hover:text-white hover:bg-white/[0.04] rounded-full"
+                    className="h-14 px-8 text-[15px] font-medium text-foreground/60 hover:text-foreground hover:bg-muted rounded-full"
                   >
                     <a href="#contact">
                       Talk to sales
@@ -124,7 +124,7 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="mt-12 flex flex-wrap items-center justify-center gap-6 text-[12px] text-white/30"
+                  className="mt-12 flex flex-wrap items-center justify-center gap-6 text-[12px] text-foreground/30"
                 >
                   <span className="flex items-center gap-2">
                     <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />

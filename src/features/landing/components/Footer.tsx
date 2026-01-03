@@ -71,7 +71,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] bg-[#0A0A0B]">
+    <footer className="relative border-t border-border bg-background">
       {/* Subtle glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
@@ -93,7 +93,7 @@ export function Footer() {
                   className="h-6 w-auto"
                 />
               </Link>
-              <p className="mt-4 text-[13px] leading-relaxed text-white/30 max-w-xs">
+              <p className="mt-4 text-[13px] leading-relaxed text-foreground/30 max-w-xs">
                 The AI-powered operating system for marketing agencies.
               </p>
               {/* Social links */}
@@ -104,7 +104,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/20 hover:text-white/60 transition-colors"
+                    className="text-foreground/20 hover:text-foreground/60 transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -116,7 +116,7 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-foreground/40 mb-5">
                   {section.title}
                 </h3>
                 <ul className="space-y-3">
@@ -124,7 +124,7 @@ export function Footer() {
                     <li key={link.label}>
                       <Link
                         to={link.href}
-                        className="text-[13px] text-white/30 hover:text-white transition-colors"
+                        className="text-[13px] text-foreground/30 hover:text-foreground transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -139,7 +139,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[0.06] py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-white/20">
+            <p className="text-[12px] text-foreground/20">
               © {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
@@ -147,7 +147,7 @@ export function Footer() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <span className="text-[11px] text-white/30">
+              <span className="text-[11px] text-foreground/30">
                 All systems operational
               </span>
             </div>

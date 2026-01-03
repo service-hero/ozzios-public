@@ -9,42 +9,42 @@ const testimonials = [
     name: 'Sarah Mitchell',
     role: 'CEO',
     company: 'GrowthLab Agency',
-    content: 'OzziOS completely transformed how we operate. We replaced 3 full-time employees with AI agents and our output actually increased. The SEO Specialist agent alone saves us 20+ hours per week.',
+    content: 'We stopped hiring 6 months ago. Our AI team handles everything our junior staff used to do—and they never call in sick or quit for a competitor. We\'re doing 3x the work with the same headcount.',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
   },
   {
     name: 'Marcus Chen',
     role: 'Founder',
     company: 'Digital Edge',
-    content: 'The workflow automation is incredible. We set up lead nurturing sequences that run 24/7 without any manual intervention. Our conversion rate jumped 40% in the first month.',
+    content: 'I fired my agency after 2 weeks on OzziOS. Not because the AI is better—but because I can finally see what\'s actually happening. No more black-box retainers. I own my marketing now.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
   },
   {
     name: 'Emily Rodriguez',
     role: 'Operations Director',
     company: 'Spark Creative',
-    content: 'Finally, a platform that actually understands agency workflows. The multi-tenant architecture is perfect for managing all our clients in one place. Support team is phenomenal too.',
+    content: 'Our best account manager left last year and took years of client knowledge with her. Never again. Every conversation, every preference, every brand detail—it all stays in OzziOS forever.',
     image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&auto=format',
   },
   {
     name: 'David Park',
     role: 'Co-Founder',
     company: 'Velocity Marketing',
-    content: 'We were skeptical about AI agents at first, but the Content Writer produces better first drafts than most freelancers we\'ve hired. It learns our brand voice and just gets better over time.',
+    content: 'Hiring costs us $20K+ per employee. Training takes months. Then they leave. Our AI employees cost a fraction of that, learn in days, and the only "turnover" is version updates that make them better.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
   },
   {
     name: 'Jessica Williams',
     role: 'Managing Partner',
     company: 'Apex Digital',
-    content: 'The Slack-like communication with AI agents feels so natural. Our team adapted instantly. Being able to @mention an agent and get an intelligent response is game-changing.',
+    content: 'I used to spend Sunday nights reviewing reports for Monday meetings. Now I wake up to finished dashboards, campaign analyses, and content drafts. Work actually happens while I sleep.',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&auto=format',
   },
   {
     name: 'Alex Thompson',
     role: 'CEO',
     company: 'NorthStar Agency',
-    content: 'Best ROI on any software we\'ve purchased. The credit system is transparent, no hidden fees, and the agents actually deliver value. Cancelled 5 other subscriptions after switching.',
+    content: 'Cancelled Mailchimp, Hootsuite, SEMrush, Airtable, and 4 other tools. One platform, one invoice. The cost savings alone paid for OzziOS in the first month—and that\'s before the AI even did anything.',
     image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&auto=format',
   },
 ];
@@ -75,10 +75,10 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative py-32 lg:py-40 bg-[#0A0A0B] overflow-hidden"
+      className="relative py-32 lg:py-40 bg-background overflow-hidden"
     >
       {/* Subtle divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Section header */}
@@ -92,12 +92,12 @@ export function TestimonialsSection() {
           <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
             Testimonials
           </p>
-          <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
-            Loved by agencies
-            <span className="text-white/30"> worldwide</span>
+          <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
+            They stopped hiring.
+            <span className="text-foreground/30"> Here's why.</span>
           </h2>
-          <p className="text-lg text-white/40 max-w-lg mx-auto">
-            See what forward-thinking agencies are saying about OzziOS.
+          <p className="text-lg text-foreground/40 max-w-lg mx-auto">
+            Real stories from agencies who broke free from the hiring treadmill.
           </p>
         </motion.div>
 
@@ -125,7 +125,7 @@ export function TestimonialsSection() {
               </div>
 
               {/* Content */}
-              <p className="text-[15px] leading-relaxed text-white/50 mb-8">
+              <p className="text-[15px] leading-relaxed text-foreground/50 mb-8">
                 "{testimonial.content}"
               </p>
 
@@ -137,10 +137,10 @@ export function TestimonialsSection() {
                   className="h-12 w-12 rounded-full object-cover ring-2 ring-white/10"
                 />
                 <div>
-                  <p className="text-[14px] font-medium text-white">
+                  <p className="text-[14px] font-medium text-foreground">
                     {testimonial.name}
                   </p>
-                  <p className="text-[12px] text-white/30">
+                  <p className="text-[12px] text-foreground/30">
                     {testimonial.role} <span className="text-amber-400/50">@{testimonial.company}</span>
                   </p>
                 </div>
@@ -163,8 +163,8 @@ export function TestimonialsSection() {
             { value: '98%', label: 'Would recommend' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-semibold text-white mb-1">{stat.value}</div>
-              <div className="text-[12px] text-white/30 uppercase tracking-wider">{stat.label}</div>
+              <div className="text-2xl font-semibold text-foreground mb-1">{stat.value}</div>
+              <div className="text-[12px] text-foreground/30 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
         </motion.div>

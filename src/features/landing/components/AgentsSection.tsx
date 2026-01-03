@@ -68,7 +68,7 @@ export function AgentsSection() {
   const [activeAgent, setActiveAgent] = useState<string | null>(null);
 
   return (
-    <section id="agents" className="relative py-32 lg:py-40 bg-[#0A0A0B]">
+    <section id="agents" className="relative py-32 lg:py-40 bg-background">
       {/* Subtle ambient glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] rounded-full blur-[150px] opacity-[0.04] pointer-events-none"
@@ -91,13 +91,13 @@ export function AgentsSection() {
               AI Workforce
             </span>
           </div>
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
-            14 specialized employees
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
+            Meet your new team.
             <br />
-            <span className="text-white/30">ready to work</span>
+            <span className="text-foreground/30">They never ask for a raise.</span>
           </h2>
-          <p className="text-lg text-white/40 leading-relaxed max-w-xl">
-            Each agent has access to 77+ native tools, extended thinking up to 128K tokens, and persistent memory for context continuity.
+          <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
+            They learn your brand, remember every conversation, and work around the clock without overtime.
           </p>
         </motion.div>
 
@@ -105,11 +105,11 @@ export function AgentsSection() {
           {/* Channel Agents */}
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em]">
+              <span className="text-[11px] font-semibold text-foreground/30 uppercase tracking-[0.15em]">
                 Channel Agents
               </span>
               <div className="h-px flex-1 bg-white/[0.06]" />
-              <span className="text-[11px] text-white/20">10 agents</span>
+              <span className="text-[11px] text-foreground/20">10 agents</span>
             </div>
 
             <motion.div
@@ -148,26 +148,26 @@ export function AgentsSection() {
                           'absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-lg transition-all duration-300',
                           isActive
                             ? 'bg-amber-500/20 text-amber-400'
-                            : 'bg-[#0A0A0B] border border-white/10 text-white/40'
+                            : 'bg-background border border-border text-foreground/40'
                         )}>
                           <Icon className="h-3 w-3" />
                         </div>
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="text-[14px] font-medium text-white">
+                          <h3 className="text-[14px] font-medium text-foreground">
                             {agent.name}
                           </h3>
                           {isActive && (
                             <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           )}
                         </div>
-                        <p className="text-[12px] text-white/30 mb-2">
+                        <p className="text-[12px] text-foreground/30 mb-2">
                           {agent.role}
                         </p>
                         <p className={cn(
                           'text-[12px] leading-relaxed transition-all duration-300',
-                          isActive ? 'text-white/50' : 'text-white/25'
+                          isActive ? 'text-foreground/50' : 'text-foreground/25'
                         )}>
                           {agent.description}
                         </p>
@@ -182,11 +182,11 @@ export function AgentsSection() {
           {/* Executive Agents */}
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em]">
+              <span className="text-[11px] font-semibold text-foreground/30 uppercase tracking-[0.15em]">
                 Executive Agents
               </span>
               <div className="h-px flex-1 bg-white/[0.06]" />
-              <span className="text-[11px] text-white/20">4 agents</span>
+              <span className="text-[11px] text-foreground/20">4 agents</span>
             </div>
 
             <motion.div
@@ -224,18 +224,18 @@ export function AgentsSection() {
                         'absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-lg transition-all duration-300',
                         isActive
                           ? 'bg-indigo-500/20 text-indigo-400'
-                          : 'bg-[#0A0A0B] border border-white/10 text-white/40'
+                          : 'bg-background border border-border text-foreground/40'
                       )}>
                         <Icon className="h-3 w-3" />
                       </div>
                     </div>
-                    <h3 className="text-[14px] font-medium text-white mb-1">
+                    <h3 className="text-[14px] font-medium text-foreground mb-1">
                       {agent.name}
                     </h3>
                     <p className="text-[11px] text-amber-400/70 mb-2">
                       {agent.scope}
                     </p>
-                    <p className="text-[12px] text-white/30">
+                    <p className="text-[12px] text-foreground/30">
                       {agent.description}
                     </p>
                   </motion.div>
@@ -253,9 +253,9 @@ export function AgentsSection() {
           className="mt-16 flex flex-wrap items-center justify-center gap-6 lg:gap-12"
         >
           {[
-            { label: 'Extended Thinking', value: 'Up to 128K tokens' },
-            { label: 'Tool Approval', value: 'Auto / Approval / Blocked' },
-            { label: 'Safety Controls', value: '4-category guardrails' },
+            { label: 'Deep reasoning', value: 'Thinks through complex problems' },
+            { label: 'You\'re in control', value: 'Approve actions before they happen' },
+            { label: 'Enterprise-safe', value: 'Built-in content protection' },
           ].map((item) => (
             <div
               key={item.label}
@@ -263,8 +263,8 @@ export function AgentsSection() {
             >
               <div className="h-2 w-2 rounded-full bg-emerald-400/50" />
               <div>
-                <span className="text-[13px] font-medium text-white/70">{item.value}</span>
-                <span className="text-[13px] text-white/30 ml-2">{item.label}</span>
+                <span className="text-[13px] font-medium text-foreground/70">{item.value}</span>
+                <span className="text-[13px] text-foreground/30 ml-2">{item.label}</span>
               </div>
             </div>
           ))}

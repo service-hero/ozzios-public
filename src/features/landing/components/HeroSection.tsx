@@ -1,9 +1,18 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, GitBranch, Sparkles, CheckCircle2, Send } from 'lucide-react';
+import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
-import { SiriOrbState } from '@/shared/components/ui/smoothui/ui/SiriOrb';
+import {
+  type ChatMessage,
+  channelMessages,
+  marketingMessages,
+  sidebarChannels,
+  sidebarTeam,
+  enterpriseLogos,
+  getAgentVariant,
+  getAgentOrbState,
+} from './hero/chatData';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,351 +34,6 @@ const itemVariants = {
   },
 };
 
-const enterpriseLogos = [
-  { name: 'Deloitte', width: 'w-24' },
-  { name: 'McKinsey', width: 'w-20' },
-  { name: 'Accenture', width: 'w-24' },
-  { name: 'BCG', width: 'w-16' },
-  { name: 'Bain', width: 'w-16' },
-  { name: 'PwC', width: 'w-14' },
-  { name: 'EY', width: 'w-12' },
-  { name: 'KPMG', width: 'w-16' },
-];
-
-const sidebarChannels = [
-  { name: 'general', starred: true, hasMessages: false },
-  { name: 'marketing-strategy', starred: true, hasMessages: true },
-  { name: 'seo-campaigns', starred: false, hasMessages: true },
-  { name: 'content-calendar', starred: false, hasMessages: false },
-];
-
-const sidebarTeam = [
-  { name: 'Sarah Mitchell', isAgent: false, status: 'online', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&h=32&fit=crop&auto=format' },
-  { name: 'SEO Specialist', isAgent: true, status: 'online', variant: 'seo' },
-  { name: 'Data Analyst', isAgent: true, status: 'online', variant: 'tech' },
-  { name: 'Graphic Designer', isAgent: true, status: 'online', variant: 'social' },
-  { name: 'Content Writer', isAgent: true, status: 'online', variant: 'creative' },
-];
-
-// Helper function to map agent names to SiriOrb variants
-const getAgentVariant = (agentName: string): string => {
-  const variantMap: Record<string, string> = {
-    'Data Analyst': 'tech',
-    'Graphic Designer': 'social',
-    'Content Writer': 'creative',
-    'SEO Specialist': 'seo',
-  };
-  return variantMap[agentName] || 'default';
-};
-
-// Type for messages
-type ChatMessage = {
-  id: number;
-  user: string;
-  avatar: string | null;
-  isAgent: boolean;
-  agentColor?: string;
-  time: string;
-  content: Array<{ type: string; text?: string; items?: any; content?: string }>;
-  typing?: boolean;
-  reactions?: Array<{ emoji: string; count: number }>;
-};
-
-// Helper function to get orb state based on agent activity and message context
-const getAgentOrbState = (message: ChatMessage): SiriOrbState => {
-  if (message.typing) return 'thinking';
-  if (message.reactions && message.reactions.length > 0) {
-    return 'happy';
-  }
-  if (message.content.some(part => part.type === 'text' && typeof part.text === 'string' && part.text.includes('✅'))) {
-    return 'happy';
-  }
-  return 'idle';
-};
-
-// SEO Campaign Messages
-const seoMessages: ChatMessage[] = [
-  {
-    id: 1,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '9:15 AM',
-    content: [
-      { type: 'mention', text: '@SEO Specialist' },
-      { type: 'text', text: ' run a full site audit on clientsite.com and identify critical issues' },
-    ],
-  },
-  {
-    id: 2,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:15 AM',
-    content: [
-      { type: 'text', text: 'Running technical SEO audit...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 3,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:16 AM',
-    content: [
-      { type: 'text', text: '✅ Site Audit Complete — clientsite.com (847 pages crawled):' },
-      { type: 'metrics', items: [
-        { label: 'Health Score', value: '64/100', change: '' },
-        { label: 'Critical', value: '12', change: '' },
-        { label: 'Warnings', value: '47', change: '' },
-        { label: 'Indexed', value: '723', change: '' },
-      ]},
-      { type: 'text', text: '🚨 Critical Issues Found:' },
-      { type: 'list', items: ['23 pages with duplicate title tags', '12 broken internal links (404s)', '8 pages missing meta descriptions', '3 redirect chains over 3 hops'] },
-    ],
-    reactions: [{ emoji: '👀', count: 2 }],
-  },
-  {
-    id: 4,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '9:17 AM',
-    content: [
-      { type: 'text', text: 'Fix the broken links and redirect chains automatically. Also ' },
-      { type: 'mention', text: '@SEO Specialist' },
-      { type: 'text', text: ' generate optimized meta descriptions for those 8 pages' },
-    ],
-  },
-  {
-    id: 5,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:17 AM',
-    content: [
-      { type: 'text', text: 'Connecting to WordPress...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 6,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:18 AM',
-    content: [
-      { type: 'text', text: '✅ Fixes Applied to WordPress:' },
-      { type: 'actions', items: [
-        { icon: '🔗', action: 'Fixed 12 broken links', status: 'success', detail: 'Redirected to valid pages' },
-        { icon: '↪️', action: 'Simplified 3 redirect chains', status: 'success', detail: 'Now direct 301s' },
-        { icon: '📝', action: 'Generated 8 meta descriptions', status: 'success', detail: 'AI-optimized for CTR' },
-      ]},
-      { type: 'code', content: 'Example meta generated:\n"Discover premium marketing solutions that drive 3x ROI. Trusted by 500+ agencies worldwide. Start free today."' },
-    ],
-    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '✅', count: 2 }],
-  },
-  {
-    id: 7,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '9:19 AM',
-    content: [
-      { type: 'text', text: 'Now do keyword research for "AI marketing tools" and find low competition opportunities' },
-    ],
-  },
-  {
-    id: 8,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:19 AM',
-    content: [
-      { type: 'text', text: '✅ Keyword Opportunities Found (low KD, high intent):' },
-      { type: 'keywords', items: [
-        { keyword: 'ai marketing automation for agencies', volume: '1.2K', difficulty: '23', intent: 'Commercial' },
-        { keyword: 'best ai tools for digital marketing', volume: '2.4K', difficulty: '31', intent: 'Commercial' },
-        { keyword: 'marketing ai assistant software', volume: '880', difficulty: '18', intent: 'Transactional' },
-        { keyword: 'automated marketing campaign tools', volume: '1.8K', difficulty: '27', intent: 'Commercial' },
-      ]},
-      { type: 'text', text: '💡 Recommendation: Target "marketing ai assistant software" first — lowest difficulty with strong buyer intent.' },
-    ],
-    reactions: [{ emoji: '💎', count: 2 }, { emoji: '🎯', count: 1 }],
-  },
-];
-
-// Marketing Strategy Messages
-const marketingMessages: ChatMessage[] = [
-  {
-    id: 1,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '10:42 AM',
-    content: [
-      { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' pull our Facebook Ads performance for Q4 campaigns' },
-    ],
-  },
-  {
-    id: 2,
-    user: 'Data Analyst',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '10:42 AM',
-    content: [
-      { type: 'text', text: 'Connected to Facebook Ads API. Here\'s your Q4 performance:' },
-      { type: 'metrics', items: [
-        { label: 'Spend', value: '$12.4K', change: '' },
-        { label: 'ROAS', value: '4.2x', change: '+18%' },
-        { label: 'Conversions', value: '847', change: '+32%' },
-        { label: 'CPA', value: '$14.63', change: '-22%' },
-      ]},
-      { type: 'text', text: '⚠️ Ad Set "Retargeting - Cart Abandoners" underperforming (1.8x ROAS)' },
-    ],
-    reactions: [{ emoji: '📊', count: 1 }],
-  },
-  {
-    id: 3,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '10:43 AM',
-    content: [
-      { type: 'mention', text: '@Graphic Designer' },
-      { type: 'text', text: ' generate 3 new video ads for the retargeting campaign - use testimonial style with motion graphics' },
-    ],
-  },
-  {
-    id: 4,
-    user: 'Graphic Designer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'violet',
-    time: '10:43 AM',
-    content: [
-      { type: 'text', text: 'Generating video ads with AI...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 5,
-    user: 'Graphic Designer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'violet',
-    time: '10:44 AM',
-    content: [
-      { type: 'text', text: '✅ Created 3 video variations (1080x1080, 15s each):' },
-      { type: 'videos', items: [
-        { image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-        { image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-        { image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-      ]},
-    ],
-    reactions: [{ emoji: '🎬', count: 2 }],
-  },
-  {
-    id: 6,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '10:44 AM',
-    content: [
-      { type: 'text', text: 'Perfect! ' },
-      { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' push these to Facebook - replace creatives in the retargeting ad set & update targeting to exclude purchasers from last 30 days' },
-    ],
-  },
-  {
-    id: 7,
-    user: 'Data Analyst',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '10:44 AM',
-    content: [
-      { type: 'text', text: 'Updating Facebook Ads Manager...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 8,
-    user: 'Data Analyst',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '10:45 AM',
-    content: [
-      { type: 'text', text: '✅ Facebook Ads Updated Live:' },
-      { type: 'actions', items: [
-        { icon: '🎨', action: 'Replaced 3 creatives', status: 'success', detail: 'Ad Set: Retargeting - Cart Abandoners' },
-        { icon: '🎯', action: 'Updated targeting', status: 'success', detail: 'Excluded: Purchasers (30 days)' },
-        { icon: '💰', action: 'Budget unchanged', status: 'info', detail: '$150/day' },
-      ]},
-      { type: 'text', text: '→ Changes are now live in Ads Manager' },
-    ],
-    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '🔥', count: 2 }],
-  },
-  {
-    id: 9,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
-    isAgent: false,
-    time: '10:45 AM',
-    content: [
-      { type: 'text', text: 'Now ' },
-      { type: 'mention', text: '@Content Writer' },
-      { type: 'text', text: ' update our WordPress landing page headline to match the new campaign messaging. Also ' },
-      { type: 'mention', text: '@Graphic Designer' },
-      { type: 'text', text: ' generate a new hero image' },
-    ],
-  },
-  {
-    id: 10,
-    user: 'Content Writer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'amber',
-    time: '10:46 AM',
-    content: [
-      { type: 'text', text: '✅ WordPress Updated:' },
-      { type: 'code', content: 'Page: /landing-page\n- Headline: "Transform Your Marketing with AI"\n- Subhead: "Join 2,000+ agencies saving 20hrs/week"\n- Status: Published' },
-      { type: 'text', text: '→ Live at yoursite.com/landing-page' },
-    ],
-    reactions: [{ emoji: '✅', count: 1 }],
-  },
-  {
-    id: 11,
-    user: 'Graphic Designer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'violet',
-    time: '10:46 AM',
-    content: [
-      { type: 'text', text: '✅ Hero image generated & uploaded to WordPress media library. Applied to landing page.' },
-      { type: 'images', items: [
-        { image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format', wide: true },
-      ]},
-    ],
-    reactions: [{ emoji: '😍', count: 4 }, { emoji: '🎨', count: 2 }],
-  },
-];
-
-// Channel to messages map
-const channelMessages: Record<string, ChatMessage[]> = {
-  'marketing-strategy': marketingMessages,
-  'seo-campaigns': seoMessages,
-};
-
 const messageVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
@@ -384,24 +48,49 @@ export function HeroSection() {
   const [activeChannel, setActiveChannel] = useState('marketing-strategy');
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [streamingText, setStreamingText] = useState<Record<number, string>>({});
+  const [streamingComplete, setStreamingComplete] = useState<Record<number, boolean>>({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<{ cancelled: boolean }>({ cancelled: false });
+  const streamingRefs = useRef<Record<number, { cancelled: boolean }>>({});
 
   const currentMessages = channelMessages[activeChannel] || marketingMessages;
 
-  // Handle channel change
+  // Get channels that have messages for rotation
+  const activeChannels = sidebarChannels.filter(c => c.hasMessages).map(c => c.name);
+
+  // Get the next channel in rotation
+  const getNextChannel = (currentChannel: string): string => {
+    const currentIndex = activeChannels.indexOf(currentChannel);
+    const nextIndex = (currentIndex + 1) % activeChannels.length;
+    return activeChannels[nextIndex];
+  };
+
+  // Handle channel change (for user clicks)
   const handleChannelChange = (channelName: string) => {
     if (!channelMessages[channelName]) return; // Only switch to channels with messages
     if (channelName === activeChannel) return;
 
-    // Cancel current animation
+    switchToChannel(channelName);
+  };
+
+  // Switch to a specific channel (internal function for both manual and auto rotation)
+  const switchToChannel = (channelName: string) => {
+    // Cancel current animation and streaming
     animationRef.current.cancelled = true;
+    Object.values(streamingRefs.current).forEach(ref => {
+      ref.cancelled = true;
+    });
 
     // Reset and switch channel
     setVisibleMessages([]);
     setIsTyping(false);
+    setStreamingText({});
+    setStreamingComplete({});
     setActiveChannel(channelName);
+    streamingRefs.current = {};
 
     // Reset the scroll position
     if (messagesContainerRef.current) {
@@ -409,7 +98,46 @@ export function HeroSection() {
     }
   };
 
-  // Auto-scroll to bottom when new messages appear
+  // Stream text character by character for agent messages (matching Vercel AI SDK behavior)
+  const streamMessageText = async (messageId: number, fullText: string, controller: { cancelled: boolean }) => {
+    const chars = fullText.split('');
+    let currentText = '';
+
+    for (let i = 0; i < chars.length; i++) {
+      if (controller.cancelled) return;
+
+      currentText += chars[i];
+      setStreamingText(prev => ({ ...prev, [messageId]: currentText }));
+
+      // More natural streaming delays matching AI SDK behavior:
+      // - Very fast for spaces (almost instant)
+      // - Slight pause for punctuation
+      // - Variable speed for regular characters (simulates network streaming)
+      const char = chars[i];
+      let delay: number;
+      
+      if (char === ' ' || char === '\n') {
+        delay = 10; // Spaces appear almost instantly
+      } else if (['.', '!', '?'].includes(char)) {
+        delay = 150; // Longer pause after sentence endings
+      } else if (char === ',') {
+        delay = 80; // Short pause after commas
+      } else if (char === ':') {
+        delay = 100; // Medium pause after colons
+      } else {
+        // Variable delay for regular characters (20-40ms) to simulate real streaming
+        delay = 20 + Math.random() * 20;
+      }
+
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+
+    if (!controller.cancelled) {
+      setStreamingComplete(prev => ({ ...prev, [messageId]: true }));
+    }
+  };
+
+  // Auto-scroll to bottom when new messages appear or text streams
   useEffect(() => {
     if (messagesEndRef.current && messagesContainerRef.current) {
       messagesContainerRef.current.scrollTo({
@@ -417,7 +145,7 @@ export function HeroSection() {
         behavior: 'smooth'
       });
     }
-  }, [visibleMessages, isTyping]);
+  }, [visibleMessages, isTyping, streamingText]);
 
   // Animate messages for current channel
   useEffect(() => {
@@ -430,10 +158,25 @@ export function HeroSection() {
       for (let i = 0; i < messages.length; i++) {
         if (controller.cancelled) return;
 
-        await new Promise((resolve) => setTimeout(resolve, i === 0 ? 800 : 1200));
+        const message = messages[i];
+        const prevMessage = i > 0 ? messages[i - 1] : null;
+
+        // Determine delay based on previous message type
+        let delay: number;
+        if (i === 0) {
+          delay = 800; // Initial delay for first message
+        } else if (prevMessage?.isAgent) {
+          // Previous message was an agent - we already waited for streaming in previous iteration
+          delay = 400; // Short delay after agent finishes
+        } else {
+          // Previous message was a user - normal delay
+          delay = 600;
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, delay));
         if (controller.cancelled) return;
 
-        const message = messages[i];
+        // Show typing indicator if needed
         if (message.typing) {
           setIsTyping(true);
           await new Promise((resolve) => setTimeout(resolve, 800));
@@ -441,13 +184,59 @@ export function HeroSection() {
         }
 
         if (controller.cancelled) return;
+
+        // Show the message
         setVisibleMessages((prev) => [...prev, message.id]);
+
+        // Handle agent messages - stream the text and wait for completion
+        if (message.isAgent && message.content.length > 0) {
+          const textParts = message.content
+            .filter(part => part.type === 'text' && part.text)
+            .map(part => part.text as string)
+            .join('');
+
+          if (textParts) {
+            const streamController = { cancelled: false };
+            streamingRefs.current[message.id] = streamController;
+
+            // Start streaming after a short delay
+            await new Promise((resolve) => setTimeout(resolve, 200));
+            if (controller.cancelled || streamController.cancelled) return;
+
+            // Stream the text and wait for it to complete before showing next message
+            await streamMessageText(message.id, textParts, streamController);
+
+            // Small pause after streaming completes
+            await new Promise((resolve) => setTimeout(resolve, 200));
+          } else {
+            // No text to stream, mark as complete
+            setStreamingComplete(prev => ({ ...prev, [message.id]: true }));
+            await new Promise((resolve) => setTimeout(resolve, 400));
+          }
+        } else {
+          // User messages show immediately and are marked complete
+          setStreamingComplete(prev => ({ ...prev, [message.id]: true }));
+        }
+      }
+
+      // All messages shown - wait and then auto-rotate to next channel
+      if (!controller.cancelled) {
+        // Wait 4 seconds before rotating to next channel
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+
+        if (!controller.cancelled) {
+          const nextChannel = getNextChannel(activeChannel);
+          switchToChannel(nextChannel);
+        }
       }
     };
 
     const timer = setTimeout(showMessages, 600);
     return () => {
       controller.cancelled = true;
+      Object.values(streamingRefs.current).forEach(ref => {
+        ref.cancelled = true;
+      });
       clearTimeout(timer);
     };
   }, [activeChannel]);
@@ -455,7 +244,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-[#0A0A0B]"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-background"
     >
       {/* Premium gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -486,8 +275,8 @@ export function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(hsl(var(--foreground) / 0.5) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--foreground) / 0.5) 1px, transparent 1px)`,
           backgroundSize: '100px 100px',
         }}
       />
@@ -502,7 +291,7 @@ export function HeroSection() {
         >
           {/* Trust badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-muted/30 border border-border backdrop-blur-sm">
               <div className="flex items-center gap-1.5">
                 <Shield className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="text-[11px] font-medium text-emerald-400 uppercase tracking-wider">
@@ -512,7 +301,7 @@ export function HeroSection() {
               <div className="w-px h-3 bg-white/10" />
               <div className="flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-[11px] font-medium text-white/50 uppercase tracking-wider">
+                <span className="text-[11px] font-medium text-foreground/50 uppercase tracking-wider">
                   Enterprise Ready
                 </span>
               </div>
@@ -521,12 +310,12 @@ export function HeroSection() {
 
           {/* Main headline - Editorial serif typography */}
           <motion.div variants={itemVariants} className="text-center max-w-5xl">
-            <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-display leading-[0.95] tracking-[-0.02em] text-white">
-              The operating system
+            <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-display leading-[0.95] tracking-[-0.02em] text-foreground">
+              What if you never
               <br />
               <span className="relative inline-block">
                 <span className="relative z-10 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                  for modern agencies
+                  had to hire again?
                 </span>
                 {/* Underline accent */}
                 <svg
@@ -549,11 +338,11 @@ export function HeroSection() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="mt-8 text-lg sm:text-xl text-white/40 leading-relaxed max-w-2xl text-center font-light"
+            className="mt-8 text-lg sm:text-xl text-foreground/40 leading-relaxed max-w-2xl text-center font-light"
           >
-            Replace your entire marketing team with 14 specialized AI agents.
+            14 AI employees. Working 24/7. They never quit, never call in sick,
             <br className="hidden sm:block" />
-            Unified workflows, CRM, and communication in one platform.
+            and never take your best clients when they leave.
           </motion.p>
 
           {/* CTA buttons */}
@@ -564,7 +353,7 @@ export function HeroSection() {
             <Button
               size="lg"
               asChild
-              className="h-14 px-8 text-[15px] font-medium gap-3 bg-white text-[#0A0A0B] hover:bg-white/90 rounded-full btn-enterprise group"
+              className="h-14 px-8 text-[15px] font-medium gap-3 dark:bg-white dark:text-[#0A0A0B] bg-background text-foreground hover:opacity-90 rounded-full btn-enterprise group"
             >
               <a href="https://app.ozzios.com/sign-up">
                 Start free trial
@@ -574,7 +363,7 @@ export function HeroSection() {
             <Button
               variant="ghost"
               size="lg"
-              className="h-14 px-8 text-[15px] font-medium gap-3 text-white/70 hover:text-white hover:bg-white/5 rounded-full group"
+              className="h-14 px-8 text-[15px] font-medium gap-3 text-foreground/70 hover:text-foreground hover:bg-muted rounded-full group"
             >
               <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/15 transition-colors">
                 <Play className="h-3 w-3 fill-current ml-0.5" />
@@ -589,16 +378,16 @@ export function HeroSection() {
             className="mt-20 flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
           >
             {[
-              { value: '14', label: 'AI Agents' },
-              { value: '77+', label: 'Native Tools' },
-              { value: '99.9%', label: 'Uptime SLA' },
-              { value: '<200ms', label: 'Latency' },
+              { value: '65%', label: 'Fewer Hires' },
+              { value: '24/7', label: 'Coverage' },
+              { value: '$0', label: 'Turnover Cost' },
+              { value: '∞', label: 'Memory' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                <div className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-xs text-white/30 uppercase tracking-wider">
+                <div className="mt-1 text-xs text-foreground/30 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
@@ -620,48 +409,48 @@ export function HeroSection() {
               />
 
               {/* Browser chrome */}
-              <div className="relative rounded-2xl border border-white/[0.08] bg-[#111113] overflow-hidden shadow-2xl shadow-black/50">
+              <div className="relative rounded-2xl border border-border dark:bg-[#111113] bg-card overflow-hidden shadow-2xl shadow-black/50">
                 {/* Window controls */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0D0F]">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border dark:bg-[#0D0D0F] bg-muted">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                     <div className="w-3 h-3 rounded-full bg-[#28CA41]" />
                   </div>
                   <div className="flex-1 flex justify-center">
-                    <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                    <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-muted/30 border border-border">
                       <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
-                      <span className="text-[11px] text-white/30 font-mono">app.ozzios.com</span>
+                      <span className="text-[11px] text-foreground/30 font-mono">app.ozzios.com</span>
                     </div>
                   </div>
                   <div className="w-16" />
                 </div>
 
                 {/* Slack-like Chat Interface */}
-                <div className="relative aspect-[16/9] bg-[#0D0D0F] flex">
+                <div className="relative aspect-[3/4] sm:aspect-[4/3] md:aspect-[16/9] dark:bg-[#0D0D0F] bg-muted flex">
                   {/* Sidebar */}
-                  <div className="hidden md:flex w-56 flex-col border-r border-white/[0.06] bg-[#0A0A0B]">
+                  <div className="hidden md:flex w-56 flex-col border-r border-border dark:bg-[#0A0A0B] bg-background">
                     {/* Workspace header */}
-                    <div className="p-3 border-b border-white/[0.06]">
+                    <div className="p-3 border-b border-border">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                          <span className="text-[10px] font-bold text-white">AC</span>
+                          <span className="text-[10px] font-bold text-foreground">AC</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="text-[12px] font-semibold text-white truncate">Acme Agency</div>
+                          <div className="text-[12px] font-semibold text-foreground truncate">Acme Agency</div>
                           <div className="flex items-center gap-1">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                            <span className="text-[10px] text-white/40">Online</span>
+                            <span className="text-[10px] text-foreground/40">Online</span>
                           </div>
                         </div>
-                        <ChevronDown className="w-3.5 h-3.5 text-white/30" />
+                        <ChevronDown className="w-3.5 h-3.5 text-foreground/30" />
                       </div>
                     </div>
 
                     {/* Channels */}
                     <div className="flex-1 overflow-hidden py-3">
                       <div className="px-3 mb-2">
-                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-white/30 uppercase tracking-wider">
+                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-foreground/30 uppercase tracking-wider">
                           <ChevronDown className="w-3 h-3" />
                           Channels
                         </div>
@@ -673,10 +462,10 @@ export function HeroSection() {
                             onClick={() => channel.hasMessages && handleChannelChange(channel.name)}
                             className={`flex items-center gap-2 px-2 py-1 rounded text-[11px] transition-all duration-200 ${
                               channel.name === activeChannel
-                                ? 'bg-amber-500/10 text-white'
+                                ? 'bg-amber-500/10 text-foreground'
                                 : channel.hasMessages
-                                ? 'text-white/40 hover:bg-white/[0.06] hover:text-white/60 cursor-pointer'
-                                : 'text-white/25'
+                                ? 'text-foreground/40 hover:bg-muted hover:text-foreground/60 cursor-pointer'
+                                : 'text-foreground/25'
                             }`}
                           >
                             {channel.starred && <Star className="w-3 h-3 text-amber-400 fill-amber-400" />}
@@ -691,7 +480,7 @@ export function HeroSection() {
 
                       {/* Team members */}
                       <div className="px-3 mt-4 mb-2">
-                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-white/30 uppercase tracking-wider">
+                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-foreground/30 uppercase tracking-wider">
                           <ChevronDown className="w-3 h-3" />
                           Team
                         </div>
@@ -700,7 +489,7 @@ export function HeroSection() {
                         {sidebarTeam.map((member) => (
                           <div
                             key={member.name}
-                            className="flex items-center gap-2 px-2 py-1 rounded text-[11px] text-white/40 hover:bg-white/[0.03]"
+                            className="flex items-center gap-2 px-2 py-1 rounded text-[11px] text-foreground/40 hover:bg-muted"
                           >
                             <div className="relative">
                               {member.isAgent ? (
@@ -719,7 +508,7 @@ export function HeroSection() {
                                 />
                               )}
                               <div
-                                className={`absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full border-2 border-[#0A0A0B] ${
+                                className={`absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full border-2 dark:border-[#0A0A0B] border-background ${
                                   member.status === 'online' ? 'bg-emerald-400' : 'bg-amber-400'
                                 }`}
                               />
@@ -735,13 +524,22 @@ export function HeroSection() {
                   </div>
 
                   {/* Main chat area */}
-                  <div className="flex-1 flex flex-col">
+                  <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden">
                     {/* Channel header */}
-                    <div className="flex items-center justify-between px-4 py-2 border-b border-white/[0.06]">
-                      <div className="flex items-center gap-2">
+                    <div className="relative flex items-center justify-between px-3 sm:px-4 py-2 border-b border-border">
+                      <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="flex md:hidden items-center gap-2 hover:bg-muted rounded-lg px-1.5 py-1 -ml-1.5 transition-colors"
+                      >
+                        <Menu className="w-4 h-4 text-foreground/50" />
+                        <Hash className="w-3.5 h-3.5 text-foreground/40" />
+                        <span className="text-[12px] font-semibold text-foreground truncate max-w-[120px]">{activeChannel}</span>
+                        <ChevronDown className={`w-3 h-3 text-foreground/30 transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div className="hidden md:flex items-center gap-2">
                         <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                        <Hash className="w-4 h-4 text-white/40" />
-                        <span className="text-[13px] font-semibold text-white">{activeChannel}</span>
+                        <Hash className="w-4 h-4 text-foreground/40" />
+                        <span className="text-[13px] font-semibold text-foreground">{activeChannel}</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="hidden sm:flex items-center -space-x-2">
@@ -764,30 +562,78 @@ export function HeroSection() {
                               )}
                             </div>
                           ))}
-                          <div className="w-6 h-6 rounded-full border-2 border-[#0D0D0F] bg-white/10 flex items-center justify-center">
-                            <span className="text-[9px] text-white/50">+4</span>
+                          <div className="w-6 h-6 rounded-full border-2 dark:border-[#0D0D0F] border-border bg-white/10 dark:bg-white/10 flex items-center justify-center">
+                            <span className="text-[9px] text-foreground/50">+4</span>
                           </div>
                         </div>
-                        <Search className="w-4 h-4 text-white/30" />
-                        <Settings className="w-4 h-4 text-white/30" />
+                        <Search className="w-4 h-4 text-foreground/30 hidden sm:block" />
+                        <Settings className="w-4 h-4 text-foreground/30 hidden sm:block" />
                       </div>
+
+                      {/* Mobile channel dropdown */}
+                      <AnimatePresence>
+                        {mobileMenuOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute top-full left-0 right-0 z-50 dark:bg-[#0A0A0B] bg-background border-b border-border shadow-xl md:hidden"
+                          >
+                            <div className="p-2 space-y-0.5">
+                              <div className="px-2 py-1.5 text-[10px] font-semibold text-foreground/30 uppercase tracking-wider">
+                                Channels
+                              </div>
+                              {sidebarChannels.map((channel) => (
+                                <button
+                                  key={channel.name}
+                                  onClick={() => {
+                                    if (channel.hasMessages) {
+                                      handleChannelChange(channel.name);
+                                      setMobileMenuOpen(false);
+                                    }
+                                  }}
+                                  disabled={!channel.hasMessages}
+                                  className={`w-full flex items-center gap-2 px-2 py-2 rounded-lg text-[12px] transition-all ${
+                                    channel.name === activeChannel
+                                      ? 'bg-amber-500/10 text-foreground'
+                                      : channel.hasMessages
+                                      ? 'text-foreground/50 hover:bg-muted hover:text-foreground/70'
+                                      : 'text-foreground/25 cursor-not-allowed'
+                                  }`}
+                                >
+                                  {channel.starred && <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />}
+                                  <Hash className="w-3.5 h-3.5" />
+                                  <span>{channel.name}</span>
+                                  {channel.hasMessages && channel.name !== activeChannel && (
+                                    <span className="ml-auto w-2 h-2 rounded-full bg-amber-400/60" />
+                                  )}
+                                  {channel.name === activeChannel && (
+                                    <span className="ml-auto text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400">Active</span>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
 
                     {/* Chat tabs */}
-                    <div className="flex items-center gap-1 px-4 py-2 border-b border-white/[0.06]">
+                    <div className="flex items-center gap-1 px-4 py-2 border-b border-border">
                       {[
                         { icon: MessageSquare, label: 'Messages', active: true },
                         { icon: CheckCircle2, label: 'Tasks', active: false },
                         { icon: FileText, label: 'Files', active: false },
-                        { icon: GitBranch, label: 'Branches', active: false },
+                        { icon: StickyNote, label: 'Notes', active: false },
                         { icon: Sparkles, label: 'Agent Creations', active: false },
                       ].map((tab) => (
                         <div
                           key={tab.label}
                           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] ${
                             tab.active
-                              ? 'bg-white/[0.06] text-white'
-                              : 'text-white/30 hover:text-white/50'
+                              ? 'bg-muted/60 text-foreground'
+                              : 'text-foreground/30 hover:text-foreground/50'
                           }`}
                         >
                           <tab.icon className="w-3.5 h-3.5" />
@@ -797,7 +643,7 @@ export function HeroSection() {
                     </div>
 
                     {/* Messages */}
-                    <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hidden">
+                    <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-3 sm:p-4 space-y-4 scrollbar-hidden">
                       <AnimatePresence mode="popLayout">
                         {currentMessages
                           .filter((msg) => visibleMessages.includes(msg.id))
@@ -807,44 +653,113 @@ export function HeroSection() {
                               variants={messageVariants}
                               initial="hidden"
                               animate="visible"
-                              className="flex gap-3"
+                              className="flex gap-2 sm:gap-3 min-w-0"
                             >
                               {/* Avatar */}
                               <div className="shrink-0">
                                 {message.isAgent ? (
                                   <SiriOrbAvatar
-                                    size={36}
+                                    size={28}
                                     variant={getAgentVariant(message.user)}
-                                    orbState={getAgentOrbState(message)}
+                                    orbState={getAgentOrbState(
+                                      message,
+                                      !streamingComplete[message.id] && Boolean(streamingText[message.id]),
+                                      streamingComplete[message.id]
+                                    )}
                                     disableFloating={true}
-                                    className="rounded-lg"
+                                    className="rounded-lg sm:scale-125 origin-top-left"
                                   />
                                 ) : (
                                   <img
                                     src={message.avatar!}
                                     alt={message.user}
-                                    className="w-9 h-9 rounded-lg object-cover"
+                                    className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg object-cover"
                                   />
                                 )}
                               </div>
 
                               {/* Content */}
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <span className="text-[12px] font-semibold text-white">
+                              <div className="flex-1 min-w-0 overflow-hidden">
+                                <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-1">
+                                  <span className="text-[11px] sm:text-[12px] font-semibold text-foreground truncate max-w-[100px] sm:max-w-none">
                                     {message.user}
                                   </span>
                                   {message.isAgent && (
-                                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-medium">
-                                      AI Agent
+                                    <span className="text-[8px] sm:text-[9px] px-1 sm:px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-medium shrink-0">
+                                      AI
                                     </span>
                                   )}
-                                  <span className="text-[10px] text-white/30">{message.time}</span>
+                                  <span className="text-[9px] sm:text-[10px] text-foreground/30 shrink-0">{message.time}</span>
                                 </div>
 
-                                <div className="text-[12px] text-white/60 leading-relaxed">
-                                  {message.content.map((part, i) => {
-                                    if (part.type === 'mention') {
+                                <div className="text-[11px] sm:text-[12px] text-foreground/60 leading-relaxed break-words overflow-hidden">
+                                  {(() => {
+                                    // For agent messages, we need to distribute streamed text across text parts
+                                    if (message.isAgent) {
+                                      const isStreaming = !streamingComplete[message.id];
+                                      const streamedText = streamingText[message.id] || '';
+                                      
+                                      // Collect all text parts and their positions
+                                      const textParts: Array<{ index: number; text: string; startPos: number; endPos: number }> = [];
+                                      let currentPos = 0;
+                                      
+                                      message.content.forEach((part, idx) => {
+                                        if (part.type === 'text' && part.text) {
+                                          textParts.push({
+                                            index: idx,
+                                            text: part.text,
+                                            startPos: currentPos,
+                                            endPos: currentPos + part.text.length,
+                                          });
+                                          currentPos += part.text.length;
+                                        }
+                                      });
+                                      
+                                      let streamedPos = 0;
+                                      
+                                      return message.content.map((part, i) => {
+                                        // Handle streaming text for agent messages
+                                        if (part.type === 'text' && part.text) {
+                                          const textPart = textParts.find(tp => tp.index === i);
+                                          if (!textPart) {
+                                            return <span key={i}>{part.text}</span>;
+                                          }
+                                          
+                                          const partStart = textPart.startPos;
+                                          const partEnd = textPart.endPos;
+                                          
+                                          // Calculate how much of this part to show
+                                          let displayText = '';
+                                          if (isStreaming && streamedText) {
+                                            const streamedLength = streamedText.length;
+                                            if (streamedLength > partStart) {
+                                              const partStreamedLength = Math.min(streamedLength - partStart, part.text.length);
+                                              displayText = part.text.substring(0, Math.max(0, partStreamedLength));
+                                            }
+                                          } else {
+                                            displayText = part.text;
+                                          }
+                                          
+                                          const showCursor = isStreaming && streamedText && streamedText.length > partStart && streamedText.length < partEnd;
+                                          
+                                          return (
+                                            <span key={i} className="inline">
+                                              {displayText}
+                                              {showCursor && (
+                                                <span 
+                                                  className="inline-block ml-0.5 align-middle text-foreground/80"
+                                                  style={{
+                                                    animation: 'blink 1s ease-in-out infinite',
+                                                  }}
+                                                >
+                                                  ▮
+                                                </span>
+                                              )}
+                                            </span>
+                                          );
+                                        }
+                                        
+                                        if (part.type === 'mention') {
                                       return (
                                         <span
                                           key={i}
@@ -855,28 +770,35 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'list' && 'items' in part) {
+                                      // Only show list if streaming is complete or it's a user message
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       return (
                                         <ul key={i} className="my-2 space-y-1 ml-1">
                                           {(part.items as string[]).map((item, j) => (
                                             <li key={j} className="flex items-start gap-2">
                                               <span className="text-amber-400 mt-1">•</span>
-                                              <span className="text-white/70">{item}</span>
+                                              <span className="text-foreground/70">{item}</span>
                                             </li>
                                           ))}
                                         </ul>
                                       );
                                     }
                                     if (part.type === 'metrics' && 'items' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       const items = part.items as Array<{label: string; value: string; change: string}>;
                                       return (
-                                        <div key={i} className={`my-2 grid gap-2 ${items.length === 4 ? 'grid-cols-4' : 'grid-cols-5'}`}>
+                                        <div key={i} className={`my-2 grid gap-1.5 sm:gap-2 grid-cols-2 ${items.length === 4 ? 'sm:grid-cols-4' : 'sm:grid-cols-4 lg:grid-cols-5'}`}>
                                           {items.map((item, j) => (
                                             <div
                                               key={j}
-                                              className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-center"
+                                              className="p-2 rounded-lg bg-muted/30 border border-border text-center"
                                             >
-                                              <div className="text-[10px] text-white/40 mb-1">{item.label}</div>
-                                              <div className="text-[13px] text-white font-semibold">{item.value}</div>
+                                              <div className="text-[10px] text-foreground/40 mb-1">{item.label}</div>
+                                              <div className="text-[13px] text-foreground font-semibold">{item.value}</div>
                                               {item.change && (
                                                 <div
                                                   className={`text-[9px] mt-0.5 ${
@@ -884,7 +806,7 @@ export function HeroSection() {
                                                       ? 'text-emerald-400'
                                                       : item.change.startsWith('-')
                                                       ? 'text-emerald-400'
-                                                      : 'text-white/30'
+                                                      : 'text-foreground/30'
                                                   }`}
                                                 >
                                                   {item.change}
@@ -896,12 +818,15 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'images' && 'items' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       return (
-                                        <div key={i} className="my-2 flex gap-2">
+                                        <div key={i} className="my-2 flex flex-wrap gap-2">
                                           {(part.items as Array<{image?: string; placeholder?: string; color?: string; wide?: boolean}>).map((item, j) => (
                                             <div
                                               key={j}
-                                              className={`relative ${item.wide ? 'w-48 h-24' : 'w-20 h-20'} rounded-lg overflow-hidden group`}
+                                              className={`relative ${item.wide ? 'w-full sm:w-48 h-20 sm:h-24' : 'w-16 sm:w-20 h-16 sm:h-20'} rounded-lg overflow-hidden group`}
                                             >
                                               {item.image ? (
                                                 <img src={item.image} alt="Generated" className="absolute inset-0 w-full h-full object-cover" />
@@ -910,7 +835,7 @@ export function HeroSection() {
                                               )}
                                               <div className="absolute inset-0 bg-black/20" />
                                               {item.placeholder && (
-                                                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-medium text-white/90">{item.placeholder}</span>
+                                                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-medium text-foreground/90">{item.placeholder}</span>
                                               )}
                                               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </div>
@@ -919,12 +844,15 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'videos' && 'items' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       return (
-                                        <div key={i} className="my-2 flex gap-2">
+                                        <div key={i} className="my-2 flex flex-wrap gap-2">
                                           {(part.items as Array<{image?: string; placeholder?: string; color?: string; duration: string}>).map((item, j) => (
                                             <div
                                               key={j}
-                                              className="relative w-20 h-20 rounded-lg overflow-hidden group cursor-pointer"
+                                              className="relative w-16 sm:w-20 h-16 sm:h-20 rounded-lg overflow-hidden group cursor-pointer"
                                             >
                                               {item.image ? (
                                                 <img src={item.image} alt="Video thumbnail" className="absolute inset-0 w-full h-full object-cover" />
@@ -936,7 +864,7 @@ export function HeroSection() {
                                                 <div className="w-7 h-7 rounded-full bg-white/90 flex items-center justify-center mb-1 shadow-lg">
                                                   <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-[#0A0A0B] border-b-[6px] border-b-transparent ml-1" />
                                                 </div>
-                                                <span className="text-[9px] font-medium text-white/90">{item.duration}</span>
+                                                <span className="text-[9px] font-medium text-foreground/90">{item.duration}</span>
                                               </div>
                                               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </div>
@@ -945,18 +873,21 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'actions' && 'items' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       return (
                                         <div key={i} className="my-2 space-y-1.5">
                                           {(part.items as Array<{icon: string; action: string; status: string; detail: string}>).map((item, j) => (
                                             <div
                                               key={j}
-                                              className="flex items-center gap-2 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06]"
+                                              className="flex flex-wrap items-center gap-1.5 sm:gap-2 p-2 rounded-lg bg-muted/30 border border-border"
                                             >
                                               <span className="text-[12px]">{item.icon}</span>
-                                              <span className="text-white/80 font-medium text-[11px]">{item.action}</span>
-                                              <span className="text-white/40 text-[10px]">•</span>
-                                              <span className="text-white/40 text-[10px] truncate">{item.detail}</span>
-                                              <span className={`ml-auto text-[9px] px-1.5 py-0.5 rounded ${
+                                              <span className="text-foreground/80 font-medium text-[11px]">{item.action}</span>
+                                              <span className="hidden sm:inline text-foreground/40 text-[10px]">•</span>
+                                              <span className="hidden sm:inline text-foreground/40 text-[10px] truncate max-w-[150px]">{item.detail}</span>
+                                              <span className={`ml-auto text-[9px] px-1.5 py-0.5 rounded shrink-0 ${
                                                 item.status === 'success' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-blue-500/20 text-blue-400'
                                               }`}>
                                                 {item.status === 'success' ? '✓ Done' : 'Info'}
@@ -967,16 +898,19 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'keywords' && 'items' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+                                      
                                       return (
                                         <div key={i} className="my-2 space-y-1.5">
                                           {(part.items as Array<{keyword: string; volume: string; difficulty: string; intent: string}>).map((item, j) => (
                                             <div
                                               key={j}
-                                              className="flex items-center gap-3 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06]"
+                                              className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 p-2 rounded-lg bg-muted/30 border border-border"
                                             >
-                                              <span className="flex-1 text-white/80 text-[11px] font-medium truncate">{item.keyword}</span>
+                                              <span className="flex-1 text-foreground/80 text-[11px] font-medium truncate">{item.keyword}</span>
                                               <div className="flex items-center gap-2 shrink-0">
-                                                <span className="text-[10px] text-white/40">{item.volume}/mo</span>
+                                                <span className="text-[10px] text-foreground/40">{item.volume}/mo</span>
                                                 <span className={`text-[9px] px-1.5 py-0.5 rounded ${
                                                   parseInt(item.difficulty) < 25 ? 'bg-emerald-500/20 text-emerald-400' :
                                                   parseInt(item.difficulty) < 40 ? 'bg-amber-500/20 text-amber-400' :
@@ -994,26 +928,158 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'code' && 'content' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+
                                       return (
-                                        <div key={i} className="my-2 p-3 rounded-lg bg-black/40 border border-white/[0.06] font-mono text-[10px] text-emerald-400/90 whitespace-pre-line">
+                                        <div key={i} className="my-2 p-2 sm:p-3 rounded-lg bg-black/40 border border-border font-mono text-[9px] sm:text-[10px] text-emerald-400/90 whitespace-pre-wrap break-all overflow-hidden">
                                           {part.content}
                                         </div>
                                       );
                                     }
-                                    return <span key={i}>{part.text}</span>;
-                                  })}
+                                    if (part.type === 'preview' && 'url' in part) {
+                                      const shouldShow = !message.isAgent || streamingComplete[message.id];
+                                      if (!shouldShow) return null;
+
+                                      const previewData = part as { type: string; url: string; title: string; description: string };
+                                      return (
+                                        <div key={i} className="my-3">
+                                          <a
+                                            href={previewData.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block group rounded-xl overflow-hidden border border-border hover:border-border bg-card transition-all duration-300"
+                                          >
+                                            {/* Mini Dashboard UI */}
+                                            <div className="relative p-3 bg-gradient-to-br from-card to-muted">
+                                              {/* Dashboard Header */}
+                                              <div className="flex items-center justify-between mb-3">
+                                                <div className="flex items-center gap-2">
+                                                  <div className="w-5 h-5 rounded bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                                                    <span className="text-[7px] font-bold text-foreground">A</span>
+                                                  </div>
+                                                  <span className="text-[9px] font-semibold text-foreground">Acme Agency Report</span>
+                                                </div>
+                                                <div className="flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/30">
+                                                  <div className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                                                  <span className="text-[7px] font-medium text-emerald-400">LIVE</span>
+                                                </div>
+                                              </div>
+
+                                              {/* Mini Metrics Row */}
+                                              <div className="grid grid-cols-4 gap-1.5 mb-3">
+                                                {[
+                                                  { label: 'Revenue', value: '$124K', color: 'text-emerald-400' },
+                                                  { label: 'ROAS', value: '4.8x', color: 'text-blue-400' },
+                                                  { label: 'Visitors', value: '47K', color: 'text-violet-400' },
+                                                  { label: 'Conv.', value: '3.2%', color: 'text-amber-400' },
+                                                ].map((metric) => (
+                                                  <div key={metric.label} className="p-1.5 rounded bg-muted/30 border border-border">
+                                                    <div className="text-[6px] text-foreground/40 uppercase">{metric.label}</div>
+                                                    <div className={`text-[10px] font-semibold ${metric.color}`}>{metric.value}</div>
+                                                  </div>
+                                                ))}
+                                              </div>
+
+                                              {/* Mini Chart */}
+                                              <div className="p-2 rounded bg-white/[0.02] border border-border mb-2">
+                                                <div className="flex items-center justify-between mb-1.5">
+                                                  <span className="text-[7px] text-foreground/50">Revenue by Channel</span>
+                                                  <span className="text-[6px] text-foreground/30">Last 30 days</span>
+                                                </div>
+                                                <div className="flex items-end gap-1 h-8">
+                                                  {[65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88, 72].map((height, idx) => (
+                                                    <div
+                                                      key={idx}
+                                                      className="flex-1 rounded-sm bg-gradient-to-t from-amber-500/80 to-amber-400/60"
+                                                      style={{ height: `${height}%` }}
+                                                    />
+                                                  ))}
+                                                </div>
+                                              </div>
+
+                                              {/* Mini Table */}
+                                              <div className="rounded bg-white/[0.02] border border-border overflow-hidden">
+                                                <div className="grid grid-cols-3 gap-2 px-2 py-1 bg-muted/30 border-b border-border">
+                                                  <span className="text-[6px] text-foreground/40 uppercase">Channel</span>
+                                                  <span className="text-[6px] text-foreground/40 uppercase text-right">Revenue</span>
+                                                  <span className="text-[6px] text-foreground/40 uppercase text-right">ROI</span>
+                                                </div>
+                                                {[
+                                                  { channel: 'Facebook Ads', revenue: '$48.2K', roi: '+312%' },
+                                                  { channel: 'Google Ads', revenue: '$31.4K', roi: '+245%' },
+                                                  { channel: 'Email', revenue: '$28.1K', roi: '+890%' },
+                                                ].map((row) => (
+                                                  <div key={row.channel} className="grid grid-cols-3 gap-2 px-2 py-1 border-b border-white/[0.04] last:border-0">
+                                                    <span className="text-[7px] text-foreground/70">{row.channel}</span>
+                                                    <span className="text-[7px] text-foreground/90 text-right font-medium">{row.revenue}</span>
+                                                    <span className="text-[7px] text-emerald-400 text-right">{row.roi}</span>
+                                                  </div>
+                                                ))}
+                                              </div>
+
+                                              {/* e2b badge */}
+                                              <div className="absolute bottom-2 right-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-black/50 backdrop-blur-sm">
+                                                <span className="text-[7px] text-foreground/50">Powered by</span>
+                                                <span className="text-[7px] text-foreground/70 font-medium">e2b.dev</span>
+                                              </div>
+                                            </div>
+
+                                            {/* Card Footer */}
+                                            <div className="p-2.5 border-t border-border bg-white/[0.02]">
+                                              <div className="flex items-center justify-between gap-2">
+                                                <div className="min-w-0">
+                                                  <div className="flex items-center gap-1.5">
+                                                    <h4 className="text-[11px] font-semibold text-foreground truncate group-hover:text-amber-300 transition-colors">
+                                                      {previewData.title}
+                                                    </h4>
+                                                    <ArrowRight className="w-3 h-3 text-foreground/30 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+                                                  </div>
+                                                  <p className="text-[9px] text-foreground/40 mt-0.5 truncate">
+                                                    {previewData.url}
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </div>
+                                      );
+                                    }
+                                        return null;
+                                      });
+                                    }
+                                    
+                                    // For non-agent messages, render normally
+                                    return message.content.map((part, i) => {
+                                      if (part.type === 'mention') {
+                                        return (
+                                          <span
+                                            key={i}
+                                            className="inline-flex items-center px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-medium"
+                                          >
+                                            {part.text}
+                                          </span>
+                                        );
+                                      }
+                                      if (part.type === 'text' && part.text) {
+                                        return <span key={i}>{part.text}</span>;
+                                      }
+                                      // Handle other content types for non-agent messages (simplified)
+                                      return null;
+                                    });
+                                  })()}
                                 </div>
 
-                                {/* Reactions */}
-                                {message.reactions && (
+                                {/* Reactions - only show when streaming is complete */}
+                                {message.reactions && (!message.isAgent || streamingComplete[message.id]) && (
                                   <div className="flex gap-1.5 mt-2">
                                     {message.reactions.map((reaction, i) => (
                                       <div
                                         key={i}
-                                        className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/[0.05] border border-white/[0.08]"
+                                        className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/[0.05] border border-border"
                                       >
                                         <span className="text-[11px]">{reaction.emoji}</span>
-                                        <span className="text-[10px] text-white/50">{reaction.count}</span>
+                                        <span className="text-[10px] text-foreground/50">{reaction.count}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -1030,7 +1096,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="flex items-center gap-2 text-[11px] text-white/40"
+                            className="flex items-center gap-2 text-[11px] text-foreground/40"
                           >
                             <div className="flex gap-1">
                               <div className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce" style={{ animationDelay: '0ms' }} />
@@ -1046,15 +1112,45 @@ export function HeroSection() {
                       <div ref={messagesEndRef} />
                     </div>
 
-                    {/* Message input */}
-                    <div className="p-3 border-t border-white/[0.06]">
-                      <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-                        <span className="text-[11px] text-white/30">Message #{activeChannel}</span>
+                    {/* Interactive suggestion chips */}
+                    <div className="px-3 pt-3 pb-2 border-t border-border">
+                      <div className="flex items-center gap-1.5 mb-2 overflow-x-auto scrollbar-hidden">
+                        <span className="text-[10px] text-foreground/30 shrink-0">Try:</span>
+                        {(activeChannel === 'seo-campaigns' ? [
+                          { label: 'Run site audit', icon: '🔍', prompt: '@SEO Specialist run a technical audit on our website' },
+                          { label: 'Find keywords', icon: '🎯', prompt: '@SEO Specialist find low competition keywords for our niche' },
+                          { label: 'Check rankings', icon: '📊', prompt: '@SEO Specialist show me our current keyword rankings' },
+                          { label: 'Fix errors', icon: '🔧', prompt: '@SEO Specialist fix the critical SEO issues you found' },
+                        ] : activeChannel === 'reports' ? [
+                          { label: 'Monthly report', icon: '📊', prompt: '@Data Analyst generate a full monthly performance report' },
+                          { label: 'ROI analysis', icon: '💰', prompt: '@Data Analyst create an ROI breakdown report by channel' },
+                          { label: 'Competitor report', icon: '🎯', prompt: '@Data Analyst generate a competitor analysis report' },
+                          { label: 'Client dashboard', icon: '📈', prompt: '@Data Analyst build an interactive client dashboard' },
+                        ] : [
+                          { label: 'Check ad performance', icon: '📈', prompt: '@Data Analyst pull our Facebook Ads metrics for this week' },
+                          { label: 'Generate video ads', icon: '🎬', prompt: '@Graphic Designer create 3 new video ads for retargeting' },
+                          { label: 'Update WordPress', icon: '🌐', prompt: '@Content Writer update the landing page headline and copy' },
+                          { label: 'Analyze ROI', icon: '💰', prompt: '@Data Analyst show me the ROI breakdown by campaign' },
+                        ]).map((chip) => (
+                          <button
+                            key={chip.label}
+                            onClick={() => handleChannelChange(activeChannel)}
+                            className="group flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-muted/30 border border-border hover:bg-muted hover:border-border transition-all duration-200 shrink-0"
+                          >
+                            <span className="text-[11px]">{chip.icon}</span>
+                            <span className="text-[10px] text-foreground/50 group-hover:text-foreground/70 whitespace-nowrap">{chip.label}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Message input */}
+                      <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/30 border border-border">
+                        <span className="text-[11px] text-foreground/30">Message #{activeChannel}</span>
                         <div className="ml-auto flex items-center gap-2">
                           <div className="w-5 h-5 rounded bg-white/[0.05] flex items-center justify-center">
-                            <span className="text-[10px] text-white/30">@</span>
+                            <span className="text-[10px] text-foreground/30">@</span>
                           </div>
-                          <Send className="w-4 h-4 text-white/20" />
+                          <Send className="w-4 h-4 text-foreground/20" />
                         </div>
                       </div>
                     </div>
@@ -1069,15 +1165,15 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-24 w-full"
           >
-            <p className="text-center text-[11px] font-medium text-white/20 uppercase tracking-[0.2em] mb-8">
+            <p className="text-center text-[11px] font-medium text-foreground/20 uppercase tracking-[0.2em] mb-8">
               Trusted by leading agencies worldwide
             </p>
 
             {/* Logo marquee */}
             <div className="relative overflow-hidden">
               {/* Gradient masks */}
-              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0A0A0B] to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0A0A0B] to-transparent z-10" />
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
               <motion.div
                 className="flex items-center gap-16"
@@ -1097,7 +1193,7 @@ export function HeroSection() {
                     key={`${logo.name}-${i}`}
                     className={`${logo.width} shrink-0 flex items-center justify-center`}
                   >
-                    <span className="text-sm font-semibold text-white/15 tracking-wide whitespace-nowrap">
+                    <span className="text-sm font-semibold text-foreground/15 tracking-wide whitespace-nowrap">
                       {logo.name}
                     </span>
                   </div>
@@ -1109,7 +1205,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

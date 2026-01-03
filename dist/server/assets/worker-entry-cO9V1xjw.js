@@ -816,6 +816,7 @@ globalThis.PerformanceMeasure = PerformanceMeasure;
 globalThis.PerformanceObserver = PerformanceObserver;
 globalThis.PerformanceObserverEntryList = PerformanceObserverEntryList;
 globalThis.PerformanceResourceTiming = PerformanceResourceTiming;
+var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x2) {
   return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default") ? x2["default"] : x2;
 }
@@ -19810,7 +19811,7 @@ function getResponse() {
   return event.res;
 }
 async function getStartManifest() {
-  const { tsrStartManifest } = await import("./_tanstack-start-manifest_v-ChinYQPG.js");
+  const { tsrStartManifest } = await import("./_tanstack-start-manifest_v-DkSlrJ_y.js");
   const startManifest = tsrStartManifest();
   const rootRoute = startManifest.routes[rootRouteId] = startManifest.routes[rootRouteId] || {};
   rootRoute.assets = rootRoute.assets || [];
@@ -20286,7 +20287,7 @@ let cachedRouterEntry = null;
 let cachedManifest = null;
 async function getEntries() {
   if (cachedRouterEntry === null) {
-    cachedRouterEntry = await import("./router-D9PG7m2j.js").then((n) => n.r);
+    cachedRouterEntry = await import("./router-CtBYNN-S.js").then((n) => n.r);
   }
   if (cachedStartEntry === null) {
     cachedStartEntry = await import("./start-HYkvq4Ni.js");
@@ -20655,11 +20656,14 @@ export {
   jsxRuntimeExports as n,
   isModuleNotFoundError as o,
   RouterCore as p,
-  React as q,
+  requireShim as q,
   rootRouteId as r,
-  workerEntry as s,
+  commonjsGlobal as s,
   trimPathLeft as t,
   useRouterState as u,
-  createServerEntry as v,
-  warning as w
+  React as v,
+  warning as w,
+  getDefaultExportFromCjs as x,
+  workerEntry as y,
+  createServerEntry as z
 };

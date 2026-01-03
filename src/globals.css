@@ -24,7 +24,7 @@
     --accent-foreground: 0 0% 4%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
+    --border: 0 0% 75%;
     --input: 0 0% 90%;
     --ring: 0 0% 4%;
     --radius: 0.625rem;
@@ -222,5 +222,15 @@
 
   .preserve-3d {
     transform-style: preserve-3d;
+  }
+
+  /* Streaming cursor animation (matching Vercel AI SDK) */
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
   }
 }

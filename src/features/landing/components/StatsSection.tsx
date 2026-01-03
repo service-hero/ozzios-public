@@ -3,10 +3,10 @@ import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
 const stats = [
-  { value: 14, suffix: '', label: 'AI Agents', description: 'Specialized for marketing' },
-  { value: 77, suffix: '+', label: 'Native Tools', description: 'Built into every agent' },
-  { value: 500, suffix: 'K+', label: 'Tasks Completed', description: 'By AI employees' },
-  { value: 99.9, suffix: '%', label: 'Uptime SLA', description: 'Enterprise reliability' },
+  { value: 40, suffix: '+', label: 'Hours Saved', description: 'Every single week' },
+  { value: 15, suffix: '-25K', label: 'Saved Per Hire', description: 'You don\'t have to make' },
+  { value: 8, suffix: '+', label: 'Tools Replaced', description: 'Cancel them all' },
+  { value: 0, suffix: '%', label: 'Turnover', description: 'They never quit' },
 ];
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
@@ -71,9 +71,9 @@ export function StatsSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="metrics" className="relative py-32 lg:py-40 bg-[#0A0A0B]">
+    <section id="metrics" className="relative py-32 lg:py-40 bg-background">
       {/* Subtle divider line at top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         <motion.div
@@ -86,11 +86,11 @@ export function StatsSection() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-20">
             <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
-              By the numbers
+              The bottom line
             </p>
-            <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-white">
-              Performance you can
-              <span className="text-white/30"> measure</span>
+            <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground">
+              Real impact you can
+              <span className="text-foreground/30"> measure</span>
             </h2>
           </motion.div>
 
@@ -107,13 +107,13 @@ export function StatsSection() {
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-white/[0.06] hidden lg:block" />
                 )}
 
-                <div className="text-[clamp(2.5rem,6vw,4rem)] font-semibold tracking-tight text-white leading-none mb-3">
+                <div className="text-[clamp(2.5rem,6vw,4rem)] font-semibold tracking-tight text-foreground leading-none mb-3">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[14px] font-medium text-white/60 mb-1">
+                <div className="text-[14px] font-medium text-foreground/60 mb-1">
                   {stat.label}
                 </div>
-                <div className="text-[12px] text-white/30">
+                <div className="text-[12px] text-foreground/30">
                   {stat.description}
                 </div>
               </motion.div>
@@ -125,22 +125,22 @@ export function StatsSection() {
             variants={itemVariants}
             className="mt-20 flex justify-center"
           >
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.02] border border-white/[0.06]">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-muted/20 border border-white/[0.06]">
               <div className="flex -space-x-2">
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-white/10 to-white/5 border-2 border-[#0A0A0B] flex items-center justify-center"
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-white/10 to-white/5 border-2 border-background flex items-center justify-center"
                   >
-                    <span className="text-[10px] font-medium text-white/40">
+                    <span className="text-[10px] font-medium text-foreground/40">
                       {['S', 'M', 'A', 'J'][i]}
                     </span>
                   </div>
                 ))}
               </div>
               <div className="h-4 w-px bg-white/10" />
-              <span className="text-[13px] text-white/40">
-                Join <span className="text-white/70 font-medium">500+</span> agencies
+              <span className="text-[13px] text-foreground/40">
+                Join <span className="text-foreground/70 font-medium">500+</span> agencies
               </span>
             </div>
           </motion.div>
@@ -148,7 +148,7 @@ export function StatsSection() {
       </div>
 
       {/* Subtle divider line at bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
 }
