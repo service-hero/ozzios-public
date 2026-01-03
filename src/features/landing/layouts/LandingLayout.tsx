@@ -1,5 +1,6 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import { AudienceProvider } from '../contexts/AudienceContext';
 
 interface LandingLayoutProps {
   children: React.ReactNode;
@@ -7,7 +8,8 @@ interface LandingLayoutProps {
 
 export function LandingLayout({ children }: LandingLayoutProps) {
   return (
-    <div className="relative min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+    <AudienceProvider>
+      <div className="relative min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       {/* Premium noise texture overlay */}
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.015]"
@@ -33,5 +35,6 @@ export function LandingLayout({ children }: LandingLayoutProps) {
         <Footer />
       </div>
     </div>
+    </AudienceProvider>
   );
 }

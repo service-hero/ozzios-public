@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-
-const stats = [
-  { value: 40, suffix: '+', label: 'Hours Saved', description: 'Every single week' },
-  { value: 15, suffix: '-25K', label: 'Saved Per Hire', description: 'You don\'t have to make' },
-  { value: 8, suffix: '+', label: 'Tools Replaced', description: 'Cancel them all' },
-  { value: 0, suffix: '%', label: 'Turnover', description: 'They never quit' },
-];
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -67,6 +61,8 @@ const itemVariants = {
 };
 
 export function StatsSection() {
+  const { audience } = useAudience();
+  const content = audienceContent[audience].stats;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -86,17 +82,17 @@ export function StatsSection() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-20">
             <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
-              The bottom line
+              {content.sectionLabel}
             </p>
             <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground">
-              Real impact you can
-              <span className="text-foreground/30"> measure</span>
+              {content.headline[0]}
+              <span className="text-foreground/30"> {content.headline[1]}</span>
             </h2>
           </motion.div>
 
           {/* Stats grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {stats.map((stat, index) => (
+            {content.stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 variants={itemVariants}
@@ -140,7 +136,7 @@ export function StatsSection() {
               </div>
               <div className="h-4 w-px bg-white/10" />
               <span className="text-[13px] text-foreground/40">
-                Join <span className="text-foreground/70 font-medium">500+</span> agencies
+                {content.socialProof}
               </span>
             </div>
           </motion.div>

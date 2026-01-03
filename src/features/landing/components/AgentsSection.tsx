@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
 import { SiriOrbState } from '@/shared/components/ui/smoothui/ui/SiriOrb';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 const channelAgents = [
   { name: 'Ozzi', role: 'Onboarding Wizard', icon: Sparkles, description: 'Workspace setup, team building, feature education', variant: 'onboarding' },
@@ -63,6 +64,8 @@ const itemVariants = {
 };
 
 export function AgentsSection() {
+  const { audience } = useAudience();
+  const content = audienceContent[audience].agents;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeAgent, setActiveAgent] = useState<string | null>(null);
@@ -88,16 +91,16 @@ export function AgentsSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
             <Brain className="h-4 w-4 text-indigo-400" />
             <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">
-              AI Workforce
+              {content.sectionLabel}
             </span>
           </div>
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
-            Meet your new team.
+            {content.headline[0]}
             <br />
-            <span className="text-foreground/30">They never ask for a raise.</span>
+            <span className="text-foreground/30">{content.headline[1]}</span>
           </h2>
           <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
-            They learn your brand, remember every conversation, and work around the clock without overtime.
+            {content.subheadline}
           </p>
         </motion.div>
 

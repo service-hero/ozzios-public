@@ -1,1 +1,0 @@
-import{j as o,O as t}from"./main-CXl3PiIN.js";import{L as r}from"./LandingLayout-BRJAcfwv.js";import"./utils-CDN07tui.js";import"./button-qoRsCgax.js";import"./createLucideIcon-BOo11lU6.js";import"./proxy-hby1Bdtu.js";function e(){return o.jsx(r,{children:o.jsx(t,{})})}export{e as component};

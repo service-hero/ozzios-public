@@ -9,44 +9,15 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
-const steps = [
-  {
-    number: '01',
-    icon: Rocket,
-    title: 'Fire your agency today',
-    description: 'Stop paying for black-box retainers. Set up your AI workforce in minutes and own the results.',
-    color: 'amber',
-    benefits: ['5-minute setup', 'See everything your AI does'],
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
-  },
-  {
-    number: '02',
-    icon: Bot,
-    title: 'Hire employees who never leave',
-    description: '14 AI employees join your team. They learn your brand, remember everything, and never take clients when they go.',
-    color: 'indigo',
-    benefits: ['$0 turnover cost', 'Infinite institutional memory'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format',
-  },
-  {
-    number: '03',
-    icon: Users,
-    title: 'Work runs while you sleep',
-    description: 'Campaigns launch at 3am. Reports generate overnight. You wake up to results, not to-do lists.',
-    color: 'emerald',
-    benefits: ['24/7 automation', 'No night shifts'],
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format',
-  },
-  {
-    number: '04',
-    icon: TrendingUp,
-    title: 'Grow without the hiring pain',
-    description: 'Scale revenue without scaling headcount. Add clients, not overhead.',
-    color: 'violet',
-    benefits: ['Revenue not capped by seats', '65% fewer hires'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
-  },
+const stepIcons = [Rocket, Bot, Users, TrendingUp];
+const stepColors = ['amber', 'indigo', 'emerald', 'violet'];
+const stepImages = [
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
 ];
 
 const colorConfig = {
@@ -96,6 +67,8 @@ const itemVariants = {
 };
 
 export function FeaturesSection() {
+  const { audience } = useAudience();
+  const content = audienceContent[audience].howItWorks;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -113,15 +86,15 @@ export function FeaturesSection() {
           className="mb-20 max-w-3xl"
         >
           <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
-            How it works
+            {content.sectionLabel}
           </p>
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
-            The hiring treadmill
+            {content.headline[0]}
             <br />
-            <span className="text-foreground/30">stops here.</span>
+            <span className="text-foreground/30">{content.headline[1]}</span>
           </h2>
           <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
-            Stop paying $15-25K per hire. Stop losing institutional knowledge. Start building a team that stays forever.
+            {content.subheadline}
           </p>
         </motion.div>
 
@@ -133,9 +106,11 @@ export function FeaturesSection() {
           variants={containerVariants}
           className="space-y-4"
         >
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            const colors = colorConfig[step.color as keyof typeof colorConfig];
+          {content.steps.map((step, index) => {
+            const Icon = stepIcons[index];
+            const color = stepColors[index];
+            const image = stepImages[index];
+            const colors = colorConfig[color as keyof typeof colorConfig];
             const isEven = index % 2 === 0;
 
             return (
@@ -151,7 +126,7 @@ export function FeaturesSection() {
                   {/* Image side */}
                   <div className="relative lg:w-2/5 h-48 lg:h-auto min-h-[200px]">
                     <img
-                      src={step.image}
+                      src={image}
                       alt={step.title}
                       className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity"
                     />
@@ -170,7 +145,7 @@ export function FeaturesSection() {
                       isEven ? 'left-6' : 'right-6',
                       colors.number
                     )}>
-                      {step.number}
+                      {String(index + 1).padStart(2, '0')}
                     </div>
                   </div>
 
@@ -186,7 +161,7 @@ export function FeaturesSection() {
                       </div>
                       <div className="flex-1">
                         <div className={cn('text-[12px] font-semibold mb-2', colors.text)}>
-                          Step {step.number}
+                          Step {String(index + 1).padStart(2, '0')}
                         </div>
                         <h3 className="text-xl lg:text-2xl font-display text-foreground mb-3">
                           {step.title}

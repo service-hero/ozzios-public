@@ -11,6 +11,7 @@ import {
   Shield,
   ArrowUpRight,
 } from 'lucide-react';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,6 +34,9 @@ const itemVariants = {
 };
 
 export function BentoSection() {
+  const { audience } = useAudience();
+  const content = audienceContent[audience].bento;
+
   return (
     <section
       id="features"
@@ -56,15 +60,15 @@ export function BentoSection() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="mb-20 max-w-3xl">
             <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
-              Platform
+              {content.sectionLabel}
             </p>
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
-              Cancel 8+ subscriptions.
+              {content.headline[0]}
               <br />
-              <span className="text-foreground/30">One platform does it all.</span>
+              <span className="text-foreground/30">{content.headline[1]}</span>
             </h2>
             <p className="text-lg text-foreground/40 leading-relaxed max-w-xl">
-              Stop paying for tools that don't talk to each other. Your AI team works in one unified workspace.
+              {content.subheadline}
             </p>
           </motion.div>
 
@@ -90,14 +94,14 @@ export function BentoSection() {
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6 w-fit">
                       <Bot className="h-4 w-4 text-amber-400" />
                       <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
-                        AI Workforce
+                        {content.cards.aiWorkforce.badge}
                       </span>
                     </div>
                     <h3 className="text-2xl lg:text-3xl font-display text-foreground mb-3">
-                      Employees who never quit
+                      {content.cards.aiWorkforce.title}
                     </h3>
                     <p className="text-[15px] text-foreground/40 leading-relaxed mb-6">
-                      14 AI employees working 24/7. They remember everything, never call in sick, and never take your best clients when they leave.
+                      {content.cards.aiWorkforce.description}
                     </p>
 
                     {/* Agent visualization */}
@@ -148,10 +152,10 @@ export function BentoSection() {
                     <Layers className="h-5 w-5 text-blue-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    No more tool switching
+                    {content.cards.tools.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    77+ tools built in. Tasks, scheduling, reports, memory—one platform, zero tab switching.
+                    {content.cards.tools.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['Tasks', 'Reports', 'Memory', 'Search'].map((tool) => (
@@ -183,10 +187,10 @@ export function BentoSection() {
                     <MessageSquare className="h-5 w-5 text-violet-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    Your AI team, always online
+                    {content.cards.communication.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    Chat with AI employees like Slack. They respond instantly, 24/7, 365.
+                    {content.cards.communication.description}
                   </p>
                   <div className="flex items-center gap-4 text-[12px]">
                     <span className="flex items-center gap-1.5 text-foreground/30">
@@ -220,10 +224,10 @@ export function BentoSection() {
                       <Workflow className="h-5 w-5 text-emerald-400" />
                     </div>
                     <h3 className="text-2xl font-display text-foreground mb-3">
-                      Work that happens while you sleep
+                      {content.cards.workflows.title}
                     </h3>
                     <p className="text-[15px] text-foreground/40 leading-relaxed mb-6">
-                      Automate anything. Campaigns run at 3am. Reports generate overnight. You wake up to results.
+                      {content.cards.workflows.description}
                     </p>
 
                     {/* Metrics */}
@@ -260,10 +264,10 @@ export function BentoSection() {
                     <Users className="h-5 w-5 text-amber-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    Never lose a lead again
+                    {content.cards.crm.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    AI remembers every conversation, every preference, every detail. Institutional memory that never walks out.
+                    {content.cards.crm.description}
                   </p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-semibold text-foreground">31</span>
@@ -281,10 +285,10 @@ export function BentoSection() {
                     <Megaphone className="h-5 w-5 text-pink-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    Cancel 4 subscriptions
+                    {content.cards.marketing.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    Email, social, ads—all in one. Stop paying for Mailchimp, Hootsuite, and the rest.
+                    {content.cards.marketing.description}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
                     {['Meta', 'Google', 'LinkedIn', 'TikTok'].map((platform) => (
@@ -305,10 +309,10 @@ export function BentoSection() {
                     <BarChart3 className="h-5 w-5 text-cyan-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    One dashboard, all clients
+                    {content.cards.multiTenant.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    Unlimited sub-accounts. See everything in one place. No more juggling logins.
+                    {content.cards.multiTenant.description}
                   </p>
                   <div className="mt-auto text-[12px] text-foreground/30">
                     650+ indexes • Workspace isolation
@@ -325,10 +329,10 @@ export function BentoSection() {
                     <Shield className="h-5 w-5 text-emerald-400" />
                   </div>
                   <h3 className="text-xl font-display text-foreground mb-2">
-                    AI you can trust
+                    {content.cards.security.title}
                   </h3>
                   <p className="text-[14px] text-foreground/40 leading-relaxed mb-4">
-                    Enterprise-grade safety. Your data stays yours. SOC 2 compliant.
+                    {content.cards.security.description}
                   </p>
                   <div className="mt-auto flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-emerald-400" />

@@ -251,11 +251,11 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.15, ease: 'easeOut' }}
-              className="absolute top-[72px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
+              className="absolute top-[50px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
               onMouseEnter={() => setActiveMenu(activeMenu)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="pointer-events-auto mx-8 w-full max-w-[900px]">
+              <div className="pointer-events-auto mx-8 w-full max-w-[900px] pt-[22px]">
                 {navItems.map((item) => {
                   if (item.label !== activeMenu || !item.megaMenu) return null;
 
@@ -288,8 +288,8 @@ export function Navigation() {
                                       className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-muted group"
                                     >
                                       {Icon && (
-                                        <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0 group-hover:bg-muted/80 transition-colors">
-                                          <Icon className="h-4 w-4 text-foreground/40 group-hover:text-foreground/60 transition-colors" />
+                                        <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0 group-hover:bg-amber-500/10 group-hover:border group-hover:border-amber-500/20 transition-all">
+                                          <Icon className="h-4 w-4 text-foreground/40 group-hover:text-amber-400 transition-colors" />
                                         </div>
                                       )}
                                       <div className="flex-1 min-w-0">
