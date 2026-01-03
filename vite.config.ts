@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import { cloudflare } from '@cloudflare/vite-plugin'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
-import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
@@ -11,12 +10,9 @@ export default defineConfig({
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
-    TanStackRouterVite({
-      routesDirectory: './src/routes',
-      generatedRouteTree: './src/routeTree.gen.ts',
-      autoCodeSplitting: true,
+    tanstackStart({
+      srcDir: './src',
     }),
-    tanstackStart(),
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     react(),
   ],
