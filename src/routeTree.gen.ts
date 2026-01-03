@@ -9,12 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WaitlistBusinessRouteImport } from './routes/waitlist-business'
+import { Route as WaitlistRouteImport } from './routes/waitlist'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as DocsSplatRouteImport } from './routes/docs/$'
 import { Route as BlogPostIdRouteImport } from './routes/blog.$postId'
 
+const WaitlistBusinessRoute = WaitlistBusinessRouteImport.update({
+  id: '/waitlist-business',
+  path: '/waitlist-business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaitlistRoute = WaitlistRouteImport.update({
+  id: '/waitlist',
+  path: '/waitlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -44,12 +56,16 @@ const BlogPostIdRoute = BlogPostIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/waitlist': typeof WaitlistRoute
+  '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/waitlist': typeof WaitlistRoute
+  '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
   '/blog': typeof BlogIndexRoute
@@ -58,26 +74,65 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/waitlist': typeof WaitlistRoute
+  '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/blog/$postId' | '/docs/$' | '/blog/'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/waitlist'
+    | '/waitlist-business'
+    | '/blog/$postId'
+    | '/docs/$'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog/$postId' | '/docs/$' | '/blog'
-  id: '__root__' | '/' | '/blog' | '/blog/$postId' | '/docs/$' | '/blog/'
+  to:
+    | '/'
+    | '/waitlist'
+    | '/waitlist-business'
+    | '/blog/$postId'
+    | '/docs/$'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/waitlist'
+    | '/waitlist-business'
+    | '/blog/$postId'
+    | '/docs/$'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
+  WaitlistRoute: typeof WaitlistRoute
+  WaitlistBusinessRoute: typeof WaitlistBusinessRoute
   DocsSplatRoute: typeof DocsSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/waitlist-business': {
+      id: '/waitlist-business'
+      path: '/waitlist-business'
+      fullPath: '/waitlist-business'
+      preLoaderRoute: typeof WaitlistBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/waitlist': {
+      id: '/waitlist'
+      path: '/waitlist'
+      fullPath: '/waitlist'
+      preLoaderRoute: typeof WaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -131,6 +186,8 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
+  WaitlistRoute: WaitlistRoute,
+  WaitlistBusinessRoute: WaitlistBusinessRoute,
   DocsSplatRoute: DocsSplatRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,1 +1,0 @@
-import{j as o,O as t}from"./main-COmKYNOf.js";import{L as r}from"./LandingLayout-KEhecWpu.js";import"./utils-CDN07tui.js";import"./button-0NRNDkOw.js";import"./createLucideIcon-BWaJHFbS.js";import"./proxy-B7t87OSl.js";function e(){return o.jsx(r,{children:o.jsx(t,{})})}export{e as component};
