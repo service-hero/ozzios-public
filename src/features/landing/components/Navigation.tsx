@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Bot, Workflow, MessageSquare, Users, BarChart3, Mail, BookOpen, FileText, Code, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Bot, Workflow, MessageSquare, Users, BarChart3, Mail, BookOpen, FileText, Code, Sparkles, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -16,6 +16,7 @@ type NavItem = {
         label: string;
         description?: string;
         href: string;
+        badge?: string;
       }[];
     }[];
     cta?: {
@@ -34,9 +35,9 @@ const navItems: NavItem[] = [
         {
           title: 'Platform',
           items: [
-            { icon: Bot, label: 'AI Agents', description: '14 specialized employees', href: '#agents' },
+            { icon: Bot, label: 'AI Agents', description: '14 specialized employees', href: '#agents', badge: 'Core' },
             { icon: Workflow, label: 'Workflows', description: 'Durable automation engine', href: '#workflows' },
-            { icon: MessageSquare, label: 'Channels', description: 'Slack-class communication', href: '#channels' },
+            { icon: MessageSquare, label: 'Channels', description: 'Enterprise communication', href: '#channels' },
             { icon: Users, label: 'CRM', description: 'Full lead management', href: '#crm' },
           ],
         },
@@ -45,7 +46,7 @@ const navItems: NavItem[] = [
           items: [
             { icon: BarChart3, label: 'Marketing Suite', description: 'Ads, email, social', href: '#marketing' },
             { icon: Mail, label: 'Gmail & Calendar', description: 'Two-way sync', href: '#integrations' },
-            { icon: Sparkles, label: '77+ Tools', description: 'Built into every agent', href: '#tools' },
+            { icon: Sparkles, label: '77+ Tools', description: 'Built into every agent', href: '#tools', badge: 'New' },
           ],
         },
       ],
@@ -63,9 +64,9 @@ const navItems: NavItem[] = [
         {
           title: 'By team size',
           items: [
-            { label: 'For Solo Agencies', description: 'Scale without hiring', href: '#solo' },
-            { label: 'For Teams', description: 'Collaborate with AI', href: '#teams' },
-            { label: 'For Enterprises', description: 'Unlimited sub-accounts', href: '#enterprise' },
+            { label: 'Solo Agencies', description: 'Scale without hiring', href: '#solo' },
+            { label: 'Teams', description: 'Collaborate with AI', href: '#teams' },
+            { label: 'Enterprise', description: 'Unlimited sub-accounts', href: '#enterprise' },
           ],
         },
         {
@@ -100,13 +101,21 @@ const navItems: NavItem[] = [
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -120,22 +129,30 @@ export function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50">
-        {/* Gradient overlay */}
+      <header
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          hasScrolled && 'backdrop-blur-xl bg-[#0A0A0B]/80'
+        )}
+      >
+        {/* Subtle border when scrolled */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className={cn(
+            'absolute inset-x-0 bottom-0 h-px transition-opacity duration-300',
+            hasScrolled ? 'opacity-100' : 'opacity-0'
+          )}
           style={{
-            background: 'linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(23, 23, 23) 100%)',
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 50%, transparent)',
           }}
         />
 
-        <nav className="relative mx-auto max-w-[1200px] h-[60px] sm:h-[70px] flex items-center justify-between px-4 sm:px-6">
+        <nav className="relative mx-auto max-w-[1400px] h-[72px] flex items-center justify-between px-6 lg:px-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
             <img
               src="/images/dark-theme-logo.svg"
               alt="OzziOS"
-              className="h-5 sm:h-6 w-auto"
+              className="h-6 w-auto"
             />
           </Link>
 
@@ -151,10 +168,10 @@ export function Navigation() {
                 {item.megaMenu ? (
                   <button
                     className={cn(
-                      'flex items-center gap-1 px-4 py-2 text-[14px] font-medium transition-colors rounded-lg',
+                      'flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium transition-colors rounded-lg',
                       activeMenu === item.label
-                        ? 'text-white bg-white/5'
-                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                        ? 'text-white'
+                        : 'text-white/50 hover:text-white'
                     )}
                   >
                     {item.label}
@@ -166,7 +183,7 @@ export function Navigation() {
                 ) : (
                   <a
                     href={item.href}
-                    className="px-4 py-2 text-[14px] font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                    className="px-4 py-2 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
                   >
                     {item.label}
                   </a>
@@ -176,19 +193,22 @@ export function Navigation() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="https://app.ozzios.com/sign-in"
-              className="px-4 py-2 text-[14px] font-medium text-white/70 hover:text-white transition-colors"
+              className="text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
               Sign in
             </a>
             <Button
               size="sm"
               asChild
-              className="h-10 px-5 text-[13px] font-medium bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full"
+              className="h-9 px-5 text-[13px] font-medium bg-white text-[#0A0A0B] hover:bg-white/90 rounded-full"
             >
-              <a href="https://app.ozzios.com/sign-up">Get started</a>
+              <a href="https://app.ozzios.com/sign-up">
+                Get started
+                <ArrowRight className="ml-2 h-3.5 w-3.5" />
+              </a>
             </Button>
           </div>
 
@@ -198,7 +218,7 @@ export function Navigation() {
             className="lg:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </nav>
 
@@ -206,24 +226,24 @@ export function Navigation() {
         <AnimatePresence>
           {activeMenu && isMounted && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.15 }}
-              className="absolute top-[70px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.15, ease: 'easeOut' }}
+              className="absolute top-[72px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
               onMouseEnter={() => setActiveMenu(activeMenu)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="pointer-events-auto mx-6 w-full max-w-[1000px]">
+              <div className="pointer-events-auto mx-8 w-full max-w-[900px]">
                 {navItems.map((item) => {
                   if (item.label !== activeMenu || !item.megaMenu) return null;
-                  
+
                   return (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-[rgb(53,47,75)] bg-[rgb(23,23,23)] p-6 shadow-2xl"
+                      className="rounded-2xl border border-white/[0.06] bg-[#111113]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40"
                     >
-                      <div className="grid grid-cols-12 gap-6">
+                      <div className="grid grid-cols-12 gap-8">
                         {/* Sections */}
                         <div className={cn(
                           'col-span-12 grid gap-8',
@@ -233,7 +253,7 @@ export function Navigation() {
                           {item.megaMenu.sections.map((section, idx) => (
                             <div key={idx}>
                               {section.title && (
-                                <p className="text-[12px] font-medium text-white/40 uppercase tracking-wider mb-4">
+                                <p className="text-[10px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-4">
                                   {section.title}
                                 </p>
                               )}
@@ -244,19 +264,26 @@ export function Navigation() {
                                     <a
                                       key={subItem.label}
                                       href={subItem.href}
-                                      className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-white/5 group"
+                                      className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-white/[0.04] group"
                                     >
                                       {Icon && (
-                                        <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
-                                          <Icon className="h-5 w-5 text-orange-400" />
+                                        <div className="h-9 w-9 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0 group-hover:bg-white/[0.06] transition-colors">
+                                          <Icon className="h-4 w-4 text-white/40 group-hover:text-white/60 transition-colors" />
                                         </div>
                                       )}
-                                      <div>
-                                        <p className="text-[14px] font-medium text-white group-hover:text-orange-400 transition-colors">
-                                          {subItem.label}
-                                        </p>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-2">
+                                          <p className="text-[13px] font-medium text-white/80 group-hover:text-white transition-colors">
+                                            {subItem.label}
+                                          </p>
+                                          {subItem.badge && (
+                                            <span className="px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 rounded">
+                                              {subItem.badge}
+                                            </span>
+                                          )}
+                                        </div>
                                         {subItem.description && (
-                                          <p className="text-[13px] text-white/40 mt-0.5">
+                                          <p className="text-[12px] text-white/30 mt-0.5">
                                             {subItem.description}
                                           </p>
                                         )}
@@ -274,16 +301,22 @@ export function Navigation() {
                           <div className="col-span-12 lg:col-span-4">
                             <a
                               href={item.megaMenu.cta.href}
-                              className="block h-full rounded-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 p-6 transition-all hover:border-orange-500/40 hover:from-orange-500/15 hover:to-amber-500/15"
+                              className="block h-full rounded-xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.06] p-5 transition-all hover:border-white/[0.1] hover:from-white/[0.06] group"
                             >
-                              <p className="text-[15px] font-semibold text-white mb-2">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                                  <Sparkles className="w-4 h-4 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-[14px] font-medium text-white mb-1">
                                 {item.megaMenu.cta.title}
                               </p>
-                              <p className="text-[13px] text-white/50 leading-relaxed">
+                              <p className="text-[12px] text-white/40 leading-relaxed mb-3">
                                 {item.megaMenu.cta.description}
                               </p>
-                              <div className="mt-4 text-[13px] font-medium text-orange-400">
-                                Watch demo →
+                              <div className="flex items-center gap-1 text-[12px] font-medium text-amber-400">
+                                Watch demo
+                                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                               </div>
                             </a>
                           </div>
@@ -298,7 +331,7 @@ export function Navigation() {
         </AnimatePresence>
       </header>
 
-      {/* Mobile Menu - Full screen overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -306,11 +339,10 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[rgb(23,23,23)] lg:hidden"
+            className="fixed inset-0 z-40 bg-[#0A0A0B] lg:hidden"
           >
-            {/* Safe area padding for notched devices */}
-            <div className="h-full overflow-y-auto pt-[60px] pb-safe">
-              <div className="px-4 py-6 space-y-2">
+            <div className="h-full overflow-y-auto pt-[72px] pb-safe">
+              <div className="px-6 py-8 space-y-2">
                 {navItems.map((item) => (
                   <div key={item.label}>
                     {item.megaMenu ? (
@@ -318,7 +350,7 @@ export function Navigation() {
                     ) : (
                       <a
                         href={item.href}
-                        className="flex items-center h-12 px-4 text-[16px] font-medium text-white rounded-xl hover:bg-white/5 transition-colors"
+                        className="flex items-center h-12 text-[15px] font-medium text-white/80"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -328,10 +360,10 @@ export function Navigation() {
                 ))}
 
                 {/* CTA section */}
-                <div className="pt-6 mt-4 border-t border-white/10 space-y-3">
+                <div className="pt-8 mt-6 border-t border-white/[0.06] space-y-3">
                   <a
                     href="https://app.ozzios.com/sign-in"
-                    className="flex items-center justify-center h-12 text-[15px] font-medium text-white/70 rounded-xl border border-white/10 hover:bg-white/5 transition-colors"
+                    className="flex items-center justify-center h-12 text-[14px] font-medium text-white/60 rounded-xl border border-white/[0.08] hover:bg-white/[0.02] transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign in
@@ -339,10 +371,11 @@ export function Navigation() {
                   <Button
                     size="lg"
                     asChild
-                    className="w-full h-12 text-[15px] font-medium bg-white text-[rgb(23,23,23)] hover:bg-white/90 rounded-full"
+                    className="w-full h-12 text-[14px] font-medium bg-white text-[#0A0A0B] hover:bg-white/90 rounded-full"
                   >
                     <a href="https://app.ozzios.com/sign-up" onClick={() => setIsMobileMenuOpen(false)}>
                       Get started
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
                 </div>
@@ -361,17 +394,17 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
   if (!item.megaMenu) return null;
 
   return (
-    <div className="rounded-xl overflow-hidden">
+    <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'flex items-center justify-between w-full h-12 px-4 text-[16px] font-medium text-white rounded-xl transition-colors',
-          isOpen ? 'bg-white/5' : 'hover:bg-white/5'
+          'flex items-center justify-between w-full h-12 text-[15px] font-medium transition-colors',
+          isOpen ? 'text-white' : 'text-white/80'
         )}
       >
         {item.label}
         <ChevronDown className={cn(
-          'h-5 w-5 text-white/40 transition-transform duration-200',
+          'h-4 w-4 text-white/30 transition-transform duration-200',
           isOpen && 'rotate-180'
         )} />
       </button>
@@ -385,11 +418,11 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="px-4 py-3 space-y-4">
+            <div className="py-3 pl-4 space-y-6 border-l border-white/[0.06]">
               {item.megaMenu.sections.map((section, idx) => (
                 <div key={idx}>
                   {section.title && (
-                    <p className="text-[11px] font-medium text-white/40 uppercase tracking-wider mb-2 px-2">
+                    <p className="text-[10px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-3">
                       {section.title}
                     </p>
                   )}
@@ -400,10 +433,10 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
                         <a
                           key={subItem.label}
                           href={subItem.href}
-                          className="flex items-center gap-3 px-2 py-2.5 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-3 py-2.5 text-white/50 hover:text-white transition-colors"
                           onClick={onClose}
                         >
-                          {Icon && <Icon className="h-4 w-4 text-orange-400" />}
+                          {Icon && <Icon className="h-4 w-4" />}
                           <span className="text-[14px]">{subItem.label}</span>
                         </a>
                       );

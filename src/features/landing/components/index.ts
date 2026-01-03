@@ -3,7 +3,7 @@ export { Footer } from './Footer';
 export { HeroSection } from './HeroSection';
 export { BentoSection } from './BentoSection';
 export { StatsSection } from './StatsSection';
-export { FeaturesSection } from './FeaturesSection';
+export { FeaturesSection } from './HowItWorksSection';
 export { AgentsSection } from './AgentsSection';
 export { TestimonialsSection } from './TestimonialsSection';
 export { FAQSection } from './FAQSection';

@@ -1,4 +1,4 @@
-import { a as reactExports, q as React, n as jsxRuntimeExports } from "./worker-entry-BXnig_gh.js";
+import { a as reactExports, q as React, n as jsxRuntimeExports } from "./worker-entry-4ZKVM8Ft.js";
 const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 const toCamelCase = (string) => string.replace(
   /^([A-Z])|[\s-_]+(\w)/g,
@@ -74,7 +74,7 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$3 = [
+const __iconNode$4 = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -84,19 +84,19 @@ const __iconNode$3 = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$3);
-const __iconNode$2 = [
+const BookOpen = createLucideIcon("book-open", __iconNode$4);
+const __iconNode$3 = [
   ["path", { d: "M4 5h16", key: "1tepv9" }],
   ["path", { d: "M4 12h16", key: "1lakjw" }],
   ["path", { d: "M4 19h16", key: "1djgab" }]
 ];
-const Menu = createLucideIcon("menu", __iconNode$2);
-const __iconNode$1 = [
+const Menu = createLucideIcon("menu", __iconNode$3);
+const __iconNode$2 = [
   ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
   ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const Search = createLucideIcon("search", __iconNode$1);
-const __iconNode = [
+const Search = createLucideIcon("search", __iconNode$2);
+const __iconNode$1 = [
   [
     "path",
     {
@@ -108,7 +108,17 @@ const __iconNode = [
   ["path", { d: "M22 4h-4", key: "gwowj6" }],
   ["circle", { cx: "4", cy: "20", r: "2", key: "6kqj1y" }]
 ];
-const Sparkles = createLucideIcon("sparkles", __iconNode);
+const Sparkles = createLucideIcon("sparkles", __iconNode$1);
+const __iconNode = [
+  [
+    "path",
+    {
+      d: "M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
+      key: "1xq2db"
+    }
+  ]
+];
+const Zap = createLucideIcon("zap", __iconNode);
 function r(e) {
   var t, f, n = "";
   if ("string" == typeof e || "number" == typeof e) n += e;
@@ -3349,6 +3359,7 @@ export {
   BookOpen as B,
   Menu as M,
   Sparkles as S,
+  Zap as Z,
   cn as a,
   Button as b,
   createLucideIcon as c,

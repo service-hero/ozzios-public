@@ -9,31 +9,31 @@ import {
   Lightbulb,
   Palette,
   MapPin,
-  FileText,
   Users,
   TrendingUp,
   Settings,
   Sparkles,
-  Share2
+  Share2,
+  Brain,
 } from 'lucide-react';
 
 const channelAgents = [
-  { name: 'Ozzi', role: 'Onboarding Wizard', icon: Sparkles, description: 'Workspace setup, team building, feature education' },
-  { name: 'Supervisor', role: 'Project Coordinator', icon: Users, description: 'Task oversight, team coordination, sub-agent delegation' },
-  { name: 'SEO Specialist', role: 'Search Optimization', icon: Search, description: 'Keyword research, technical SEO, competitor analysis' },
-  { name: 'Content Writer', role: 'Content Creation', icon: PenTool, description: 'Blog writing, email copy, marketing copy, brand voice' },
-  { name: 'Data Analyst', role: 'Performance Insights', icon: BarChart2, description: 'Analytics deep-dives, ROI tracking, engagement metrics' },
-  { name: 'Social Manager', role: 'Community Manager', icon: Share2, description: 'Content planning, platform strategy, engagement' },
-  { name: 'Research Assistant', role: 'Information Specialist', icon: Lightbulb, description: 'Market research, competitor analysis, synthesis' },
-  { name: 'Graphic Designer', role: 'Creative Director', icon: Palette, description: 'Visual concepts, design briefs, art direction' },
-  { name: 'GBP Expert', role: 'Local SEO', icon: MapPin, description: 'Google Business Profile optimization, review management' },
+  { name: 'Ozzi', role: 'Onboarding Wizard', icon: Sparkles, description: 'Workspace setup, team building, feature education', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Supervisor', role: 'Project Coordinator', icon: Users, description: 'Task oversight, team coordination, sub-agent delegation', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format' },
+  { name: 'SEO Specialist', role: 'Search Optimization', icon: Search, description: 'Keyword research, technical SEO, competitor analysis', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Content Writer', role: 'Content Creation', icon: PenTool, description: 'Blog writing, email copy, marketing copy, brand voice', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Data Analyst', role: 'Performance Insights', icon: BarChart2, description: 'Analytics deep-dives, ROI tracking, engagement metrics', image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Social Manager', role: 'Community Manager', icon: Share2, description: 'Content planning, platform strategy, engagement', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Research Assistant', role: 'Information Specialist', icon: Lightbulb, description: 'Market research, competitor analysis, synthesis', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Graphic Designer', role: 'Creative Director', icon: Palette, description: 'Visual concepts, design briefs, art direction', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&auto=format' },
+  { name: 'GBP Expert', role: 'Local SEO', icon: MapPin, description: 'Google Business Profile optimization, review management', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&auto=format' },
 ];
 
 const executiveAgents = [
-  { name: 'CEO Agent', scope: 'Portfolio-wide', icon: TrendingUp, description: 'Revenue insights, strategic planning' },
-  { name: 'General Manager', scope: 'Cross-client', icon: Users, description: 'Team coordination, resource allocation' },
-  { name: 'Analytics Director', scope: 'All clients', icon: BarChart2, description: 'ROI comparison, trend analysis' },
-  { name: 'Operations Manager', scope: 'Workflows', icon: Settings, description: 'Task management, capacity planning' },
+  { name: 'CEO Agent', scope: 'Portfolio-wide', icon: TrendingUp, description: 'Revenue insights, strategic planning', image: 'https://images.unsplash.com/photo-1556157382-97edd2f9e3ee?w=100&h=100&fit=crop&auto=format' },
+  { name: 'General Manager', scope: 'Cross-client', icon: Users, description: 'Team coordination, resource allocation', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Analytics Director', scope: 'All clients', icon: BarChart2, description: 'ROI comparison, trend analysis', image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop&auto=format' },
+  { name: 'Operations Manager', scope: 'Workflows', icon: Settings, description: 'Task management, capacity planning', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&auto=format' },
 ];
 
 const containerVariants = {
@@ -41,17 +41,17 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.06,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.25, 0.4, 0.25, 1] },
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
 
@@ -61,36 +61,48 @@ export function AgentsSection() {
   const [activeAgent, setActiveAgent] = useState<string | null>(null);
 
   return (
-    <section id="agents" className="relative py-24 lg:py-32 bg-[rgb(20,20,20)] border-y border-white/10">
-      <div className="mx-auto max-w-[1100px] px-6">
+    <section id="agents" className="relative py-32 lg:py-40 bg-[#0A0A0B]">
+      {/* Subtle ambient glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] rounded-full blur-[150px] opacity-[0.04] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(99, 102, 241, 1) 0%, transparent 60%)',
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7 }}
+          className="mb-20 max-w-3xl"
         >
-          <span className="inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4">
-            AI Agents
-          </span>
-          <h2 className="text-[32px] sm:text-[40px] font-semibold tracking-tight text-white leading-tight">
-            14 specialized employees<br />
-            <span className="text-white/40">ready to work</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+            <Brain className="h-4 w-4 text-indigo-400" />
+            <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">
+              AI Workforce
+            </span>
+          </div>
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
+            14 specialized employees
+            <br />
+            <span className="text-white/30">ready to work</span>
           </h2>
-          <p className="mt-4 text-[16px] text-white/50 max-w-2xl mx-auto">
+          <p className="text-lg text-white/40 leading-relaxed max-w-xl">
             Each agent has access to 77+ native tools, extended thinking up to 128K tokens, and persistent memory for context continuity.
           </p>
         </motion.div>
 
-        <div ref={ref} className="space-y-12">
+        <div ref={ref} className="space-y-16">
           {/* Channel Agents */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px flex-1 bg-white/10" />
-              <span className="text-[11px] font-medium uppercase tracking-wider text-white/40">
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em]">
                 Channel Agents
               </span>
-              <div className="h-px flex-1 bg-white/10" />
+              <div className="h-px flex-1 bg-white/[0.06]" />
+              <span className="text-[11px] text-white/20">10 agents</span>
             </div>
 
             <motion.div
@@ -110,31 +122,48 @@ export function AgentsSection() {
                     onMouseEnter={() => setActiveAgent(agent.name)}
                     onMouseLeave={() => setActiveAgent(null)}
                     className={cn(
-                      'group relative rounded-xl border bg-white/[0.02] p-4 transition-all duration-200 cursor-pointer',
+                      'group relative rounded-xl border p-5 transition-all duration-300 cursor-pointer',
                       isActive
-                        ? 'border-orange-500/40 bg-orange-500/5'
-                        : 'border-white/10 hover:border-white/20 hover:bg-white/[0.04]'
+                        ? 'border-amber-500/30 bg-amber-500/[0.03]'
+                        : 'border-white/[0.06] bg-white/[0.01] hover:border-white/[0.1] hover:bg-white/[0.02]'
                     )}
                   >
-                    <div className="flex items-start gap-3">
-                      <div className={cn(
-                        'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors',
-                        isActive ? 'bg-orange-500/20 text-orange-400' : 'bg-white/5 text-white/40 group-hover:text-white/60'
-                      )}>
-                        <Icon className="h-5 w-5" />
+                    <div className="flex items-start gap-4">
+                      <div className="relative shrink-0">
+                        <img
+                          src={agent.image}
+                          alt={agent.name}
+                          className={cn(
+                            'h-12 w-12 rounded-xl object-cover transition-all duration-300',
+                            isActive
+                              ? 'ring-2 ring-amber-500/50'
+                              : 'ring-2 ring-white/10 group-hover:ring-white/20'
+                          )}
+                        />
+                        <div className={cn(
+                          'absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-lg transition-all duration-300',
+                          isActive
+                            ? 'bg-amber-500/20 text-amber-400'
+                            : 'bg-[#0A0A0B] border border-white/10 text-white/40'
+                        )}>
+                          <Icon className="h-3 w-3" />
+                        </div>
                       </div>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <h3 className="text-[14px] font-semibold text-white truncate">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-[14px] font-medium text-white">
                             {agent.name}
                           </h3>
+                          {isActive && (
+                            <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          )}
                         </div>
-                        <p className="text-[12px] text-white/40 mb-1">
+                        <p className="text-[12px] text-white/30 mb-2">
                           {agent.role}
                         </p>
                         <p className={cn(
-                          'text-[12px] leading-relaxed transition-all duration-200',
-                          isActive ? 'text-white/70' : 'text-white/30'
+                          'text-[12px] leading-relaxed transition-all duration-300',
+                          isActive ? 'text-white/50' : 'text-white/25'
                         )}>
                           {agent.description}
                         </p>
@@ -148,12 +177,12 @@ export function AgentsSection() {
 
           {/* Executive Agents */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px flex-1 bg-white/10" />
-              <span className="text-[11px] font-medium uppercase tracking-wider text-white/40">
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em]">
                 Executive Agents
               </span>
-              <div className="h-px flex-1 bg-white/10" />
+              <div className="h-px flex-1 bg-white/[0.06]" />
+              <span className="text-[11px] text-white/20">4 agents</span>
             </div>
 
             <motion.div
@@ -173,25 +202,39 @@ export function AgentsSection() {
                     onMouseEnter={() => setActiveAgent(agent.name)}
                     onMouseLeave={() => setActiveAgent(null)}
                     className={cn(
-                      'group relative rounded-xl border bg-white/[0.02] p-4 transition-all duration-200 cursor-pointer',
+                      'group relative rounded-xl border p-5 transition-all duration-300 cursor-pointer',
                       isActive
-                        ? 'border-blue-500/40 bg-blue-500/5'
-                        : 'border-white/10 hover:border-white/20 hover:bg-white/[0.04]'
+                        ? 'border-indigo-500/30 bg-indigo-500/[0.03]'
+                        : 'border-white/[0.06] bg-white/[0.01] hover:border-white/[0.1] hover:bg-white/[0.02]'
                     )}
                   >
-                    <div className={cn(
-                      'mb-3 flex h-10 w-10 items-center justify-center rounded-xl transition-colors',
-                      isActive ? 'bg-blue-500/20 text-blue-400' : 'bg-white/5 text-white/40 group-hover:text-white/60'
-                    )}>
-                      <Icon className="h-5 w-5" />
+                    <div className="relative mb-4 inline-block">
+                      <img
+                        src={agent.image}
+                        alt={agent.name}
+                        className={cn(
+                          'h-14 w-14 rounded-xl object-cover transition-all duration-300',
+                          isActive
+                            ? 'ring-2 ring-indigo-500/50'
+                            : 'ring-2 ring-white/10 group-hover:ring-white/20'
+                        )}
+                      />
+                      <div className={cn(
+                        'absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-lg transition-all duration-300',
+                        isActive
+                          ? 'bg-indigo-500/20 text-indigo-400'
+                          : 'bg-[#0A0A0B] border border-white/10 text-white/40'
+                      )}>
+                        <Icon className="h-3 w-3" />
+                      </div>
                     </div>
-                    <h3 className="text-[14px] font-semibold text-white mb-0.5">
+                    <h3 className="text-[14px] font-medium text-white mb-1">
                       {agent.name}
                     </h3>
-                    <p className="text-[12px] text-orange-400/80 mb-1">
+                    <p className="text-[11px] text-amber-400/70 mb-2">
                       {agent.scope}
                     </p>
-                    <p className="text-[12px] text-white/40">
+                    <p className="text-[12px] text-white/30">
                       {agent.description}
                     </p>
                   </motion.div>
@@ -201,12 +244,12 @@ export function AgentsSection() {
           </div>
         </div>
 
-        {/* Bottom features */}
+        {/* Feature callouts */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 grid gap-4 sm:grid-cols-3"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 flex flex-wrap items-center justify-center gap-6 lg:gap-12"
         >
           {[
             { label: 'Extended Thinking', value: 'Up to 128K tokens' },
@@ -215,10 +258,13 @@ export function AgentsSection() {
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-center"
+              className="flex items-center gap-3"
             >
-              <div className="text-[14px] font-medium text-white">{item.value}</div>
-              <div className="text-[12px] text-white/40 mt-0.5">{item.label}</div>
+              <div className="h-2 w-2 rounded-full bg-emerald-400/50" />
+              <div>
+                <span className="text-[13px] font-medium text-white/70">{item.value}</span>
+                <span className="text-[13px] text-white/30 ml-2">{item.label}</span>
+              </div>
             </div>
           ))}
         </motion.div>

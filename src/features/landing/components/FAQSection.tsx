@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const faqs = [
@@ -49,38 +49,28 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 lg:py-32 bg-[rgb(23,23,23)]">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.2 }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
+    <section id="faq" className="relative py-32 lg:py-40 bg-[#0A0A0B]">
+      {/* Subtle divider */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="relative z-10 mx-auto max-w-[800px] px-6">
+      <div className="relative z-10 mx-auto max-w-[900px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
         >
-          <span className="inline-block text-[12px] font-medium uppercase tracking-wider text-orange-400 mb-4">
+          <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
             FAQ
-          </span>
-          <h2 className="text-[32px] sm:text-[40px] font-semibold tracking-tight text-white leading-tight">
-            Frequently asked questions
+          </p>
+          <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-white mb-6">
+            Frequently asked
+            <span className="text-white/30"> questions</span>
           </h2>
-          <p className="mt-4 text-[16px] text-white/50 max-w-lg mx-auto">
-            Everything you need to know about OzziOS and how it can transform your agency.
+          <p className="text-lg text-white/40 max-w-lg mx-auto">
+            Everything you need to know about OzziOS.
           </p>
         </motion.div>
 
@@ -89,7 +79,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-white/10 overflow-hidden"
+          className="space-y-3"
         >
           {faqs.map((faq, index) => (
             <FAQItem
@@ -98,9 +88,27 @@ export function FAQSection() {
               answer={faq.answer}
               isOpen={openIndex === index}
               onToggle={() => toggleFAQ(index)}
-              isLast={index === faqs.length - 1}
             />
           ))}
+        </motion.div>
+
+        {/* Contact CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-[15px] text-white/40 mb-4">
+            Still have questions?
+          </p>
+          <a
+            href="mailto:support@ozzios.com"
+            className="inline-flex items-center gap-2 text-[14px] font-medium text-white hover:text-amber-400 transition-colors"
+          >
+            Contact our team
+            <span className="text-amber-400">→</span>
+          </a>
         </motion.div>
       </div>
     </section>
@@ -112,39 +120,38 @@ function FAQItem({
   answer,
   isOpen,
   onToggle,
-  isLast,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
-  isLast: boolean;
 }) {
   return (
     <div
       className={cn(
-        'transition-colors',
-        !isLast && 'border-b border-[rgb(46,46,46)]'
+        'rounded-xl border transition-all duration-300',
+        isOpen
+          ? 'border-white/[0.1] bg-white/[0.02]'
+          : 'border-white/[0.06] bg-transparent hover:border-white/[0.08]'
       )}
     >
       <button
         onClick={onToggle}
-        className={cn(
-          'w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors',
-          'hover:bg-white/[0.02]',
-          isOpen && 'bg-white/[0.02]'
-        )}
+        className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
       >
-        <span className="text-[15px] sm:text-[16px] font-medium text-white pr-4">
+        <span className="text-[15px] font-medium text-white">
           {question}
         </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="shrink-0"
-        >
-          <ChevronDown className="h-5 w-5 text-white/40" />
-        </motion.div>
+        <div className={cn(
+          'shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors',
+          isOpen ? 'bg-amber-500/10' : 'bg-white/[0.04]'
+        )}>
+          {isOpen ? (
+            <Minus className="h-4 w-4 text-amber-400" />
+          ) : (
+            <Plus className="h-4 w-4 text-white/40" />
+          )}
+        </div>
       </button>
 
       <AnimatePresence initial={false}>
@@ -157,7 +164,7 @@ function FAQItem({
             className="overflow-hidden"
           >
             <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-              <p className="text-[14px] sm:text-[15px] leading-relaxed text-white/50">
+              <p className="text-[14px] leading-relaxed text-white/40">
                 {answer}
               </p>
             </div>

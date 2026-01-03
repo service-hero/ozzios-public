@@ -71,32 +71,18 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-[rgb(18,18,18)] overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.4 }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
-
-      {/* Subtle top gradient glow */}
+    <footer className="relative border-t border-white/[0.06] bg-[#0A0A0B]">
+      {/* Subtle glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.03) 0%, transparent 70%)',
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Main footer content */}
-        <div className="py-12 lg:py-16">
+        <div className="py-16 lg:py-20">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
             {/* Brand column */}
             <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:pr-8">
@@ -107,18 +93,18 @@ export function Footer() {
                   className="h-6 w-auto"
                 />
               </Link>
-              <p className="mt-4 text-[13px] leading-relaxed text-white/40 max-w-xs">
-                The AI-powered operating system for marketing agencies. Replace entire teams with specialized AI agents.
+              <p className="mt-4 text-[13px] leading-relaxed text-white/30 max-w-xs">
+                The AI-powered operating system for marketing agencies.
               </p>
               {/* Social links */}
-              <div className="mt-6 flex items-center gap-3">
+              <div className="mt-6 flex items-center gap-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/30 hover:text-white transition-colors"
+                    className="text-white/20 hover:text-white/60 transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -130,15 +116,15 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[12px] font-semibold uppercase tracking-wider text-white/60">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
                   {section.title}
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         to={link.href}
-                        className="text-[13px] text-white/40 hover:text-white transition-colors"
+                        className="text-[13px] text-white/30 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -151,17 +137,17 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 py-6">
+        <div className="border-t border-white/[0.06] py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-white/30">
+            <p className="text-[12px] text-white/20">
               © {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
-            <div className="flex items-center gap-4">
-              <span className="inline-flex items-center gap-1.5 text-[11px] text-white/40">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span className="text-[11px] text-white/30">
                 All systems operational
               </span>
             </div>
