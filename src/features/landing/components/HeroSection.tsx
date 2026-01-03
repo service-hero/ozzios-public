@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, GitBranch, Sparkles, CheckCircle2, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
+import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
+import { SiriOrbState } from '@/shared/components/ui/smoothui/ui/SiriOrb';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,20 +37,176 @@ const enterpriseLogos = [
 ];
 
 const sidebarChannels = [
-  { name: 'general', starred: true },
-  { name: 'marketing-strategy', starred: true },
-  { name: 'seo-campaigns', starred: false },
-  { name: 'content-calendar', starred: false },
+  { name: 'general', starred: true, hasMessages: false },
+  { name: 'marketing-strategy', starred: true, hasMessages: true },
+  { name: 'seo-campaigns', starred: false, hasMessages: true },
+  { name: 'content-calendar', starred: false, hasMessages: false },
 ];
 
 const sidebarTeam = [
   { name: 'Sarah Mitchell', isAgent: false, status: 'online', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&h=32&fit=crop&auto=format' },
-  { name: 'Research Assistant', isAgent: true, status: 'online' },
-  { name: 'Data Analyst', isAgent: true, status: 'online' },
-  { name: 'Graphic Designer', isAgent: true, status: 'online' },
+  { name: 'SEO Specialist', isAgent: true, status: 'online', variant: 'seo' },
+  { name: 'Data Analyst', isAgent: true, status: 'online', variant: 'tech' },
+  { name: 'Graphic Designer', isAgent: true, status: 'online', variant: 'social' },
+  { name: 'Content Writer', isAgent: true, status: 'online', variant: 'creative' },
 ];
 
-const chatMessages = [
+// Helper function to map agent names to SiriOrb variants
+const getAgentVariant = (agentName: string): string => {
+  const variantMap: Record<string, string> = {
+    'Data Analyst': 'tech',
+    'Graphic Designer': 'social',
+    'Content Writer': 'creative',
+    'SEO Specialist': 'seo',
+  };
+  return variantMap[agentName] || 'default';
+};
+
+// Type for messages
+type ChatMessage = {
+  id: number;
+  user: string;
+  avatar: string | null;
+  isAgent: boolean;
+  agentColor?: string;
+  time: string;
+  content: Array<{ type: string; text?: string; items?: any; content?: string }>;
+  typing?: boolean;
+  reactions?: Array<{ emoji: string; count: number }>;
+};
+
+// Helper function to get orb state based on agent activity and message context
+const getAgentOrbState = (message: ChatMessage): SiriOrbState => {
+  if (message.typing) return 'thinking';
+  if (message.reactions && message.reactions.length > 0) {
+    return 'happy';
+  }
+  if (message.content.some(part => part.type === 'text' && typeof part.text === 'string' && part.text.includes('✅'))) {
+    return 'happy';
+  }
+  return 'idle';
+};
+
+// SEO Campaign Messages
+const seoMessages: ChatMessage[] = [
+  {
+    id: 1,
+    user: 'Sarah Mitchell',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    isAgent: false,
+    time: '9:15 AM',
+    content: [
+      { type: 'mention', text: '@SEO Specialist' },
+      { type: 'text', text: ' run a full site audit on clientsite.com and identify critical issues' },
+    ],
+  },
+  {
+    id: 2,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:15 AM',
+    content: [
+      { type: 'text', text: 'Running technical SEO audit...' },
+    ],
+    typing: true,
+  },
+  {
+    id: 3,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:16 AM',
+    content: [
+      { type: 'text', text: '✅ Site Audit Complete — clientsite.com (847 pages crawled):' },
+      { type: 'metrics', items: [
+        { label: 'Health Score', value: '64/100', change: '' },
+        { label: 'Critical', value: '12', change: '' },
+        { label: 'Warnings', value: '47', change: '' },
+        { label: 'Indexed', value: '723', change: '' },
+      ]},
+      { type: 'text', text: '🚨 Critical Issues Found:' },
+      { type: 'list', items: ['23 pages with duplicate title tags', '12 broken internal links (404s)', '8 pages missing meta descriptions', '3 redirect chains over 3 hops'] },
+    ],
+    reactions: [{ emoji: '👀', count: 2 }],
+  },
+  {
+    id: 4,
+    user: 'Sarah Mitchell',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    isAgent: false,
+    time: '9:17 AM',
+    content: [
+      { type: 'text', text: 'Fix the broken links and redirect chains automatically. Also ' },
+      { type: 'mention', text: '@SEO Specialist' },
+      { type: 'text', text: ' generate optimized meta descriptions for those 8 pages' },
+    ],
+  },
+  {
+    id: 5,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:17 AM',
+    content: [
+      { type: 'text', text: 'Connecting to WordPress...' },
+    ],
+    typing: true,
+  },
+  {
+    id: 6,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:18 AM',
+    content: [
+      { type: 'text', text: '✅ Fixes Applied to WordPress:' },
+      { type: 'actions', items: [
+        { icon: '🔗', action: 'Fixed 12 broken links', status: 'success', detail: 'Redirected to valid pages' },
+        { icon: '↪️', action: 'Simplified 3 redirect chains', status: 'success', detail: 'Now direct 301s' },
+        { icon: '📝', action: 'Generated 8 meta descriptions', status: 'success', detail: 'AI-optimized for CTR' },
+      ]},
+      { type: 'code', content: 'Example meta generated:\n"Discover premium marketing solutions that drive 3x ROI. Trusted by 500+ agencies worldwide. Start free today."' },
+    ],
+    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '✅', count: 2 }],
+  },
+  {
+    id: 7,
+    user: 'Sarah Mitchell',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    isAgent: false,
+    time: '9:19 AM',
+    content: [
+      { type: 'text', text: 'Now do keyword research for "AI marketing tools" and find low competition opportunities' },
+    ],
+  },
+  {
+    id: 8,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:19 AM',
+    content: [
+      { type: 'text', text: '✅ Keyword Opportunities Found (low KD, high intent):' },
+      { type: 'keywords', items: [
+        { keyword: 'ai marketing automation for agencies', volume: '1.2K', difficulty: '23', intent: 'Commercial' },
+        { keyword: 'best ai tools for digital marketing', volume: '2.4K', difficulty: '31', intent: 'Commercial' },
+        { keyword: 'marketing ai assistant software', volume: '880', difficulty: '18', intent: 'Transactional' },
+        { keyword: 'automated marketing campaign tools', volume: '1.8K', difficulty: '27', intent: 'Commercial' },
+      ]},
+      { type: 'text', text: '💡 Recommendation: Target "marketing ai assistant software" first — lowest difficulty with strong buyer intent.' },
+    ],
+    reactions: [{ emoji: '💎', count: 2 }, { emoji: '🎯', count: 1 }],
+  },
+];
+
+// Marketing Strategy Messages
+const marketingMessages: ChatMessage[] = [
   {
     id: 1,
     user: 'Sarah Mitchell',
@@ -56,22 +214,28 @@ const chatMessages = [
     isAgent: false,
     time: '10:42 AM',
     content: [
-      { type: 'mention', text: '@Research Assistant' },
-      { type: 'text', text: ' find the top 5 trending topics in SaaS marketing this week' },
+      { type: 'mention', text: '@Data Analyst' },
+      { type: 'text', text: ' pull our Facebook Ads performance for Q4 campaigns' },
     ],
   },
   {
     id: 2,
-    user: 'Research Assistant',
+    user: 'Data Analyst',
     avatar: null,
     isAgent: true,
-    agentColor: 'indigo',
+    agentColor: 'emerald',
     time: '10:42 AM',
     content: [
-      { type: 'text', text: 'Analyzing 50+ sources... Found trending topics:' },
-      { type: 'list', items: ['AI-powered personalization', 'Product-led growth strategies', 'Video-first content marketing', 'Community-driven acquisition', 'Zero-party data collection'] },
+      { type: 'text', text: 'Connected to Facebook Ads API. Here\'s your Q4 performance:' },
+      { type: 'metrics', items: [
+        { label: 'Spend', value: '$12.4K', change: '' },
+        { label: 'ROAS', value: '4.2x', change: '+18%' },
+        { label: 'Conversions', value: '847', change: '+32%' },
+        { label: 'CPA', value: '$14.63', change: '-22%' },
+      ]},
+      { type: 'text', text: '⚠️ Ad Set "Retargeting - Cart Abandoners" underperforming (1.8x ROAS)' },
     ],
-    reactions: [{ emoji: '🔥', count: 2 }],
+    reactions: [{ emoji: '📊', count: 1 }],
   },
   {
     id: 3,
@@ -80,74 +244,131 @@ const chatMessages = [
     isAgent: false,
     time: '10:43 AM',
     content: [
-      { type: 'text', text: 'Love it! ' },
-      { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' pull our Facebook Ads performance for the AI personalization campaign' },
+      { type: 'mention', text: '@Graphic Designer' },
+      { type: 'text', text: ' generate 3 new video ads for the retargeting campaign - use testimonial style with motion graphics' },
     ],
   },
   {
     id: 4,
-    user: 'Data Analyst',
+    user: 'Graphic Designer',
     avatar: null,
     isAgent: true,
-    agentColor: 'emerald',
+    agentColor: 'violet',
     time: '10:43 AM',
     content: [
-      { type: 'text', text: 'Facebook Ads — "AI Personalization" Campaign (Last 7 days):' },
-      { type: 'metrics', items: [
-        { label: 'Spend', value: '$2,847', change: '' },
-        { label: 'Impressions', value: '124.5K', change: '+18%' },
-        { label: 'CTR', value: '3.2%', change: '+0.8%' },
-        { label: 'Conversions', value: '89', change: '+24%' },
-        { label: 'CPA', value: '$31.99', change: '-12%' },
-      ]},
-      { type: 'text', text: 'Top performer: Carousel ad with customer testimonials (4.1% CTR)' },
+      { type: 'text', text: 'Generating video ads with AI...' },
     ],
-    reactions: [{ emoji: '📈', count: 1 }, { emoji: '✅', count: 1 }],
+    typing: true,
   },
   {
     id: 5,
+    user: 'Graphic Designer',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'violet',
+    time: '10:44 AM',
+    content: [
+      { type: 'text', text: '✅ Created 3 video variations (1080x1080, 15s each):' },
+      { type: 'videos', items: [
+        { image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
+        { image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
+        { image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
+      ]},
+    ],
+    reactions: [{ emoji: '🎬', count: 2 }],
+  },
+  {
+    id: 6,
     user: 'Sarah Mitchell',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
     isAgent: false,
     time: '10:44 AM',
     content: [
-      { type: 'text', text: 'Amazing results! ' },
-      { type: 'mention', text: '@Graphic Designer' },
-      { type: 'text', text: ' create 3 new ad variations based on the winning testimonial format' },
+      { type: 'text', text: 'Perfect! ' },
+      { type: 'mention', text: '@Data Analyst' },
+      { type: 'text', text: ' push these to Facebook - replace creatives in the retargeting ad set & update targeting to exclude purchasers from last 30 days' },
     ],
   },
   {
-    id: 6,
-    user: 'Graphic Designer',
+    id: 7,
+    user: 'Data Analyst',
     avatar: null,
     isAgent: true,
-    agentColor: 'violet',
+    agentColor: 'emerald',
     time: '10:44 AM',
     content: [
-      { type: 'text', text: 'Generating ad creatives...' },
+      { type: 'text', text: 'Updating Facebook Ads Manager...' },
     ],
     typing: true,
   },
   {
-    id: 7,
+    id: 8,
+    user: 'Data Analyst',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '10:45 AM',
+    content: [
+      { type: 'text', text: '✅ Facebook Ads Updated Live:' },
+      { type: 'actions', items: [
+        { icon: '🎨', action: 'Replaced 3 creatives', status: 'success', detail: 'Ad Set: Retargeting - Cart Abandoners' },
+        { icon: '🎯', action: 'Updated targeting', status: 'success', detail: 'Excluded: Purchasers (30 days)' },
+        { icon: '💰', action: 'Budget unchanged', status: 'info', detail: '$150/day' },
+      ]},
+      { type: 'text', text: '→ Changes are now live in Ads Manager' },
+    ],
+    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '🔥', count: 2 }],
+  },
+  {
+    id: 9,
+    user: 'Sarah Mitchell',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    isAgent: false,
+    time: '10:45 AM',
+    content: [
+      { type: 'text', text: 'Now ' },
+      { type: 'mention', text: '@Content Writer' },
+      { type: 'text', text: ' update our WordPress landing page headline to match the new campaign messaging. Also ' },
+      { type: 'mention', text: '@Graphic Designer' },
+      { type: 'text', text: ' generate a new hero image' },
+    ],
+  },
+  {
+    id: 10,
+    user: 'Content Writer',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'amber',
+    time: '10:46 AM',
+    content: [
+      { type: 'text', text: '✅ WordPress Updated:' },
+      { type: 'code', content: 'Page: /landing-page\n- Headline: "Transform Your Marketing with AI"\n- Subhead: "Join 2,000+ agencies saving 20hrs/week"\n- Status: Published' },
+      { type: 'text', text: '→ Live at yoursite.com/landing-page' },
+    ],
+    reactions: [{ emoji: '✅', count: 1 }],
+  },
+  {
+    id: 11,
     user: 'Graphic Designer',
     avatar: null,
     isAgent: true,
     agentColor: 'violet',
-    time: '10:45 AM',
+    time: '10:46 AM',
     content: [
-      { type: 'text', text: 'Created 3 variations:' },
+      { type: 'text', text: '✅ Hero image generated & uploaded to WordPress media library. Applied to landing page.' },
       { type: 'images', items: [
-        { placeholder: 'Ad 1', color: 'from-rose-500 to-orange-500' },
-        { placeholder: 'Ad 2', color: 'from-violet-500 to-indigo-500' },
-        { placeholder: 'Ad 3', color: 'from-emerald-500 to-teal-500' },
+        { image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format', wide: true },
       ]},
-      { type: 'text', text: 'Ready for review in Agent Creations tab →' },
     ],
-    reactions: [{ emoji: '😍', count: 3 }],
+    reactions: [{ emoji: '😍', count: 4 }, { emoji: '🎨', count: 2 }],
   },
 ];
+
+// Channel to messages map
+const channelMessages: Record<string, ChatMessage[]> = {
+  'marketing-strategy': marketingMessages,
+  'seo-campaigns': seoMessages,
+};
 
 const messageVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
@@ -160,10 +381,33 @@ const messageVariants = {
 };
 
 export function HeroSection() {
+  const [activeChannel, setActiveChannel] = useState('marketing-strategy');
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<{ cancelled: boolean }>({ cancelled: false });
+
+  const currentMessages = channelMessages[activeChannel] || marketingMessages;
+
+  // Handle channel change
+  const handleChannelChange = (channelName: string) => {
+    if (!channelMessages[channelName]) return; // Only switch to channels with messages
+    if (channelName === activeChannel) return;
+
+    // Cancel current animation
+    animationRef.current.cancelled = true;
+
+    // Reset and switch channel
+    setVisibleMessages([]);
+    setIsTyping(false);
+    setActiveChannel(channelName);
+
+    // Reset the scroll position
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = 0;
+    }
+  };
 
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -175,25 +419,38 @@ export function HeroSection() {
     }
   }, [visibleMessages, isTyping]);
 
+  // Animate messages for current channel
   useEffect(() => {
-    const showMessages = async () => {
-      for (let i = 0; i < chatMessages.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, i === 0 ? 1000 : 1500));
+    const controller = { cancelled: false };
+    animationRef.current = controller;
 
-        const message = chatMessages[i];
+    const showMessages = async () => {
+      const messages = channelMessages[activeChannel] || marketingMessages;
+
+      for (let i = 0; i < messages.length; i++) {
+        if (controller.cancelled) return;
+
+        await new Promise((resolve) => setTimeout(resolve, i === 0 ? 800 : 1200));
+        if (controller.cancelled) return;
+
+        const message = messages[i];
         if (message.typing) {
           setIsTyping(true);
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 800));
           setIsTyping(false);
         }
 
+        if (controller.cancelled) return;
         setVisibleMessages((prev) => [...prev, message.id]);
       }
     };
 
-    const timer = setTimeout(showMessages, 800);
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = setTimeout(showMessages, 600);
+    return () => {
+      controller.cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [activeChannel]);
 
   return (
     <section
@@ -413,15 +670,21 @@ export function HeroSection() {
                         {sidebarChannels.map((channel) => (
                           <div
                             key={channel.name}
-                            className={`flex items-center gap-2 px-2 py-1 rounded text-[11px] ${
-                              channel.name === 'marketing-strategy'
+                            onClick={() => channel.hasMessages && handleChannelChange(channel.name)}
+                            className={`flex items-center gap-2 px-2 py-1 rounded text-[11px] transition-all duration-200 ${
+                              channel.name === activeChannel
                                 ? 'bg-amber-500/10 text-white'
-                                : 'text-white/40 hover:bg-white/[0.03]'
+                                : channel.hasMessages
+                                ? 'text-white/40 hover:bg-white/[0.06] hover:text-white/60 cursor-pointer'
+                                : 'text-white/25'
                             }`}
                           >
                             {channel.starred && <Star className="w-3 h-3 text-amber-400 fill-amber-400" />}
                             <Hash className="w-3 h-3" />
                             <span className="truncate">{channel.name}</span>
+                            {channel.hasMessages && channel.name !== activeChannel && (
+                              <span className="ml-auto w-1.5 h-1.5 rounded-full bg-amber-400/60" />
+                            )}
                           </div>
                         ))}
                       </div>
@@ -441,9 +704,13 @@ export function HeroSection() {
                           >
                             <div className="relative">
                               {member.isAgent ? (
-                                <div className="w-5 h-5 rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                                  <Sparkles className="w-3 h-3 text-white" />
-                                </div>
+                                <SiriOrbAvatar
+                                  size={20}
+                                  variant={getAgentVariant(member.name)}
+                                  orbState="idle"
+                                  disableFloating={true}
+                                  className="rounded-md"
+                                />
                               ) : (
                                 <img
                                   src={member.image}
@@ -474,22 +741,26 @@ export function HeroSection() {
                       <div className="flex items-center gap-2">
                         <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
                         <Hash className="w-4 h-4 text-white/40" />
-                        <span className="text-[13px] font-semibold text-white">marketing-strategy</span>
+                        <span className="text-[13px] font-semibold text-white">{activeChannel}</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="hidden sm:flex items-center -space-x-2">
                           {sidebarTeam.slice(0, 3).map((member, i) => (
                             <div
                               key={member.name}
-                              className="w-6 h-6 rounded-full border-2 border-[#0D0D0F] overflow-hidden"
+                              className="rounded-full overflow-visible"
                               style={{ zIndex: 3 - i }}
                             >
                               {member.isAgent ? (
-                                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                                  <Sparkles className="w-3 h-3 text-white" />
-                                </div>
+                                <SiriOrbAvatar
+                                  size={24}
+                                  variant={getAgentVariant(member.name)}
+                                  orbState="idle"
+                                  disableFloating={true}
+                                  className="rounded-full"
+                                />
                               ) : (
-                                <img src={member.image} alt="" className="w-full h-full object-cover" />
+                                <img src={member.image} alt="" className="w-6 h-6 rounded-full object-cover" />
                               )}
                             </div>
                           ))}
@@ -528,7 +799,7 @@ export function HeroSection() {
                     {/* Messages */}
                     <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hidden">
                       <AnimatePresence mode="popLayout">
-                        {chatMessages
+                        {currentMessages
                           .filter((msg) => visibleMessages.includes(msg.id))
                           .map((message) => (
                             <motion.div
@@ -541,17 +812,13 @@ export function HeroSection() {
                               {/* Avatar */}
                               <div className="shrink-0">
                                 {message.isAgent ? (
-                                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                                    message.agentColor === 'emerald'
-                                      ? 'bg-gradient-to-br from-emerald-500 to-teal-600'
-                                      : message.agentColor === 'indigo'
-                                      ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
-                                      : message.agentColor === 'violet'
-                                      ? 'bg-gradient-to-br from-violet-500 to-purple-600'
-                                      : 'bg-gradient-to-br from-amber-500 to-orange-600'
-                                  }`}>
-                                    <Sparkles className="w-4 h-4 text-white" />
-                                  </div>
+                                  <SiriOrbAvatar
+                                    size={36}
+                                    variant={getAgentVariant(message.user)}
+                                    orbState={getAgentOrbState(message)}
+                                    disableFloating={true}
+                                    className="rounded-lg"
+                                  />
                                 ) : (
                                   <img
                                     src={message.avatar!}
@@ -600,9 +867,10 @@ export function HeroSection() {
                                       );
                                     }
                                     if (part.type === 'metrics' && 'items' in part) {
+                                      const items = part.items as Array<{label: string; value: string; change: string}>;
                                       return (
-                                        <div key={i} className="my-2 grid grid-cols-5 gap-2">
-                                          {(part.items as Array<{label: string; value: string; change: string}>).map((item, j) => (
+                                        <div key={i} className={`my-2 grid gap-2 ${items.length === 4 ? 'grid-cols-4' : 'grid-cols-5'}`}>
+                                          {items.map((item, j) => (
                                             <div
                                               key={j}
                                               className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-center"
@@ -630,16 +898,105 @@ export function HeroSection() {
                                     if (part.type === 'images' && 'items' in part) {
                                       return (
                                         <div key={i} className="my-2 flex gap-2">
-                                          {(part.items as Array<{placeholder: string; color: string}>).map((item, j) => (
+                                          {(part.items as Array<{image?: string; placeholder?: string; color?: string; wide?: boolean}>).map((item, j) => (
                                             <div
                                               key={j}
-                                              className={`relative w-20 h-20 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center overflow-hidden group`}
+                                              className={`relative ${item.wide ? 'w-48 h-24' : 'w-20 h-20'} rounded-lg overflow-hidden group`}
                                             >
+                                              {item.image ? (
+                                                <img src={item.image} alt="Generated" className="absolute inset-0 w-full h-full object-cover" />
+                                              ) : (
+                                                <div className={`absolute inset-0 bg-gradient-to-br ${item.color}`} />
+                                              )}
                                               <div className="absolute inset-0 bg-black/20" />
-                                              <span className="relative text-[10px] font-medium text-white/90">{item.placeholder}</span>
+                                              {item.placeholder && (
+                                                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-medium text-white/90">{item.placeholder}</span>
+                                              )}
                                               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </div>
                                           ))}
+                                        </div>
+                                      );
+                                    }
+                                    if (part.type === 'videos' && 'items' in part) {
+                                      return (
+                                        <div key={i} className="my-2 flex gap-2">
+                                          {(part.items as Array<{image?: string; placeholder?: string; color?: string; duration: string}>).map((item, j) => (
+                                            <div
+                                              key={j}
+                                              className="relative w-20 h-20 rounded-lg overflow-hidden group cursor-pointer"
+                                            >
+                                              {item.image ? (
+                                                <img src={item.image} alt="Video thumbnail" className="absolute inset-0 w-full h-full object-cover" />
+                                              ) : (
+                                                <div className={`absolute inset-0 bg-gradient-to-br ${item.color}`} />
+                                              )}
+                                              <div className="absolute inset-0 bg-black/40" />
+                                              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                                <div className="w-7 h-7 rounded-full bg-white/90 flex items-center justify-center mb-1 shadow-lg">
+                                                  <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-[#0A0A0B] border-b-[6px] border-b-transparent ml-1" />
+                                                </div>
+                                                <span className="text-[9px] font-medium text-white/90">{item.duration}</span>
+                                              </div>
+                                              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            </div>
+                                          ))}
+                                        </div>
+                                      );
+                                    }
+                                    if (part.type === 'actions' && 'items' in part) {
+                                      return (
+                                        <div key={i} className="my-2 space-y-1.5">
+                                          {(part.items as Array<{icon: string; action: string; status: string; detail: string}>).map((item, j) => (
+                                            <div
+                                              key={j}
+                                              className="flex items-center gap-2 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06]"
+                                            >
+                                              <span className="text-[12px]">{item.icon}</span>
+                                              <span className="text-white/80 font-medium text-[11px]">{item.action}</span>
+                                              <span className="text-white/40 text-[10px]">•</span>
+                                              <span className="text-white/40 text-[10px] truncate">{item.detail}</span>
+                                              <span className={`ml-auto text-[9px] px-1.5 py-0.5 rounded ${
+                                                item.status === 'success' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-blue-500/20 text-blue-400'
+                                              }`}>
+                                                {item.status === 'success' ? '✓ Done' : 'Info'}
+                                              </span>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      );
+                                    }
+                                    if (part.type === 'keywords' && 'items' in part) {
+                                      return (
+                                        <div key={i} className="my-2 space-y-1.5">
+                                          {(part.items as Array<{keyword: string; volume: string; difficulty: string; intent: string}>).map((item, j) => (
+                                            <div
+                                              key={j}
+                                              className="flex items-center gap-3 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06]"
+                                            >
+                                              <span className="flex-1 text-white/80 text-[11px] font-medium truncate">{item.keyword}</span>
+                                              <div className="flex items-center gap-2 shrink-0">
+                                                <span className="text-[10px] text-white/40">{item.volume}/mo</span>
+                                                <span className={`text-[9px] px-1.5 py-0.5 rounded ${
+                                                  parseInt(item.difficulty) < 25 ? 'bg-emerald-500/20 text-emerald-400' :
+                                                  parseInt(item.difficulty) < 40 ? 'bg-amber-500/20 text-amber-400' :
+                                                  'bg-red-500/20 text-red-400'
+                                                }`}>
+                                                  KD: {item.difficulty}
+                                                </span>
+                                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400">
+                                                  {item.intent}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      );
+                                    }
+                                    if (part.type === 'code' && 'content' in part) {
+                                      return (
+                                        <div key={i} className="my-2 p-3 rounded-lg bg-black/40 border border-white/[0.06] font-mono text-[10px] text-emerald-400/90 whitespace-pre-line">
+                                          {part.content}
                                         </div>
                                       );
                                     }
@@ -692,7 +1049,7 @@ export function HeroSection() {
                     {/* Message input */}
                     <div className="p-3 border-t border-white/[0.06]">
                       <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-                        <span className="text-[11px] text-white/30">Message #marketing-strategy</span>
+                        <span className="text-[11px] text-white/30">Message #{activeChannel}</span>
                         <div className="ml-auto flex items-center gap-2">
                           <div className="w-5 h-5 rounded bg-white/[0.05] flex items-center justify-center">
                             <span className="text-[10px] text-white/30">@</span>
