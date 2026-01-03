@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu } from 'lucide-react';
+import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
@@ -13,6 +13,7 @@ import {
   getAgentVariant,
   getAgentOrbState,
 } from './hero/chatData';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,6 +46,9 @@ const messageVariants = {
 };
 
 export function HeroSection() {
+  const { audience, setAudience, isBusinessOwner, isAgency } = useAudience();
+  const content = audienceContent[audience].hero;
+
   const [activeChannel, setActiveChannel] = useState('marketing-strategy');
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -289,6 +293,34 @@ export function HeroSection() {
           variants={containerVariants}
           className="flex flex-col items-center"
         >
+          {/* Audience Toggle */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <div className="inline-flex items-center gap-1 p-1 rounded-full bg-muted/30 border border-border backdrop-blur-sm">
+              <button
+                onClick={() => setAudience('business')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 ${
+                  isBusinessOwner
+                    ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                    : 'text-foreground/40 hover:text-foreground/60'
+                }`}
+              >
+                <Briefcase className="w-3.5 h-3.5" />
+                <span>Business Owner</span>
+              </button>
+              <button
+                onClick={() => setAudience('agency')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 ${
+                  isAgency
+                    ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
+                    : 'text-foreground/40 hover:text-foreground/60'
+                }`}
+              >
+                <Building2 className="w-3.5 h-3.5" />
+                <span>Agency</span>
+              </button>
+            </div>
+          </motion.div>
+
           {/* Trust badge */}
           <motion.div variants={itemVariants} className="mb-8">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-muted/30 border border-border backdrop-blur-sm">
@@ -310,40 +342,53 @@ export function HeroSection() {
 
           {/* Main headline - Editorial serif typography */}
           <motion.div variants={itemVariants} className="text-center max-w-5xl">
-            <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-display leading-[0.95] tracking-[-0.02em] text-foreground">
-              What if you never
-              <br />
-              <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                  had to hire again?
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={audience}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="text-[clamp(2.5rem,8vw,5.5rem)] font-display leading-[0.95] tracking-[-0.02em] text-foreground"
+              >
+                {content.headline[0]}
+                <br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
+                    {content.headline[1]}
+                  </span>
+                  {/* Underline accent */}
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full h-3 text-amber-500/30"
+                    viewBox="0 0 200 8"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0 7 Q50 0, 100 4 T200 3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
                 </span>
-                {/* Underline accent */}
-                <svg
-                  className="absolute -bottom-2 left-0 w-full h-3 text-amber-500/30"
-                  viewBox="0 0 200 8"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0 7 Q50 0, 100 4 T200 3"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-            </h1>
+              </motion.h1>
+            </AnimatePresence>
           </motion.div>
 
           {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            className="mt-8 text-lg sm:text-xl text-foreground/40 leading-relaxed max-w-2xl text-center font-light"
-          >
-            14 AI employees. Working 24/7. They never quit, never call in sick,
-            <br className="hidden sm:block" />
-            and never take your best clients when they leave.
-          </motion.p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`sub-${audience}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="mt-8 text-lg sm:text-xl text-foreground/40 leading-relaxed max-w-2xl text-center font-light"
+            >
+              {content.subheadline}
+            </motion.p>
+          </AnimatePresence>
 
           {/* CTA buttons */}
           <motion.div
@@ -377,21 +422,27 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-20 flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
           >
-            {[
-              { value: '65%', label: 'Fewer Hires' },
-              { value: '24/7', label: 'Coverage' },
-              { value: '$0', label: 'Turnover Cost' },
-              { value: '∞', label: 'Memory' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-xs text-foreground/30 uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`stats-${audience}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
+              >
+                {content.stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 text-xs text-foreground/30 uppercase tracking-wider">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
 
           {/* Product visualization - Animated Chat Interface */}
@@ -427,7 +478,7 @@ export function HeroSection() {
                 </div>
 
                 {/* Slack-like Chat Interface */}
-                <div className="relative aspect-[3/4] sm:aspect-[4/3] md:aspect-[16/9] dark:bg-[#0D0D0F] bg-muted flex">
+                <div className="relative aspect-[3/4] sm:aspect-[4/3] md:aspect-[16/9] dark:bg-[#0D0D0F] bg-muted flex overflow-hidden">
                   {/* Sidebar */}
                   <div className="hidden md:flex w-56 flex-col border-r border-border dark:bg-[#0A0A0B] bg-background">
                     {/* Workspace header */}

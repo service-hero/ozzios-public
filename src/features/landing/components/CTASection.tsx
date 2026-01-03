@@ -3,8 +3,11 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 export function CTASection() {
+  const { audience } = useAudience();
+  const content = audienceContent[audience].cta;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -60,7 +63,7 @@ export function CTASection() {
                 >
                   <Sparkles className="h-4 w-4 text-amber-400" />
                   <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
-                    50 Free Credits
+                    {content.badge}
                   </span>
                 </motion.div>
 
@@ -71,10 +74,10 @@ export function CTASection() {
                   transition={{ duration: 0.5, delay: 0.15 }}
                   className="text-[clamp(2rem,6vw,4rem)] font-display leading-[1.05] tracking-[-0.02em] text-foreground mb-6"
                 >
-                  Stop paying for humans
+                  {content.headline[0]}
                   <br />
                   <span className="bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                    who leave.
+                    {content.headline[1]}
                   </span>
                 </motion.h2>
 
@@ -85,9 +88,7 @@ export function CTASection() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-lg text-foreground/40 mb-10 max-w-lg mx-auto"
                 >
-                  Your first AI employee is free. No credit card.
-                  <br className="hidden sm:block" />
-                  Start building a team that stays forever.
+                  {content.subtext}
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -103,7 +104,7 @@ export function CTASection() {
                     className="h-14 px-8 text-[15px] font-medium gap-3 dark:bg-white dark:text-[#0A0A0B] bg-[#0A0A0B] text-white hover:opacity-90 rounded-full btn-enterprise group"
                   >
                     <a href="https://app.ozzios.com/sign-up">
-                      Get started for free
+                      {content.primaryButton}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </a>
                   </Button>
@@ -114,7 +115,7 @@ export function CTASection() {
                     className="h-14 px-8 text-[15px] font-medium text-foreground/60 hover:text-foreground hover:bg-muted rounded-full"
                   >
                     <a href="#contact">
-                      Talk to sales
+                      {content.secondaryButton}
                     </a>
                   </Button>
                 </motion.div>

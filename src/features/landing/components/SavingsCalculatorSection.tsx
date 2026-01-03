@@ -14,6 +14,7 @@ import {
   Check,
   Sparkles,
 } from 'lucide-react';
+import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 // Tool data with estimated monthly costs
 const tools = [
@@ -223,10 +224,18 @@ const itemVariants = {
 };
 
 export function SavingsCalculatorSection() {
+  const { audience, isBusinessOwner } = useAudience();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const [activeTab, setActiveTab] = useState<TabType>('agency');
+  // Default tab based on audience
+  const defaultTab: TabType = isBusinessOwner ? 'agency' : 'employees';
+  const [activeTab, setActiveTab] = useState<TabType>(defaultTab);
+
+  // Update active tab when audience changes
+  useEffect(() => {
+    setActiveTab(isBusinessOwner ? 'agency' : 'employees');
+  }, [isBusinessOwner]);
 
   // Agency tab state
   const [agencySpend, setAgencySpend] = useState(5000);
