@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WaitlistBusinessRouteImport } from './routes/waitlist-business'
 import { Route as WaitlistRouteImport } from './routes/waitlist'
+import { Route as TosRouteImport } from './routes/tos'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -25,6 +27,16 @@ const WaitlistBusinessRoute = WaitlistBusinessRouteImport.update({
 const WaitlistRoute = WaitlistRouteImport.update({
   id: '/waitlist',
   path: '/waitlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TosRoute = TosRouteImport.update({
+  id: '/tos',
+  path: '/tos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -56,6 +68,8 @@ const BlogPostIdRoute = BlogPostIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
@@ -64,6 +78,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
@@ -74,6 +90,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
@@ -85,6 +103,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/privacy-policy'
+    | '/tos'
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
@@ -93,6 +113,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/privacy-policy'
+    | '/tos'
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
@@ -102,6 +124,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
+    | '/privacy-policy'
+    | '/tos'
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
@@ -112,6 +136,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TosRoute: typeof TosRoute
   WaitlistRoute: typeof WaitlistRoute
   WaitlistBusinessRoute: typeof WaitlistBusinessRoute
   DocsSplatRoute: typeof DocsSplatRoute
@@ -131,6 +157,20 @@ declare module '@tanstack/react-router' {
       path: '/waitlist'
       fullPath: '/waitlist'
       preLoaderRoute: typeof WaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tos': {
+      id: '/tos'
+      path: '/tos'
+      fullPath: '/tos'
+      preLoaderRoute: typeof TosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -186,6 +226,8 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TosRoute: TosRoute,
   WaitlistRoute: WaitlistRoute,
   WaitlistBusinessRoute: WaitlistBusinessRoute,
   DocsSplatRoute: DocsSplatRoute,
