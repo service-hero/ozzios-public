@@ -1173,7 +1173,7 @@ export function HeroSection() {
             className="mt-24 w-full"
           >
             <p className="text-center text-[11px] font-medium text-gray-400 uppercase tracking-[0.2em] mb-8">
-              Trusted by leading agencies worldwide
+              Trusted by leading {isBusinessOwner ? 'businesses' : 'agencies'} worldwide
             </p>
 
             {/* Logo marquee */}
