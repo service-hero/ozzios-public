@@ -170,9 +170,9 @@ export function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-70">
             <img
-              src="/images/dark-theme-logo.svg"
+              src="/images/ozzios-logo.svg"
               alt="OzziOS"
-              className="h-6 w-auto brightness-0"
+              className="h-6 w-auto"
             />
           </Link>
 

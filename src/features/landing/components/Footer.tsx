@@ -80,9 +80,9 @@ export function Footer() {
             <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:pr-8">
               <Link to="/" className="inline-block transition-opacity hover:opacity-80">
                 <img
-                  src="/images/dark-theme-logo.svg"
+                  src="/images/ozzios-logo.svg"
                   alt="OzziOS"
-                  className="h-6 w-auto brightness-0"
+                  className="h-6 w-auto"
                 />
               </Link>
               <p className="mt-4 text-[13px] leading-relaxed text-gray-500 max-w-xs">

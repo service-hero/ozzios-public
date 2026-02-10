@@ -26,93 +26,93 @@ const categories: IntegrationCategory[] = [
     id: 'google',
     title: 'Google Workspace',
     integrations: [
-      { id: 'google-calendar', name: 'Google Calendar', description: 'Calendar events and scheduling', icon: '📅', status: 'available' },
-      { id: 'gmail', name: 'Gmail', description: 'Email access and sync', icon: '✉️', status: 'available' },
-      { id: 'google-drive', name: 'Google Drive', description: 'Drive files and Google Docs', icon: '📁', status: 'available' },
-      { id: 'google-ads', name: 'Google Ads', description: 'Ad campaigns and performance', icon: '📊', status: 'coming-soon' },
-      { id: 'google-business', name: 'Google Business Profile', description: 'Business listings and reviews', icon: '🏢', status: 'available' },
+      { id: 'google-calendar', name: 'Google Calendar', description: 'Calendar events and scheduling', icon: '/images/google-calendar-logo.webp', status: 'available' },
+      { id: 'gmail', name: 'Gmail', description: 'Email access and sync', icon: '/images/gmail-logo.webp', status: 'available' },
+      { id: 'google-drive', name: 'Google Drive', description: 'Drive files and Google Docs', icon: '/images/google-drive-logo.webp', status: 'available' },
+      { id: 'google-ads', name: 'Google Ads', description: 'Ad campaigns and performance', icon: '/images/google-ads-logo.webp', status: 'coming-soon' },
+      { id: 'google-business', name: 'Google Business Profile', description: 'Business listings and reviews', icon: '/images/gbp-logo.svg', status: 'available' },
     ],
   },
   {
     id: 'advertising',
     title: 'Advertising',
     integrations: [
-      { id: 'meta-ads', name: 'Meta Ads', description: 'Facebook & Instagram advertising', icon: '📱', status: 'available' },
+      { id: 'meta-ads', name: 'Meta Ads', description: 'Facebook & Instagram advertising', icon: '/images/meta-ads-icon.webp', status: 'available' },
     ],
   },
   {
     id: 'social-media',
     title: 'Social Media',
     integrations: [
-      { id: 'facebook', name: 'Facebook Pages', description: 'Page management and posts', icon: '👤', status: 'available' },
-      { id: 'facebook-leads', name: 'Facebook Lead Forms', description: 'Capture leads from Facebook ads', icon: '📋', status: 'available' },
+      { id: 'facebook', name: 'Facebook Pages', description: 'Page management and posts', icon: '/images/facebook-icon.svg', status: 'available' },
+      { id: 'facebook-leads', name: 'Facebook Lead Forms', description: 'Capture leads from Facebook ads', icon: '/images/facebook-icon.svg', status: 'available' },
       { id: 'linkedin', name: 'LinkedIn', description: 'Professional network and posts', icon: '💼', status: 'coming-soon' },
-      { id: 'twitter', name: 'X / Twitter', description: 'Social posts and engagement', icon: '🐦', status: 'coming-soon' },
-      { id: 'tiktok', name: 'TikTok', description: 'Short-form video content', icon: '🎵', status: 'coming-soon' },
-      { id: 'youtube', name: 'YouTube', description: 'Video content and analytics', icon: '▶️', status: 'available' },
+      { id: 'twitter', name: 'X / Twitter', description: 'Social posts and engagement', icon: '/images/x-logo.jpg', status: 'coming-soon' },
+      { id: 'tiktok', name: 'TikTok', description: 'Short-form video content', icon: '/images/tiktok-logo.svg', status: 'coming-soon' },
+      { id: 'youtube', name: 'YouTube', description: 'Video content and analytics', icon: '/images/youtube-logo.webp', status: 'available' },
     ],
   },
   {
     id: 'content',
     title: 'Content Publishing',
     integrations: [
-      { id: 'wordpress', name: 'WordPress', description: 'Blog and website publishing', icon: '📝', status: 'available' },
-      { id: 'wix', name: 'Wix', description: 'Publish content to Wix sites', icon: '🌐', status: 'available' },
-      { id: 'shopify', name: 'Shopify', description: 'E-commerce store management', icon: '🛒', status: 'available' },
+      { id: 'wordpress', name: 'WordPress', description: 'Blog and website publishing', icon: '/images/wordpress.webp', status: 'available' },
+      { id: 'wix', name: 'Wix', description: 'Publish content to Wix sites', icon: '/images/wix-logo.webp', status: 'available' },
+      { id: 'shopify', name: 'Shopify', description: 'E-commerce store management', icon: '/images/shopify-logo.webp', status: 'available' },
     ],
   },
   {
     id: 'communication',
     title: 'Communication',
     integrations: [
-      { id: 'resend', name: 'Resend', description: 'Transactional email delivery', icon: '📧', status: 'available' },
-      { id: 'twilio', name: 'Twilio', description: 'SMS and WhatsApp messaging', icon: '💬', status: 'available' },
+      { id: 'resend', name: 'Resend', description: 'Transactional email delivery', icon: '/images/resend-logo.svg', status: 'available' },
+      { id: 'twilio', name: 'Twilio', description: 'SMS and WhatsApp messaging', icon: '/images/twilio-logo.webp', status: 'available' },
     ],
   },
   {
     id: 'payments',
     title: 'Payments & Billing',
     integrations: [
-      { id: 'stripe', name: 'Stripe', description: 'Payment processing', icon: '💳', status: 'available' },
+      { id: 'stripe', name: 'Stripe', description: 'Payment processing', icon: '/images/stripe-logo.webp', status: 'available' },
     ],
   },
   {
     id: 'crm',
     title: 'CRM & Field Service',
     integrations: [
-      { id: 'housecall-pro', name: 'HouseCall Pro', description: 'Field service management', icon: '🔧', status: 'available' },
-      { id: 'servicetitan', name: 'ServiceTitan', description: 'Enterprise field service management', icon: '⚡', status: 'available' },
-      { id: 'gohighlevel', name: 'GoHighLevel', description: 'All-in-one CRM & marketing automation', icon: '🚀', status: 'available' },
+      { id: 'housecall-pro', name: 'HouseCall Pro', description: 'Field service management', icon: '/images/housecall-pro-logo.webp', status: 'available' },
+      { id: 'servicetitan', name: 'ServiceTitan', description: 'Enterprise field service management', icon: '/images/servicetitan-logo.webp', status: 'available' },
+      { id: 'gohighlevel', name: 'GoHighLevel', description: 'All-in-one CRM & marketing automation', icon: '/images/gohighlevel-logo.png', status: 'available' },
     ],
   },
   {
     id: 'ai-creative',
     title: 'AI & Creative',
     integrations: [
-      { id: 'firecrawl', name: 'Firecrawl', description: 'Web scraping and crawling', icon: '🔥', status: 'included' },
-      { id: 'tavily', name: 'Tavily', description: 'AI-powered web search', icon: '🔍', status: 'included' },
-      { id: 'exa', name: 'Exa Search', description: 'Neural semantic search', icon: '🧠', status: 'included' },
-      { id: 'nanobanana', name: 'Nano Banana', description: 'Gemini image generation', icon: '🍌', status: 'included' },
-      { id: 'veo', name: 'Veo 3', description: 'AI video generation', icon: '🎬', status: 'included' },
-      { id: 'elevenlabs', name: 'ElevenLabs', description: 'AI text-to-speech', icon: '🎙️', status: 'included' },
-      { id: 'openai-image', name: 'GPT-Image-1.5', description: 'OpenAI image generation', icon: '🎨', status: 'included' },
+      { id: 'firecrawl', name: 'Firecrawl', description: 'Web scraping and crawling', icon: '/images/firecrawl-logo.webp', status: 'included' },
+      { id: 'tavily', name: 'Tavily', description: 'AI-powered web search', icon: '/images/tavily-logo.webp', status: 'included' },
+      { id: 'exa', name: 'Exa Search', description: 'Neural semantic search', icon: '/images/exa-logo.webp', status: 'included' },
+      { id: 'nanobanana', name: 'Nano Banana', description: 'Gemini image generation', icon: '/images/nano-banana-logo.jpeg', status: 'included' },
+      { id: 'veo', name: 'Veo 3', description: 'AI video generation', icon: '/images/remotion-logo.webp', status: 'included' },
+      { id: 'elevenlabs', name: 'ElevenLabs', description: 'AI text-to-speech', icon: '/images/elevenlabs-logo.webp', status: 'included' },
+      { id: 'openai-image', name: 'GPT-Image-1.5', description: 'OpenAI image generation', icon: '/images/openai-logo.webp', status: 'included' },
     ],
   },
   {
     id: 'ai-models',
     title: 'AI Models (Bring Your Own Key)',
     integrations: [
-      { id: 'ollama', name: 'Ollama', description: 'Local or cloud LLM inference (Kimi K2.5)', icon: '🦙', status: 'available' },
-      { id: 'groq', name: 'Groq', description: 'Ultra-fast LPU inference (Kimi K2)', icon: '⚡', status: 'available' },
-      { id: 'gemini', name: 'Google Gemini', description: 'Gemini 3 Flash & Pro models', icon: '✨', status: 'available' },
-      { id: 'minimax', name: 'MiniMax', description: 'Multi-language coding (M2.1)', icon: '🤖', status: 'available' },
+      { id: 'ollama', name: 'Ollama', description: 'Local or cloud LLM inference (Kimi K2.5)', icon: '/images/kimi-ai-logo.webp', status: 'available' },
+      { id: 'groq', name: 'Groq', description: 'Ultra-fast LPU inference (Kimi K2)', icon: '/images/kimi-ai-logo.webp', status: 'available' },
+      { id: 'gemini', name: 'Google Gemini', description: 'Gemini 3 Flash & Pro models', icon: '/images/google-logo.svg', status: 'available' },
+      { id: 'minimax', name: 'MiniMax', description: 'Multi-language coding (M2.1)', icon: '/images/minimax-ai-logo.png', status: 'available' },
     ],
   },
   {
     id: 'data-research',
     title: 'Data & Research',
     integrations: [
-      { id: 'zillow', name: 'Zillow', description: 'Real estate data and listings', icon: '🏠', status: 'coming-soon' },
+      { id: 'zillow', name: 'Zillow', description: 'Real estate data and listings', icon: '/images/zillow-logo.webp', status: 'coming-soon' },
       { id: 'semrush', name: 'SEMrush', description: 'PPC keyword research and forecasting', icon: '📈', status: 'coming-soon' },
     ],
   },
@@ -149,23 +149,23 @@ function StatusBadge({ status }: { status: IntegrationStatus }) {
   switch (status) {
     case 'available':
       return (
-        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-          <Check className="w-3 h-3 text-emerald-400" />
-          <span className="text-[11px] font-medium text-emerald-400">Available</span>
+        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-mint/10 border-2 border-mint/20">
+          <Check className="w-3 h-3 text-mint" />
+          <span className="text-[11px] font-medium text-mint">Available</span>
         </span>
       );
     case 'coming-soon':
       return (
-        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-foreground/5 border border-foreground/10">
-          <Clock className="w-3 h-3 text-foreground/40" />
-          <span className="text-[11px] font-medium text-foreground/40">Coming Soon</span>
+        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted border-2 border-border">
+          <Clock className="w-3 h-3 text-muted-foreground" />
+          <span className="text-[11px] font-medium text-muted-foreground">Coming Soon</span>
         </span>
       );
     case 'included':
       return (
-        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
-          <Sparkles className="w-3 h-3 text-indigo-400" />
-          <span className="text-[11px] font-medium text-indigo-400">Included Free</span>
+        <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-electric/10 border-2 border-electric/20">
+          <Sparkles className="w-3 h-3 text-electric" />
+          <span className="text-[11px] font-medium text-electric">Included Free</span>
         </span>
       );
     default:
@@ -206,11 +206,6 @@ export function IntegrationsView() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        {/* Background effects */}
-        <div
-          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none glow-amber-hero"
-        />
-
         <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -219,20 +214,20 @@ export function IntegrationsView() {
           >
             {/* Header */}
             <motion.div variants={itemVariants} className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
-                <Plug2 className="w-4 h-4 text-amber-400" />
-                <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+              <div className="tag-neo rounded-full bg-signature/10 border-signature mb-6">
+                <Plug2 className="w-4 h-4 text-signature" />
+                <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
                   {totalIntegrations}+ Integrations
                 </span>
               </div>
-              <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-display leading-[1.05] tracking-[-0.02em] text-foreground mb-6">
+              <h1 className="text-display font-display text-foreground mb-6">
                 Connect your
                 <br />
-                <span className="bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
+                <span className="text-signature">
                   entire stack
                 </span>
               </h1>
-              <p className="text-lg text-foreground/40 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 OzziOS connects with the tools you already use. From CRMs to social media, advertising to AI—everything works together seamlessly.
               </p>
             </motion.div>
@@ -241,17 +236,17 @@ export function IntegrationsView() {
             <motion.div variants={itemVariants} className="flex items-center justify-center gap-8 mb-12">
               <div className="text-center">
                 <p className="text-3xl font-display text-foreground">{availableCount}</p>
-                <p className="text-[13px] text-foreground/40">Available Now</p>
+                <p className="text-[13px] text-muted-foreground">Available Now</p>
               </div>
-              <div className="w-px h-10 bg-foreground/10" />
+              <div className="w-px h-10 bg-border" />
               <div className="text-center">
                 <p className="text-3xl font-display text-foreground">{includedCount}</p>
-                <p className="text-[13px] text-foreground/40">Included Free</p>
+                <p className="text-[13px] text-muted-foreground">Included Free</p>
               </div>
-              <div className="w-px h-10 bg-foreground/10" />
+              <div className="w-px h-10 bg-border" />
               <div className="text-center">
                 <p className="text-3xl font-display text-foreground">10</p>
-                <p className="text-[13px] text-foreground/40">Categories</p>
+                <p className="text-[13px] text-muted-foreground">Categories</p>
               </div>
             </motion.div>
 
@@ -259,13 +254,13 @@ export function IntegrationsView() {
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12">
               {/* Search */}
               <div className="relative w-full sm:w-80">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                   type="text"
                   placeholder="Search integrations..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full h-12 pl-11 pr-4 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[14px] text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-amber-500/40 focus:bg-white/[0.05] transition-all"
+                  className="w-full h-12 pl-11 pr-4 rounded-xl bg-muted border-2 border-border text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-signature transition-all"
                 />
               </div>
 
@@ -276,10 +271,10 @@ export function IntegrationsView() {
                     key={filter.id}
                     onClick={() => setActiveFilter(filter.id)}
                     className={cn(
-                      'px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap transition-all duration-300',
+                      'px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap transition-all duration-150',
                       activeFilter === filter.id
-                        ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                        : 'text-foreground/50 hover:text-foreground/70 hover:bg-white/[0.05] border border-transparent'
+                        ? 'bg-signature/15 text-signature border-2 border-signature'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted border-2 border-transparent'
                     )}
                   >
                     {filter.label}
@@ -304,7 +299,7 @@ export function IntegrationsView() {
               <motion.div key={category.id} variants={itemVariants}>
                 <h2 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-3">
                   {category.title}
-                  <span className="text-[12px] font-normal text-foreground/30">
+                  <span className="text-[12px] font-normal text-muted-foreground">
                     {category.integrations.length} integration{category.integrations.length !== 1 ? 's' : ''}
                   </span>
                 </h2>
@@ -313,21 +308,25 @@ export function IntegrationsView() {
                     <div
                       key={integration.id}
                       className={cn(
-                        'group relative p-5 rounded-xl border transition-all duration-300',
+                        'group relative p-5 rounded-xl border-2 transition-all duration-150',
                         integration.status === 'coming-soon'
-                          ? 'bg-white/[0.01] border-white/[0.04] opacity-60'
-                          : 'bg-white/[0.02] border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.04]'
+                          ? 'bg-muted/50 border-border opacity-60'
+                          : 'bg-card border-border hover:border-foreground/20 hover:shadow-[4px_4px_0_0_hsl(var(--border))]'
                       )}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-2xl shrink-0">
-                          {integration.icon}
+                        <div className="w-12 h-12 rounded-xl bg-muted border-2 border-border flex items-center justify-center shrink-0 overflow-hidden">
+                          {integration.icon.startsWith('/') ? (
+                            <img src={integration.icon} alt={integration.name} className="w-8 h-8 object-contain" />
+                          ) : (
+                            <span className="text-2xl">{integration.icon}</span>
+                          )}
                         </div>
                         <div className="min-w-0 flex-1">
                           <h3 className="text-[15px] font-medium text-foreground mb-1">
                             {integration.name}
                           </h3>
-                          <p className="text-[13px] text-foreground/40 leading-relaxed mb-3">
+                          <p className="text-[13px] text-muted-foreground leading-relaxed mb-3">
                             {integration.description}
                           </p>
                           <StatusBadge status={integration.status} />
@@ -346,8 +345,8 @@ export function IntegrationsView() {
                 animate={{ opacity: 1 }}
                 className="text-center py-20"
               >
-                <p className="text-foreground/40 text-lg mb-2">No integrations found</p>
-                <p className="text-foreground/30 text-[14px]">
+                <p className="text-muted-foreground text-lg mb-2">No integrations found</p>
+                <p className="text-muted-foreground/70 text-[14px]">
                   Try adjusting your search or filter
                 </p>
               </motion.div>
@@ -357,31 +356,31 @@ export function IntegrationsView() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-white/[0.06]">
+      <section className="py-20 border-t-2 border-border">
         <div className="mx-auto max-w-[600px] px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <h3 className="text-2xl font-display text-foreground mb-4">
               Need a custom integration?
             </h3>
-            <p className="text-[15px] text-foreground/40 mb-8">
+            <p className="text-[15px] text-muted-foreground mb-8">
               Our team can build custom integrations for your specific workflow. Let us know what you need.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://app.ozzios.com/sign-up"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#0A0A0B] font-medium text-[15px] hover:bg-white/90 transition-colors"
+                className="btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors"
               >
                 Get started free
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-white/[0.1] text-[14px] font-medium text-foreground/60 hover:text-foreground hover:bg-white/[0.05] hover:border-white/[0.15] transition-all"
+                className="btn-neo inline-flex items-center gap-2 px-6 py-4 rounded-full border-2 border-border text-[14px] font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
               >
                 Request integration
               </a>
