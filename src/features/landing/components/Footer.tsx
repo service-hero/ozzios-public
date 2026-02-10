@@ -82,7 +82,7 @@ export function Footer() {
                 <img
                   src="/images/ozzios-logo.svg"
                   alt="OzziOS"
-                  className="h-6 w-auto"
+                  className="h-6 w-auto brightness-0"
                 />
               </Link>
               <p className="mt-4 text-[13px] leading-relaxed text-gray-500 max-w-xs">
