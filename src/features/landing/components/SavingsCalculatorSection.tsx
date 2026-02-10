@@ -14,7 +14,7 @@ import {
   Check,
   Sparkles,
 } from 'lucide-react';
-import { useAudience, audienceContent } from '../contexts/AudienceContext';
+import { useAudience } from '../contexts/AudienceContext';
 
 // Tool data with estimated monthly costs
 const tools = [
@@ -104,17 +104,11 @@ function PremiumSlider({
       {/* Track container */}
       <div className="relative h-2">
         {/* Background track */}
-        <div className="absolute inset-0 rounded-full bg-white/[0.08]" />
+        <div className="absolute inset-0 rounded-full bg-gray-200" />
 
         {/* Filled track */}
         <div
-          className="absolute inset-y-0 left-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-150"
-          style={{ width: `${percentage}%` }}
-        />
-
-        {/* Glow effect on filled track */}
-        <div
-          className="absolute inset-y-0 left-0 bg-gradient-to-r from-amber-400/30 to-orange-400/30 rounded-full blur-md -z-10"
+          className="absolute inset-y-0 left-0 bg-signature rounded-full transition-all duration-150"
           style={{ width: `${percentage}%` }}
         />
 
@@ -123,10 +117,7 @@ function PremiumSlider({
           className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 pointer-events-none z-10"
           style={{ left: `${percentage}%` }}
         >
-          <div className="w-5 h-5 rounded-full bg-white shadow-lg shadow-amber-500/30 border-2 border-amber-400 transition-transform hover:scale-110">
-            {/* Inner dot */}
-            <div className="absolute inset-1 rounded-full bg-amber-400" />
-          </div>
+          <div className="w-5 h-5 rounded-full bg-white shadow-md border-2 border-signature transition-transform hover:scale-110" />
         </div>
       </div>
 
@@ -142,10 +133,10 @@ function PremiumSlider({
       />
 
       {/* Min/max labels */}
-      <div className="absolute top-8 left-0 text-[11px] text-foreground/40">
+      <div className="absolute top-8 left-0 text-[11px] text-gray-400">
         {formatValue(min)}
       </div>
-      <div className="absolute top-8 right-0 text-[11px] text-foreground/40">
+      <div className="absolute top-8 right-0 text-[11px] text-gray-400">
         {formatValue(max)}
       </div>
     </div>
@@ -168,15 +159,15 @@ function ToolCheckbox({
       className={cn(
         'group relative flex items-center gap-3 p-3 rounded-xl border transition-all duration-300',
         checked
-          ? 'border-amber-500/40 bg-amber-500/[0.08]'
-          : 'border-white/[0.06] bg-white/[0.02] hover:border-white/[0.1] hover:bg-white/[0.03]'
+          ? 'border-signature/40 bg-signature/5'
+          : 'border-gray-200 bg-white hover:border-gray-300'
       )}
     >
       <div className={cn(
         'flex items-center justify-center w-5 h-5 rounded-md border-2 transition-all duration-200',
         checked
-          ? 'border-amber-400 bg-amber-500'
-          : 'border-white/20 bg-transparent group-hover:border-white/30'
+          ? 'border-signature bg-signature'
+          : 'border-gray-300 bg-transparent group-hover:border-gray-400'
       )}>
         {checked && <Check className="w-3 h-3 text-white" />}
       </div>
@@ -184,11 +175,11 @@ function ToolCheckbox({
       <div className="flex-1 text-left">
         <p className={cn(
           'text-[13px] font-medium transition-colors',
-          checked ? 'text-foreground' : 'text-foreground/70'
+          checked ? 'text-black' : 'text-gray-700'
         )}>
           {tool.name}
         </p>
-        <p className="text-[11px] text-foreground/40">
+        <p className="text-[11px] text-gray-400">
           ~${tool.cost}/mo
         </p>
       </div>
@@ -219,12 +210,12 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
 
 export function SavingsCalculatorSection() {
-  const { audience, isBusinessOwner } = useAudience();
+  const { isBusinessOwner } = useAudience();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -301,19 +292,8 @@ export function SavingsCalculatorSection() {
   const totalSavings = getTotalSavings();
 
   return (
-    <section id="calculator" className="relative py-32 lg:py-40 bg-background overflow-hidden">
-      {/* Subtle divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-      {/* Background ambient glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] rounded-full blur-[200px] opacity-[0.04] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(251, 146, 60, 1) 0%, transparent 60%)',
-        }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
+    <section id="calculator" className="py-24 lg:py-32 bg-gray-50">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -322,44 +302,26 @@ export function SavingsCalculatorSection() {
         >
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
-              <Calculator className="h-4 w-4 text-amber-400" />
-              <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-signature/10 border border-signature/20 mb-6">
+              <Calculator className="h-4 w-4 text-signature" />
+              <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
                 ROI Calculator
               </span>
             </div>
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-4">
+            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-black mb-4">
               See what you'll save.
             </h2>
-            <p className="text-lg text-foreground/40 max-w-xl mx-auto">
+            <p className="text-lg text-gray-500 max-w-xl mx-auto">
               Calculate your potential savings across agencies, employees, and tools.
             </p>
           </motion.div>
 
           {/* Calculator card */}
           <motion.div variants={itemVariants}>
-            <div className="relative rounded-3xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
-              {/* Inner glow effect */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: 'radial-gradient(ellipse at top center, rgba(251, 146, 60, 0.05) 0%, transparent 50%)',
-                }}
-              />
-
-              {/* Grid overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-[0.02]"
-                style={{
-                  backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                                   linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-                  backgroundSize: '40px 40px',
-                }}
-              />
-
+            <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
               <div className="relative z-10">
                 {/* Tabs */}
-                <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-white/[0.06]">
+                <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-gray-200 bg-gray-50">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
@@ -370,13 +332,13 @@ export function SavingsCalculatorSection() {
                         className={cn(
                           'flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-[14px] transition-all duration-300',
                           isActive
-                            ? 'bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-foreground border border-amber-500/30'
-                            : 'text-foreground/50 hover:text-foreground/70 hover:bg-white/[0.03]'
+                            ? 'bg-white text-black border border-gray-200 shadow-sm'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-white/50'
                         )}
                       >
                         <Icon className={cn(
                           'h-4 w-4 transition-colors',
-                          isActive ? 'text-amber-400' : 'text-foreground/40'
+                          isActive ? 'text-signature' : 'text-gray-400'
                         )} />
                         <span className="hidden sm:inline">{tab.label}</span>
                       </button>
@@ -389,7 +351,7 @@ export function SavingsCalculatorSection() {
                   {/* Input side */}
                   <div className="space-y-8">
                     <div>
-                      <p className="text-[13px] text-foreground/50 mb-6">
+                      <p className="text-[13px] text-gray-500 mb-6">
                         {tabs.find(t => t.id === activeTab)?.description}
                       </p>
                     </div>
@@ -406,10 +368,10 @@ export function SavingsCalculatorSection() {
                         >
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-foreground">
+                              <span className="text-[14px] font-medium text-black">
                                 Monthly agency retainer
                               </span>
-                              <span className="text-[18px] font-semibold text-amber-400 tabular-nums">
+                              <span className="text-[18px] font-semibold text-signature tabular-nums">
                                 ${agencySpend.toLocaleString()}
                               </span>
                             </label>
@@ -423,8 +385,8 @@ export function SavingsCalculatorSection() {
                             />
                           </div>
 
-                          <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                            <p className="text-[12px] text-foreground/40 mb-3">What you're paying for:</p>
+                          <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                            <p className="text-[12px] text-gray-400 mb-3">What you're paying for:</p>
                             <div className="space-y-2">
                               {[
                                 'Monthly reports you don\'t understand',
@@ -433,8 +395,8 @@ export function SavingsCalculatorSection() {
                                 '"Strategy" meetings that go nowhere',
                               ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-red-400/60 mt-1.5 shrink-0" />
-                                  <span className="text-[13px] text-foreground/50">{item}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 shrink-0" />
+                                  <span className="text-[13px] text-gray-600">{item}</span>
                                 </div>
                               ))}
                             </div>
@@ -453,10 +415,10 @@ export function SavingsCalculatorSection() {
                         >
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-foreground">
+                              <span className="text-[14px] font-medium text-black">
                                 Marketing team size
                               </span>
-                              <span className="text-[18px] font-semibold text-amber-400 tabular-nums">
+                              <span className="text-[18px] font-semibold text-signature tabular-nums">
                                 {teamSize} {teamSize === 1 ? 'person' : 'people'}
                               </span>
                             </label>
@@ -472,10 +434,10 @@ export function SavingsCalculatorSection() {
 
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-foreground">
+                              <span className="text-[14px] font-medium text-black">
                                 Average salary
                               </span>
-                              <span className="text-[18px] font-semibold text-amber-400 tabular-nums">
+                              <span className="text-[18px] font-semibold text-signature tabular-nums">
                                 ${(avgSalary / 1000).toFixed(0)}K
                               </span>
                             </label>
@@ -489,14 +451,14 @@ export function SavingsCalculatorSection() {
                             />
                           </div>
 
-                          <div className="p-4 rounded-xl bg-amber-500/[0.08] border border-amber-500/20">
+                          <div className="p-4 rounded-xl bg-signature/5 border border-signature/20">
                             <div className="flex items-start gap-3">
-                              <Sparkles className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                              <Sparkles className="w-5 h-5 text-signature shrink-0 mt-0.5" />
                               <div>
-                                <p className="text-[13px] font-medium text-amber-400 mb-1">
+                                <p className="text-[13px] font-medium text-signature mb-1">
                                   65% headcount reduction
                                 </p>
-                                <p className="text-[12px] text-foreground/50">
+                                <p className="text-[12px] text-gray-600">
                                   Run a 20-person agency with 7 people. AI handles the repetitive work—your team focuses on strategy and relationships.
                                 </p>
                               </div>
@@ -514,7 +476,7 @@ export function SavingsCalculatorSection() {
                           transition={{ duration: 0.3 }}
                           className="space-y-6"
                         >
-                          <p className="text-[14px] font-medium text-foreground">
+                          <p className="text-[14px] font-medium text-black">
                             Select the tools you're currently using:
                           </p>
 
@@ -535,14 +497,14 @@ export function SavingsCalculatorSection() {
                             ))}
                           </div>
 
-                          <div className="p-4 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20">
+                          <div className="p-4 rounded-xl bg-green-50 border border-green-200">
                             <div className="flex items-start gap-3">
-                              <Sparkles className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                              <Sparkles className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                               <div>
-                                <p className="text-[13px] font-medium text-emerald-400 mb-1">
+                                <p className="text-[13px] font-medium text-green-700 mb-1">
                                   OzziOS replaces all of these
                                 </p>
-                                <p className="text-[12px] text-foreground/50">
+                                <p className="text-[12px] text-gray-600">
                                   One platform, one login, one invoice. All the features you need.
                                 </p>
                               </div>
@@ -556,25 +518,17 @@ export function SavingsCalculatorSection() {
                   {/* Results side */}
                   <div className="relative">
                     <div className="sticky top-8">
-                      <div className="relative p-8 rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.08] overflow-hidden">
-                        {/* Glow effect */}
-                        <div
-                          className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full blur-[100px] opacity-30 pointer-events-none"
-                          style={{
-                            background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.4) 0%, transparent 70%)',
-                          }}
-                        />
-
+                      <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200">
                         <div className="relative z-10">
-                          <p className="text-[12px] text-foreground/40 uppercase tracking-wider mb-2">
+                          <p className="text-[12px] text-gray-400 uppercase tracking-wider mb-2">
                             Estimated Annual Savings
                           </p>
 
                           <div className="mb-8">
-                            <span className="text-[clamp(3rem,8vw,4.5rem)] font-bold text-foreground leading-none tracking-tight">
+                            <span className="text-[clamp(3rem,8vw,4.5rem)] font-bold text-black leading-none tracking-tight">
                               <AnimatedValue value={totalSavings} prefix="$" />
                             </span>
-                            <span className="text-[24px] text-foreground/50 ml-1">/yr</span>
+                            <span className="text-[24px] text-gray-400 ml-1">/yr</span>
                           </div>
 
                           {/* Tab-specific breakdown */}
@@ -587,21 +541,21 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Current annual spend</span>
-                                  <span className="text-[14px] font-medium text-foreground">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Current annual spend</span>
+                                  <span className="text-[14px] font-medium text-black">
                                     ${(agencySpend * 12).toLocaleString()}
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">OzziOS annual cost</span>
-                                  <span className="text-[14px] font-medium text-emerald-400">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">OzziOS annual cost</span>
+                                  <span className="text-[14px] font-medium text-green-600">
                                     ~$3,588
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Savings percentage</span>
-                                  <span className="text-[14px] font-semibold text-amber-400">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Savings percentage</span>
+                                  <span className="text-[14px] font-semibold text-signature">
                                     <AnimatedValue value={agencySavings.percentage} suffix="%" />
                                   </span>
                                 </div>
@@ -616,22 +570,22 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Current salary costs</span>
-                                  <span className="text-[14px] font-medium text-foreground">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Current salary costs</span>
+                                  <span className="text-[14px] font-medium text-black">
                                     <AnimatedValue value={employeeSavings.currentCost} prefix="$" />
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Team after AI (35%)</span>
-                                  <span className="text-[14px] font-medium text-emerald-400">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Team after AI (35%)</span>
+                                  <span className="text-[14px] font-medium text-green-600">
                                     <AnimatedValue value={employeeSavings.employeesRemaining} /> people
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Headcount reduction</span>
-                                  <span className="text-[14px] font-semibold text-amber-400">
-                                    {teamSize} → <AnimatedValue value={employeeSavings.employeesRemaining} /> (65% less)
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Headcount reduction</span>
+                                  <span className="text-[14px] font-semibold text-signature">
+                                    {teamSize} &rarr; <AnimatedValue value={employeeSavings.employeesRemaining} /> (65% less)
                                   </span>
                                 </div>
                               </motion.div>
@@ -645,22 +599,22 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Tools to cancel</span>
-                                  <span className="text-[14px] font-medium text-foreground">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Tools to cancel</span>
+                                  <span className="text-[14px] font-medium text-black">
                                     <AnimatedValue value={toolSavings.count} /> subscriptions
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Monthly savings</span>
-                                  <span className="text-[14px] font-medium text-emerald-400">
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Monthly savings</span>
+                                  <span className="text-[14px] font-medium text-green-600">
                                     <AnimatedValue value={toolSavings.monthly} prefix="$" />/mo
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-white/[0.06]">
-                                  <span className="text-[14px] text-foreground/50">Fewer logins</span>
-                                  <span className="text-[14px] font-semibold text-amber-400">
-                                    <AnimatedValue value={toolSavings.count} /> → 1
+                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
+                                  <span className="text-[14px] text-gray-500">Fewer logins</span>
+                                  <span className="text-[14px] font-semibold text-signature">
+                                    <AnimatedValue value={toolSavings.count} /> &rarr; 1
                                   </span>
                                 </div>
                               </motion.div>
@@ -672,14 +626,14 @@ export function SavingsCalculatorSection() {
                             <Button
                               size="lg"
                               asChild
-                              className="w-full h-14 text-[15px] font-medium gap-3 dark:bg-white dark:text-[#0A0A0B] bg-[#0A0A0B] text-white hover:opacity-90 rounded-xl btn-enterprise group"
+                              className="w-full h-14 text-[15px] font-medium gap-3 bg-signature text-white hover:bg-signature/90 rounded-full group"
                             >
                               <a href="https://app.ozzios.com/sign-up">
                                 Start saving today
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                               </a>
                             </Button>
-                            <p className="text-center text-[12px] text-foreground/30 mt-3">
+                            <p className="text-center text-[12px] text-gray-400 mt-3">
                               Free trial • No credit card required
                             </p>
                           </div>
@@ -694,15 +648,12 @@ export function SavingsCalculatorSection() {
 
           {/* Bottom note */}
           <motion.div variants={itemVariants} className="mt-8 text-center">
-            <p className="text-[13px] text-foreground/30">
+            <p className="text-[13px] text-gray-400">
               * Calculations are estimates based on industry averages. Your actual savings may vary.
             </p>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Subtle divider */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
 }

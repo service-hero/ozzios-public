@@ -20,9 +20,9 @@ const featuredPost = {
   excerpt: 'The agency model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
   category: 'ai',
   author: {
-    name: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
-    role: 'CEO, OzziOS',
+    name: 'Garrett Elmore',
+    avatar: '/images/garrett-blog-profile-image.jpg',
+    role: 'Founder/CEO, OzziOS',
   },
   image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop&auto=format',
   readTime: '8 min read',
@@ -32,13 +32,26 @@ const featuredPost = {
 
 const blogPosts = [
   {
+    id: 'gohighlevel-integration',
+    title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
+    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
+    category: 'product',
+    author: {
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+    },
+    image: '/images/ghl_ozzi_integrated_blog_post.jpg',
+    readTime: '4 min read',
+    date: 'Feb 2, 2025',
+  },
+  {
     id: 'replace-8-tools',
     title: 'How We Replaced 8 Marketing Tools with One Platform',
     excerpt: 'Mailchimp, Hootsuite, SEMrush, Asana—we cancelled them all. Here\'s how consolidation saved us $2,400/month.',
     category: 'product',
     author: {
-      name: 'Marcus Chen',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format',
     readTime: '5 min read',
@@ -50,8 +63,8 @@ const blogPosts = [
     excerpt: 'Keyword research, technical audits, content optimization—all automated. Learn how AI agents handle SEO at scale.',
     category: 'ai',
     author: {
-      name: 'Emily Rodriguez',
-      avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
     readTime: '12 min read',
@@ -63,8 +76,8 @@ const blogPosts = [
     excerpt: 'We grew from $50K to $200K MRR with the same team size. The secret? AI employees that work 24/7.',
     category: 'agency',
     author: {
-      name: 'David Park',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
     readTime: '7 min read',
@@ -76,8 +89,8 @@ const blogPosts = [
     excerpt: 'Our AI Content Writer generates blog posts, social content, and email campaigns—all in your brand voice.',
     category: 'marketing',
     author: {
-      name: 'Jessica Williams',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&auto=format',
     readTime: '6 min read',
@@ -89,8 +102,8 @@ const blogPosts = [
     excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards clients can explore themselves.',
     category: 'product',
     author: {
-      name: 'Alex Thompson',
-      avatar: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&auto=format',
     readTime: '4 min read',
@@ -102,8 +115,8 @@ const blogPosts = [
     excerpt: '$8K/month for work we couldn\'t see. Now we own the AI—full transparency, better results, fraction of the cost.',
     category: 'agency',
     author: {
-      name: 'Sarah Mitchell',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
     },
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format',
     readTime: '9 min read',
@@ -148,10 +161,7 @@ export function BlogView() {
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         {/* Background effects */}
         <div
-          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.4) 0%, rgba(234, 88, 12, 0.1) 50%, transparent 70%)',
-          }}
+          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none glow-amber-hero"
         />
 
         <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">

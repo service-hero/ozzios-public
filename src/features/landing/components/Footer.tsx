@@ -71,16 +71,8 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-background">
-      {/* Subtle glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center top, rgba(251, 146, 60, 0.03) 0%, transparent 70%)',
-        }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
+    <footer className="border-t border-gray-200 bg-white">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Main footer content */}
         <div className="py-16 lg:py-20">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
@@ -90,10 +82,10 @@ export function Footer() {
                 <img
                   src="/images/dark-theme-logo.svg"
                   alt="OzziOS"
-                  className="h-6 w-auto"
+                  className="h-6 w-auto brightness-0"
                 />
               </Link>
-              <p className="mt-4 text-[13px] leading-relaxed text-foreground/30 max-w-xs">
+              <p className="mt-4 text-[13px] leading-relaxed text-gray-500 max-w-xs">
                 The AI-powered operating system for marketing agencies.
               </p>
               {/* Social links */}
@@ -104,7 +96,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/20 hover:text-foreground/60 transition-colors"
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -116,7 +108,7 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-foreground/40 mb-5">
+                <h3 className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-5">
                   {section.title}
                 </h3>
                 <ul className="space-y-3">
@@ -124,7 +116,7 @@ export function Footer() {
                     <li key={link.label}>
                       <Link
                         to={link.href}
-                        className="text-[13px] text-foreground/30 hover:text-foreground transition-colors"
+                        className="text-[13px] text-gray-500 hover:text-black transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -137,17 +129,17 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[0.06] py-6">
+        <div className="border-t border-gray-200 py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-foreground/20">
-              © {new Date().getFullYear()} OzziOS. All rights reserved.
+            <p className="text-[12px] text-gray-400">
+              {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
-              <span className="text-[11px] text-foreground/30">
+              <span className="text-[11px] text-gray-400">
                 All systems operational
               </span>
             </div>

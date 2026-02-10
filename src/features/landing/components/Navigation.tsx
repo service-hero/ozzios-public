@@ -116,6 +116,7 @@ const navItems: NavItem[] = [
       },
     },
   },
+  { label: 'Integrations', href: '/integrations' },
   { label: 'Blog', href: '/blog' },
   { label: 'Pricing', href: '#pricing' },
 ];
@@ -153,32 +154,30 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          hasScrolled && 'backdrop-blur-xl dark:bg-[#0A0A0B]/80 bg-white/80'
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-150',
+          hasScrolled ? 'bg-white shadow-sm' : 'bg-white'
         )}
       >
-        {/* Subtle border when scrolled */}
+        {/* Border when scrolled */}
         <div
           className={cn(
-            'absolute inset-x-0 bottom-0 h-px transition-opacity duration-300',
-            hasScrolled ? 'opacity-100' : 'opacity-0',
-            'dark:bg-gradient-to-r dark:from-transparent dark:via-white/10 dark:to-transparent',
-            'bg-gradient-to-r from-transparent via-black/10 to-transparent'
+            'absolute inset-x-0 bottom-0 h-px bg-gray-200 transition-opacity duration-150',
+            hasScrolled ? 'opacity-100' : 'opacity-0'
           )}
         />
 
         <nav className="relative mx-auto max-w-[1400px] h-[72px] flex items-center justify-between px-6 lg:px-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-70">
             <img
               src="/images/dark-theme-logo.svg"
               alt="OzziOS"
-              className="h-6 w-auto"
+              className="h-6 w-auto brightness-0"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -189,22 +188,29 @@ export function Navigation() {
                 {item.megaMenu ? (
                   <button
                     className={cn(
-                      'flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium transition-colors rounded-lg',
+                      'flex items-center gap-1.5 px-4 py-2 text-[13px] font-semibold transition-colors',
                       activeMenu === item.label
-                        ? 'text-foreground'
-                        : 'text-foreground/60 hover:text-foreground'
+                        ? 'text-black'
+                        : 'text-gray-500 hover:text-black'
                     )}
                   >
                     {item.label}
                     <ChevronDown className={cn(
-                      'h-3.5 w-3.5 transition-transform duration-200',
+                      'h-3.5 w-3.5 transition-transform duration-150',
                       activeMenu === item.label && 'rotate-180'
                     )} />
                   </button>
+                ) : item.href?.startsWith('/') ? (
+                  <Link
+                    to={item.href}
+                    className="px-4 py-2 text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
+                  >
+                    {item.label}
+                  </Link>
                 ) : (
                   <a
                     href={item.href}
-                    className="px-4 py-2 text-[13px] font-medium text-foreground/60 hover:text-foreground transition-colors"
+                    className="px-4 py-2 text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
                   >
                     {item.label}
                   </a>
@@ -215,16 +221,16 @@ export function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-                        <a
+            <a
               href="https://app.ozzios.com/sign-in"
-              className="text-[13px] font-medium text-foreground/60 hover:text-foreground transition-colors"
+              className="text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
             >
               Sign in
             </a>
             <Button
               size="sm"
               asChild
-              className="h-9 px-5 text-[13px] font-medium dark:bg-white dark:text-[#0A0A0B] bg-[#0A0A0B] text-white hover:opacity-90 rounded-full"
+              className="h-9 px-5 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
             >
               <a href="https://app.ozzios.com/sign-up">
                 Get started
@@ -236,7 +242,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 -mr-2 text-foreground/70 hover:text-foreground transition-colors"
+            className="lg:hidden p-2 -mr-2 text-gray-600 hover:text-black transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -250,7 +256,7 @@ export function Navigation() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.15, ease: 'easeOut' }}
+              transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
               className="absolute top-[50px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
               onMouseEnter={() => setActiveMenu(activeMenu)}
               onMouseLeave={() => setActiveMenu(null)}
@@ -262,7 +268,7 @@ export function Navigation() {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-border bg-card/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40"
+                      className="border border-gray-200 bg-white p-6 shadow-lg rounded-2xl"
                     >
                       <div className="grid grid-cols-12 gap-8">
                         {/* Sections */}
@@ -274,7 +280,7 @@ export function Navigation() {
                           {item.megaMenu.sections.map((section, idx) => (
                             <div key={idx}>
                               {section.title && (
-                                <p className="text-[10px] font-semibold text-foreground/30 uppercase tracking-[0.15em] mb-4">
+                                <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-4">
                                   {section.title}
                                 </p>
                               )}
@@ -285,26 +291,26 @@ export function Navigation() {
                                     <a
                                       key={subItem.label}
                                       href={subItem.href}
-                                      className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-muted group"
+                                      className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-gray-50 group"
                                     >
                                       {Icon && (
-                                        <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0 group-hover:bg-amber-500/10 group-hover:border group-hover:border-amber-500/20 transition-all">
-                                          <Icon className="h-4 w-4 text-foreground/40 group-hover:text-amber-400 transition-colors" />
+                                        <div className="h-9 w-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-gray-200 transition-colors">
+                                          <Icon className="h-4 w-4 text-gray-600" />
                                         </div>
                                       )}
                                       <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2">
-                                          <p className="text-[13px] font-medium text-foreground/80 group-hover:text-foreground transition-colors">
+                                          <p className="text-[13px] font-semibold text-gray-700 group-hover:text-black transition-colors">
                                             {subItem.label}
                                           </p>
                                           {subItem.badge && (
-                                            <span className="px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 rounded">
+                                            <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white bg-signature rounded">
                                               {subItem.badge}
                                             </span>
                                           )}
                                         </div>
                                         {subItem.description && (
-                                          <p className="text-[12px] text-foreground/30 mt-0.5">
+                                          <p className="text-[12px] text-gray-400 mt-0.5">
                                             {subItem.description}
                                           </p>
                                         )}
@@ -322,7 +328,7 @@ export function Navigation() {
                           <div className="col-span-12 lg:col-span-4">
                             <a
                               href={item.megaMenu.cta.href}
-                              className="block h-full rounded-xl bg-gradient-to-br from-muted/40 to-muted/10 border border-border overflow-hidden transition-all hover:border-border/80 hover:from-muted/60 group"
+                              className="block h-full border border-gray-200 rounded-xl overflow-hidden transition-all hover:border-gray-300 hover:shadow-sm group"
                             >
                               {item.megaMenu.cta.image && (
                                 <div className="relative h-32 overflow-hidden">
@@ -331,22 +337,16 @@ export function Navigation() {
                                     alt=""
                                     className="absolute inset-0 w-full h-full object-cover"
                                   />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-card/95 via-card/50 to-transparent" />
                                 </div>
                               )}
-                              <div className="p-5">
-                                <div className="flex items-center gap-2 mb-2">
-                                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                                    <Sparkles className="w-4 h-4 text-amber-400" />
-                                  </div>
-                                </div>
-                                <p className="text-[14px] font-medium text-foreground mb-1">
+                              <div className="p-5 bg-gray-50">
+                                <p className="text-[14px] font-semibold text-black mb-1">
                                   {item.megaMenu.cta.title}
                                 </p>
-                                <p className="text-[12px] text-foreground/40 leading-relaxed mb-3">
+                                <p className="text-[12px] text-gray-500 leading-relaxed mb-3">
                                   {item.megaMenu.cta.description}
                                 </p>
-                                <div className="flex items-center gap-1 text-[12px] font-medium text-amber-400">
+                                <div className="flex items-center gap-1 text-[12px] font-semibold text-signature">
                                   {item.label === 'Product' ? 'Watch demo' : item.label === 'Solutions' ? 'View case studies' : 'Get started'}
                                   <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                                 </div>
@@ -371,8 +371,8 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background lg:hidden"
+            transition={{ duration: 0.15 }}
+            className="fixed inset-0 z-40 bg-white lg:hidden"
           >
             <div className="h-full overflow-y-auto pt-[72px] pb-safe">
               <div className="px-6 py-8 space-y-2">
@@ -380,10 +380,18 @@ export function Navigation() {
                   <div key={item.label}>
                     {item.megaMenu ? (
                       <MobileMenuSection item={item} onClose={() => setIsMobileMenuOpen(false)} />
+                    ) : item.href?.startsWith('/') ? (
+                      <Link
+                        to={item.href}
+                        className="flex items-center h-12 text-[15px] font-semibold text-gray-700"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                     ) : (
                       <a
                         href={item.href}
-                        className="flex items-center h-12 text-[15px] font-medium text-foreground/80"
+                        className="flex items-center h-12 text-[15px] font-semibold text-gray-700"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -393,10 +401,10 @@ export function Navigation() {
                 ))}
 
                 {/* CTA section */}
-                <div className="pt-8 mt-6 border-t border-border space-y-3">
+                <div className="pt-8 mt-6 border-t border-gray-200 space-y-3">
                   <a
                     href="https://app.ozzios.com/sign-in"
-                    className="flex items-center justify-center h-12 text-[14px] font-medium text-foreground/60 rounded-xl border border-border hover:bg-muted transition-colors"
+                    className="flex items-center justify-center h-12 text-[14px] font-semibold text-gray-600 border border-gray-200 rounded-full hover:bg-gray-50 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign in
@@ -404,7 +412,7 @@ export function Navigation() {
                   <Button
                     size="lg"
                     asChild
-                    className="w-full h-12 text-[14px] font-medium dark:bg-white dark:text-[#0A0A0B] bg-[#0A0A0B] text-white hover:opacity-90 rounded-full"
+                    className="w-full h-12 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
                   >
                     <a href="https://app.ozzios.com/sign-up" onClick={() => setIsMobileMenuOpen(false)}>
                       Get started
@@ -431,13 +439,13 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'flex items-center justify-between w-full h-12 text-[15px] font-medium transition-colors',
-          isOpen ? 'text-foreground' : 'text-foreground/80'
+          'flex items-center justify-between w-full h-12 text-[15px] font-semibold transition-colors',
+          isOpen ? 'text-black' : 'text-gray-700'
         )}
       >
         {item.label}
         <ChevronDown className={cn(
-          'h-4 w-4 text-foreground/30 transition-transform duration-200',
+          'h-4 w-4 text-gray-400 transition-transform duration-150',
           isOpen && 'rotate-180'
         )} />
       </button>
@@ -448,14 +456,14 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.15 }}
             className="overflow-hidden"
           >
-            <div className="py-3 pl-4 space-y-6 border-l border-border">
+            <div className="py-3 pl-4 space-y-6 border-l border-gray-200">
               {item.megaMenu.sections.map((section, idx) => (
                 <div key={idx}>
                   {section.title && (
-                    <p className="text-[10px] font-semibold text-foreground/30 uppercase tracking-[0.15em] mb-3">
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
                       {section.title}
                     </p>
                   )}
@@ -466,11 +474,11 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
                         <a
                           key={subItem.label}
                           href={subItem.href}
-                          className="flex items-center gap-3 py-2.5 text-foreground/50 hover:text-foreground transition-colors"
+                          className="flex items-center gap-3 py-2.5 text-gray-600 hover:text-black transition-colors"
                           onClick={onClose}
                         >
                           {Icon && <Icon className="h-4 w-4" />}
-                          <span className="text-[14px]">{subItem.label}</span>
+                          <span className="text-[14px] font-medium">{subItem.label}</span>
                         </a>
                       );
                     })}

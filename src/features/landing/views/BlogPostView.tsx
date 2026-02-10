@@ -9,6 +9,130 @@ import remarkGfm from 'remark-gfm';
 
 // Blog post data - in a real app this would come from a CMS/API
 const blogPostsData: Record<string, BlogPost> = {
+  'gohighlevel-integration': {
+    id: 'gohighlevel-integration',
+    title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
+    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
+    category: 'product',
+    categoryLabel: 'Product Updates',
+    author: {
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
+    },
+    image: '/images/ghl_ozzi_integrated_blog_post.jpg',
+    readTime: '4 min read',
+    date: 'February 2, 2025',
+    content: `
+## Your CRM Just Got Smarter
+
+We're excited to announce that OzziOS now integrates directly with **GoHighLevel**—the all-in-one CRM platform that thousands of agencies rely on for client management, marketing automation, and sales pipelines.
+
+This integration means your AI employees can now work directly with your GoHighLevel data, automating tasks that used to require manual effort and bridging the gap between your CRM and your marketing operations.
+
+## What This Integration Enables
+
+With GoHighLevel connected to OzziOS, your AI agents can:
+
+### Contact Management
+- **Sync contacts automatically** between platforms
+- **Enrich lead data** with AI-gathered insights
+- **Segment audiences** based on behavior and engagement
+- **Update contact records** in real-time as campaigns run
+
+### Automated Follow-ups
+- **Trigger personalized sequences** when leads take action
+- **Schedule follow-up tasks** based on AI recommendations
+- **Send timely messages** through GoHighLevel's communication channels
+- **Never let a lead go cold** with intelligent nurturing
+
+### Pipeline Intelligence
+- **Track deal progress** across your sales pipeline
+- **Get AI predictions** on which deals are most likely to close
+- **Automate stage transitions** based on engagement signals
+- **Generate pipeline reports** without manual data entry
+
+### Campaign Coordination
+- **Launch GoHighLevel campaigns** from OzziOS workflows
+- **Coordinate email, SMS, and social** in unified sequences
+- **Track attribution** across all channels
+- **Optimize send times** based on contact behavior
+
+## How It Works
+
+Setting up the integration takes just a few minutes:
+
+### Step 1: Generate Your API Credentials
+In GoHighLevel, navigate to **Settings → Private Integrations** and create a new integration. This generates the secure API token OzziOS needs to connect.
+
+### Step 2: Enter Your Location ID
+Every GoHighLevel sub-account has a unique Location ID. You'll find this in your account settings—it's the identifier that tells our system which CRM instance to connect to.
+
+### Step 3: Test & Connect
+Before saving, OzziOS validates your credentials by making a test API call. If everything checks out, you're connected. If not, you'll get clear error messages explaining what to fix.
+
+### Step 4: Start Automating
+Once connected, your AI agents have secure access to GoHighLevel's full API. Create workflows, set up automations, and let AI handle the busywork.
+
+## Security First
+
+We know your CRM data is sensitive. Here's how we protect it:
+
+- **Credentials are encrypted** at rest and in transit
+- **Workspace-level isolation** ensures your data stays yours
+- **No credential sharing** between workspaces or accounts
+- **Token validation** catches expired or invalid credentials before they cause issues
+- **Full audit logging** of all API operations
+
+Your GoHighLevel API key never leaves your workspace, and you can disconnect the integration at any time.
+
+## Why GoHighLevel + OzziOS?
+
+Agencies using both platforms often run into the same problem: **data silos**.
+
+GoHighLevel handles your CRM and client communication. OzziOS handles your AI-powered marketing execution. But without integration, you're constantly copying data between systems, manually triggering campaigns, and hoping nothing falls through the cracks.
+
+Now, everything talks to everything:
+
+| Before Integration | After Integration |
+|-------------------|-------------------|
+| Manual contact imports | Automatic sync |
+| Separate campaign triggers | Unified workflows |
+| Copy-paste reporting | Real-time dashboards |
+| Disconnected follow-ups | AI-coordinated sequences |
+
+## Real-World Use Cases
+
+Here's how early adopters are using the integration:
+
+### Lead Qualification Automation
+> "When a lead fills out a form, our AI scores them, enriches their profile, and either adds them to a nurture sequence or alerts sales for immediate follow-up. What took 10 minutes per lead now happens instantly."
+
+### Client Reporting
+> "We pull GoHighLevel campaign data into OzziOS reports automatically. Clients see email performance alongside SEO and social—one dashboard, complete picture."
+
+### Re-engagement Campaigns
+> "AI monitors contact activity in GoHighLevel. When someone goes quiet for 30 days, it automatically launches a personalized re-engagement sequence. Our reactivation rate doubled."
+
+## Getting Started
+
+The GoHighLevel integration is available now for all OzziOS Pro and Enterprise users.
+
+To connect your account:
+1. Go to **Settings → Integrations** in OzziOS
+2. Click **Connect** next to GoHighLevel
+3. Enter your API credentials
+4. Start building workflows
+
+If you're not yet using OzziOS, [start your free trial](https://app.ozzios.com/sign-up) and see what's possible when your CRM gets AI superpowers.
+
+---
+
+*Have questions about the integration? [Check our documentation](https://docs.ozzios.com/integrations/gohighlevel) or reach out to support—we're here to help you get connected.*
+    `,
+  },
   'future-of-agency-work': {
     id: 'future-of-agency-work',
     title: 'The Future of Agency Work: Why AI Employees Are Inevitable',
@@ -16,11 +140,11 @@ const blogPostsData: Record<string, BlogPost> = {
     category: 'ai',
     categoryLabel: 'AI & Automation',
     author: {
-      name: 'Sarah Mitchell',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
-      role: 'CEO, OzziOS',
-      bio: 'Sarah is the founder and CEO of OzziOS. Previously, she ran a 50-person marketing agency for 8 years before building the AI platform she wished existed.',
-      twitter: '@sarahmitchell',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&h=900&fit=crop&auto=format',
     readTime: '8 min read',
@@ -149,11 +273,11 @@ The future of agency work isn't about humans vs. AI. It's about humans *with* AI
     category: 'product',
     categoryLabel: 'Product Updates',
     author: {
-      name: 'Marcus Chen',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
-      role: 'Head of Product',
-      bio: 'Marcus leads product development at OzziOS, focusing on building tools that actually solve agency problems.',
-      twitter: '@marcuschen',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&auto=format',
     readTime: '5 min read',
@@ -271,11 +395,11 @@ If you answered "yes," "too much," and "no"—consolidation might be your answer
     category: 'ai',
     categoryLabel: 'AI & Automation',
     author: {
-      name: 'Emily Rodriguez',
-      avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&auto=format',
-      role: 'SEO Director',
-      bio: 'Emily has led SEO strategy for Fortune 500 companies and now helps agencies leverage AI for search optimization.',
-      twitter: '@emilyrseo',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&auto=format',
     readTime: '12 min read',
@@ -421,11 +545,11 @@ The biggest mistake? Trying to do everything at once. AI makes it tempting to mo
     category: 'agency',
     categoryLabel: 'Agency Growth',
     author: {
-      name: 'David Park',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
-      role: 'Agency Consultant',
-      bio: 'David has helped 100+ agencies scale profitably. He now advises on AI implementation strategies.',
-      twitter: '@davidparkagency',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&auto=format',
     readTime: '7 min read',
@@ -576,11 +700,11 @@ The question isn't whether this transition will happen. It's whether you'll lead
     category: 'marketing',
     categoryLabel: 'Marketing',
     author: {
-      name: 'Jessica Williams',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&auto=format',
-      role: 'Content Strategist',
-      bio: 'Jessica helps brands find their voice and scale it with AI assistance.',
-      twitter: '@jesswilliams',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop&auto=format',
     readTime: '6 min read',
@@ -732,11 +856,11 @@ The agencies still doing content the old way will struggle to compete. The ones 
     category: 'product',
     categoryLabel: 'Product Updates',
     author: {
-      name: 'Alex Thompson',
-      avatar: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&auto=format',
-      role: 'Customer Success Lead',
-      bio: 'Alex works with agencies to maximize their ROI with OzziOS.',
-      twitter: '@alexthompson',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop&auto=format',
     readTime: '4 min read',
@@ -830,11 +954,11 @@ That's it. Reporting solved.
     category: 'agency',
     categoryLabel: 'Agency Growth',
     author: {
-      name: 'Sarah Mitchell',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
-      role: 'CEO, OzziOS',
-      bio: 'Sarah is the founder and CEO of OzziOS. Previously, she ran a 50-person marketing agency for 8 years.',
-      twitter: '@sarahmitchell',
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+      role: 'Founder/CEO, OzziOS',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop&auto=format',
     readTime: '9 min read',
@@ -948,6 +1072,12 @@ Most agencies survive on inertia—clients stay because switching seems hard. On
 
 const relatedPosts = [
   {
+    id: 'gohighlevel-integration',
+    title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
+    image: '/images/ghl_ozzi_integrated_blog_post.jpg',
+    readTime: '4 min read',
+  },
+  {
     id: 'replace-8-tools',
     title: 'How We Replaced 8 Marketing Tools with One Platform',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format',
@@ -1038,10 +1168,7 @@ export function BlogPostView({ postId }: { postId: string }) {
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
         {/* Background effects */}
         <div
-          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.4) 0%, rgba(234, 88, 12, 0.1) 50%, transparent 70%)',
-          }}
+          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none glow-amber-hero"
         />
 
         <div className="relative z-10 mx-auto max-w-[800px] px-6 lg:px-8">

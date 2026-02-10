@@ -12,24 +12,17 @@ export function DocsLayout({ children }: DocsLayoutProps) {
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         {/* Primary glow - top right */}
         <div
-          className="absolute -top-48 -right-48 h-[600px] w-[600px] rounded-full blur-[120px] opacity-[0.06]"
-          style={{ background: 'var(--primary)' }}
+          className="absolute -top-48 -right-48 h-[600px] w-[600px] rounded-full blur-[120px] opacity-[0.06] bg-primary-glow"
         />
         
         {/* Secondary glow - bottom left */}
         <div
-          className="absolute -bottom-48 -left-48 h-[500px] w-[500px] rounded-full blur-[100px] opacity-[0.04]"
-          style={{ background: 'var(--chart-2)' }}
+          className="absolute -bottom-48 -left-48 h-[500px] w-[500px] rounded-full blur-[100px] opacity-[0.04] bg-chart-glow"
         />
         
         {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
-            backgroundSize: '48px 48px',
-          }}
+          className="absolute inset-0 opacity-[0.015] grid-pattern-md"
         />
       </div>
 
