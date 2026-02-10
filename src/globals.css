@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+/* Neo-Contemporary Modern Design System */
+/* Fonts: Satoshi for headlines, General Sans for body */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,800,900&f[]=general-sans@400,500,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,73 +8,72 @@
 
 @layer base {
   :root {
-    /* Fortune 500 Design System */
+    /* Neo-Contemporary Color System - Clean, Bold, High Contrast */
     --background: 0 0% 100%;
-    --foreground: 0 0% 4%;
+    --foreground: 0 0% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 4%;
+    --card-foreground: 0 0% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
-    --primary: 0 0% 4%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 4%;
+    --secondary-foreground: 0 0% 8%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
     --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 4%;
+    --accent-foreground: 0 0% 8%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 75%;
+    --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 0 0% 4%;
-    --radius: 0.625rem;
+    --ring: 0 0% 8%;
+    --radius: 0.5rem;
 
-    /* Premium Color Palette */
-    --oz-black: 0 0% 4%;
-    --oz-charcoal: 0 0% 7%;
-    --oz-graphite: 0 0% 11%;
-    --oz-slate: 0 0% 15%;
-    --oz-gray-600: 0 0% 25%;
-    --oz-gray-500: 0 0% 35%;
-    --oz-gray-400: 0 0% 50%;
-    --oz-gray-300: 0 0% 70%;
-    --oz-gray-200: 0 0% 85%;
-    --oz-gray-100: 0 0% 95%;
-    --oz-white: 0 0% 100%;
+    /* Signature Color - Electric Coral */
+    --oz-signature: 12 100% 62%;
+    --oz-signature-light: 15 100% 70%;
 
-    /* Accent Colors */
-    --oz-amber: 28 100% 54%;
-    --oz-amber-light: 35 100% 62%;
-    --oz-coral: 12 76% 61%;
-    --oz-gold: 45 93% 47%;
+    /* Supporting Colors - Solid, No Gradients */
+    --oz-ink: 0 0% 8%;
+    --oz-paper: 0 0% 100%;
+    --oz-stone: 0 0% 45%;
+    --oz-mist: 0 0% 96%;
+    --oz-line: 0 0% 90%;
 
-    /* Trust Colors */
-    --oz-emerald: 160 84% 39%;
-    --oz-blue: 217 91% 60%;
-    --oz-violet: 263 70% 58%;
+    /* Accent Palette - Vibrant Solids */
+    --oz-electric: 250 100% 65%;
+    --oz-mint: 160 84% 45%;
+    --oz-sun: 45 100% 55%;
   }
 
   .dark {
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 7%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
+    --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 15%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 12%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62% 30%;
+    --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 0 0% 83%;
+    --ring: 0 0% 85%;
+
+    /* Dark mode colors - same signature, adjusted backgrounds */
+    --oz-paper: 0 0% 4%;
+    --oz-ink: 0 0% 98%;
+    --oz-stone: 0 0% 55%;
+    --oz-mist: 0 0% 10%;
+    --oz-line: 0 0% 15%;
   }
 }
 
@@ -83,7 +83,7 @@
   }
 
   html {
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-feature-settings: "ss01", "ss02", "cv01";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -91,19 +91,21 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  /* Premium Typography */
+  /* Display Typography - Bold and Distinctive */
   .font-display {
-    font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 
   .font-sans {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  /* Text Balance for Headlines */
+  /* Headlines get balanced text */
   h1, h2, h3 {
     text-wrap: balance;
   }
@@ -114,80 +116,246 @@
 }
 
 @layer components {
-  /* Premium Button Styles */
-  .btn-enterprise {
-    @apply relative overflow-hidden transition-all duration-300;
-    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
-    @apply before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700;
+  /* Neo Button - Clean, Sharp, No Gradients */
+  .btn-neo {
+    @apply relative overflow-hidden transition-all duration-150;
+    @apply active:scale-[0.98];
   }
 
-  /* Glass Card */
-  .glass-card {
-    @apply backdrop-blur-xl bg-white/[0.02] border border-white/[0.08];
-    @apply shadow-[0_8px_32px_rgba(0,0,0,0.12)];
-  }
-
-  /* Premium Gradient Text */
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent;
-  }
-
-  .text-gradient-warm {
-    @apply bg-gradient-to-r from-orange-300 via-amber-200 to-orange-300 bg-clip-text text-transparent;
-  }
-
-  /* Noise Texture Overlay */
-  .noise-overlay::before {
+  .btn-neo::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
-    mix-blend-mode: overlay;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s;
   }
 
-  /* Subtle Glow */
-  .glow-amber {
-    box-shadow: 0 0 80px 20px rgba(251, 146, 60, 0.15);
+  .btn-neo:hover::after {
+    opacity: 0.1;
   }
 
-  .glow-white {
-    box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.05);
+  /* Card - Clean with Sharp Borders */
+  .card-neo {
+    @apply bg-card border-2 border-border;
+    @apply shadow-[4px_4px_0_0_hsl(var(--border))];
+    @apply transition-all duration-150;
   }
 
-  /* Premium Border */
-  .border-premium {
-    @apply border border-white/[0.06];
-    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+  .card-neo:hover {
+    @apply shadow-[6px_6px_0_0_hsl(var(--border))];
+    transform: translate(-2px, -2px);
   }
 
-  /* Animated Gradient Border */
-  .animated-border {
-    position: relative;
+  /* Signature Color Block */
+  .bg-signature {
+    background-color: hsl(var(--oz-signature));
   }
 
-  .animated-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02), rgba(255,255,255,0.1));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+  .text-signature {
+    color: hsl(var(--oz-signature));
+  }
+
+  .border-signature {
+    border-color: hsl(var(--oz-signature));
+  }
+
+  /* Electric Accent */
+  .bg-electric {
+    background-color: hsl(var(--oz-electric));
+  }
+
+  .text-electric {
+    color: hsl(var(--oz-electric));
+  }
+
+  /* Mint Accent */
+  .bg-mint {
+    background-color: hsl(var(--oz-mint));
+  }
+
+  .text-mint {
+    color: hsl(var(--oz-mint));
+  }
+
+  /* Clean Tag/Badge */
+  .tag-neo {
+    @apply inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider;
+    @apply border-2 border-current;
   }
 }
 
 @layer utilities {
   /* Selection */
   ::selection {
-    @apply bg-amber-500/30 text-white;
+    background-color: hsl(var(--oz-signature) / 0.3);
+    color: hsl(var(--foreground));
   }
 
-  /* Custom Scrollbar */
+  /* ========================================
+   * Grid Pattern - Clean and Precise
+   * ======================================== */
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .grid-pattern-sm {
+    background-image:
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .grid-pattern-dense {
+    background-image:
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* ========================================
+   * Geometric Shapes - Neo-Contemporary
+   * ======================================== */
+
+  .shape-corner {
+    position: relative;
+  }
+
+  .shape-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-top: 3px solid hsl(var(--oz-signature));
+    border-right: 3px solid hsl(var(--oz-signature));
+  }
+
+  .shape-corner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom: 3px solid hsl(var(--oz-signature));
+    border-left: 3px solid hsl(var(--oz-signature));
+  }
+
+  /* Signature Underline - Bold Stroke */
+  .underline-signature {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-signature::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: hsl(var(--oz-signature));
+  }
+
+  /* Dot Pattern */
+  .dot-pattern {
+    background-image: radial-gradient(hsl(var(--border)) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  /* ========================================
+   * Typography Utilities
+   * ======================================== */
+
+  .text-massive {
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .text-display {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  /* ========================================
+   * Animation - Snappy, Not Slow
+   * ======================================== */
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pop {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-pop {
+    animation: pop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+
+  /* ========================================
+   * Scrollbar - Minimal
+   * ======================================== */
+
   .scrollbar-thin::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -198,14 +366,13 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full;
+    @apply bg-border rounded-full;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-white/20;
+    background-color: hsl(var(--oz-stone));
   }
 
-  /* Hide scrollbar but keep functionality */
   .scrollbar-hidden {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -215,7 +382,10 @@
     display: none;
   }
 
-  /* Perspective for 3D */
+  /* ========================================
+   * 3D & Transform Utilities
+   * ======================================== */
+
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -224,13 +394,62 @@
     transform-style: preserve-3d;
   }
 
-  /* Streaming cursor animation (matching Vercel AI SDK) */
-  @keyframes blink {
-    0%, 50% {
-      opacity: 1;
-    }
-    51%, 100% {
-      opacity: 0;
-    }
+  /* ========================================
+   * Legacy Support (for components that still use these)
+   * ======================================== */
+
+  /* Minimal glow for product viz - very subtle */
+  .glow-product-viz {
+    box-shadow: 0 0 60px 20px hsl(var(--oz-signature) / 0.1);
+  }
+
+  /* These are kept for backwards compatibility but do nothing now */
+  .glow-hero-warm,
+  .glow-hero-cool,
+  .glow-hero-violet,
+  .glow-amber-soft,
+  .glow-amber-subtle,
+  .glow-amber-hero,
+  .glow-amber-top,
+  .glow-amber-top-strong,
+  .glow-amber-top-cta,
+  .glow-depth-violet,
+  .glow-indigo-soft {
+    /* Intentionally empty - no gradients in neo-contemporary */
+  }
+
+  .glass-card {
+    @apply bg-card border-2 border-border;
+  }
+
+  .text-gradient-gold,
+  .text-gradient-warm {
+    /* Solid color instead of gradient */
+    color: hsl(var(--oz-signature));
+  }
+
+  .btn-enterprise {
+    @apply btn-neo;
+  }
+
+  .noise-overlay::before,
+  .noise-texture {
+    /* No noise textures in clean design */
+    display: none;
+  }
+
+  .animated-border,
+  .border-premium {
+    @apply border-2 border-border;
+  }
+
+  .glow-amber,
+  .glow-white {
+    /* No glows */
+  }
+
+  .font-signature {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
   }
 }

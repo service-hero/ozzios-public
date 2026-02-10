@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
@@ -17,27 +17,25 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-32 lg:py-40 bg-background">
-      {/* Subtle divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-      <div className="relative z-10 mx-auto max-w-[900px] px-6 lg:px-8">
+    <section id="faq" className="relative py-24 lg:py-32 bg-white">
+      <div className="mx-auto max-w-2xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-[11px] font-semibold text-amber-400/80 uppercase tracking-[0.2em] mb-4">
+          <p className="text-xs font-medium text-signature uppercase tracking-[0.15em] mb-4">
             FAQ
           </p>
-          <h2 className="text-[clamp(2rem,5vw,3rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-tight tracking-tight mb-4">
             Frequently asked
-            <span className="text-foreground/30"> questions</span>
+            <br />
+            <span className="text-gray-400">questions</span>
           </h2>
-          <p className="text-lg text-foreground/40 max-w-lg mx-auto">
+          <p className="text-base text-gray-500 max-w-md mx-auto">
             Everything you need to know about OzziOS.
           </p>
         </motion.div>
@@ -47,7 +45,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-3"
+          className="space-y-0"
         >
           {faqs.map((faq, index) => (
             <FAQItem
@@ -56,6 +54,7 @@ export function FAQSection() {
               answer={faq.answer}
               isOpen={openIndex === index}
               onToggle={() => toggleFAQ(index)}
+              isFirst={index === 0}
             />
           ))}
         </motion.div>
@@ -67,15 +66,15 @@ export function FAQSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <p className="text-[15px] text-foreground/40 mb-4">
+          <p className="text-gray-500 mb-3">
             Still have questions?
           </p>
           <a
             href="mailto:support@ozzios.com"
-            className="inline-flex items-center gap-2 text-[14px] font-medium text-foreground hover:text-amber-400 transition-colors"
+            className="inline-flex items-center gap-2 text-[15px] font-medium text-black hover:text-signature transition-colors duration-200"
           >
             Contact our team
-            <span className="text-amber-400">→</span>
+            <span className="text-signature">&rarr;</span>
           </a>
         </motion.div>
       </div>
@@ -88,37 +87,39 @@ function FAQItem({
   answer,
   isOpen,
   onToggle,
+  isFirst,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  isFirst: boolean;
 }) {
   return (
     <div
       className={cn(
-        'rounded-xl border transition-all duration-300',
-        isOpen
-          ? 'border-border bg-muted/20'
-          : 'border-border bg-transparent hover:border-border/80'
+        'border-b border-gray-100',
+        isFirst && 'border-t'
       )}
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
+        className="w-full flex items-center justify-between gap-4 py-6 text-left group"
       >
-        <span className="text-[15px] font-medium text-foreground">
+        <span className={cn(
+          'text-base font-medium transition-colors duration-200',
+          isOpen ? 'text-black' : 'text-gray-700 group-hover:text-black'
+        )}>
           {question}
         </span>
         <div className={cn(
-          'shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors',
-          isOpen ? 'bg-amber-500/10' : 'bg-white/[0.04]'
+          'shrink-0 transition-transform duration-200',
+          isOpen && 'rotate-180'
         )}>
-          {isOpen ? (
-            <Minus className="h-4 w-4 text-amber-400" />
-          ) : (
-            <Plus className="h-4 w-4 text-foreground/40" />
-          )}
+          <ChevronDown className={cn(
+            'h-5 w-5 transition-colors duration-200',
+            isOpen ? 'text-signature' : 'text-gray-400'
+          )} />
         </div>
       </button>
 
@@ -128,13 +129,16 @@ function FAQItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-              <p className="text-[14px] leading-relaxed text-foreground/40">
-                {answer}
-              </p>
+            <div className="pb-6">
+              <div className="pl-0">
+                <div className="h-px w-8 bg-signature mb-4" />
+                <p className="text-[15px] leading-relaxed text-gray-500">
+                  {answer}
+                </p>
+              </div>
             </div>
           </motion.div>
         )}

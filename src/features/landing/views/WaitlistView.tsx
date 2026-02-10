@@ -59,10 +59,7 @@ function SuccessState({ message }: { message: string }) {
         <p className="text-sm text-muted-foreground pt-6 border-t border-border">
           I'll personally reach out when your spot opens up.
           <br />
-          <span
-            className="text-foreground text-lg"
-            style={{ fontFamily: "'Caveat', cursive" }}
-          >
+          <span className="text-foreground text-lg font-signature">
             — Garrett
           </span>
         </p>
@@ -678,10 +675,7 @@ export function WaitlistView() {
                   If you're ready to find out what's possible, I'd love to have you join us.
                 </p>
                 <p className="mt-6 flex items-baseline gap-2">
-                  <span
-                    className="text-2xl text-foreground"
-                    style={{ fontFamily: "'Caveat', cursive" }}
-                  >
+                  <span className="text-2xl text-foreground font-signature">
                     Garrett Elmore
                   </span>
                   <span className="text-muted-foreground text-sm">— Founder</span>

@@ -13,6 +13,7 @@ import { Route as WaitlistBusinessRouteImport } from './routes/waitlist-business
 import { Route as WaitlistRouteImport } from './routes/waitlist'
 import { Route as TosRouteImport } from './routes/tos'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -37,6 +38,11 @@ const TosRoute = TosRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -68,6 +74,7 @@ const BlogPostIdRoute = BlogPostIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
@@ -90,6 +98,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/integrations'
     | '/privacy-policy'
     | '/tos'
     | '/waitlist'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/integrations'
     | '/privacy-policy'
     | '/tos'
     | '/waitlist'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
+    | '/integrations'
     | '/privacy-policy'
     | '/tos'
     | '/waitlist'
@@ -136,6 +148,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
+  IntegrationsRoute: typeof IntegrationsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TosRoute: typeof TosRoute
   WaitlistRoute: typeof WaitlistRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -226,6 +246,7 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
+  IntegrationsRoute: IntegrationsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TosRoute: TosRoute,
   WaitlistRoute: WaitlistRoute,

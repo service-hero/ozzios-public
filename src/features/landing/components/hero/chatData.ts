@@ -8,7 +8,18 @@ export type ChatMessage = {
   isAgent: boolean;
   agentColor?: string;
   time: string;
-  content: Array<{ type: string; text?: string; items?: any; content?: string }>;
+  content: Array<{
+    type: string;
+    text?: string;
+    items?: any;
+    content?: string;
+    url?: string;
+    title?: string;
+    description?: string;
+    wide?: boolean;
+    color?: string;
+    duration?: string;
+  }>;
   typing?: boolean;
   reactions?: Array<{ emoji: string; count: number }>;
 };

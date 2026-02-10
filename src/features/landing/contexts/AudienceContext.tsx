@@ -101,16 +101,16 @@ export const audienceContent = {
           description: 'Everything an agency uses—SEO, content, social, ads—now yours to see and control.',
         },
         communication: {
-          title: 'Talk to your team directly',
-          description: 'Skip the account manager. Ask questions, request changes, see results instantly.',
+          title: 'Community & Channels',
+          description: 'Host communities, forums, and private channels. Engage your customers directly in one place.',
         },
         workflows: {
           title: 'Marketing on autopilot',
           description: 'Set it and forget it. Campaigns run while you sleep. Reports arrive automatically.',
         },
         crm: {
-          title: 'Your customers, your data',
-          description: 'No more wondering what the agency knows. All customer data stays with you.',
+          title: 'Deal Flow & CRM',
+          description: 'Manage your pipeline and customer data. All contacts and deals in one unified view.',
         },
         marketing: {
           title: 'Every channel covered',
@@ -148,6 +148,39 @@ export const audienceContent = {
       sectionLabel: 'Your AI Team',
       headline: ['Meet your new team.', 'They actually show you their work.'],
       subheadline: 'Unlike agencies, you see exactly what each team member does—every task, every decision.',
+    },
+    memory: {
+      sectionLabel: 'Self-Learning Memory',
+      headline: ['They remember everything.', 'And they never forget.'],
+      subheadline: 'Unlike agencies that lose knowledge when people leave, your AI team builds on every interaction. They learn your brand, remember your preferences, and get smarter over time.',
+      features: [
+        {
+          title: 'Total Brand Recall',
+          description: 'Your AI team knows your brand voice, products, competitors, and preferences. Every detail, instantly accessible.',
+          bullets: ['Brand guidelines always applied', 'Product details at their fingertips', 'Competitor awareness built-in'],
+        },
+        {
+          title: 'Learns From Mistakes',
+          description: 'When something goes wrong, they learn. Error patterns are captured automatically so the same mistake never happens twice.',
+          bullets: ['Automatic error detection', 'Pattern recognition', 'Continuous improvement'],
+        },
+        {
+          title: 'Gets Smarter Over Time',
+          description: 'Every interaction teaches them. Feedback you give today improves their work tomorrow—and forever after.',
+          bullets: ['Feedback becomes learning', 'Preferences remembered', 'Quality improves weekly'],
+        },
+        {
+          title: 'Knowledge Never Leaves',
+          description: 'Unlike employees who take knowledge when they quit, everything your AI learns stays in your business forever.',
+          bullets: ['Institutional memory preserved', 'No knowledge loss', 'Always available'],
+        },
+      ],
+      comparisonTitle: 'The problem with agencies',
+      comparisonDescription: 'Every time an account manager leaves, they take years of knowledge with them. Your AI team\'s memory is permanent—and it only gets better.',
+      comparisonStats: [
+        { value: '0%', label: 'Knowledge Loss' },
+        { value: '∞', label: 'Memory Retention' },
+      ],
     },
     faq: [
       {
@@ -295,16 +328,16 @@ export const audienceContent = {
           description: '77+ tools built in. Tasks, scheduling, reports, memory—one platform, zero tab switching.',
         },
         communication: {
-          title: 'Your AI team, always online',
-          description: 'Chat with AI employees like Slack. They respond instantly, 24/7, 365.',
+          title: 'Client Communities',
+          description: 'Create private community spaces for every client. Replace email threads with real-time collaboration.',
         },
         workflows: {
           title: 'Work that happens while you sleep',
           description: 'Automate anything. Campaigns run at 3am. Reports generate overnight. You wake up to results.',
         },
         crm: {
-          title: 'Never lose a lead again',
-          description: 'AI remembers every conversation, every preference, every detail. Institutional memory that never walks out.',
+          title: 'Client CRM & Deals',
+          description: 'Manage all client relationships and sales pipelines in one place. Never lose track of a deal.',
         },
         marketing: {
           title: 'Cancel 4 subscriptions',
@@ -343,6 +376,39 @@ export const audienceContent = {
       sectionLabel: 'AI Workforce',
       headline: ['Meet your new team.', 'They never ask for a raise.'],
       subheadline: 'They learn your brand, remember every conversation, and work around the clock without overtime.',
+    },
+    memory: {
+      sectionLabel: 'Infinite Memory',
+      headline: ['Knowledge that stays.', 'Forever.'],
+      subheadline: 'When employees leave, they take years of client knowledge with them. Your AI workforce remembers everything—every conversation, every preference, every lesson learned.',
+      features: [
+        {
+          title: 'Infinite Institutional Memory',
+          description: 'Every client conversation, brand guideline, and campaign insight is preserved forever. No more knowledge walking out the door.',
+          bullets: ['Client history never lost', 'Campaign learnings preserved', 'Brand details permanent'],
+        },
+        {
+          title: 'Self-Correcting Intelligence',
+          description: 'When your AI makes a mistake, it learns. Error patterns are captured automatically—the same mistake never happens twice.',
+          bullets: ['Automatic error capture', 'Pattern learning', 'Continuous improvement'],
+        },
+        {
+          title: 'Compounds Over Time',
+          description: 'Every piece of feedback makes them better. Unlike new hires who start from zero, your AI workforce builds on everything it\'s learned.',
+          bullets: ['Feedback becomes permanent', 'Quality improves weekly', 'No retraining needed'],
+        },
+        {
+          title: 'Zero Knowledge Turnover',
+          description: 'The average employee leaves after 2 years, taking everything they learned. Your AI workforce has 0% turnover—and 100% knowledge retention.',
+          bullets: ['No exit interviews needed', 'Client relationships preserved', 'Processes documented automatically'],
+        },
+      ],
+      comparisonTitle: 'The real cost of turnover',
+      comparisonDescription: 'Replacing an employee costs $15-25K. But the hidden cost is the knowledge they take with them—client relationships, campaign history, lessons learned. Gone.',
+      comparisonStats: [
+        { value: '$0', label: 'Turnover Cost' },
+        { value: '100%', label: 'Retention' },
+      ],
     },
     faq: [
       {
