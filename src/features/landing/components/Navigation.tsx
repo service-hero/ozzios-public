@@ -172,7 +172,7 @@ export function Navigation() {
             <img
               src="/images/ozzios-logo.svg"
               alt="OzziOS"
-              className="h-6 w-auto"
+              className="h-6 w-auto brightness-0"
             />
           </Link>
 
