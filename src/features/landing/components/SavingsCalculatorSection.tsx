@@ -634,7 +634,7 @@ export function SavingsCalculatorSection() {
                               </a>
                             </Button>
                             <p className="text-center text-[12px] text-muted-foreground mt-3">
-                              Free trial • No credit card required
+                              7-day free trial • Cancel anytime
                             </p>
                           </div>
                         </div>

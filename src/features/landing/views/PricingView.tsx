@@ -9,7 +9,7 @@ const pricingTiers = [
   {
     name: 'Starter',
     tagline: 'Fire your freelancers',
-    price: 497,
+    price: 490,
     description: 'Perfect for small businesses ready to automate their marketing basics.',
     features: [
       '5 AI Agents',
@@ -25,9 +25,9 @@ const pricingTiers = [
     recommended: false,
   },
   {
-    name: 'Pro',
+    name: 'Professional',
     tagline: 'Replace your agency',
-    price: 997,
+    price: 990,
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
       '14 AI Agents',
@@ -40,19 +40,19 @@ const pricingTiers = [
       'Client reporting dashboards',
       'Priority support',
     ],
-    cta: 'Start free trial',
-    href: 'https://app.ozzios.com/sign-up?plan=pro',
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=professional',
     recommended: true,
   },
   {
-    name: 'Scale',
+    name: 'Business',
     tagline: 'Full marketing department',
-    price: 1997,
+    price: 1995,
     description: 'For growing businesses that need enterprise-level marketing power.',
     features: [
       'Unlimited AI Agents',
       '200,000 AI credits/month',
-      'Everything in Pro, plus:',
+      'Everything in Professional, plus:',
       'White-label client portals',
       'Multi-workspace management',
       'Custom integrations',
@@ -60,8 +60,8 @@ const pricingTiers = [
       'Dedicated success manager',
       'SLA & phone support',
     ],
-    cta: 'Contact sales',
-    href: 'https://app.ozzios.com/sign-up?plan=scale',
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=business',
     recommended: false,
   },
 ];
@@ -70,47 +70,47 @@ const comparisonFeatures = [
   {
     category: 'AI Agents',
     features: [
-      { name: 'AI Agents included', starter: '5', pro: '14', scale: 'Unlimited' },
-      { name: 'AI credits/month', starter: '10,000', pro: '50,000', scale: '200,000' },
-      { name: 'Custom agent workflows', starter: false, pro: true, scale: true },
-      { name: 'Multi-agent delegation', starter: false, pro: true, scale: true },
+      { name: 'AI Agents included', starter: '5', professional: '14', business: 'Unlimited' },
+      { name: 'AI credits/month', starter: '10,000', professional: '50,000', business: '200,000' },
+      { name: 'Custom agent workflows', starter: false, professional: true, business: true },
+      { name: 'Multi-agent delegation', starter: false, professional: true, business: true },
     ],
   },
   {
     category: 'Marketing',
     features: [
-      { name: 'Email marketing automation', starter: true, pro: true, scale: true },
-      { name: 'Social media scheduling', starter: true, pro: true, scale: true },
-      { name: 'Basic SEO tools', starter: true, pro: true, scale: true },
-      { name: 'Content creation at scale', starter: false, pro: true, scale: true },
-      { name: 'Meta & Google Ads', starter: false, pro: true, scale: true },
-      { name: 'Advanced analytics & attribution', starter: false, pro: false, scale: true },
+      { name: 'Email marketing automation', starter: true, professional: true, business: true },
+      { name: 'Social media scheduling', starter: true, professional: true, business: true },
+      { name: 'Basic SEO tools', starter: true, professional: true, business: true },
+      { name: 'Content creation at scale', starter: false, professional: true, business: true },
+      { name: 'Meta & Google Ads', starter: false, professional: true, business: true },
+      { name: 'Advanced analytics & attribution', starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Integrations',
     features: [
-      { name: 'Google Calendar & Gmail', starter: true, pro: true, scale: true },
-      { name: 'CRM & pipeline management', starter: false, pro: true, scale: true },
-      { name: 'Client reporting dashboards', starter: false, pro: true, scale: true },
-      { name: 'Custom integrations', starter: false, pro: false, scale: true },
+      { name: 'Google Calendar & Gmail', starter: true, professional: true, business: true },
+      { name: 'CRM & pipeline management', starter: false, professional: true, business: true },
+      { name: 'Client reporting dashboards', starter: false, professional: true, business: true },
+      { name: 'Custom integrations', starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Platform',
     features: [
-      { name: 'White-label client portals', starter: false, pro: false, scale: true },
-      { name: 'Multi-workspace management', starter: false, pro: false, scale: true },
-      { name: 'Dedicated success manager', starter: false, pro: false, scale: true },
-      { name: 'SLA guarantee', starter: false, pro: false, scale: true },
+      { name: 'White-label client portals', starter: false, professional: false, business: true },
+      { name: 'Multi-workspace management', starter: false, professional: false, business: true },
+      { name: 'Dedicated success manager', starter: false, professional: false, business: true },
+      { name: 'SLA guarantee', starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', starter: true, pro: true, scale: true },
-      { name: 'Priority support', starter: false, pro: true, scale: true },
-      { name: 'Phone support', starter: false, pro: false, scale: true },
+      { name: 'Email support', starter: true, professional: true, business: true },
+      { name: 'Priority support', starter: false, professional: true, business: true },
+      { name: 'Phone support', starter: false, professional: false, business: true },
     ],
   },
 ];
@@ -126,7 +126,7 @@ const pricingFaqs = [
   },
   {
     question: 'Is there a free trial?',
-    answer: 'Yes! All plans include a 14-day free trial with full access to all features. No credit card required to start. If you decide OzziOS isn\'t right for you, simply cancel before the trial ends.',
+    answer: 'Yes! All plans include a 7-day free trial with full access to all features. A credit card is required to start your trial, but you won\'t be charged until the trial ends. Cancel anytime before the trial is over.',
   },
   {
     question: 'What happens if I run out of AI credits?',
@@ -158,8 +158,8 @@ const valueProps = [
   },
   {
     icon: Shield,
-    title: '14-day free trial',
-    description: 'Try any plan risk-free. No credit card required to get started.',
+    title: '7-day free trial',
+    description: 'Try any plan risk-free. Cancel anytime before your trial ends.',
   },
   {
     icon: Users,
@@ -342,7 +342,7 @@ function PricingCards() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-gray-500">
-            All plans include a 14-day free trial. No credit card required.
+            All plans include a 7-day free trial. Cancel anytime.
           </p>
           <p className="text-sm text-gray-400 mt-2">
             Need a custom plan for your enterprise?{' '}
@@ -398,10 +398,10 @@ function ComparisonTable() {
                   Starter
                 </th>
                 <th className="text-center py-4 px-4 text-sm font-semibold text-signature w-[20%]">
-                  Pro
+                  Professional
                 </th>
                 <th className="text-center py-4 px-4 text-sm font-semibold text-black w-[20%]">
-                  Scale
+                  Business
                 </th>
               </tr>
             </thead>
@@ -428,10 +428,10 @@ function ComparisonTable() {
                         <FeatureValue value={feature.starter} />
                       </td>
                       <td className="py-3.5 px-4 text-center">
-                        <FeatureValue value={feature.pro} />
+                        <FeatureValue value={feature.professional} />
                       </td>
                       <td className="py-3.5 px-4 text-center">
-                        <FeatureValue value={feature.scale} />
+                        <FeatureValue value={feature.business} />
                       </td>
                     </tr>
                   ))}

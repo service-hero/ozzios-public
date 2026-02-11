@@ -8,7 +8,7 @@ const pricingTiers = [
   {
     name: 'Starter',
     tagline: 'Fire your freelancers',
-    price: 497,
+    price: 490,
     description: 'Perfect for small businesses ready to automate their marketing basics.',
     features: [
       '5 AI Agents',
@@ -24,9 +24,9 @@ const pricingTiers = [
     recommended: false,
   },
   {
-    name: 'Pro',
+    name: 'Professional',
     tagline: 'Replace your agency',
-    price: 997,
+    price: 990,
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
       '14 AI Agents',
@@ -39,19 +39,19 @@ const pricingTiers = [
       'Client reporting dashboards',
       'Priority support',
     ],
-    cta: 'Start free trial',
-    href: 'https://app.ozzios.com/sign-up?plan=pro',
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=professional',
     recommended: true,
   },
   {
-    name: 'Scale',
+    name: 'Business',
     tagline: 'Full marketing department',
-    price: 1997,
+    price: 1995,
     description: 'For growing businesses that need enterprise-level marketing power.',
     features: [
       'Unlimited AI Agents',
       '200,000 AI credits/month',
-      'Everything in Pro, plus:',
+      'Everything in Professional, plus:',
       'White-label client portals',
       'Multi-workspace management',
       'Custom integrations',
@@ -59,8 +59,8 @@ const pricingTiers = [
       'Dedicated success manager',
       'SLA & phone support',
     ],
-    cta: 'Contact sales',
-    href: 'https://app.ozzios.com/sign-up?plan=scale',
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=business',
     recommended: false,
   },
 ];
@@ -173,7 +173,7 @@ export function PricingSection() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            All plans include a 14-day free trial. No credit card required.
+            All plans include a 7-day free trial. Cancel anytime.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             Need a custom plan for your enterprise?{' '}
