@@ -67,7 +67,7 @@ export function StatsSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="metrics" className="relative py-24 lg:py-32 bg-white">
+    <section id="metrics" className="relative py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -77,12 +77,12 @@ export function StatsSection() {
         >
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <p className="text-xs font-medium text-gray-500 uppercase tracking-widest mb-3">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">
               {content.sectionLabel}
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold text-black tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight">
               {content.headline[0]}
-              <span className="text-gray-300"> {content.headline[1]}</span>
+              <span className="text-muted-foreground/50"> {content.headline[1]}</span>
             </h2>
           </motion.div>
 
@@ -94,13 +94,13 @@ export function StatsSection() {
                 variants={itemVariants}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-semibold text-black tracking-tight mb-2">
+                <div className="text-5xl md:text-6xl font-semibold text-foreground tracking-tight mb-2">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm font-medium text-gray-600 mb-1">
+                <div className="text-sm font-medium text-foreground/80 mb-1">
                   {stat.label}
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-xs text-muted-foreground">
                   {stat.description}
                 </div>
               </motion.div>
@@ -112,7 +112,7 @@ export function StatsSection() {
             variants={itemVariants}
             className="mt-20 text-center"
           >
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {content.socialProof}
             </p>
           </motion.div>

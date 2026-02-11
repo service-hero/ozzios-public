@@ -104,7 +104,7 @@ function PremiumSlider({
       {/* Track container */}
       <div className="relative h-2">
         {/* Background track */}
-        <div className="absolute inset-0 rounded-full bg-gray-200" />
+        <div className="absolute inset-0 rounded-full bg-muted" />
 
         {/* Filled track */}
         <div
@@ -133,10 +133,10 @@ function PremiumSlider({
       />
 
       {/* Min/max labels */}
-      <div className="absolute top-8 left-0 text-[11px] text-gray-400">
+      <div className="absolute top-8 left-0 text-[11px] text-muted-foreground">
         {formatValue(min)}
       </div>
-      <div className="absolute top-8 right-0 text-[11px] text-gray-400">
+      <div className="absolute top-8 right-0 text-[11px] text-muted-foreground">
         {formatValue(max)}
       </div>
     </div>
@@ -160,14 +160,14 @@ function ToolCheckbox({
         'group relative flex items-center gap-3 p-3 rounded-xl border transition-all duration-300',
         checked
           ? 'border-signature/40 bg-signature/5'
-          : 'border-gray-200 bg-white hover:border-gray-300'
+          : 'border-border bg-card hover:border-border'
       )}
     >
       <div className={cn(
         'flex items-center justify-center w-5 h-5 rounded-md border-2 transition-all duration-200',
         checked
           ? 'border-signature bg-signature'
-          : 'border-gray-300 bg-transparent group-hover:border-gray-400'
+          : 'border-border bg-transparent group-hover:border-border'
       )}>
         {checked && <Check className="w-3 h-3 text-white" />}
       </div>
@@ -175,11 +175,11 @@ function ToolCheckbox({
       <div className="flex-1 text-left">
         <p className={cn(
           'text-[13px] font-medium transition-colors',
-          checked ? 'text-black' : 'text-gray-700'
+          checked ? 'text-foreground' : 'text-foreground/80'
         )}>
           {tool.name}
         </p>
-        <p className="text-[11px] text-gray-400">
+        <p className="text-[11px] text-muted-foreground">
           ~${tool.cost}/mo
         </p>
       </div>
@@ -292,7 +292,7 @@ export function SavingsCalculatorSection() {
   const totalSavings = getTotalSavings();
 
   return (
-    <section id="calculator" className="py-24 lg:py-32 bg-gray-50">
+    <section id="calculator" className="py-24 lg:py-32 bg-muted/50">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -308,20 +308,20 @@ export function SavingsCalculatorSection() {
                 ROI Calculator
               </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-black mb-4">
+            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-4">
               See what you'll save.
             </h2>
-            <p className="text-lg text-gray-500 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
               Calculate your potential savings across agencies, employees, and tools.
             </p>
           </motion.div>
 
           {/* Calculator card */}
           <motion.div variants={itemVariants}>
-            <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+            <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
               <div className="relative z-10">
                 {/* Tabs */}
-                <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-gray-200 bg-gray-50">
+                <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-border bg-muted/50">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
@@ -332,13 +332,13 @@ export function SavingsCalculatorSection() {
                         className={cn(
                           'flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-[14px] transition-all duration-300',
                           isActive
-                            ? 'bg-white text-black border border-gray-200 shadow-sm'
-                            : 'text-gray-500 hover:text-gray-700 hover:bg-white/50'
+                            ? 'bg-card text-foreground border border-border shadow-sm'
+                            : 'text-muted-foreground hover:text-foreground/80 hover:bg-card/50'
                         )}
                       >
                         <Icon className={cn(
                           'h-4 w-4 transition-colors',
-                          isActive ? 'text-signature' : 'text-gray-400'
+                          isActive ? 'text-signature' : 'text-muted-foreground'
                         )} />
                         <span className="hidden sm:inline">{tab.label}</span>
                       </button>
@@ -351,7 +351,7 @@ export function SavingsCalculatorSection() {
                   {/* Input side */}
                   <div className="space-y-8">
                     <div>
-                      <p className="text-[13px] text-gray-500 mb-6">
+                      <p className="text-[13px] text-muted-foreground mb-6">
                         {tabs.find(t => t.id === activeTab)?.description}
                       </p>
                     </div>
@@ -368,7 +368,7 @@ export function SavingsCalculatorSection() {
                         >
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-black">
+                              <span className="text-[14px] font-medium text-foreground">
                                 Monthly agency retainer
                               </span>
                               <span className="text-[18px] font-semibold text-signature tabular-nums">
@@ -385,8 +385,8 @@ export function SavingsCalculatorSection() {
                             />
                           </div>
 
-                          <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                            <p className="text-[12px] text-gray-400 mb-3">What you're paying for:</p>
+                          <div className="p-4 rounded-xl bg-muted/50 border border-border">
+                            <p className="text-[12px] text-muted-foreground mb-3">What you're paying for:</p>
                             <div className="space-y-2">
                               {[
                                 'Monthly reports you don\'t understand',
@@ -396,7 +396,7 @@ export function SavingsCalculatorSection() {
                               ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-2">
                                   <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 shrink-0" />
-                                  <span className="text-[13px] text-gray-600">{item}</span>
+                                  <span className="text-[13px] text-muted-foreground">{item}</span>
                                 </div>
                               ))}
                             </div>
@@ -415,7 +415,7 @@ export function SavingsCalculatorSection() {
                         >
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-black">
+                              <span className="text-[14px] font-medium text-foreground">
                                 Marketing team size
                               </span>
                               <span className="text-[18px] font-semibold text-signature tabular-nums">
@@ -434,7 +434,7 @@ export function SavingsCalculatorSection() {
 
                           <div>
                             <label className="flex items-center justify-between mb-4">
-                              <span className="text-[14px] font-medium text-black">
+                              <span className="text-[14px] font-medium text-foreground">
                                 Average salary
                               </span>
                               <span className="text-[18px] font-semibold text-signature tabular-nums">
@@ -458,7 +458,7 @@ export function SavingsCalculatorSection() {
                                 <p className="text-[13px] font-medium text-signature mb-1">
                                   65% headcount reduction
                                 </p>
-                                <p className="text-[12px] text-gray-600">
+                                <p className="text-[12px] text-muted-foreground">
                                   Run a 20-person agency with 7 people. AI handles the repetitive work—your team focuses on strategy and relationships.
                                 </p>
                               </div>
@@ -476,7 +476,7 @@ export function SavingsCalculatorSection() {
                           transition={{ duration: 0.3 }}
                           className="space-y-6"
                         >
-                          <p className="text-[14px] font-medium text-black">
+                          <p className="text-[14px] font-medium text-foreground">
                             Select the tools you're currently using:
                           </p>
 
@@ -504,7 +504,7 @@ export function SavingsCalculatorSection() {
                                 <p className="text-[13px] font-medium text-green-700 mb-1">
                                   OzziOS replaces all of these
                                 </p>
-                                <p className="text-[12px] text-gray-600">
+                                <p className="text-[12px] text-muted-foreground">
                                   One platform, one login, one invoice. All the features you need.
                                 </p>
                               </div>
@@ -518,17 +518,17 @@ export function SavingsCalculatorSection() {
                   {/* Results side */}
                   <div className="relative">
                     <div className="sticky top-8">
-                      <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200">
+                      <div className="p-8 rounded-2xl bg-muted/50 border border-border">
                         <div className="relative z-10">
-                          <p className="text-[12px] text-gray-400 uppercase tracking-wider mb-2">
+                          <p className="text-[12px] text-muted-foreground uppercase tracking-wider mb-2">
                             Estimated Annual Savings
                           </p>
 
                           <div className="mb-8">
-                            <span className="text-[clamp(3rem,8vw,4.5rem)] font-bold text-black leading-none tracking-tight">
+                            <span className="text-[clamp(3rem,8vw,4.5rem)] font-bold text-foreground leading-none tracking-tight">
                               <AnimatedValue value={totalSavings} prefix="$" />
                             </span>
-                            <span className="text-[24px] text-gray-400 ml-1">/yr</span>
+                            <span className="text-[24px] text-muted-foreground ml-1">/yr</span>
                           </div>
 
                           {/* Tab-specific breakdown */}
@@ -541,20 +541,20 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Current annual spend</span>
-                                  <span className="text-[14px] font-medium text-black">
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Current annual spend</span>
+                                  <span className="text-[14px] font-medium text-foreground">
                                     ${(agencySpend * 12).toLocaleString()}
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">OzziOS annual cost</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">OzziOS annual cost</span>
                                   <span className="text-[14px] font-medium text-green-600">
                                     ~$3,588
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Savings percentage</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Savings percentage</span>
                                   <span className="text-[14px] font-semibold text-signature">
                                     <AnimatedValue value={agencySavings.percentage} suffix="%" />
                                   </span>
@@ -570,20 +570,20 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Current salary costs</span>
-                                  <span className="text-[14px] font-medium text-black">
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Current salary costs</span>
+                                  <span className="text-[14px] font-medium text-foreground">
                                     <AnimatedValue value={employeeSavings.currentCost} prefix="$" />
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Team after AI (35%)</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Team after AI (35%)</span>
                                   <span className="text-[14px] font-medium text-green-600">
                                     <AnimatedValue value={employeeSavings.employeesRemaining} /> people
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Headcount reduction</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Headcount reduction</span>
                                   <span className="text-[14px] font-semibold text-signature">
                                     {teamSize} &rarr; <AnimatedValue value={employeeSavings.employeesRemaining} /> (65% less)
                                   </span>
@@ -599,20 +599,20 @@ export function SavingsCalculatorSection() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="space-y-4"
                               >
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Tools to cancel</span>
-                                  <span className="text-[14px] font-medium text-black">
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Tools to cancel</span>
+                                  <span className="text-[14px] font-medium text-foreground">
                                     <AnimatedValue value={toolSavings.count} /> subscriptions
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Monthly savings</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Monthly savings</span>
                                   <span className="text-[14px] font-medium text-green-600">
                                     <AnimatedValue value={toolSavings.monthly} prefix="$" />/mo
                                   </span>
                                 </div>
-                                <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                                  <span className="text-[14px] text-gray-500">Fewer logins</span>
+                                <div className="flex items-center justify-between py-3 border-t border-border">
+                                  <span className="text-[14px] text-muted-foreground">Fewer logins</span>
                                   <span className="text-[14px] font-semibold text-signature">
                                     <AnimatedValue value={toolSavings.count} /> &rarr; 1
                                   </span>
@@ -633,7 +633,7 @@ export function SavingsCalculatorSection() {
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                               </a>
                             </Button>
-                            <p className="text-center text-[12px] text-gray-400 mt-3">
+                            <p className="text-center text-[12px] text-muted-foreground mt-3">
                               Free trial • No credit card required
                             </p>
                           </div>
@@ -648,7 +648,7 @@ export function SavingsCalculatorSection() {
 
           {/* Bottom note */}
           <motion.div variants={itemVariants} className="mt-8 text-center">
-            <p className="text-[13px] text-gray-400">
+            <p className="text-[13px] text-muted-foreground">
               * Calculations are estimates based on industry averages. Your actual savings may vary.
             </p>
           </motion.div>

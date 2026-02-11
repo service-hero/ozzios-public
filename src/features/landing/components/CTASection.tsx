@@ -11,7 +11,7 @@ export function CTASection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-gray-50">
+    <section className="relative py-24 lg:py-32 bg-muted/50">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -21,14 +21,14 @@ export function CTASection() {
           className="text-center"
         >
           {/* Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-black">{content.headline[1]}</span>
+            <span className="text-foreground">{content.headline[1]}</span>
           </h2>
 
           {/* Subtext */}
-          <p className="text-lg text-gray-500 mb-10 max-w-lg mx-auto">
+          <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             {content.subtext}
           </p>
 
@@ -45,18 +45,18 @@ export function CTASection() {
           <div className="mt-6">
             <a
               href="#contact"
-              className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground/80 transition-colors"
             >
               {content.secondaryButton}
             </a>
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
             <span>SOC 2 Compliant</span>
-            <span className="hidden sm:inline text-gray-300">|</span>
+            <span className="hidden sm:inline text-border">|</span>
             <span>GDPR Ready</span>
-            <span className="hidden sm:inline text-gray-300">|</span>
+            <span className="hidden sm:inline text-border">|</span>
             <span>99.9% Uptime SLA</span>
           </div>
         </motion.div>

@@ -70,7 +70,7 @@ export function AgentsSection() {
   const [activeAgent, setActiveAgent] = useState<string | null>(null);
 
   return (
-    <section id="agents" className="py-24 lg:py-32 bg-white">
+    <section id="agents" className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -82,12 +82,12 @@ export function AgentsSection() {
           <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
             {content.sectionLabel}
           </p>
-          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-black mb-6">
+          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-gray-400">{content.headline[1]}</span>
+            <span className="text-muted-foreground">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-gray-500 leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {content.subheadline}
           </p>
         </motion.div>
@@ -96,11 +96,11 @@ export function AgentsSection() {
           {/* Channel Agents */}
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                 Channel Agents
               </span>
-              <div className="h-px flex-1 bg-gray-200" />
-              <span className="text-[11px] text-gray-400">10 agents</span>
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-[11px] text-muted-foreground">10 agents</span>
             </div>
 
             <motion.div
@@ -123,7 +123,7 @@ export function AgentsSection() {
                       'group relative rounded-2xl border p-5 transition-all duration-300 cursor-pointer',
                       isActive
                         ? 'border-signature/30 bg-signature/[0.02] shadow-sm'
-                        : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                        : 'border-border bg-card hover:border-border hover:shadow-sm'
                     )}
                   >
                     <div className="flex items-start gap-4">
@@ -138,19 +138,19 @@ export function AgentsSection() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="text-[14px] font-semibold text-black">
+                          <h3 className="text-[14px] font-semibold text-foreground">
                             {agent.name}
                           </h3>
                           {isActive && (
                             <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
                           )}
                         </div>
-                        <p className="text-[12px] text-gray-400 mb-2">
+                        <p className="text-[12px] text-muted-foreground mb-2">
                           {agent.role}
                         </p>
                         <p className={cn(
                           'text-[12px] leading-relaxed transition-all duration-300',
-                          isActive ? 'text-gray-600' : 'text-gray-500'
+                          isActive ? 'text-muted-foreground' : 'text-muted-foreground'
                         )}>
                           {agent.description}
                         </p>
@@ -165,11 +165,11 @@ export function AgentsSection() {
           {/* Executive Agents */}
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                 Executive Agents
               </span>
-              <div className="h-px flex-1 bg-gray-200" />
-              <span className="text-[11px] text-gray-400">4 agents</span>
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-[11px] text-muted-foreground">4 agents</span>
             </div>
 
             <motion.div
@@ -192,7 +192,7 @@ export function AgentsSection() {
                       'group relative rounded-2xl border p-5 transition-all duration-300 cursor-pointer',
                       isActive
                         ? 'border-signature/30 bg-signature/[0.02] shadow-sm'
-                        : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                        : 'border-border bg-card hover:border-border hover:shadow-sm'
                     )}
                   >
                     <div className="mb-4 inline-block">
@@ -204,16 +204,16 @@ export function AgentsSection() {
                         className="rounded-xl transition-all duration-300"
                       />
                     </div>
-                    <h3 className="text-[14px] font-semibold text-black mb-1">
+                    <h3 className="text-[14px] font-semibold text-foreground mb-1">
                       {agent.name}
                     </h3>
                     <p className={cn(
                       'text-[11px] mb-2 transition-colors',
-                      isActive ? 'text-signature' : 'text-gray-400'
+                      isActive ? 'text-signature' : 'text-muted-foreground'
                     )}>
                       {agent.scope}
                     </p>
-                    <p className="text-[12px] text-gray-500">
+                    <p className="text-[12px] text-muted-foreground">
                       {agent.description}
                     </p>
                   </motion.div>
@@ -228,7 +228,7 @@ export function AgentsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 pt-12 border-t border-gray-100 flex flex-wrap items-center justify-center gap-6 lg:gap-12"
+          className="mt-16 pt-12 border-t border-border/50 flex flex-wrap items-center justify-center gap-6 lg:gap-12"
         >
           {[
             { label: 'Deep reasoning', value: 'Thinks through complex problems' },
@@ -241,8 +241,8 @@ export function AgentsSection() {
             >
               <div className="h-1.5 w-1.5 rounded-full bg-signature" />
               <div>
-                <span className="text-[13px] font-medium text-gray-700">{item.value}</span>
-                <span className="text-[13px] text-gray-400 ml-2">{item.label}</span>
+                <span className="text-[13px] font-medium text-foreground/80">{item.value}</span>
+                <span className="text-[13px] text-muted-foreground ml-2">{item.label}</span>
               </div>
             </div>
           ))}

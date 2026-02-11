@@ -42,7 +42,7 @@ export function BentoSection() {
   return (
     <section
       id="features"
-      className="relative py-24 lg:py-32 bg-white overflow-hidden"
+      className="relative py-24 lg:py-32 bg-background overflow-hidden"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <motion.div
@@ -53,15 +53,15 @@ export function BentoSection() {
         >
           {/* Section header */}
           <motion.div variants={itemVariants} className="mb-16 max-w-2xl">
-            <p className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-3">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">
               {content.sectionLabel}
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-neutral-900 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-foreground mb-4">
               {content.headline[0]}
               <br />
-              <span className="text-neutral-400">{content.headline[1]}</span>
+              <span className="text-muted-foreground">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-neutral-500 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {content.subheadline}
             </p>
           </motion.div>
@@ -91,10 +91,10 @@ export function BentoSection() {
                         {content.cards.aiWorkforce.badge}
                       </span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-semibold text-neutral-900 mb-3">
+                    <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mb-3">
                       {content.cards.aiWorkforce.title}
                     </h3>
-                    <p className="text-base text-neutral-500 leading-relaxed mb-8">
+                    <p className="text-base text-muted-foreground leading-relaxed mb-8">
                       {content.cards.aiWorkforce.description}
                     </p>
 
@@ -108,22 +108,22 @@ export function BentoSection() {
                       ].map((agent) => (
                         <div
                           key={agent.name}
-                          className="p-3 rounded-xl bg-neutral-50 border border-neutral-100 hover:border-neutral-200 transition-colors"
+                          className="p-3 rounded-xl bg-muted/50 border border-border/50 hover:border-border transition-colors"
                         >
                           <div className="flex items-center gap-2 mb-1.5">
                             <div
                               className={cn(
                                 'h-2 w-2 rounded-full',
                                 agent.status === 'active'
-                                  ? 'bg-neutral-900'
-                                  : 'bg-neutral-300'
+                                  ? 'bg-foreground'
+                                  : 'bg-border'
                               )}
                             />
-                            <span className="text-[10px] text-neutral-400 uppercase tracking-wider">
+                            <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
                               {agent.status}
                             </span>
                           </div>
-                          <p className="text-sm font-medium text-neutral-700">
+                          <p className="text-sm font-medium text-foreground/80">
                             {agent.name}
                           </p>
                         </div>
@@ -138,20 +138,20 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <Layers className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <Layers className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.tools.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.tools.description}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
                     {['Tasks', 'Reports', 'Memory', 'Search'].map((tool) => (
                       <span
                         key={tool}
-                        className="px-2.5 py-1 text-xs font-medium text-neutral-600 bg-neutral-100 rounded-md"
+                        className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-md"
                       >
                         {tool}
                       </span>
@@ -165,20 +165,20 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <Users className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <Users className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.communication.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.communication.description}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
                     {['Channels', 'Forums', 'Voice', 'Roles'].map((feature) => (
                       <span
                         key={feature}
-                        className="px-2.5 py-1 text-xs font-medium text-neutral-600 bg-neutral-100 rounded-md"
+                        className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-md"
                       >
                         {feature}
                       </span>
@@ -194,13 +194,13 @@ export function BentoSection() {
                 <div className="flex flex-col lg:flex-row h-full min-h-[280px]">
                   {/* Content side */}
                   <div className="flex-1 p-8 lg:p-10">
-                    <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                      <Workflow className="h-5 w-5 text-neutral-700" />
+                    <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                      <Workflow className="h-5 w-5 text-signature" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-neutral-900 mb-3">
+                    <h3 className="text-2xl font-semibold text-foreground mb-3">
                       {content.cards.workflows.title}
                     </h3>
-                    <p className="text-base text-neutral-500 leading-relaxed mb-8">
+                    <p className="text-base text-muted-foreground leading-relaxed mb-8">
                       {content.cards.workflows.description}
                     </p>
 
@@ -212,10 +212,10 @@ export function BentoSection() {
                         { value: '99.9%', label: 'Uptime' },
                       ].map((metric) => (
                         <div key={metric.label}>
-                          <div className="text-2xl font-semibold text-neutral-900">
+                          <div className="text-2xl font-semibold text-foreground">
                             {metric.value}
                           </div>
-                          <div className="text-xs text-neutral-400 uppercase tracking-wider mt-1">
+                          <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
                             {metric.label}
                           </div>
                         </div>
@@ -239,18 +239,18 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <Briefcase className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <Briefcase className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.crm.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.crm.description}
                   </p>
                   <div className="mt-auto flex items-baseline gap-2">
-                    <span className="text-3xl font-semibold text-neutral-900">31</span>
-                    <span className="text-sm text-neutral-400">contact fields</span>
+                    <span className="text-3xl font-semibold text-foreground">31</span>
+                    <span className="text-sm text-muted-foreground">contact fields</span>
                   </div>
                 </div>
               </BentoCard>
@@ -260,20 +260,20 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <Megaphone className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <Megaphone className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.marketing.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.marketing.description}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
                     {['Meta', 'Google', 'LinkedIn', 'TikTok'].map((platform) => (
                       <span
                         key={platform}
-                        className="px-2.5 py-1 text-xs font-medium text-neutral-600 bg-neutral-100 rounded-md"
+                        className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-md"
                       >
                         {platform}
                       </span>
@@ -287,16 +287,16 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <BarChart3 className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <BarChart3 className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.multiTenant.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.multiTenant.description}
                   </p>
-                  <div className="mt-auto text-sm text-neutral-400">
+                  <div className="mt-auto text-sm text-muted-foreground">
                     650+ indexes / Workspace isolation
                   </div>
                 </div>
@@ -307,13 +307,13 @@ export function BentoSection() {
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
-                  <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center mb-5">
-                    <Shield className="h-5 w-5 text-neutral-700" />
+                  <div className="h-11 w-11 rounded-xl bg-signature/10 flex items-center justify-center mb-5">
+                    <Shield className="h-5 w-5 text-signature" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {content.cards.security.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {content.cards.security.description}
                   </p>
                   <div className="mt-auto flex items-center gap-2">
@@ -331,7 +331,7 @@ export function BentoSection() {
           <motion.div variants={itemVariants} className="mt-14 text-center">
             <a
               href="#all-features"
-              className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
             >
               Explore all features
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -355,10 +355,10 @@ function BentoCard({
   return (
     <div
       className={cn(
-        'relative rounded-2xl bg-white overflow-hidden transition-shadow duration-300',
+        'relative rounded-2xl bg-card overflow-hidden transition-shadow duration-300',
         featured
-          ? 'border-2 border-neutral-200 shadow-sm hover:shadow-md'
-          : 'border border-neutral-200 hover:shadow-sm',
+          ? 'border-2 border-border shadow-sm hover:shadow-md'
+          : 'border border-border hover:shadow-sm',
         className
       )}
     >
