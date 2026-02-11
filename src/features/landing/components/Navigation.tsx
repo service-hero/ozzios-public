@@ -110,7 +110,7 @@ const navItems: NavItem[] = [
       ],
       cta: {
         title: 'Start building today',
-        description: 'Get started with our free tier - no credit card required',
+        description: 'Start your 7-day free trial today',
         href: 'https://app.ozzios.com/sign-up',
         image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop&auto=format',
       },
@@ -232,8 +232,8 @@ export function Navigation() {
               asChild
               className="h-9 px-5 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
             >
-              <a href="https://app.ozzios.com/sign-up">
-                Get started
+              <a href="https://app.ozzios.com/sign-up?plan=starter">
+                Start free trial
                 <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </a>
             </Button>
@@ -414,8 +414,8 @@ export function Navigation() {
                     asChild
                     className="w-full h-12 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
                   >
-                    <a href="https://app.ozzios.com/sign-up" onClick={() => setIsMobileMenuOpen(false)}>
-                      Get started
+                    <a href="https://app.ozzios.com/sign-up?plan=starter" onClick={() => setIsMobileMenuOpen(false)}>
+                      Start free trial
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
