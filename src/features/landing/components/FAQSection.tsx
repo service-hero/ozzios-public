@@ -17,7 +17,7 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 lg:py-32 bg-white">
+    <section id="faq" className="relative py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-2xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -30,12 +30,12 @@ export function FAQSection() {
           <p className="text-xs font-medium text-signature uppercase tracking-[0.15em] mb-4">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-tight tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight mb-4">
             Frequently asked
             <br />
-            <span className="text-gray-400">questions</span>
+            <span className="text-muted-foreground">questions</span>
           </h2>
-          <p className="text-base text-gray-500 max-w-md mx-auto">
+          <p className="text-base text-muted-foreground max-w-md mx-auto">
             Everything you need to know about OzziOS.
           </p>
         </motion.div>
@@ -66,12 +66,12 @@ export function FAQSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-500 mb-3">
+          <p className="text-muted-foreground mb-3">
             Still have questions?
           </p>
           <a
             href="mailto:support@ozzios.com"
-            className="inline-flex items-center gap-2 text-[15px] font-medium text-black hover:text-signature transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-[15px] font-medium text-foreground hover:text-signature transition-colors duration-200"
           >
             Contact our team
             <span className="text-signature">&rarr;</span>
@@ -98,7 +98,7 @@ function FAQItem({
   return (
     <div
       className={cn(
-        'border-b border-gray-100',
+        'border-b border-border/50',
         isFirst && 'border-t'
       )}
     >
@@ -108,7 +108,7 @@ function FAQItem({
       >
         <span className={cn(
           'text-base font-medium transition-colors duration-200',
-          isOpen ? 'text-black' : 'text-gray-700 group-hover:text-black'
+          isOpen ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
         )}>
           {question}
         </span>
@@ -118,7 +118,7 @@ function FAQItem({
         )}>
           <ChevronDown className={cn(
             'h-5 w-5 transition-colors duration-200',
-            isOpen ? 'text-signature' : 'text-gray-400'
+            isOpen ? 'text-signature' : 'text-muted-foreground'
           )} />
         </div>
       </button>
@@ -135,7 +135,7 @@ function FAQItem({
             <div className="pb-6">
               <div className="pl-0">
                 <div className="h-px w-8 bg-signature mb-4" />
-                <p className="text-[15px] leading-relaxed text-gray-500">
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
                   {answer}
                 </p>
               </div>

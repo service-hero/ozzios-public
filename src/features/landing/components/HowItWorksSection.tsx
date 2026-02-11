@@ -45,7 +45,7 @@ export function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-white">
+    <section id="how-it-works" className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -57,12 +57,12 @@ export function FeaturesSection() {
           <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
             {content.sectionLabel}
           </p>
-          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-black mb-6">
+          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-gray-400">{content.headline[1]}</span>
+            <span className="text-muted-foreground">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-gray-500 leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {content.subheadline}
           </p>
         </motion.div>
@@ -84,7 +84,7 @@ export function FeaturesSection() {
               <motion.div
                 key={step.number}
                 variants={itemVariants}
-                className="group rounded-2xl border border-gray-200 bg-white overflow-hidden hover:border-gray-300 hover:shadow-sm transition-all duration-300"
+                className="group rounded-2xl border border-border bg-card overflow-hidden hover:border-border hover:shadow-sm transition-all duration-300"
               >
                 <div className={cn(
                   'flex flex-col lg:flex-row',
@@ -100,15 +100,15 @@ export function FeaturesSection() {
                     <div className={cn(
                       'absolute inset-0',
                       isEven
-                        ? 'bg-gradient-to-r from-transparent via-transparent to-white'
-                        : 'bg-gradient-to-l from-transparent via-transparent to-white',
+                        ? 'bg-gradient-to-r from-transparent via-transparent to-card'
+                        : 'bg-gradient-to-l from-transparent via-transparent to-card',
                       'hidden lg:block'
                     )} />
                     <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent lg:hidden" />
 
                     {/* Step number overlay */}
                     <div className={cn(
-                      'absolute top-6 font-bold text-[64px] leading-none text-gray-200',
+                      'absolute top-6 font-bold text-[64px] leading-none text-border',
                       isEven ? 'left-6' : 'right-6'
                     )}>
                       {String(index + 1).padStart(2, '0')}
@@ -118,17 +118,17 @@ export function FeaturesSection() {
                   {/* Content side */}
                   <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
                     <div className="flex items-start gap-4">
-                      <div className="shrink-0 h-12 w-12 rounded-xl bg-gray-100 flex items-center justify-center border border-gray-200">
-                        <Icon className="h-5 w-5 text-gray-700" />
+                      <div className="shrink-0 h-12 w-12 rounded-xl bg-signature/10 flex items-center justify-center border border-border">
+                        <Icon className="h-5 w-5 text-signature" />
                       </div>
                       <div className="flex-1">
-                        <div className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide mb-2">
+                        <div className="text-[12px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                           Step {String(index + 1).padStart(2, '0')}
                         </div>
-                        <h3 className="text-xl lg:text-2xl font-display text-black mb-3">
+                        <h3 className="text-xl lg:text-2xl font-display text-foreground mb-3">
                           {step.title}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-gray-500 mb-4">
+                        <p className="text-[15px] leading-relaxed text-muted-foreground mb-4">
                           {step.description}
                         </p>
 
@@ -137,9 +137,9 @@ export function FeaturesSection() {
                           {step.benefits.map((benefit) => (
                             <span
                               key={benefit}
-                              className="inline-flex items-center gap-1.5 text-[12px] text-gray-500"
+                              className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground"
                             >
-                              <Check className="h-3.5 w-3.5 text-gray-400" />
+                              <Check className="h-3.5 w-3.5 text-muted-foreground" />
                               {benefit}
                             </span>
                           ))}

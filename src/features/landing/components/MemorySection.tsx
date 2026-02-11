@@ -46,7 +46,7 @@ export function MemorySection() {
   const content = audienceContent[audience].memory;
 
   return (
-    <section id="memory" className="py-24 lg:py-32 bg-white">
+    <section id="memory" className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -59,12 +59,12 @@ export function MemorySection() {
             <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
               {content.sectionLabel}
             </p>
-            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-black mb-6">
+            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
               {content.headline[0]}
               <br />
-              <span className="text-gray-400">{content.headline[1]}</span>
+              <span className="text-muted-foreground">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-gray-500 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {content.subheadline}
             </p>
           </motion.div>
@@ -73,14 +73,14 @@ export function MemorySection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left: Memory Layers Visualization */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
+              <div className="bg-muted/50 rounded-2xl p-8 lg:p-10">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="h-10 w-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
-                    <Layers className="h-5 w-5 text-gray-700" />
+                  <div className="h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center">
+                    <Layers className="h-5 w-5 text-signature" />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-black">Memory Architecture</h3>
-                    <p className="text-sm text-gray-500">7 layers of persistent context</p>
+                    <h3 className="text-base font-semibold text-foreground">Memory Architecture</h3>
+                    <p className="text-sm text-muted-foreground">7 layers of persistent context</p>
                   </div>
                 </div>
 
@@ -88,30 +88,30 @@ export function MemorySection() {
                   {memoryLayers.map((layer, index) => (
                     <div
                       key={layer.id}
-                      className="flex items-center gap-4 p-3 rounded-xl bg-white border border-gray-200"
+                      className="flex items-center gap-4 p-3 rounded-xl bg-card border border-border"
                     >
-                      <span className="text-xs font-mono font-bold text-gray-400 w-6">
+                      <span className="text-xs font-mono font-bold text-muted-foreground w-6">
                         {layer.id}
                       </span>
-                      <span className="text-sm font-medium text-gray-900 flex-1">
+                      <span className="text-sm font-medium text-foreground flex-1">
                         {layer.name}
                       </span>
-                      <span className="text-xs text-gray-400 uppercase tracking-wide">
+                      <span className="text-xs text-muted-foreground uppercase tracking-wide">
                         {index < 4 ? 'Stable' : 'Dynamic'}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-200 grid grid-cols-3 gap-4">
+                <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4">
                   {[
                     { value: '∞', label: 'Retention' },
                     { value: '7', label: 'Layers' },
                     { value: '<50ms', label: 'Recall' },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
-                      <div className="text-2xl font-semibold text-black">{stat.value}</div>
-                      <div className="text-xs text-gray-500 uppercase tracking-wide">{stat.label}</div>
+                      <div className="text-2xl font-semibold text-foreground">{stat.value}</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -126,26 +126,26 @@ export function MemorySection() {
                 return (
                   <div
                     key={feature.title}
-                    className="group p-6 rounded-2xl border border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+                    className="group p-6 rounded-2xl border border-border bg-card hover:border-border hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="shrink-0 h-10 w-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-gray-700" />
+                      <div className="shrink-0 h-10 w-10 rounded-xl bg-signature/10 flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-signature" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-black mb-1">
+                        <h3 className="text-base font-semibold text-foreground mb-1">
                           {feature.title}
                         </h3>
-                        <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                           {feature.description}
                         </p>
                         <div className="flex flex-wrap gap-x-4 gap-y-1">
                           {feature.bullets.map((bullet) => (
                             <span
                               key={bullet}
-                              className="inline-flex items-center gap-1.5 text-xs text-gray-500"
+                              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"
                             >
-                              <Check className="h-3 w-3 text-gray-400" />
+                              <Check className="h-3 w-3 text-muted-foreground" />
                               {bullet}
                             </span>
                           ))}
@@ -161,18 +161,18 @@ export function MemorySection() {
           {/* Bottom comparison callout */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 p-8 lg:p-10 rounded-2xl bg-gray-50 border border-gray-100"
+            className="mt-12 p-8 lg:p-10 rounded-2xl bg-muted/50 border border-border/50"
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center shrink-0">
-                  <History className="h-5 w-5 text-gray-700" />
+                <div className="h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center shrink-0">
+                  <History className="h-5 w-5 text-signature" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-black mb-1">
+                  <h3 className="text-lg font-semibold text-foreground mb-1">
                     {content.comparisonTitle}
                   </h3>
-                  <p className="text-sm text-gray-500 max-w-xl">
+                  <p className="text-sm text-muted-foreground max-w-xl">
                     {content.comparisonDescription}
                   </p>
                 </div>
@@ -180,8 +180,8 @@ export function MemorySection() {
               <div className="flex items-center gap-8 lg:gap-12">
                 {content.comparisonStats.map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-semibold text-black">{stat.value}</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">{stat.label}</div>
+                    <div className="text-2xl font-semibold text-foreground">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide">{stat.label}</div>
                   </div>
                 ))}
               </div>

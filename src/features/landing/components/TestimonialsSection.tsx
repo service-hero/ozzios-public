@@ -31,7 +31,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 lg:py-32 bg-white"
+      className="relative py-24 lg:py-32 bg-background"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Section header */}
@@ -45,12 +45,12 @@ export function TestimonialsSection() {
           <p className="text-xs font-medium text-signature uppercase tracking-[0.15em] mb-4">
             {content.sectionLabel}
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-tight tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight mb-4">
             {content.headline[0]}
             <br />
-            <span className="text-gray-400">{content.headline[1]}</span>
+            <span className="text-muted-foreground">{content.headline[1]}</span>
           </h2>
-          <p className="text-base text-gray-500 max-w-md mx-auto">
+          <p className="text-base text-muted-foreground max-w-md mx-auto">
             {content.subheadline}
           </p>
         </motion.div>
@@ -67,10 +67,10 @@ export function TestimonialsSection() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="bg-white rounded-2xl p-8 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-shadow duration-300"
+              className="bg-card rounded-2xl p-8 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-shadow duration-300"
             >
               {/* Quote content */}
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-8">
+              <p className="text-muted-foreground text-[15px] leading-relaxed mb-8">
                 "{testimonial.content}"
               </p>
 
@@ -82,10 +82,10 @@ export function TestimonialsSection() {
                   className="h-12 w-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="text-[15px] font-medium text-black">
+                  <p className="text-[15px] font-medium text-foreground">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {testimonial.role}, {testimonial.company}
                   </p>
                 </div>
@@ -100,13 +100,13 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 lg:mt-20 pt-12 border-t border-gray-100"
+          className="mt-16 lg:mt-20 pt-12 border-t border-border/50"
         >
           <div className="flex flex-wrap items-center justify-center gap-12 lg:gap-20">
             {content.trustStats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl font-semibold text-black mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-2xl font-semibold text-foreground mb-1">{stat.value}</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>

@@ -70,7 +70,7 @@ export function PricingSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="pricing" className="relative py-24 lg:py-32 bg-white">
+    <section id="pricing" className="relative py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -80,13 +80,13 @@ export function PricingSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-widest mb-3">
+          <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">
             Pricing
           </p>
-          <h2 className="text-4xl md:text-5xl font-semibold text-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-4">
             Simple, transparent pricing
           </h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Stop overpaying for agencies. Get enterprise-level marketing automation at a fraction of the cost.
           </p>
         </motion.div>
@@ -102,16 +102,16 @@ export function PricingSection() {
               className={cn(
                 'relative rounded-2xl p-8 transition-all duration-300',
                 tier.recommended
-                  ? 'border-2 border-signature bg-white'
-                  : 'border border-gray-200 bg-white hover:border-gray-300'
+                  ? 'border-2 border-signature bg-card'
+                  : 'border border-border bg-card hover:border-border'
               )}
             >
               {/* Tier header */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-black mb-1">
+                <h3 className="text-xl font-semibold text-foreground mb-1">
                   {tier.name}
                 </h3>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   {tier.tagline}
                 </p>
               </div>
@@ -119,12 +119,12 @@ export function PricingSection() {
               {/* Price */}
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-semibold text-black tracking-tight">
+                  <span className="text-5xl font-semibold text-foreground tracking-tight">
                     ${tier.price.toLocaleString()}
                   </span>
-                  <span className="text-base text-gray-400">/month</span>
+                  <span className="text-base text-muted-foreground">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-3">
+                <p className="text-sm text-muted-foreground mt-3">
                   {tier.description}
                 </p>
               </div>
@@ -136,7 +136,7 @@ export function PricingSection() {
                   'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200 mb-8',
                   tier.recommended
                     ? 'bg-signature text-white hover:bg-signature/90'
-                    : 'bg-white text-black border border-gray-300 hover:bg-gray-50'
+                    : 'bg-card text-foreground border border-border hover:bg-muted/50'
                 )}
               >
                 {tier.cta}
@@ -148,13 +148,13 @@ export function PricingSection() {
                 {tier.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start gap-3">
                     {!feature.includes('Everything in') && (
-                      <Check className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
                     )}
                     <span className={cn(
                       'text-sm',
                       feature.includes('Everything in')
-                        ? 'text-gray-600 font-medium'
-                        : 'text-gray-600'
+                        ? 'text-muted-foreground font-medium'
+                        : 'text-muted-foreground'
                     )}>
                       {feature}
                     </span>
@@ -172,10 +172,10 @@ export function PricingSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             All plans include a 14-day free trial. No credit card required.
           </p>
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-muted-foreground mt-2">
             Need a custom plan for your enterprise?{' '}
             <a href="mailto:sales@ozzios.com" className="text-signature hover:underline">
               Contact sales
