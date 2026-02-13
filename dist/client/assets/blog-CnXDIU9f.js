@@ -1,0 +1,1 @@
+import{j as o,O as t}from"./main-BuY5d-EW.js";import{L as r}from"./LandingLayout-Cb6Pxifw.js";import"./utils-CDN07tui.js";import"./button-Bei4Ynh-.js";import"./createLucideIcon-BUnY8rF5.js";import"./menu-BoDC9GsW.js";import"./proxy-BGlzr9Vu.js";function u(){return o.jsx(r,{children:o.jsx(t,{})})}export{u as component};

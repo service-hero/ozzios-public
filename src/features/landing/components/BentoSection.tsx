@@ -11,6 +11,7 @@ import {
   Shield,
   ArrowRight,
 } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 // Coral accent color - now using Tailwind's signature color from design system
@@ -129,6 +130,13 @@ export function BentoSection() {
                         </div>
                       ))}
                     </div>
+                    <Link
+                      to="/features/ai-agents"
+                      className="inline-flex items-center gap-1.5 mt-6 text-sm font-medium text-signature hover:text-signature/80 transition-colors"
+                    >
+                      Explore AI Agents
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
                 </div>
               </BentoCard>
@@ -157,6 +165,13 @@ export function BentoSection() {
                       </span>
                     ))}
                   </div>
+                  <Link
+                    to="/features/dashboard"
+                    className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-signature hover:text-signature/80 transition-colors"
+                  >
+                    See all tools
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </BentoCard>
             </motion.div>
@@ -184,6 +199,13 @@ export function BentoSection() {
                       </span>
                     ))}
                   </div>
+                  <Link
+                    to="/features/channels"
+                    className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-signature hover:text-signature/80 transition-colors"
+                  >
+                    Explore channels
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </BentoCard>
             </motion.div>
@@ -221,6 +243,13 @@ export function BentoSection() {
                         </div>
                       ))}
                     </div>
+                    <Link
+                      to="/features/workflows"
+                      className="inline-flex items-center gap-1.5 mt-6 text-sm font-medium text-signature hover:text-signature/80 transition-colors"
+                    >
+                      Explore workflows
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
 
                   {/* Image side */}
@@ -252,6 +281,13 @@ export function BentoSection() {
                     <span className="text-3xl font-semibold text-foreground">31</span>
                     <span className="text-sm text-muted-foreground">contact fields</span>
                   </div>
+                  <Link
+                    to="/features/crm"
+                    className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-signature hover:text-signature/80 transition-colors"
+                  >
+                    Explore CRM
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </BentoCard>
             </motion.div>
@@ -279,6 +315,13 @@ export function BentoSection() {
                       </span>
                     ))}
                   </div>
+                  <Link
+                    to="/features/email-campaigns"
+                    className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-signature hover:text-signature/80 transition-colors"
+                  >
+                    Explore marketing
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </BentoCard>
             </motion.div>
@@ -299,6 +342,13 @@ export function BentoSection() {
                   <div className="mt-auto text-sm text-muted-foreground">
                     650+ indexes / Workspace isolation
                   </div>
+                  <Link
+                    to="/features/dashboard"
+                    className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-signature hover:text-signature/80 transition-colors"
+                  >
+                    Explore dashboard
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </BentoCard>
             </motion.div>
@@ -327,16 +377,27 @@ export function BentoSection() {
             </motion.div>
           </div>
 
-          {/* Bottom CTA link */}
-          <motion.div variants={itemVariants} className="mt-14 text-center">
-            <a
-              href="#all-features"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
-            >
-              Explore all features
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+          {/* Feature count callout */}
+          <motion.div variants={itemVariants} className="mt-8 p-6 rounded-2xl bg-muted/50 border border-border/50">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold text-foreground">
+                  17 features across 4 categories
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Email campaigns, SMS, social media, forms, voice agents, presentations, coding, and more.
+                </p>
+              </div>
+              <a
+                href="#showcase"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors shrink-0"
+              >
+                See all features
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
+
         </motion.div>
       </div>
     </section>
