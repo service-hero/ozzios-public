@@ -30,7 +30,7 @@ const pricingTiers = [
     price: 990,
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
-      '14 AI Agents',
+      'Unlimited AI Agents',
       '50,000 AI credits/month',
       'Everything in Starter, plus:',
       'Advanced workflow automation',
@@ -70,7 +70,7 @@ const comparisonFeatures = [
   {
     category: 'AI Agents',
     features: [
-      { name: 'AI Agents included', starter: '5', professional: '14', business: 'Unlimited' },
+      { name: 'AI Agents included', starter: '5', professional: 'Unlimited', business: 'Unlimited' },
       { name: 'AI credits/month', starter: '10,000', professional: '50,000', business: '200,000' },
       { name: 'Custom agent workflows', starter: false, professional: true, business: true },
       { name: 'Multi-agent delegation', starter: false, professional: true, business: true },

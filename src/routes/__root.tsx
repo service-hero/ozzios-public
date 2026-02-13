@@ -17,7 +17,7 @@ export const Route = createRootRoute({
       },
       {
         name: 'description',
-        content: 'The first agentic AI employee platform. Replace entire marketing teams with 14 specialized AI agents. Unified CRM, workflows, communication, and marketing suite.',
+        content: 'The first agentic AI employee platform. Replace entire marketing teams with an unlimited AI workforce. 30+ specialized agents, custom agent builder, unified CRM, workflows, communication, and marketing suite.',
       },
     ],
     links: [

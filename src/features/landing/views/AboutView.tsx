@@ -33,7 +33,7 @@ const values = [
 ];
 
 const stats = [
-  { value: '14', label: 'AI Employees' },
+  { value: '30+', label: 'AI Agents' },
   { value: '77+', label: 'Built-in Tools' },
   { value: '24/7', label: 'Always On' },
   { value: '0%', label: 'Turnover' },
@@ -165,9 +165,9 @@ function StorySection() {
                 and 24/7?
               </p>
               <p>
-                OzziOS is the answer. We built 14 AI employees, each specializing in a
-                different marketing function. They work together, share knowledge, and
-                never take your clients when they leave. Because they never leave.
+                OzziOS is the answer. We built an unlimited AI workforce — 30+ specialized
+                agents out of the box, plus the ability to create your own. They work together,
+                share knowledge, and never take your clients when they leave. Because they never leave.
               </p>
             </div>
           </motion.div>
@@ -211,7 +211,7 @@ function StorySection() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">The Solution</h3>
                     <p className="text-sm text-muted-foreground">
-                      14 AI employees that work 24/7, remember everything, and show you
+                      An unlimited AI workforce that works 24/7, remembers everything, and shows you
                       every action they take. Your marketing, fully visible.
                     </p>
                   </div>

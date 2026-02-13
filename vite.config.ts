@@ -17,6 +17,7 @@ export default defineConfig({
     react(),
   ],
   server: {
+    port: 5174,
     watch: {
       ignored: ['**/routeTree.gen.ts'],
     },

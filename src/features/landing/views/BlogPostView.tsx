@@ -1145,8 +1145,8 @@ export function BlogPostView({ postId }: { postId: string }) {
       <div className="min-h-screen bg-background pt-32 pb-20">
         <div className="mx-auto max-w-[800px] px-6 lg:px-8 text-center">
           <h1 className="text-3xl font-display text-foreground mb-4">Post not found</h1>
-          <p className="text-foreground/50 mb-8">The article you're looking for doesn't exist.</p>
-          <Link to="/blog" className="text-amber-400 hover:text-amber-300">
+          <p className="text-muted-foreground mb-8">The article you're looking for doesn't exist.</p>
+          <Link to="/blog" className="text-signature hover:text-signature/80">
             ← Back to blog
           </Link>
         </div>
@@ -1165,23 +1165,21 @@ export function BlogPostView({ postId }: { postId: string }) {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <section className="relative pt-28 pb-8 lg:pt-32 lg:pb-10 overflow-hidden">
         {/* Background effects */}
-        <div
-          className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[120px] opacity-15 pointer-events-none glow-amber-hero"
-        />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
 
-        <div className="relative z-10 mx-auto max-w-[800px] px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-[900px] px-6 lg:px-8">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
             {/* Back link */}
-            <motion.div variants={itemVariants} className="mb-8">
+            <motion.div variants={itemVariants} className="mb-5">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-[13px] text-foreground/50 hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back to blog
@@ -1189,15 +1187,15 @@ export function BlogPostView({ postId }: { postId: string }) {
             </motion.div>
 
             {/* Category and meta */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="px-3 py-1.5 rounded-full bg-indigo-500/20 text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="px-3 py-1.5 rounded-full bg-signature/10 text-[11px] font-semibold text-signature uppercase tracking-wider">
                 {post.categoryLabel}
               </span>
-              <span className="flex items-center gap-1.5 text-[13px] text-foreground/40">
+              <span className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 {post.date}
               </span>
-              <span className="flex items-center gap-1.5 text-[13px] text-foreground/40">
+              <span className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 {post.readTime}
               </span>
@@ -1206,49 +1204,48 @@ export function BlogPostView({ postId }: { postId: string }) {
             {/* Title */}
             <motion.h1
               variants={itemVariants}
-              className="text-[clamp(2rem,5vw,3.5rem)] font-display leading-[1.1] tracking-[-0.02em] text-foreground mb-8"
+              className="text-[clamp(1.75rem,4vw,2.75rem)] font-display leading-[1.15] tracking-[-0.02em] text-foreground mb-5"
             >
               {post.title}
             </motion.h1>
 
-            {/* Author */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4 mb-10">
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="w-14 h-14 rounded-full object-cover ring-2 ring-white/10"
-              />
-              <div>
-                <p className="text-[15px] font-medium text-foreground">
-                  {post.author.name}
-                </p>
-                <p className="text-[13px] text-foreground/40">
-                  {post.author.role}
-                </p>
+            {/* Author + Share inline */}
+            <motion.div variants={itemVariants} className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src={post.author.avatar}
+                  alt={post.author.name}
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-border"
+                />
+                <div>
+                  <p className="text-[13px] font-medium text-foreground">
+                    {post.author.name}
+                  </p>
+                  <p className="text-[11px] text-muted-foreground">
+                    {post.author.role}
+                  </p>
+                </div>
               </div>
-            </motion.div>
-
-            {/* Share buttons */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-10">
-              <span className="text-[13px] text-foreground/40">Share:</span>
-              <button
-                onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title)}`, '_blank')}
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/[0.1] transition-all"
-              >
-                <Twitter className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank')}
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/[0.1] transition-all"
-              >
-                <Linkedin className="w-4 h-4" />
-              </button>
-              <button
-                onClick={copyLink}
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/[0.1] transition-all"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Link2 className="w-4 h-4" />}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title)}`, '_blank')}
+                  className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-signature/30 transition-all"
+                >
+                  <Twitter className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank')}
+                  className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-signature/30 transition-all"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={copyLink}
+                  className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-signature/30 transition-all"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Link2 className="w-3.5 h-3.5" />}
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -1259,10 +1256,10 @@ export function BlogPostView({ postId }: { postId: string }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="relative mb-16"
+        className="relative mb-10"
       >
         <div className="mx-auto max-w-[1000px] px-6 lg:px-8">
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08]">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-border">
             <img
               src={post.image}
               alt={post.title}
@@ -1280,20 +1277,20 @@ export function BlogPostView({ postId }: { postId: string }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="prose prose-invert prose-lg max-w-none
+            className="prose prose-lg max-w-none
               prose-headings:font-display prose-headings:tracking-tight prose-headings:text-foreground
               prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-foreground/70 prose-p:leading-relaxed
+              prose-p:text-muted-foreground prose-p:leading-relaxed
               prose-strong:text-foreground prose-strong:font-semibold
-              prose-a:text-amber-400 prose-a:no-underline hover:prose-a:text-amber-300
-              prose-blockquote:border-l-amber-500/50 prose-blockquote:bg-white/[0.02] prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-foreground/60
-              prose-code:text-amber-400 prose-code:bg-white/[0.05] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-              prose-pre:bg-[#0D0D0F] prose-pre:border prose-pre:border-white/[0.08]
-              prose-ul:text-foreground/70 prose-ol:text-foreground/70
-              prose-li:marker:text-amber-500/50
-              prose-table:border-collapse prose-th:border prose-th:border-white/[0.1] prose-th:bg-white/[0.03] prose-th:px-4 prose-th:py-2 prose-td:border prose-td:border-white/[0.06] prose-td:px-4 prose-td:py-2
-              prose-hr:border-white/[0.08]"
+              prose-a:text-signature prose-a:no-underline hover:prose-a:text-signature/80
+              prose-blockquote:border-l-signature/50 prose-blockquote:bg-muted/50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-muted-foreground
+              prose-code:text-signature prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+              prose-pre:bg-[#1e1e2e] prose-pre:border prose-pre:border-border
+              prose-ul:text-muted-foreground prose-ol:text-muted-foreground
+              prose-li:marker:text-signature/50
+              prose-table:border-collapse prose-th:border prose-th:border-border prose-th:bg-muted/50 prose-th:px-4 prose-th:py-2 prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-2
+              prose-hr:border-border"
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
           </motion.article>
@@ -1301,30 +1298,30 @@ export function BlogPostView({ postId }: { postId: string }) {
       </section>
 
       {/* Author Bio */}
-      <section className="py-16 border-t border-white/[0.06]">
+      <section className="py-16 bg-muted/50">
         <div className="mx-auto max-w-[900px] px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-start gap-6 p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08]"
+            className="flex flex-col sm:flex-row items-start gap-6 p-6 rounded-2xl bg-card border-2 border-border"
           >
             <img
               src={post.author.avatar}
               alt={post.author.name}
-              className="w-20 h-20 rounded-full object-cover ring-2 ring-white/10"
+              className="w-20 h-20 rounded-full object-cover ring-2 ring-border"
             />
             <div>
-              <p className="text-[11px] text-foreground/40 uppercase tracking-wider mb-2">Written by</p>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2">Written by</p>
               <h3 className="text-lg font-semibold text-foreground mb-1">{post.author.name}</h3>
-              <p className="text-[14px] text-amber-400/70 mb-3">{post.author.role}</p>
-              <p className="text-[14px] text-foreground/50 leading-relaxed mb-4">{post.author.bio}</p>
+              <p className="text-[14px] text-signature mb-3">{post.author.role}</p>
+              <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">{post.author.bio}</p>
               <a
                 href={`https://twitter.com/${post.author.twitter.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] text-foreground/50 hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Twitter className="w-4 h-4" />
                 {post.author.twitter}
@@ -1335,7 +1332,7 @@ export function BlogPostView({ postId }: { postId: string }) {
       </section>
 
       {/* Related Posts */}
-      <section className="py-20 border-t border-white/[0.06]">
+      <section className="py-20">
         <div className="mx-auto max-w-[1000px] px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1347,7 +1344,7 @@ export function BlogPostView({ postId }: { postId: string }) {
               <h2 className="text-2xl font-display text-foreground">Related Articles</h2>
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-[13px] text-foreground/50 hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors"
               >
                 View all
                 <ChevronRight className="w-4 h-4" />
@@ -1360,7 +1357,7 @@ export function BlogPostView({ postId }: { postId: string }) {
                   key={relatedPost.id}
                   to="/blog/$postId"
                   params={{ postId: relatedPost.id }}
-                  className="group block rounded-xl border border-white/[0.06] bg-white/[0.01] overflow-hidden transition-all duration-500 hover:border-white/[0.12] hover:bg-white/[0.03]"
+                  className="group block rounded-xl border-2 border-border bg-card overflow-hidden transition-all duration-500 hover:border-signature/30"
                 >
                   <div className="relative h-40 overflow-hidden">
                     <img
@@ -1371,11 +1368,11 @@ export function BlogPostView({ postId }: { postId: string }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
                   <div className="p-5">
-                    <div className="flex items-center gap-2 mb-3 text-[11px] text-foreground/40">
+                    <div className="flex items-center gap-2 mb-3 text-[11px] text-muted-foreground">
                       <Clock className="w-3 h-3" />
                       {relatedPost.readTime}
                     </div>
-                    <h3 className="text-[15px] font-semibold text-foreground group-hover:text-amber-200 transition-colors line-clamp-2">
+                    <h3 className="text-[15px] font-semibold text-foreground group-hover:text-signature transition-colors line-clamp-2">
                       {relatedPost.title}
                     </h3>
                   </div>
@@ -1387,7 +1384,7 @@ export function BlogPostView({ postId }: { postId: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 border-t border-white/[0.06]">
+      <section className="py-20 bg-muted/50">
         <div className="mx-auto max-w-[600px] px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1398,12 +1395,12 @@ export function BlogPostView({ postId }: { postId: string }) {
             <h3 className="text-2xl font-display text-foreground mb-4">
               Ready to try AI employees?
             </h3>
-            <p className="text-[15px] text-foreground/40 mb-8">
+            <p className="text-[15px] text-muted-foreground mb-8">
               Start with 50 free credits. No credit card required.
             </p>
             <a
               href="https://app.ozzios.com/sign-up"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#0A0A0B] font-medium text-[15px] hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-signature text-white font-medium text-[15px] hover:bg-signature/90 transition-colors"
             >
               Get started free
               <ArrowRight className="w-4 h-4" />

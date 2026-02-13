@@ -80,7 +80,7 @@ export const audienceContent = {
       subheadline: 'Your own AI marketing team. No retainers. No mystery. No middlemen.',
       subtext: 'Finally see exactly what your marketing team is doing, 24/7.',
       stats: [
-        { value: '14', label: 'AI Employees' },
+        { value: '30+', label: 'AI Agents' },
         { value: '24/7', label: 'Coverage' },
         { value: '$0', label: 'Retainers' },
         { value: '100%', label: 'Transparency' },
@@ -229,7 +229,7 @@ export const audienceContent = {
         {
           number: '02',
           title: 'Meet your new team',
-          description: '14 AI employees join your business. They learn your brand, handle your marketing, and show you every step.',
+          description: 'An AI workforce joins your business. 30+ agents learn your brand, handle your marketing, and show you every step.',
           benefits: ['Full transparency', 'No hidden work'],
         },
         {
@@ -304,7 +304,7 @@ export const audienceContent = {
   agency: {
     hero: {
       headline: ['What if you never', 'had to hire again?'],
-      subheadline: '14 AI employees. Working 24/7. They never quit, never call in sick, and never take your best clients when they leave.',
+      subheadline: 'Unlimited AI agents. Working 24/7. They never quit, never call in sick, and never take your best clients when they leave.',
       subtext: 'Run a 100-person agency with 35 people.',
       stats: [
         { value: '65%', label: 'Fewer Hires' },
@@ -321,7 +321,7 @@ export const audienceContent = {
         aiWorkforce: {
           badge: 'AI Workforce',
           title: 'Employees who never quit',
-          description: '14 AI employees working 24/7. They remember everything, never call in sick, and never take your best clients when they leave.',
+          description: 'Unlimited AI agents working 24/7. They remember everything, never call in sick, and never take your best clients when they leave.',
         },
         tools: {
           title: 'No more tool switching',
@@ -465,7 +465,7 @@ export const audienceContent = {
         {
           number: '02',
           title: 'Hire employees who never leave',
-          description: '14 AI employees join your team. They learn your brand, remember everything, and never take clients when they go.',
+          description: 'An unlimited AI workforce joins your team. They learn your brand, remember everything, and never take clients when they go.',
           benefits: ['$0 turnover cost', 'Infinite institutional memory'],
         },
         {

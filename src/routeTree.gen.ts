@@ -24,6 +24,29 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as SolutionsTeamsRouteImport } from './routes/solutions/teams'
+import { Route as SolutionsSoloAgenciesRouteImport } from './routes/solutions/solo-agencies'
+import { Route as SolutionsLeadGenerationRouteImport } from './routes/solutions/lead-generation'
+import { Route as SolutionsEnterpriseRouteImport } from './routes/solutions/enterprise'
+import { Route as SolutionsContentMarketingRouteImport } from './routes/solutions/content-marketing'
+import { Route as SolutionsClientManagementRouteImport } from './routes/solutions/client-management'
+import { Route as FeaturesWorkflowsRouteImport } from './routes/features/workflows'
+import { Route as FeaturesVoiceAgentsRouteImport } from './routes/features/voice-agents'
+import { Route as FeaturesTasksRouteImport } from './routes/features/tasks'
+import { Route as FeaturesSocialMediaRouteImport } from './routes/features/social-media'
+import { Route as FeaturesSmsCampaignsRouteImport } from './routes/features/sms-campaigns'
+import { Route as FeaturesPresentationsRouteImport } from './routes/features/presentations'
+import { Route as FeaturesKnowledgeBaseRouteImport } from './routes/features/knowledge-base'
+import { Route as FeaturesFormsRouteImport } from './routes/features/forms'
+import { Route as FeaturesEmailCampaignsRouteImport } from './routes/features/email-campaigns'
+import { Route as FeaturesEmailBuilderRouteImport } from './routes/features/email-builder'
+import { Route as FeaturesDocumentsRouteImport } from './routes/features/documents'
+import { Route as FeaturesDashboardRouteImport } from './routes/features/dashboard'
+import { Route as FeaturesCrmRouteImport } from './routes/features/crm'
+import { Route as FeaturesCodingRouteImport } from './routes/features/coding'
+import { Route as FeaturesChannelsRouteImport } from './routes/features/channels'
+import { Route as FeaturesBlogSeoRouteImport } from './routes/features/blog-seo'
+import { Route as FeaturesAiAgentsRouteImport } from './routes/features/ai-agents'
 import { Route as DocsSplatRouteImport } from './routes/docs/$'
 import { Route as BlogPostIdRouteImport } from './routes/blog.$postId'
 
@@ -102,6 +125,123 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const SolutionsTeamsRoute = SolutionsTeamsRouteImport.update({
+  id: '/solutions/teams',
+  path: '/solutions/teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSoloAgenciesRoute = SolutionsSoloAgenciesRouteImport.update({
+  id: '/solutions/solo-agencies',
+  path: '/solutions/solo-agencies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsLeadGenerationRoute = SolutionsLeadGenerationRouteImport.update({
+  id: '/solutions/lead-generation',
+  path: '/solutions/lead-generation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsEnterpriseRoute = SolutionsEnterpriseRouteImport.update({
+  id: '/solutions/enterprise',
+  path: '/solutions/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsContentMarketingRoute =
+  SolutionsContentMarketingRouteImport.update({
+    id: '/solutions/content-marketing',
+    path: '/solutions/content-marketing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsClientManagementRoute =
+  SolutionsClientManagementRouteImport.update({
+    id: '/solutions/client-management',
+    path: '/solutions/client-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const FeaturesWorkflowsRoute = FeaturesWorkflowsRouteImport.update({
+  id: '/features/workflows',
+  path: '/features/workflows',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesVoiceAgentsRoute = FeaturesVoiceAgentsRouteImport.update({
+  id: '/features/voice-agents',
+  path: '/features/voice-agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesTasksRoute = FeaturesTasksRouteImport.update({
+  id: '/features/tasks',
+  path: '/features/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesSocialMediaRoute = FeaturesSocialMediaRouteImport.update({
+  id: '/features/social-media',
+  path: '/features/social-media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesSmsCampaignsRoute = FeaturesSmsCampaignsRouteImport.update({
+  id: '/features/sms-campaigns',
+  path: '/features/sms-campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesPresentationsRoute = FeaturesPresentationsRouteImport.update({
+  id: '/features/presentations',
+  path: '/features/presentations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesKnowledgeBaseRoute = FeaturesKnowledgeBaseRouteImport.update({
+  id: '/features/knowledge-base',
+  path: '/features/knowledge-base',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesFormsRoute = FeaturesFormsRouteImport.update({
+  id: '/features/forms',
+  path: '/features/forms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesEmailCampaignsRoute = FeaturesEmailCampaignsRouteImport.update({
+  id: '/features/email-campaigns',
+  path: '/features/email-campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesEmailBuilderRoute = FeaturesEmailBuilderRouteImport.update({
+  id: '/features/email-builder',
+  path: '/features/email-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesDocumentsRoute = FeaturesDocumentsRouteImport.update({
+  id: '/features/documents',
+  path: '/features/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesDashboardRoute = FeaturesDashboardRouteImport.update({
+  id: '/features/dashboard',
+  path: '/features/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesCrmRoute = FeaturesCrmRouteImport.update({
+  id: '/features/crm',
+  path: '/features/crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesCodingRoute = FeaturesCodingRouteImport.update({
+  id: '/features/coding',
+  path: '/features/coding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesChannelsRoute = FeaturesChannelsRouteImport.update({
+  id: '/features/channels',
+  path: '/features/channels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesBlogSeoRoute = FeaturesBlogSeoRouteImport.update({
+  id: '/features/blog-seo',
+  path: '/features/blog-seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesAiAgentsRoute = FeaturesAiAgentsRouteImport.update({
+  id: '/features/ai-agents',
+  path: '/features/ai-agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DocsSplatRoute = DocsSplatRouteImport.update({
   id: '/docs/$',
   path: '/docs/$',
@@ -130,6 +270,29 @@ export interface FileRoutesByFullPath {
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
+  '/features/ai-agents': typeof FeaturesAiAgentsRoute
+  '/features/blog-seo': typeof FeaturesBlogSeoRoute
+  '/features/channels': typeof FeaturesChannelsRoute
+  '/features/coding': typeof FeaturesCodingRoute
+  '/features/crm': typeof FeaturesCrmRoute
+  '/features/dashboard': typeof FeaturesDashboardRoute
+  '/features/documents': typeof FeaturesDocumentsRoute
+  '/features/email-builder': typeof FeaturesEmailBuilderRoute
+  '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
+  '/features/forms': typeof FeaturesFormsRoute
+  '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
+  '/features/presentations': typeof FeaturesPresentationsRoute
+  '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
+  '/features/social-media': typeof FeaturesSocialMediaRoute
+  '/features/tasks': typeof FeaturesTasksRoute
+  '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
+  '/features/workflows': typeof FeaturesWorkflowsRoute
+  '/solutions/client-management': typeof SolutionsClientManagementRoute
+  '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
+  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
+  '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -148,6 +311,29 @@ export interface FileRoutesByTo {
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
+  '/features/ai-agents': typeof FeaturesAiAgentsRoute
+  '/features/blog-seo': typeof FeaturesBlogSeoRoute
+  '/features/channels': typeof FeaturesChannelsRoute
+  '/features/coding': typeof FeaturesCodingRoute
+  '/features/crm': typeof FeaturesCrmRoute
+  '/features/dashboard': typeof FeaturesDashboardRoute
+  '/features/documents': typeof FeaturesDocumentsRoute
+  '/features/email-builder': typeof FeaturesEmailBuilderRoute
+  '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
+  '/features/forms': typeof FeaturesFormsRoute
+  '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
+  '/features/presentations': typeof FeaturesPresentationsRoute
+  '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
+  '/features/social-media': typeof FeaturesSocialMediaRoute
+  '/features/tasks': typeof FeaturesTasksRoute
+  '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
+  '/features/workflows': typeof FeaturesWorkflowsRoute
+  '/solutions/client-management': typeof SolutionsClientManagementRoute
+  '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
+  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
+  '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -168,6 +354,29 @@ export interface FileRoutesById {
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
   '/docs/$': typeof DocsSplatRoute
+  '/features/ai-agents': typeof FeaturesAiAgentsRoute
+  '/features/blog-seo': typeof FeaturesBlogSeoRoute
+  '/features/channels': typeof FeaturesChannelsRoute
+  '/features/coding': typeof FeaturesCodingRoute
+  '/features/crm': typeof FeaturesCrmRoute
+  '/features/dashboard': typeof FeaturesDashboardRoute
+  '/features/documents': typeof FeaturesDocumentsRoute
+  '/features/email-builder': typeof FeaturesEmailBuilderRoute
+  '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
+  '/features/forms': typeof FeaturesFormsRoute
+  '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
+  '/features/presentations': typeof FeaturesPresentationsRoute
+  '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
+  '/features/social-media': typeof FeaturesSocialMediaRoute
+  '/features/tasks': typeof FeaturesTasksRoute
+  '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
+  '/features/workflows': typeof FeaturesWorkflowsRoute
+  '/solutions/client-management': typeof SolutionsClientManagementRoute
+  '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
+  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
+  '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -189,6 +398,29 @@ export interface FileRouteTypes {
     | '/waitlist-business'
     | '/blog/$postId'
     | '/docs/$'
+    | '/features/ai-agents'
+    | '/features/blog-seo'
+    | '/features/channels'
+    | '/features/coding'
+    | '/features/crm'
+    | '/features/dashboard'
+    | '/features/documents'
+    | '/features/email-builder'
+    | '/features/email-campaigns'
+    | '/features/forms'
+    | '/features/knowledge-base'
+    | '/features/presentations'
+    | '/features/sms-campaigns'
+    | '/features/social-media'
+    | '/features/tasks'
+    | '/features/voice-agents'
+    | '/features/workflows'
+    | '/solutions/client-management'
+    | '/solutions/content-marketing'
+    | '/solutions/enterprise'
+    | '/solutions/lead-generation'
+    | '/solutions/solo-agencies'
+    | '/solutions/teams'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -207,6 +439,29 @@ export interface FileRouteTypes {
     | '/waitlist-business'
     | '/blog/$postId'
     | '/docs/$'
+    | '/features/ai-agents'
+    | '/features/blog-seo'
+    | '/features/channels'
+    | '/features/coding'
+    | '/features/crm'
+    | '/features/dashboard'
+    | '/features/documents'
+    | '/features/email-builder'
+    | '/features/email-campaigns'
+    | '/features/forms'
+    | '/features/knowledge-base'
+    | '/features/presentations'
+    | '/features/sms-campaigns'
+    | '/features/social-media'
+    | '/features/tasks'
+    | '/features/voice-agents'
+    | '/features/workflows'
+    | '/solutions/client-management'
+    | '/solutions/content-marketing'
+    | '/solutions/enterprise'
+    | '/solutions/lead-generation'
+    | '/solutions/solo-agencies'
+    | '/solutions/teams'
     | '/blog'
   id:
     | '__root__'
@@ -226,6 +481,29 @@ export interface FileRouteTypes {
     | '/waitlist-business'
     | '/blog/$postId'
     | '/docs/$'
+    | '/features/ai-agents'
+    | '/features/blog-seo'
+    | '/features/channels'
+    | '/features/coding'
+    | '/features/crm'
+    | '/features/dashboard'
+    | '/features/documents'
+    | '/features/email-builder'
+    | '/features/email-campaigns'
+    | '/features/forms'
+    | '/features/knowledge-base'
+    | '/features/presentations'
+    | '/features/sms-campaigns'
+    | '/features/social-media'
+    | '/features/tasks'
+    | '/features/voice-agents'
+    | '/features/workflows'
+    | '/solutions/client-management'
+    | '/solutions/content-marketing'
+    | '/solutions/enterprise'
+    | '/solutions/lead-generation'
+    | '/solutions/solo-agencies'
+    | '/solutions/teams'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -245,6 +523,29 @@ export interface RootRouteChildren {
   WaitlistRoute: typeof WaitlistRoute
   WaitlistBusinessRoute: typeof WaitlistBusinessRoute
   DocsSplatRoute: typeof DocsSplatRoute
+  FeaturesAiAgentsRoute: typeof FeaturesAiAgentsRoute
+  FeaturesBlogSeoRoute: typeof FeaturesBlogSeoRoute
+  FeaturesChannelsRoute: typeof FeaturesChannelsRoute
+  FeaturesCodingRoute: typeof FeaturesCodingRoute
+  FeaturesCrmRoute: typeof FeaturesCrmRoute
+  FeaturesDashboardRoute: typeof FeaturesDashboardRoute
+  FeaturesDocumentsRoute: typeof FeaturesDocumentsRoute
+  FeaturesEmailBuilderRoute: typeof FeaturesEmailBuilderRoute
+  FeaturesEmailCampaignsRoute: typeof FeaturesEmailCampaignsRoute
+  FeaturesFormsRoute: typeof FeaturesFormsRoute
+  FeaturesKnowledgeBaseRoute: typeof FeaturesKnowledgeBaseRoute
+  FeaturesPresentationsRoute: typeof FeaturesPresentationsRoute
+  FeaturesSmsCampaignsRoute: typeof FeaturesSmsCampaignsRoute
+  FeaturesSocialMediaRoute: typeof FeaturesSocialMediaRoute
+  FeaturesTasksRoute: typeof FeaturesTasksRoute
+  FeaturesVoiceAgentsRoute: typeof FeaturesVoiceAgentsRoute
+  FeaturesWorkflowsRoute: typeof FeaturesWorkflowsRoute
+  SolutionsClientManagementRoute: typeof SolutionsClientManagementRoute
+  SolutionsContentMarketingRoute: typeof SolutionsContentMarketingRoute
+  SolutionsEnterpriseRoute: typeof SolutionsEnterpriseRoute
+  SolutionsLeadGenerationRoute: typeof SolutionsLeadGenerationRoute
+  SolutionsSoloAgenciesRoute: typeof SolutionsSoloAgenciesRoute
+  SolutionsTeamsRoute: typeof SolutionsTeamsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -354,6 +655,167 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/solutions/teams': {
+      id: '/solutions/teams'
+      path: '/solutions/teams'
+      fullPath: '/solutions/teams'
+      preLoaderRoute: typeof SolutionsTeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/solo-agencies': {
+      id: '/solutions/solo-agencies'
+      path: '/solutions/solo-agencies'
+      fullPath: '/solutions/solo-agencies'
+      preLoaderRoute: typeof SolutionsSoloAgenciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/lead-generation': {
+      id: '/solutions/lead-generation'
+      path: '/solutions/lead-generation'
+      fullPath: '/solutions/lead-generation'
+      preLoaderRoute: typeof SolutionsLeadGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/enterprise': {
+      id: '/solutions/enterprise'
+      path: '/solutions/enterprise'
+      fullPath: '/solutions/enterprise'
+      preLoaderRoute: typeof SolutionsEnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/content-marketing': {
+      id: '/solutions/content-marketing'
+      path: '/solutions/content-marketing'
+      fullPath: '/solutions/content-marketing'
+      preLoaderRoute: typeof SolutionsContentMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/client-management': {
+      id: '/solutions/client-management'
+      path: '/solutions/client-management'
+      fullPath: '/solutions/client-management'
+      preLoaderRoute: typeof SolutionsClientManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/workflows': {
+      id: '/features/workflows'
+      path: '/features/workflows'
+      fullPath: '/features/workflows'
+      preLoaderRoute: typeof FeaturesWorkflowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/voice-agents': {
+      id: '/features/voice-agents'
+      path: '/features/voice-agents'
+      fullPath: '/features/voice-agents'
+      preLoaderRoute: typeof FeaturesVoiceAgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/tasks': {
+      id: '/features/tasks'
+      path: '/features/tasks'
+      fullPath: '/features/tasks'
+      preLoaderRoute: typeof FeaturesTasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/social-media': {
+      id: '/features/social-media'
+      path: '/features/social-media'
+      fullPath: '/features/social-media'
+      preLoaderRoute: typeof FeaturesSocialMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/sms-campaigns': {
+      id: '/features/sms-campaigns'
+      path: '/features/sms-campaigns'
+      fullPath: '/features/sms-campaigns'
+      preLoaderRoute: typeof FeaturesSmsCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/presentations': {
+      id: '/features/presentations'
+      path: '/features/presentations'
+      fullPath: '/features/presentations'
+      preLoaderRoute: typeof FeaturesPresentationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/knowledge-base': {
+      id: '/features/knowledge-base'
+      path: '/features/knowledge-base'
+      fullPath: '/features/knowledge-base'
+      preLoaderRoute: typeof FeaturesKnowledgeBaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/forms': {
+      id: '/features/forms'
+      path: '/features/forms'
+      fullPath: '/features/forms'
+      preLoaderRoute: typeof FeaturesFormsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/email-campaigns': {
+      id: '/features/email-campaigns'
+      path: '/features/email-campaigns'
+      fullPath: '/features/email-campaigns'
+      preLoaderRoute: typeof FeaturesEmailCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/email-builder': {
+      id: '/features/email-builder'
+      path: '/features/email-builder'
+      fullPath: '/features/email-builder'
+      preLoaderRoute: typeof FeaturesEmailBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/documents': {
+      id: '/features/documents'
+      path: '/features/documents'
+      fullPath: '/features/documents'
+      preLoaderRoute: typeof FeaturesDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/dashboard': {
+      id: '/features/dashboard'
+      path: '/features/dashboard'
+      fullPath: '/features/dashboard'
+      preLoaderRoute: typeof FeaturesDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/crm': {
+      id: '/features/crm'
+      path: '/features/crm'
+      fullPath: '/features/crm'
+      preLoaderRoute: typeof FeaturesCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/coding': {
+      id: '/features/coding'
+      path: '/features/coding'
+      fullPath: '/features/coding'
+      preLoaderRoute: typeof FeaturesCodingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/channels': {
+      id: '/features/channels'
+      path: '/features/channels'
+      fullPath: '/features/channels'
+      preLoaderRoute: typeof FeaturesChannelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/blog-seo': {
+      id: '/features/blog-seo'
+      path: '/features/blog-seo'
+      fullPath: '/features/blog-seo'
+      preLoaderRoute: typeof FeaturesBlogSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/ai-agents': {
+      id: '/features/ai-agents'
+      path: '/features/ai-agents'
+      fullPath: '/features/ai-agents'
+      preLoaderRoute: typeof FeaturesAiAgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/docs/$': {
       id: '/docs/$'
       path: '/docs/$'
@@ -399,6 +861,29 @@ const rootRouteChildren: RootRouteChildren = {
   WaitlistRoute: WaitlistRoute,
   WaitlistBusinessRoute: WaitlistBusinessRoute,
   DocsSplatRoute: DocsSplatRoute,
+  FeaturesAiAgentsRoute: FeaturesAiAgentsRoute,
+  FeaturesBlogSeoRoute: FeaturesBlogSeoRoute,
+  FeaturesChannelsRoute: FeaturesChannelsRoute,
+  FeaturesCodingRoute: FeaturesCodingRoute,
+  FeaturesCrmRoute: FeaturesCrmRoute,
+  FeaturesDashboardRoute: FeaturesDashboardRoute,
+  FeaturesDocumentsRoute: FeaturesDocumentsRoute,
+  FeaturesEmailBuilderRoute: FeaturesEmailBuilderRoute,
+  FeaturesEmailCampaignsRoute: FeaturesEmailCampaignsRoute,
+  FeaturesFormsRoute: FeaturesFormsRoute,
+  FeaturesKnowledgeBaseRoute: FeaturesKnowledgeBaseRoute,
+  FeaturesPresentationsRoute: FeaturesPresentationsRoute,
+  FeaturesSmsCampaignsRoute: FeaturesSmsCampaignsRoute,
+  FeaturesSocialMediaRoute: FeaturesSocialMediaRoute,
+  FeaturesTasksRoute: FeaturesTasksRoute,
+  FeaturesVoiceAgentsRoute: FeaturesVoiceAgentsRoute,
+  FeaturesWorkflowsRoute: FeaturesWorkflowsRoute,
+  SolutionsClientManagementRoute: SolutionsClientManagementRoute,
+  SolutionsContentMarketingRoute: SolutionsContentMarketingRoute,
+  SolutionsEnterpriseRoute: SolutionsEnterpriseRoute,
+  SolutionsLeadGenerationRoute: SolutionsLeadGenerationRoute,
+  SolutionsSoloAgenciesRoute: SolutionsSoloAgenciesRoute,
+  SolutionsTeamsRoute: SolutionsTeamsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
