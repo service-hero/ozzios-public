@@ -1,6 +1,12 @@
 import { Link } from '@tanstack/react-router';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Bot, Workflow, MessageSquare, Users, BarChart3, Mail, BookOpen, FileText, Code, Sparkles, ArrowRight } from 'lucide-react';
+import {
+  Menu, X, ChevronDown, ArrowRight,
+  Bot, Workflow, Users, MessageSquare, Mail,
+  BookOpen, FileText, Code,
+  LayoutDashboard, Phone, Smartphone, Palette, PenLine,
+  Share2, CheckSquare, FilePen, Monitor, Brain, ClipboardList,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -34,29 +40,43 @@ const navItems: NavItem[] = [
     megaMenu: {
       sections: [
         {
-          title: 'Platform',
+          title: 'Core Platform',
           items: [
-            { icon: Bot, label: 'AI Agents', description: '14 specialized employees', href: '#agents', badge: 'Core' },
-            { icon: Workflow, label: 'Workflows', description: 'Durable automation engine', href: '#workflows' },
-            { icon: MessageSquare, label: 'Channels', description: 'Enterprise communication', href: '#channels' },
-            { icon: Users, label: 'CRM', description: 'Full lead management', href: '#crm' },
+            { icon: Bot, label: 'AI Agents', description: 'Unlimited AI workforce', href: '/features/ai-agents', badge: 'Core' },
+            { icon: Workflow, label: 'Workflows', description: 'Durable automation engine', href: '/features/workflows' },
+            { icon: Users, label: 'CRM & Contacts', description: 'Scoring, enrichment & segmentation', href: '/features/crm' },
+            { icon: LayoutDashboard, label: 'Dashboard', description: '18 customizable widget types', href: '/features/dashboard' },
           ],
         },
         {
-          title: 'Capabilities',
+          title: 'Communication',
           items: [
-            { icon: BarChart3, label: 'Marketing Suite', description: 'Ads, email, social', href: '#marketing' },
-            { icon: Mail, label: 'Gmail & Calendar', description: 'Two-way sync', href: '#integrations' },
-            { icon: Sparkles, label: '77+ Tools', description: 'Built into every agent', href: '#tools', badge: 'New' },
+            { icon: MessageSquare, label: 'Channels', description: 'Public, private, voice & DMs', href: '/features/channels' },
+            { icon: Mail, label: 'Email Campaigns', description: 'Broadcast, schedule & track', href: '/features/email-campaigns' },
+            { icon: Smartphone, label: 'SMS Campaigns', description: 'Rate-limited Twilio messaging', href: '/features/sms-campaigns' },
+            { icon: Phone, label: 'Voice Agents', description: 'AI call center with transcription', href: '/features/voice-agents', badge: 'New' },
+          ],
+        },
+        {
+          title: 'Marketing & Content',
+          items: [
+            { icon: Palette, label: 'Email Builder', description: 'Drag-and-drop with 16 block types', href: '/features/email-builder' },
+            { icon: PenLine, label: 'Blog & SEO', description: 'Editorial suite with WordPress sync', href: '/features/blog-seo' },
+            { icon: Share2, label: 'Social Media', description: 'Schedule across 5 platforms', href: '/features/social-media' },
+            { icon: ClipboardList, label: 'Forms', description: 'Lead capture with conditional logic', href: '/features/forms' },
+          ],
+        },
+        {
+          title: 'Operations',
+          items: [
+            { icon: CheckSquare, label: 'Task Management', description: 'Kanban boards with dependencies', href: '/features/tasks' },
+            { icon: FilePen, label: 'Documents & E-Sign', description: 'Templates, signing & audit trails', href: '/features/documents' },
+            { icon: Monitor, label: 'Presentations', description: 'AI slides with PPTX export', href: '/features/presentations' },
+            { icon: Code, label: 'Coding', description: 'AI-generated reports & dashboards', href: '/features/coding' },
+            { icon: Brain, label: 'Knowledge Base', description: 'RAG-powered search & indexing', href: '/features/knowledge-base' },
           ],
         },
       ],
-      cta: {
-        title: 'See OzziOS in action',
-        description: 'Watch a 2-minute demo of AI agents at work',
-        href: '#demo',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format',
-      },
     },
   },
   {
@@ -66,17 +86,17 @@ const navItems: NavItem[] = [
         {
           title: 'By team size',
           items: [
-            { label: 'Solo Agencies', description: 'Scale without hiring', href: '#solo' },
-            { label: 'Teams', description: 'Collaborate with AI', href: '#teams' },
-            { label: 'Enterprise', description: 'Unlimited sub-accounts', href: '#enterprise' },
+            { label: 'Solo Agencies', description: 'Scale without hiring', href: '/solutions/solo-agencies' },
+            { label: 'Teams', description: 'Collaborate with AI', href: '/solutions/teams' },
+            { label: 'Enterprise', description: 'Unlimited sub-accounts', href: '/solutions/enterprise' },
           ],
         },
         {
           title: 'By use case',
           items: [
-            { label: 'Lead Generation', description: 'Automate outreach', href: '#leads' },
-            { label: 'Content Marketing', description: 'AI-powered creation', href: '#content' },
-            { label: 'Client Management', description: 'Multi-tenant CRM', href: '#clients' },
+            { label: 'Lead Generation', description: 'Automate outreach', href: '/solutions/lead-generation' },
+            { label: 'Content Marketing', description: 'AI-powered creation', href: '/solutions/content-marketing' },
+            { label: 'Client Management', description: 'Multi-tenant CRM', href: '/solutions/client-management' },
           ],
         },
       ],
@@ -116,8 +136,46 @@ const navItems: NavItem[] = [
       },
     },
   },
-  { label: 'Integrations', href: '/integrations' },
-  { label: 'Blog', href: '/blog' },
+  {
+    label: 'Integrations',
+    megaMenu: {
+      sections: [
+        {
+          title: 'Google Workspace',
+          items: [
+            { label: 'Gmail & Calendar', description: 'Two-way email and calendar sync', href: '/integrations#google' },
+            { label: 'Google Ads', description: 'Campaign management and analytics', href: '/integrations#google' },
+            { label: 'Google Business Profile', description: 'Local SEO and listing management', href: '/integrations#google' },
+            { label: 'Search Console', description: 'Organic search data and insights', href: '/integrations#google' },
+          ],
+        },
+        {
+          title: 'Communication',
+          items: [
+            { label: 'Twilio', description: 'SMS, voice calls and WhatsApp', href: '/integrations#communication' },
+            { label: 'Resend', description: 'Transactional email and domains', href: '/integrations#communication' },
+            { label: 'Deepgram', description: 'Real-time speech-to-text', href: '/integrations#communication' },
+            { label: 'ElevenLabs', description: 'AI voice synthesis', href: '/integrations#communication' },
+          ],
+        },
+        {
+          title: 'Advertising & Platforms',
+          items: [
+            { label: 'Meta Ads', description: 'Facebook and Instagram campaigns', href: '/integrations#advertising' },
+            { label: 'Shopify', description: 'E-commerce store integration', href: '/integrations#platforms' },
+            { label: 'WordPress', description: 'CMS publishing and sync', href: '/integrations#platforms' },
+            { label: 'LinkedIn & TikTok', description: 'Social ad management', href: '/integrations#advertising' },
+          ],
+        },
+      ],
+      cta: {
+        title: 'Explore all integrations',
+        description: 'Connect with 30+ platforms and services',
+        href: '/integrations',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop&auto=format',
+      },
+    },
+  },
   { label: 'Pricing', href: '#pricing' },
 ];
 
@@ -126,6 +184,8 @@ export function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const activeNavItem = activeMenu ? navItems.find(i => i.label === activeMenu) : null;
+  const isWideMegaMenu = (activeNavItem?.megaMenu?.sections.length ?? 0) >= 4;
 
   useEffect(() => {
     setIsMounted(true);
@@ -261,7 +321,7 @@ export function Navigation() {
               onMouseEnter={() => setActiveMenu(activeMenu)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="pointer-events-auto mx-8 w-full max-w-[900px] pt-[22px]">
+              <div className={cn("pointer-events-auto mx-8 w-full pt-[22px]", isWideMegaMenu ? "max-w-[1100px]" : "max-w-[900px]")}>
                 {navItems.map((item) => {
                   if (item.label !== activeMenu || !item.megaMenu) return null;
 
@@ -275,7 +335,13 @@ export function Navigation() {
                         <div className={cn(
                           'col-span-12 grid gap-8',
                           item.megaMenu.cta ? 'lg:col-span-8' : 'lg:col-span-12',
-                          item.megaMenu.sections.length > 1 ? 'sm:grid-cols-2' : 'sm:grid-cols-1'
+                          item.megaMenu.sections.length >= 4
+                            ? 'sm:grid-cols-2 lg:grid-cols-4'
+                            : item.megaMenu.sections.length === 3
+                              ? 'sm:grid-cols-3'
+                              : item.megaMenu.sections.length > 1
+                                ? 'sm:grid-cols-2'
+                                : 'sm:grid-cols-1'
                         )}>
                           {item.megaMenu.sections.map((section, idx) => (
                             <div key={idx}>
@@ -287,10 +353,14 @@ export function Navigation() {
                               <div className="space-y-1">
                                 {section.items.map((subItem) => {
                                   const Icon = subItem.icon;
+                                  const LinkOrA = subItem.href.startsWith('/') ? Link : 'a';
+                                  const linkProps = subItem.href.startsWith('/')
+                                    ? { to: subItem.href, onClick: () => setActiveMenu(null) }
+                                    : { href: subItem.href };
                                   return (
-                                    <a
+                                    <LinkOrA
                                       key={subItem.label}
-                                      href={subItem.href}
+                                      {...linkProps as any}
                                       className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-gray-50 group"
                                     >
                                       {Icon && (
@@ -315,7 +385,7 @@ export function Navigation() {
                                           </p>
                                         )}
                                       </div>
-                                    </a>
+                                    </LinkOrA>
                                   );
                                 })}
                               </div>
@@ -347,7 +417,7 @@ export function Navigation() {
                                   {item.megaMenu.cta.description}
                                 </p>
                                 <div className="flex items-center gap-1 text-[12px] font-semibold text-signature">
-                                  {item.label === 'Product' ? 'Watch demo' : item.label === 'Solutions' ? 'View case studies' : 'Get started'}
+                                  {item.label === 'Product' ? 'Watch demo' : item.label === 'Solutions' ? 'View case studies' : item.label === 'Integrations' ? 'View all' : 'Get started'}
                                   <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                                 </div>
                               </div>
