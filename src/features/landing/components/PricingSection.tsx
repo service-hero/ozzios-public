@@ -6,20 +6,37 @@ import { cn } from '@/lib/utils';
 
 const pricingTiers = [
   {
+    name: 'Solo',
+    tagline: 'Get started solo',
+    price: 197,
+    description: 'For solo operators ready to automate their marketing.',
+    features: [
+      'Up to 2 team members',
+      '500 AI credits/month',
+      'All integrations',
+      'Email support',
+      'Social media scheduling',
+      'Basic SEO tools',
+    ],
+    cta: 'Start free trial',
+    href: 'https://app.ozzios.com/sign-up?plan=solo',
+    recommended: false,
+  },
+  {
     name: 'Starter',
     tagline: 'Fire your freelancers',
     price: 490,
-    description: 'Perfect for small businesses ready to automate their marketing basics.',
+    description: 'Perfect for small teams ready to automate their marketing basics.',
     features: [
-      '5 AI Agents',
-      '10,000 AI credits/month',
+      'Up to 5 team members',
+      '500 AI credits/month',
+      'Everything in Solo, plus:',
+      'Client management',
       'Email marketing automation',
-      'Social media scheduling',
-      'Basic SEO tools',
       'Google Calendar & Gmail sync',
       'Standard support',
     ],
-    cta: 'Start free trial',
+    cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=starter',
     recommended: false,
   },
@@ -29,14 +46,13 @@ const pricingTiers = [
     price: 990,
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
-      'Unlimited AI Agents',
-      '50,000 AI credits/month',
+      'Up to 15 team members',
+      '2,000 AI credits/month',
       'Everything in Starter, plus:',
       'Advanced workflow automation',
       'CRM & pipeline management',
       'Meta & Google Ads integration',
       'Content creation at scale',
-      'Client reporting dashboards',
       'Priority support',
     ],
     cta: 'Get started',
@@ -49,8 +65,8 @@ const pricingTiers = [
     price: 1995,
     description: 'For growing businesses that need enterprise-level marketing power.',
     features: [
-      'Unlimited AI Agents',
-      '200,000 AI credits/month',
+      'Up to 50 team members',
+      '10,000 AI credits/month',
       'Everything in Professional, plus:',
       'White-label client portals',
       'Multi-workspace management',
@@ -92,7 +108,7 @@ export function PricingSection() {
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-4">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
