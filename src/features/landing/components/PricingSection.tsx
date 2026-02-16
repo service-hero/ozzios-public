@@ -11,7 +11,7 @@ const pricingTiers = [
     price: 197,
     description: 'For solo operators ready to automate their marketing.',
     features: [
-      'Up to 2 team members',
+      '1 workspace member',
       '500 AI credits/month',
       'All integrations',
       'Email support',
@@ -29,7 +29,7 @@ const pricingTiers = [
     description: 'Perfect for small teams ready to automate their marketing basics.',
     features: [
       'Up to 5 team members',
-      '500 AI credits/month',
+      '1,000 AI credits/month',
       'Everything in Solo, plus:',
       'Client management',
       'Email marketing automation',
