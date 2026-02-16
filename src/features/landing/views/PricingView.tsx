@@ -7,17 +7,35 @@ import { CTASection } from '../components/CTASection';
 
 const pricingTiers = [
   {
+    name: 'Free',
+    tagline: 'Try the basics',
+    price: 0,
+    description: 'Explore core features with no commitment.',
+    features: [
+      '1 workspace member',
+      '50 AI credits/month',
+      'Workspace, channels & inbox',
+      'Tasks',
+      'Basic CRM',
+      'Basic integrations',
+    ],
+    cta: 'Get started free',
+    href: 'https://app.ozzios.com/sign-up?plan=free',
+    recommended: false,
+  },
+  {
     name: 'Solo',
     tagline: 'Get started solo',
     price: 197,
     description: 'For solo operators ready to automate their marketing.',
     features: [
-      '1 workspace member',
+      'Up to 2 team members',
       '500 AI credits/month',
+      'Social planner',
+      'Blog tools',
+      'Email builder',
       'All integrations',
       'Email support',
-      'Social media scheduling',
-      'Basic SEO tools',
     ],
     cta: 'Start free trial',
     href: 'https://app.ozzios.com/sign-up?plan=solo',
@@ -32,10 +50,11 @@ const pricingTiers = [
       'Up to 5 team members',
       '1,000 AI credits/month',
       'Everything in Solo, plus:',
-      'Client management',
-      'Email marketing automation',
-      'Google Calendar & Gmail sync',
-      'Standard support',
+      'Email/SMS campaigns',
+      'Forms builder',
+      'Documents & e-sign',
+      'Workflow builder',
+      'Advanced CRM',
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=starter',
@@ -50,10 +69,11 @@ const pricingTiers = [
       'Up to 15 team members',
       '2,000 AI credits/month',
       'Everything in Starter, plus:',
-      'Advanced workflow automation',
-      'CRM & pipeline management',
-      'Meta & Google Ads integration',
-      'Content creation at scale',
+      'Client portal & chat widget',
+      'Video kit',
+      'Code sandbox',
+      'Local rank',
+      'Advanced automation nodes',
       'Priority support',
     ],
     cta: 'Get started',
@@ -69,10 +89,9 @@ const pricingTiers = [
       'Up to 50 team members',
       '10,000 AI credits/month',
       'Everything in Professional, plus:',
-      'White-label client portals',
-      'Multi-workspace management',
-      'Custom integrations',
-      'Advanced analytics & attribution',
+      'Call center & voice ops',
+      'Outbound call tooling',
+      'High-volume operations',
       'Dedicated success manager',
       'SLA & phone support',
     ],
@@ -84,51 +103,66 @@ const pricingTiers = [
 
 const comparisonFeatures = [
   {
-    category: 'AI Agents',
+    category: 'Limits',
     features: [
-      { name: 'Team members', solo: '1', starter: '5', professional: '15', business: '50' },
-      { name: 'AI credits/month', solo: '500', starter: '1,000', professional: '2,000', business: '10,000' },
-      { name: 'Custom agent workflows', solo: false, starter: false, professional: true, business: true },
-      { name: 'Multi-agent delegation', solo: false, starter: false, professional: true, business: true },
+      { name: 'Team members', free: '1', solo: '2', starter: '5', professional: '15', business: '50' },
+      { name: 'Workspaces', free: '1', solo: '1', starter: '1', professional: '5', business: '15' },
+      { name: 'AI credits/month', free: '50', solo: '500', starter: '1,000', professional: '2,000', business: '10,000' },
     ],
   },
   {
-    category: 'Marketing',
+    category: 'Core (Free)',
     features: [
-      { name: 'Email marketing automation', solo: true, starter: true, professional: true, business: true },
-      { name: 'Social media scheduling', solo: true, starter: true, professional: true, business: true },
-      { name: 'Basic SEO tools', solo: true, starter: true, professional: true, business: true },
-      { name: 'Content creation at scale', solo: false, starter: false, professional: true, business: true },
-      { name: 'Meta & Google Ads', solo: false, starter: false, professional: true, business: true },
-      { name: 'Advanced analytics & attribution', solo: false, starter: false, professional: false, business: true },
+      { name: 'Workspace, channels & inbox', free: true, solo: true, starter: true, professional: true, business: true },
+      { name: 'Tasks', free: true, solo: true, starter: true, professional: true, business: true },
+      { name: 'Basic CRM', free: true, solo: true, starter: true, professional: true, business: true },
+      { name: 'Basic integrations', free: true, solo: true, starter: true, professional: true, business: true },
     ],
   },
   {
-    category: 'Integrations',
+    category: 'Solo',
     features: [
-      { name: 'Google Calendar & Gmail', solo: true, starter: true, professional: true, business: true },
-      { name: 'CRM & pipeline management', solo: false, starter: false, professional: true, business: true },
-      { name: 'Client management', solo: false, starter: true, professional: true, business: true },
-      { name: 'Client reporting dashboards', solo: false, starter: false, professional: true, business: true },
-      { name: 'Custom integrations', solo: false, starter: false, professional: false, business: true },
+      { name: 'Social planner', free: false, solo: true, starter: true, professional: true, business: true },
+      { name: 'Blog tools', free: false, solo: true, starter: true, professional: true, business: true },
+      { name: 'Email builder', free: false, solo: true, starter: true, professional: true, business: true },
+      { name: 'All integrations', free: false, solo: true, starter: true, professional: true, business: true },
     ],
   },
   {
-    category: 'Platform',
+    category: 'Starter',
     features: [
-      { name: 'Workspaces', solo: '1', starter: '1', professional: '5', business: '15' },
-      { name: 'White-label client portals', solo: false, starter: false, professional: false, business: true },
-      { name: 'Multi-workspace management', solo: false, starter: false, professional: true, business: true },
-      { name: 'Dedicated success manager', solo: false, starter: false, professional: false, business: true },
-      { name: 'SLA guarantee', solo: false, starter: false, professional: false, business: true },
+      { name: 'Email/SMS campaigns', free: false, solo: false, starter: true, professional: true, business: true },
+      { name: 'Forms builder', free: false, solo: false, starter: true, professional: true, business: true },
+      { name: 'Documents & e-sign', free: false, solo: false, starter: true, professional: true, business: true },
+      { name: 'Workflow builder', free: false, solo: false, starter: true, professional: true, business: true },
+      { name: 'Advanced CRM', free: false, solo: false, starter: true, professional: true, business: true },
+    ],
+  },
+  {
+    category: 'Professional',
+    features: [
+      { name: 'Client portal & chat widget', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Video kit', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Code sandbox', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Local rank', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Advanced automation nodes', free: false, solo: false, starter: false, professional: true, business: true },
+    ],
+  },
+  {
+    category: 'Business',
+    features: [
+      { name: 'Call center & voice ops', free: false, solo: false, starter: false, professional: false, business: true },
+      { name: 'Outbound call tooling', free: false, solo: false, starter: false, professional: false, business: true },
+      { name: 'High-volume operations', free: false, solo: false, starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', solo: true, starter: true, professional: true, business: true },
-      { name: 'Priority support', solo: false, starter: false, professional: true, business: true },
-      { name: 'Phone support', solo: false, starter: false, professional: false, business: true },
+      { name: 'Email support', free: false, solo: true, starter: true, professional: true, business: true },
+      { name: 'Priority support', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Dedicated success manager', free: false, solo: false, starter: false, professional: false, business: true },
+      { name: 'SLA & phone support', free: false, solo: false, starter: false, professional: false, business: true },
     ],
   },
 ];
@@ -248,7 +282,7 @@ function ValuePropsBar() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-5 gap-8"
         >
           {valueProps.map((prop) => (
             <div key={prop.title} className="text-center">
@@ -273,7 +307,7 @@ function PricingCards() {
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-6xl px-6 lg:px-8" ref={ref}>
         {/* Pricing cards */}
-        <div className="grid gap-8 lg:grid-cols-4">
+        <div className="grid gap-8 lg:grid-cols-5">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -307,9 +341,9 @@ function PricingCards() {
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-semibold text-black tracking-tight">
-                    ${tier.price.toLocaleString()}
+                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
                   </span>
-                  <span className="text-base text-gray-400">/month</span>
+                  {tier.price > 0 && <span className="text-base text-gray-400">/month</span>}
                 </div>
                 <p className="text-sm text-gray-500 mt-3">{tier.description}</p>
               </div>
@@ -409,19 +443,22 @@ function ComparisonTable() {
             {/* Header */}
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[28%]">
+                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[20%]">
                   Features
                 </th>
-                <th className="text-center py-4 px-4 text-sm font-semibold text-black w-[18%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
+                  Free
+                </th>
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
                   Solo
                 </th>
-                <th className="text-center py-4 px-4 text-sm font-semibold text-black w-[18%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
                   Starter
                 </th>
-                <th className="text-center py-4 px-4 text-sm font-semibold text-signature w-[18%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[16%]">
                   Professional
                 </th>
-                <th className="text-center py-4 px-4 text-sm font-semibold text-black w-[18%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
                   Business
                 </th>
               </tr>
@@ -431,7 +468,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={5}
+                      colSpan={6}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -445,16 +482,19 @@ function ComparisonTable() {
                       <td className="py-3.5 pr-4 text-sm text-gray-700">
                         {feature.name}
                       </td>
-                      <td className="py-3.5 px-4 text-center">
+                      <td className="py-3.5 px-3 text-center">
+                        <FeatureValue value={feature.free} />
+                      </td>
+                      <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.solo} />
                       </td>
-                      <td className="py-3.5 px-4 text-center">
+                      <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.starter} />
                       </td>
-                      <td className="py-3.5 px-4 text-center">
+                      <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.professional} />
                       </td>
-                      <td className="py-3.5 px-4 text-center">
+                      <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.business} />
                       </td>
                     </tr>
