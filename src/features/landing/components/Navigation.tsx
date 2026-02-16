@@ -292,7 +292,7 @@ export function Navigation() {
               asChild
               className="h-9 px-5 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
             >
-              <a href="https://app.ozzios.com/sign-up?plan=starter">
+              <a href="https://app.ozzios.com/sign-up?plan=solo">
                 Start free trial
                 <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </a>
@@ -484,7 +484,7 @@ export function Navigation() {
                     asChild
                     className="w-full h-12 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
                   >
-                    <a href="https://app.ozzios.com/sign-up?plan=starter" onClick={() => setIsMobileMenuOpen(false)}>
+                    <a href="https://app.ozzios.com/sign-up?plan=solo" onClick={() => setIsMobileMenuOpen(false)}>
                       Start free trial
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
