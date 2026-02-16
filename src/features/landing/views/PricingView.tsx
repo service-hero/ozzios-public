@@ -12,7 +12,7 @@ const pricingTiers = [
     price: 197,
     description: 'For solo operators ready to automate their marketing.',
     features: [
-      'Up to 2 team members',
+      '1 workspace member',
       '500 AI credits/month',
       'All integrations',
       'Email support',
@@ -30,7 +30,7 @@ const pricingTiers = [
     description: 'Perfect for small teams ready to automate their marketing basics.',
     features: [
       'Up to 5 team members',
-      '500 AI credits/month',
+      '1,000 AI credits/month',
       'Everything in Solo, plus:',
       'Client management',
       'Email marketing automation',
@@ -86,8 +86,8 @@ const comparisonFeatures = [
   {
     category: 'AI Agents',
     features: [
-      { name: 'Team members', solo: '2', starter: '5', professional: '15', business: '50' },
-      { name: 'AI credits/month', solo: '500', starter: '500', professional: '2,000', business: '10,000' },
+      { name: 'Team members', solo: '1', starter: '5', professional: '15', business: '50' },
+      { name: 'AI credits/month', solo: '500', starter: '1,000', professional: '2,000', business: '10,000' },
       { name: 'Custom agent workflows', solo: false, starter: false, professional: true, business: true },
       { name: 'Multi-agent delegation', solo: false, starter: false, professional: true, business: true },
     ],
