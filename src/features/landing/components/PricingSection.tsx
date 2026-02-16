@@ -6,17 +6,35 @@ import { cn } from '@/lib/utils';
 
 const pricingTiers = [
   {
+    name: 'Free',
+    tagline: 'Try the basics',
+    price: 0,
+    description: 'Explore core features with no commitment.',
+    features: [
+      '1 workspace member',
+      '50 AI credits/month',
+      'Workspace, channels & inbox',
+      'Tasks',
+      'Basic CRM',
+      'Basic integrations',
+    ],
+    cta: 'Get started free',
+    href: 'https://app.ozzios.com/sign-up?plan=free',
+    recommended: false,
+  },
+  {
     name: 'Solo',
     tagline: 'Get started solo',
     price: 197,
     description: 'For solo operators ready to automate their marketing.',
     features: [
-      '1 workspace member',
+      'Up to 2 team members',
       '500 AI credits/month',
+      'Social planner',
+      'Blog tools',
+      'Email builder',
       'All integrations',
       'Email support',
-      'Social media scheduling',
-      'Basic SEO tools',
     ],
     cta: 'Start free trial',
     href: 'https://app.ozzios.com/sign-up?plan=solo',
@@ -31,10 +49,11 @@ const pricingTiers = [
       'Up to 5 team members',
       '1,000 AI credits/month',
       'Everything in Solo, plus:',
-      'Client management',
-      'Email marketing automation',
-      'Google Calendar & Gmail sync',
-      'Standard support',
+      'Email/SMS campaigns',
+      'Forms builder',
+      'Documents & e-sign',
+      'Workflow builder',
+      'Advanced CRM',
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=starter',
@@ -49,10 +68,11 @@ const pricingTiers = [
       'Up to 15 team members',
       '2,000 AI credits/month',
       'Everything in Starter, plus:',
-      'Advanced workflow automation',
-      'CRM & pipeline management',
-      'Meta & Google Ads integration',
-      'Content creation at scale',
+      'Client portal & chat widget',
+      'Video kit',
+      'Code sandbox',
+      'Local rank',
+      'Advanced automation nodes',
       'Priority support',
     ],
     cta: 'Get started',
@@ -68,10 +88,9 @@ const pricingTiers = [
       'Up to 50 team members',
       '10,000 AI credits/month',
       'Everything in Professional, plus:',
-      'White-label client portals',
-      'Multi-workspace management',
-      'Custom integrations',
-      'Advanced analytics & attribution',
+      'Call center & voice ops',
+      'Outbound call tooling',
+      'High-volume operations',
       'Dedicated success manager',
       'SLA & phone support',
     ],
@@ -108,7 +127,7 @@ export function PricingSection() {
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="grid gap-8 lg:grid-cols-4">
+        <div className="grid gap-8 lg:grid-cols-5">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -136,9 +155,9 @@ export function PricingSection() {
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-semibold text-foreground tracking-tight">
-                    ${tier.price.toLocaleString()}
+                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
                   </span>
-                  <span className="text-base text-muted-foreground">/month</span>
+                  {tier.price > 0 && <span className="text-base text-muted-foreground">/month</span>}
                 </div>
                 <p className="text-sm text-muted-foreground mt-3">
                   {tier.description}
