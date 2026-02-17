@@ -126,8 +126,8 @@ export function PricingSection() {
           </p>
         </motion.div>
 
-        {/* Pricing cards */}
-        <div className="grid gap-8 lg:grid-cols-5">
+        {/* Pricing cards - Bento grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -137,64 +137,70 @@ export function PricingSection() {
               className={cn(
                 'relative rounded-2xl p-8 transition-all duration-300',
                 tier.recommended
-                  ? 'border-2 border-signature bg-card'
+                  ? 'border-2 border-signature bg-card lg:col-span-2'
                   : 'border border-border bg-card hover:border-border'
               )}
             >
-              {/* Tier header */}
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-foreground mb-1">
-                  {tier.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {tier.tagline}
-                </p>
-              </div>
-
-              {/* Price */}
-              <div className="mb-6">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-semibold text-foreground tracking-tight">
-                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-                  </span>
-                  {tier.price > 0 && <span className="text-base text-muted-foreground">/month</span>}
-                </div>
-                <p className="text-sm text-muted-foreground mt-3">
-                  {tier.description}
-                </p>
-              </div>
-
-              {/* CTA Button */}
-              <a
-                href={tier.href}
-                className={cn(
-                  'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200 mb-8',
-                  tier.recommended
-                    ? 'bg-signature text-white hover:bg-signature/90'
-                    : 'bg-card text-foreground border border-border hover:bg-muted/50'
-                )}
-              >
-                {tier.cta}
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              {/* Features */}
-              <div className="space-y-3">
-                {tier.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start gap-3">
-                    {!feature.includes('Everything in') && (
-                      <Check className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
-                    )}
-                    <span className={cn(
-                      'text-sm',
-                      feature.includes('Everything in')
-                        ? 'text-muted-foreground font-medium'
-                        : 'text-muted-foreground'
-                    )}>
-                      {feature}
-                    </span>
+              <div className={cn(tier.recommended && 'lg:flex lg:gap-10')}>
+                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
+                  {/* Tier header */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                      {tier.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {tier.tagline}
+                    </p>
                   </div>
-                ))}
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-5xl font-semibold text-foreground tracking-tight">
+                        {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+                      </span>
+                      {tier.price > 0 && <span className="text-base text-muted-foreground">/month</span>}
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-3">
+                      {tier.description}
+                    </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <a
+                    href={tier.href}
+                    className={cn(
+                      'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200',
+                      tier.recommended
+                        ? 'bg-signature text-white hover:bg-signature/90 mb-6 lg:mb-0'
+                        : 'bg-card text-foreground border border-border hover:bg-muted/50 mb-8'
+                    )}
+                  >
+                    {tier.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Features */}
+                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
+                  <div className="space-y-3">
+                    {tier.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-3">
+                        {!feature.includes('Everything in') && (
+                          <Check className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
+                        )}
+                        <span className={cn(
+                          'text-sm',
+                          feature.includes('Everything in')
+                            ? 'text-muted-foreground font-medium'
+                            : 'text-muted-foreground'
+                        )}>
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
