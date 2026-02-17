@@ -21,6 +21,7 @@ import {
   Workflow,
   Bot,
   ArrowRight,
+  MessageSquareText,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -181,6 +182,14 @@ const features: Feature[] = [
     description: 'Real-time community spaces for team and client collaboration.',
     icon: MessageCircle,
     href: '/features/channels',
+    category: 'ai',
+  },
+  {
+    id: 'chat-widget',
+    name: 'Chat Widget',
+    description: 'AI-powered website chat with lead capture and human handoff.',
+    icon: MessageSquareText,
+    href: '/features/chat-widget',
     category: 'ai',
   },
 ];

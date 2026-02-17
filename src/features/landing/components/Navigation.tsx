@@ -6,6 +6,7 @@ import {
   BookOpen, FileText, Code,
   LayoutDashboard, Phone, Smartphone, Palette, PenLine,
   Share2, CheckSquare, FilePen, Monitor, Brain, ClipboardList,
+  MessageSquareText,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -55,6 +56,7 @@ const navItems: NavItem[] = [
             { icon: Mail, label: 'Email Campaigns', description: 'Broadcast, schedule & track', href: '/features/email-campaigns' },
             { icon: Smartphone, label: 'SMS Campaigns', description: 'Rate-limited Twilio messaging', href: '/features/sms-campaigns' },
             { icon: Phone, label: 'Voice Agents', description: 'AI call center with transcription', href: '/features/voice-agents', badge: 'New' },
+            { icon: MessageSquareText, label: 'Chat Widget', description: 'AI-powered website chat', href: '/features/chat-widget', badge: 'New' },
           ],
         },
         {

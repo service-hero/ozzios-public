@@ -45,6 +45,7 @@ import { Route as FeaturesDocumentsRouteImport } from './routes/features/documen
 import { Route as FeaturesDashboardRouteImport } from './routes/features/dashboard'
 import { Route as FeaturesCrmRouteImport } from './routes/features/crm'
 import { Route as FeaturesCodingRouteImport } from './routes/features/coding'
+import { Route as FeaturesChatWidgetRouteImport } from './routes/features/chat-widget'
 import { Route as FeaturesChannelsRouteImport } from './routes/features/channels'
 import { Route as FeaturesBlogSeoRouteImport } from './routes/features/blog-seo'
 import { Route as FeaturesAiAgentsRouteImport } from './routes/features/ai-agents'
@@ -233,6 +234,11 @@ const FeaturesCodingRoute = FeaturesCodingRouteImport.update({
   path: '/features/coding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeaturesChatWidgetRoute = FeaturesChatWidgetRouteImport.update({
+  id: '/features/chat-widget',
+  path: '/features/chat-widget',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturesChannelsRoute = FeaturesChannelsRouteImport.update({
   id: '/features/channels',
   path: '/features/channels',
@@ -279,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
+  '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
@@ -321,6 +328,7 @@ export interface FileRoutesByTo {
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
+  '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
@@ -365,6 +373,7 @@ export interface FileRoutesById {
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
+  '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
@@ -410,6 +419,7 @@ export interface FileRouteTypes {
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
+    | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
@@ -452,6 +462,7 @@ export interface FileRouteTypes {
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
+    | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
@@ -495,6 +506,7 @@ export interface FileRouteTypes {
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
+    | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
@@ -538,6 +550,7 @@ export interface RootRouteChildren {
   FeaturesAiAgentsRoute: typeof FeaturesAiAgentsRoute
   FeaturesBlogSeoRoute: typeof FeaturesBlogSeoRoute
   FeaturesChannelsRoute: typeof FeaturesChannelsRoute
+  FeaturesChatWidgetRoute: typeof FeaturesChatWidgetRoute
   FeaturesCodingRoute: typeof FeaturesCodingRoute
   FeaturesCrmRoute: typeof FeaturesCrmRoute
   FeaturesDashboardRoute: typeof FeaturesDashboardRoute
@@ -815,6 +828,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesCodingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/features/chat-widget': {
+      id: '/features/chat-widget'
+      path: '/features/chat-widget'
+      fullPath: '/features/chat-widget'
+      preLoaderRoute: typeof FeaturesChatWidgetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/features/channels': {
       id: '/features/channels'
       path: '/features/channels'
@@ -884,6 +904,7 @@ const rootRouteChildren: RootRouteChildren = {
   FeaturesAiAgentsRoute: FeaturesAiAgentsRoute,
   FeaturesBlogSeoRoute: FeaturesBlogSeoRoute,
   FeaturesChannelsRoute: FeaturesChannelsRoute,
+  FeaturesChatWidgetRoute: FeaturesChatWidgetRoute,
   FeaturesCodingRoute: FeaturesCodingRoute,
   FeaturesCrmRoute: FeaturesCrmRoute,
   FeaturesDashboardRoute: FeaturesDashboardRoute,
