@@ -306,8 +306,8 @@ function PricingCards() {
   return (
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-6xl px-6 lg:px-8" ref={ref}>
-        {/* Pricing cards */}
-        <div className="grid gap-8 lg:grid-cols-5">
+        {/* Pricing cards - Bento grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -317,70 +317,76 @@ function PricingCards() {
               className={cn(
                 'relative rounded-2xl p-8 transition-all duration-300',
                 tier.recommended
-                  ? 'border-2 border-signature bg-white'
+                  ? 'border-2 border-signature bg-white lg:col-span-2'
                   : 'border border-gray-200 bg-white hover:border-gray-300'
               )}
             >
               {tier.recommended && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="absolute -top-3 left-6">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-signature text-white">
                     Most popular
                   </span>
                 </div>
               )}
 
-              {/* Tier header */}
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-black mb-1">
-                  {tier.name}
-                </h3>
-                <p className="text-sm text-gray-500">{tier.tagline}</p>
-              </div>
-
-              {/* Price */}
-              <div className="mb-6">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-semibold text-black tracking-tight">
-                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-                  </span>
-                  {tier.price > 0 && <span className="text-base text-gray-400">/month</span>}
-                </div>
-                <p className="text-sm text-gray-500 mt-3">{tier.description}</p>
-              </div>
-
-              {/* CTA Button */}
-              <a
-                href={tier.href}
-                className={cn(
-                  'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200 mb-8',
-                  tier.recommended
-                    ? 'bg-signature text-white hover:bg-signature/90'
-                    : 'bg-white text-black border border-gray-300 hover:bg-gray-50'
-                )}
-              >
-                {tier.cta}
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              {/* Features */}
-              <div className="space-y-3">
-                {tier.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start gap-3">
-                    {!feature.includes('Everything in') && (
-                      <Check className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
-                    )}
-                    <span
-                      className={cn(
-                        'text-sm',
-                        feature.includes('Everything in')
-                          ? 'text-gray-600 font-medium'
-                          : 'text-gray-600'
-                      )}
-                    >
-                      {feature}
-                    </span>
+              <div className={cn(tier.recommended && 'lg:flex lg:gap-10')}>
+                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
+                  {/* Tier header */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-black mb-1">
+                      {tier.name}
+                    </h3>
+                    <p className="text-sm text-gray-500">{tier.tagline}</p>
                   </div>
-                ))}
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-5xl font-semibold text-black tracking-tight">
+                        {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+                      </span>
+                      {tier.price > 0 && <span className="text-base text-gray-400">/month</span>}
+                    </div>
+                    <p className="text-sm text-gray-500 mt-3">{tier.description}</p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <a
+                    href={tier.href}
+                    className={cn(
+                      'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200',
+                      tier.recommended
+                        ? 'bg-signature text-white hover:bg-signature/90 mb-6 lg:mb-0'
+                        : 'bg-white text-black border border-gray-300 hover:bg-gray-50 mb-8'
+                    )}
+                  >
+                    {tier.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Features */}
+                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
+                  <div className="space-y-3">
+                    {tier.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-3">
+                        {!feature.includes('Everything in') && (
+                          <Check className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                        )}
+                        <span
+                          className={cn(
+                            'text-sm',
+                            feature.includes('Everything in')
+                              ? 'text-gray-600 font-medium'
+                              : 'text-gray-600'
+                          )}
+                        >
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

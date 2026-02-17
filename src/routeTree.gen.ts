@@ -32,6 +32,7 @@ import { Route as SolutionsContentMarketingRouteImport } from './routes/solution
 import { Route as SolutionsClientManagementRouteImport } from './routes/solutions/client-management'
 import { Route as FeaturesWorkflowsRouteImport } from './routes/features/workflows'
 import { Route as FeaturesVoiceAgentsRouteImport } from './routes/features/voice-agents'
+import { Route as FeaturesVideoEditorRouteImport } from './routes/features/video-editor'
 import { Route as FeaturesTasksRouteImport } from './routes/features/tasks'
 import { Route as FeaturesSocialMediaRouteImport } from './routes/features/social-media'
 import { Route as FeaturesSmsCampaignsRouteImport } from './routes/features/sms-campaigns'
@@ -167,6 +168,11 @@ const FeaturesVoiceAgentsRoute = FeaturesVoiceAgentsRouteImport.update({
   path: '/features/voice-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeaturesVideoEditorRoute = FeaturesVideoEditorRouteImport.update({
+  id: '/features/video-editor',
+  path: '/features/video-editor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturesTasksRoute = FeaturesTasksRouteImport.update({
   id: '/features/tasks',
   path: '/features/tasks',
@@ -285,6 +291,7 @@ export interface FileRoutesByFullPath {
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
+  '/features/video-editor': typeof FeaturesVideoEditorRoute
   '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
   '/features/workflows': typeof FeaturesWorkflowsRoute
   '/solutions/client-management': typeof SolutionsClientManagementRoute
@@ -326,6 +333,7 @@ export interface FileRoutesByTo {
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
+  '/features/video-editor': typeof FeaturesVideoEditorRoute
   '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
   '/features/workflows': typeof FeaturesWorkflowsRoute
   '/solutions/client-management': typeof SolutionsClientManagementRoute
@@ -369,6 +377,7 @@ export interface FileRoutesById {
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
+  '/features/video-editor': typeof FeaturesVideoEditorRoute
   '/features/voice-agents': typeof FeaturesVoiceAgentsRoute
   '/features/workflows': typeof FeaturesWorkflowsRoute
   '/solutions/client-management': typeof SolutionsClientManagementRoute
@@ -413,6 +422,7 @@ export interface FileRouteTypes {
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
+    | '/features/video-editor'
     | '/features/voice-agents'
     | '/features/workflows'
     | '/solutions/client-management'
@@ -454,6 +464,7 @@ export interface FileRouteTypes {
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
+    | '/features/video-editor'
     | '/features/voice-agents'
     | '/features/workflows'
     | '/solutions/client-management'
@@ -496,6 +507,7 @@ export interface FileRouteTypes {
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
+    | '/features/video-editor'
     | '/features/voice-agents'
     | '/features/workflows'
     | '/solutions/client-management'
@@ -538,6 +550,7 @@ export interface RootRouteChildren {
   FeaturesSmsCampaignsRoute: typeof FeaturesSmsCampaignsRoute
   FeaturesSocialMediaRoute: typeof FeaturesSocialMediaRoute
   FeaturesTasksRoute: typeof FeaturesTasksRoute
+  FeaturesVideoEditorRoute: typeof FeaturesVideoEditorRoute
   FeaturesVoiceAgentsRoute: typeof FeaturesVoiceAgentsRoute
   FeaturesWorkflowsRoute: typeof FeaturesWorkflowsRoute
   SolutionsClientManagementRoute: typeof SolutionsClientManagementRoute
@@ -711,6 +724,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesVoiceAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/features/video-editor': {
+      id: '/features/video-editor'
+      path: '/features/video-editor'
+      fullPath: '/features/video-editor'
+      preLoaderRoute: typeof FeaturesVideoEditorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/features/tasks': {
       id: '/features/tasks'
       path: '/features/tasks'
@@ -876,6 +896,7 @@ const rootRouteChildren: RootRouteChildren = {
   FeaturesSmsCampaignsRoute: FeaturesSmsCampaignsRoute,
   FeaturesSocialMediaRoute: FeaturesSocialMediaRoute,
   FeaturesTasksRoute: FeaturesTasksRoute,
+  FeaturesVideoEditorRoute: FeaturesVideoEditorRoute,
   FeaturesVoiceAgentsRoute: FeaturesVoiceAgentsRoute,
   FeaturesWorkflowsRoute: FeaturesWorkflowsRoute,
   SolutionsClientManagementRoute: SolutionsClientManagementRoute,
