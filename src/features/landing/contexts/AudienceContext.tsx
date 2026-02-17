@@ -349,7 +349,7 @@ export const audienceContent = {
         },
         security: {
           title: 'AI you can trust',
-          description: 'Enterprise-grade safety. Your data stays yours. SOC 2 compliant.',
+          description: 'Enterprise-grade safety. Your data stays yours. 256-bit encrypted.',
         },
       },
     },

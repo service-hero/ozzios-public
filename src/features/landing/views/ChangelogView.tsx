@@ -46,7 +46,7 @@ const entries: ChangelogEntry[] = [
       'Multi-workspace support with role-based access',
       'Real-time streaming agent responses with tool call visualization',
       'Stripe-powered billing with credit-based usage',
-      'SOC 2 compliant infrastructure from day one',
+      'Enterprise-grade security infrastructure from day one',
     ],
   },
   {

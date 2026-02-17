@@ -73,7 +73,7 @@ const comparisonRows = [
     label: 'Infrastructure',
     icon: Server,
     openclaw: 'You manage servers, updates, uptime, and security patches.',
-    ozzios: 'Fully managed. SOC 2 compliant. 99.9% uptime SLA.',
+    ozzios: 'Fully managed. Enterprise-grade security. 99.9% uptime SLA.',
     openclawShort: 'You manage it',
     ozziosShort: 'Fully managed',
   },

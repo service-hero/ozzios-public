@@ -491,7 +491,7 @@ function CTASection() {
             </a>
           </div>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> SOC 2 Compliant</span>
+            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> 256-bit Encryption</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>GDPR Ready</span>
             <span className="hidden sm:inline text-border">|</span>

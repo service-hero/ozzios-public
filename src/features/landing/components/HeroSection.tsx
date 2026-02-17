@@ -293,7 +293,7 @@ export function HeroSection() {
               <div className="flex items-center gap-1.5">
                 <Shield className="w-3.5 h-3.5 text-muted-foreground" />
                 <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                  SOC 2 Compliant
+                  256-bit Encryption
                 </span>
               </div>
               <div className="w-px h-3 bg-border" />

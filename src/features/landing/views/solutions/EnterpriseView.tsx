@@ -70,7 +70,7 @@ const painPoints = [
     icon: Shield,
     title: 'Security and compliance are non-negotiable',
     description:
-      'Your enterprise clients require SOC 2, GDPR, and strict data isolation. One breach could end relationships worth millions in annual revenue.',
+      'Your enterprise clients require strict security, GDPR compliance, and data isolation. One breach could end relationships worth millions in annual revenue.',
   },
 ];
 
@@ -96,7 +96,7 @@ const features = [
   {
     icon: Shield,
     title: 'Enterprise-grade security',
-    description: 'SOC 2 Type II, GDPR-compliant, AES-256 encryption, RBAC, audit logging, and workspace-scoped data isolation.',
+    description: 'GDPR-compliant, AES-256 encryption, RBAC, audit logging, and workspace-scoped data isolation.',
     link: '/security',
   },
   {
@@ -117,7 +117,7 @@ const stats = [
   { value: '100+', label: 'Clients managed', detail: 'Per enterprise account on average' },
   { value: '70%', label: 'Cost reduction', detail: 'vs. equivalent human headcount' },
   { value: '99.9%', label: 'Uptime SLA', detail: 'Enterprise-grade reliability' },
-  { value: '0', label: 'Data breaches', detail: 'SOC 2 compliant infrastructure' },
+  { value: '0', label: 'Data breaches', detail: 'Enterprise-grade security infrastructure' },
 ];
 
 const securityFeatures = [
@@ -134,7 +134,7 @@ const securityFeatures = [
   {
     icon: FileCheck,
     title: 'Compliance ready',
-    description: 'SOC 2 Type II audited. GDPR data processing agreements. Right to deletion.',
+    description: 'GDPR data processing agreements. Right to deletion. Enterprise-grade data protection.',
   },
   {
     icon: Eye,
@@ -457,7 +457,7 @@ function CTASection() {
             </a>
           </div>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> SOC 2 Type II</span>
+            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> Enterprise Security</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>GDPR Compliant</span>
             <span className="hidden sm:inline text-border">|</span>
