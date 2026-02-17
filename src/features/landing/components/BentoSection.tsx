@@ -369,7 +369,7 @@ export function BentoSection() {
                   <div className="mt-auto flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-signature" />
                     <span className="text-sm font-medium text-signature">
-                      SOC 2 Ready
+                      Enterprise Security
                     </span>
                   </div>
                 </div>

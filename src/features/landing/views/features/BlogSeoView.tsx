@@ -448,7 +448,7 @@ function CTASection() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span>SOC 2 Compliant</span>
+            <span>256-bit Encryption</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>GDPR Ready</span>
             <span className="hidden sm:inline text-border">|</span>

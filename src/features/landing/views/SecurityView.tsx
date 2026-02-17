@@ -31,8 +31,8 @@ type SecuritySection = {
 const trustBadges: TrustBadge[] = [
   {
     icon: <Shield className="w-6 h-6" />,
-    label: 'SOC 2 Type II',
-    detail: 'Audited & compliant',
+    label: 'Data Protection',
+    detail: 'Enterprise-grade security',
   },
   {
     icon: <Globe className="w-6 h-6" />,
@@ -307,7 +307,7 @@ function CTA() {
         <ArrowRight className="w-5 h-5" />
       </a>
       <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
-        <span>SOC 2 Compliant</span>
+        <span>256-bit Encryption</span>
         <span className="hidden sm:inline text-gray-300">|</span>
         <span>GDPR Ready</span>
         <span className="hidden sm:inline text-gray-300">|</span>
