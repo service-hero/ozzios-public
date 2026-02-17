@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase } from 'lucide-react';
+import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase, X, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
@@ -355,6 +355,24 @@ export function HeroSection() {
               {content.subheadline}
             </motion.p>
           </AnimatePresence>
+
+          {/* Differentiation strip — OzziOS vs open-source AI agents */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 w-full max-w-2xl"
+          >
+            <div className="flex items-center justify-center gap-6 sm:gap-8 px-4 py-3 rounded-xl bg-muted/30 border border-border/50">
+              <div className="flex items-center gap-1.5">
+                <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                <span className="text-[11px] sm:text-[12px] text-muted-foreground">Not an open-source chatbot</span>
+              </div>
+              <div className="w-px h-4 bg-border hidden sm:block" />
+              <div className="flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                <span className="text-[11px] sm:text-[12px] text-foreground font-medium">A complete marketing platform</span>
+              </div>
+            </div>
+          </motion.div>
 
           {/* CTA buttons */}
           <motion.div
