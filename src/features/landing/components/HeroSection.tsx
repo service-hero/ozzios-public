@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase, X, Check } from 'lucide-react';
+import { ArrowRight, Play, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase, X, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
@@ -290,13 +290,6 @@ export function HeroSection() {
           {/* Trust badge */}
           <motion.div variants={itemVariants} className="mb-8">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-muted/50 border border-border">
-              <div className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-muted-foreground" />
-                <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                  SOC 2 Compliant
-                </span>
-              </div>
-              <div className="w-px h-3 bg-border" />
               <div className="flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-signature" />
                 <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
