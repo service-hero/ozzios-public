@@ -239,7 +239,7 @@ export function FeaturesShowcaseSection() {
   }, [activeCategory]);
 
   return (
-    <section id="showcase" className="py-24 lg:py-32 bg-muted/30">
+    <section id="showcase" className="py-24 lg:py-32 bg-muted/30 overflow-x-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -368,18 +368,20 @@ export function FeaturesShowcaseSection() {
               <div className="lg:col-span-3">
                 <div className="sticky top-8">
                   <BrowserChrome url={`app.ozzios.com/${activeFeature.id}`}>
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeFeature.id}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.3 }}
-                        className="min-h-[340px] p-5"
-                      >
-                        <FeaturePreview featureId={activeFeature.id} />
-                      </motion.div>
-                    </AnimatePresence>
+                    <div className="relative h-[440px] overflow-hidden">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeFeature.id}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="absolute inset-0 p-5 overflow-y-auto"
+                        >
+                          <FeaturePreview featureId={activeFeature.id} />
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
                   </BrowserChrome>
                 </div>
               </div>
@@ -584,14 +586,14 @@ function SocialMediaPreview() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.15 + 0.2 }}
-            className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 border border-border/50"
+            className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-muted/50 border border-border/50 min-w-0"
           >
-            <span className="text-[10px] text-muted-foreground font-mono w-14">{post.time}</span>
-            <span className="text-xs font-medium text-foreground/60 w-14">{post.platform}</span>
-            <span className="text-xs text-foreground flex-1 truncate">{post.title}</span>
+            <span className="hidden sm:inline text-[10px] text-muted-foreground font-mono w-14 shrink-0">{post.time}</span>
+            <span className="hidden sm:inline text-xs font-medium text-foreground/60 w-14 shrink-0">{post.platform}</span>
+            <span className="text-xs text-foreground flex-1 truncate min-w-0">{post.title}</span>
             <span
               className={cn(
-                'text-[10px] px-2 py-0.5 rounded-full font-medium',
+                'text-[10px] px-2 py-0.5 rounded-full font-medium shrink-0 whitespace-nowrap',
                 post.status === 'Scheduled'
                   ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
                   : post.status === 'AI Generating'
@@ -973,7 +975,7 @@ function TasksPreview() {
   return (
     <div className="space-y-3">
       <div className="text-sm font-semibold text-foreground">Task Board</div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
         {[
           {
             title: 'To Do',
@@ -991,7 +993,7 @@ function TasksPreview() {
             cards: ['CRM migration', 'Brand guidelines'],
           },
         ].map((col, colIndex) => (
-          <div key={col.title} className="bg-muted/50 rounded-lg p-2.5">
+          <div key={col.title} className={cn("bg-muted/50 rounded-lg p-2.5", colIndex === 2 && "col-span-2 sm:col-span-1")}>
             <div className="flex items-center justify-between mb-2.5">
               <span className="text-[10px] font-semibold text-foreground uppercase tracking-wider">
                 {col.title}
@@ -1075,7 +1077,7 @@ function DashboardPreview() {
   return (
     <div className="space-y-3">
       <div className="text-sm font-semibold text-foreground">Dashboard</div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         {[
           { label: 'Revenue', value: '$48.2K', trend: '+12%' },
           { label: 'Visitors', value: '24.1K', trend: '+8%' },

@@ -1,5 +1,6 @@
 import { HeroSection } from '../components/HeroSection';
 import { BentoSection } from '../components/BentoSection';
+import { ComparisonSection } from '../components/ComparisonSection';
 import { FeaturesShowcaseSection } from '../components/FeaturesShowcaseSection';
 import { SavingsCalculatorSection } from '../components/SavingsCalculatorSection';
 import { FeaturesSection } from '../components/HowItWorksSection';
@@ -15,6 +16,7 @@ export function LandingHomeView() {
     <>
       <HeroSection />
       <BentoSection />
+      <ComparisonSection />
       <FeaturesShowcaseSection />
       <SavingsCalculatorSection />
       <FeaturesSection />
