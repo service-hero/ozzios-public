@@ -9,7 +9,7 @@ The home page only showcases ~8 high-level categories (via BentoSection). 13+ sp
 Restructure the home page so visitors see the **full breadth** of OzziOS features without needing the mega menu. Take inspiration from the Presentations and Coding page hero animations (interactive product demos inside browser chrome).
 
 ---
-
+sdfdsf
 ## Changes
 
 ### 1. NEW: Features Showcase Section (`FeaturesShowcaseSection`)
