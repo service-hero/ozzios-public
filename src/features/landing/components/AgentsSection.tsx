@@ -6,37 +6,35 @@ import {
   Search,
   PenTool,
   BarChart2,
-  Lightbulb,
   Palette,
   MapPin,
-  Users,
-  TrendingUp,
-  Settings,
-  Sparkles,
   Share2,
+  FileText,
+  Video,
+  Target,
+  MessageSquare,
+  TrendingUp,
+  Star,
 } from 'lucide-react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
 import { SiriOrbState } from '@/shared/components/ui/smoothui/ui/SiriOrb';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
-const channelAgents = [
-  { name: 'Ozzi', role: 'Onboarding Wizard', icon: Sparkles, description: 'Workspace setup, team building, feature education', variant: 'onboarding' },
-  { name: 'Supervisor', role: 'Project Coordinator', icon: Users, description: 'Task oversight, team coordination, sub-agent delegation', variant: 'supervisor' },
-  { name: 'SEO Specialist', role: 'Search Optimization', icon: Search, description: 'Keyword research, technical SEO, competitor analysis', variant: 'seo' },
-  { name: 'Content Writer', role: 'Content Creation', icon: PenTool, description: 'Blog writing, email copy, marketing copy, brand voice', variant: 'creative' },
-  { name: 'Data Analyst', role: 'Performance Insights', icon: BarChart2, description: 'Analytics deep-dives, ROI tracking, engagement metrics', variant: 'tech' },
-  { name: 'Social Manager', role: 'Community Manager', icon: Share2, description: 'Content planning, platform strategy, engagement', variant: 'social' },
-  { name: 'Research Assistant', role: 'Information Specialist', icon: Lightbulb, description: 'Market research, competitor analysis, synthesis', variant: 'tech' },
-  { name: 'Graphic Designer', role: 'Creative Director', icon: Palette, description: 'Visual concepts, design briefs, art direction', variant: 'creative' },
-  { name: 'GBP Expert', role: 'Local SEO', icon: MapPin, description: 'Google Business Profile optimization, review management', variant: 'seo' },
+const showcaseAgents = [
+  { name: 'SEO Specialist', role: 'Search Optimization', icon: Search, description: 'Keyword research, competitor analysis, content optimization, performance tracking', variant: 'seo' },
+  { name: 'Content Writer', role: 'Content Creation', icon: PenTool, description: 'Blog writing, email campaigns, marketing copy, content strategy', variant: 'creative' },
+  { name: 'Social Media Manager', role: 'Community & Growth', icon: Share2, description: 'Content planning, social copywriting, community engagement, trend analysis', variant: 'social' },
+  { name: 'Graphic Designer', role: 'Visual Design', icon: Palette, description: 'Visual concepts, design briefs, art direction, brand design', variant: 'creative' },
+  { name: 'Data Analyst', role: 'Performance Insights', icon: BarChart2, description: 'Performance analysis, trend identification, strategic insights, custom reports', variant: 'tech' },
+  { name: 'Organic SEO Blogger', role: 'SEO Content', icon: FileText, description: 'SEO blog writing, keyword clustering, on-page optimization, content calendars', variant: 'seo' },
+  { name: 'Performance Marketing Specialist', role: 'Paid Media', icon: Target, description: 'ROAS optimization, audience strategy, performance analysis, budget allocation', variant: 'tech' },
+  { name: 'Video Editor AI', role: 'Video Production', icon: Video, description: 'Video creation and editing using natural language, powered by Remotion AI', variant: 'creative' },
+  { name: 'GBP Expert', role: 'Local SEO', icon: MapPin, description: 'Google Business Profile optimization, GBP posts, review management, local SEO', variant: 'seo' },
+  { name: 'Client Portal Agent', role: 'Client Support', icon: MessageSquare, description: 'Instant responses, project updates, meeting scheduling, smart escalation', variant: 'supervisor' },
+  { name: 'CRO Specialist', role: 'Conversion Optimization', icon: TrendingUp, description: 'Landing page optimization, funnel analysis, A/B testing, form optimization', variant: 'tech' },
+  { name: 'Review & Reputation Manager', role: 'Online Reputation', icon: Star, description: 'Review generation, response drafting, reputation monitoring, reputation growth', variant: 'social' },
 ];
 
-const executiveAgents = [
-  { name: 'CEO Agent', scope: 'Portfolio-wide', icon: TrendingUp, description: 'Revenue insights, strategic planning', variant: 'supervisor' },
-  { name: 'General Manager', scope: 'Cross-client', icon: Users, description: 'Team coordination, resource allocation', variant: 'supervisor' },
-  { name: 'Analytics Director', scope: 'All clients', icon: BarChart2, description: 'ROI comparison, trend analysis', variant: 'tech' },
-  { name: 'Operations Manager', scope: 'Workflows', icon: Settings, description: 'Task management, capacity planning', variant: 'tech' },
-];
 
 // Helper function to get orb state based on hover state
 const getAgentOrbState = (isActive: boolean): SiriOrbState => {
@@ -97,19 +95,19 @@ export function AgentsSection() {
           <div>
             <div className="flex items-center gap-4 mb-8">
               <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-                Channel Agents
+                Community Agents
               </span>
               <div className="h-px flex-1 bg-border" />
-              <span className="text-[11px] text-muted-foreground">10 agents</span>
+              <span className="text-[11px] text-muted-foreground">34 agents available</span>
             </div>
 
             <motion.div
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
               variants={containerVariants}
-              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             >
-              {channelAgents.map((agent) => {
+              {showcaseAgents.map((agent) => {
                 const Icon = agent.icon;
                 const isActive = activeAgent === agent.name;
 
@@ -159,68 +157,29 @@ export function AgentsSection() {
                   </motion.div>
                 );
               })}
+              {/* +22 more card */}
+              <motion.div
+                variants={itemVariants}
+                className="group relative rounded-2xl border border-dashed border-border p-5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-signature/30 hover:bg-signature/[0.02] transition-all duration-300"
+              >
+                <div className="flex -space-x-2 mb-3">
+                  {['seo', 'creative', 'tech', 'social'].map((v, i) => (
+                    <SiriOrbAvatar
+                      key={v}
+                      size={28}
+                      variant={v}
+                      orbState="idle"
+                      disableFloating={true}
+                      className="rounded-full border-2 border-background"
+                    />
+                  ))}
+                </div>
+                <span className="text-[14px] font-semibold text-foreground mb-1">+22 more agents</span>
+                <span className="text-[12px] text-muted-foreground">Real estate, home services, video, email, ads & more</span>
+              </motion.div>
             </motion.div>
           </div>
 
-          {/* Executive Agents */}
-          <div>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-                Executive Agents
-              </span>
-              <div className="h-px flex-1 bg-border" />
-              <span className="text-[11px] text-muted-foreground">4 agents</span>
-            </div>
-
-            <motion.div
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              variants={containerVariants}
-              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              {executiveAgents.map((agent) => {
-                const Icon = agent.icon;
-                const isActive = activeAgent === agent.name;
-
-                return (
-                  <motion.div
-                    key={agent.name}
-                    variants={itemVariants}
-                    onMouseEnter={() => setActiveAgent(agent.name)}
-                    onMouseLeave={() => setActiveAgent(null)}
-                    className={cn(
-                      'group relative rounded-2xl border p-5 transition-all duration-300 cursor-pointer',
-                      isActive
-                        ? 'border-signature/30 bg-signature/[0.02] shadow-sm'
-                        : 'border-border bg-card hover:border-border hover:shadow-sm'
-                    )}
-                  >
-                    <div className="mb-4 inline-block">
-                      <SiriOrbAvatar
-                        size={56}
-                        variant={agent.variant}
-                        orbState={getAgentOrbState(isActive)}
-                        disableFloating={true}
-                        className="rounded-xl transition-all duration-300"
-                      />
-                    </div>
-                    <h3 className="text-[14px] font-semibold text-foreground mb-1">
-                      {agent.name}
-                    </h3>
-                    <p className={cn(
-                      'text-[11px] mb-2 transition-colors',
-                      isActive ? 'text-signature' : 'text-muted-foreground'
-                    )}>
-                      {agent.scope}
-                    </p>
-                    <p className="text-[12px] text-muted-foreground">
-                      {agent.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
         </div>
 
         {/* Feature callouts */}

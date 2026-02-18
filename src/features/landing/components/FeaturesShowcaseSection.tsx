@@ -563,21 +563,19 @@ function SocialMediaPreview() {
         <div className="text-sm font-semibold text-foreground">Social Scheduler</div>
         <div className="flex gap-1.5">
           {[
-            { name: 'Meta', color: 'bg-blue-500' },
-            { name: 'X', color: 'bg-foreground' },
-            { name: 'LinkedIn', color: 'bg-blue-700' },
-            { name: 'TikTok', color: 'bg-pink-500' },
+            { name: 'Facebook', logo: '/images/facebook-icon.svg' },
+            { name: 'X', logo: '/images/x-logo.jpg' },
+            { name: 'TikTok', logo: '/images/tiktok-logo.svg' },
+            { name: 'YouTube', logo: '/images/youtube-logo.webp' },
           ].map((p) => (
-            <div key={p.name} className={cn('w-5 h-5 rounded-full flex items-center justify-center', p.color)}>
-              <span className="text-[8px] font-bold text-white">{p.name[0]}</span>
-            </div>
+            <img key={p.name} src={p.logo} alt={p.name} className="w-5 h-5 rounded-full object-cover" />
           ))}
         </div>
       </div>
       <div className="space-y-2">
         {[
-          { time: '9:00 AM', platform: 'LinkedIn', title: '5 Marketing Trends for 2025', status: 'Scheduled' },
-          { time: '12:30 PM', platform: 'Meta', title: 'New product feature announcement', status: 'Scheduled' },
+          { time: '9:00 AM', platform: 'Facebook', title: '5 Marketing Trends for 2025', status: 'Scheduled' },
+          { time: '12:30 PM', platform: 'YouTube', title: 'New product feature announcement', status: 'Scheduled' },
           { time: '3:00 PM', platform: 'X', title: 'Customer success story thread', status: 'Draft' },
           { time: '5:30 PM', platform: 'TikTok', title: 'Behind the scenes video', status: 'AI Generating' },
         ].map((post, i) => (
