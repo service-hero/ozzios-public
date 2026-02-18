@@ -306,12 +306,18 @@ export function BentoSection() {
                     {content.cards.marketing.description}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-2">
-                    {['Meta', 'Google', 'LinkedIn', 'TikTok'].map((platform) => (
+                    {[
+                      { name: 'Facebook', logo: '/images/facebook-icon.svg' },
+                      { name: 'Google', logo: '/images/google-logo.svg' },
+                      { name: 'TikTok', logo: '/images/tiktok-logo.svg' },
+                      { name: 'YouTube', logo: '/images/youtube-logo.webp' },
+                    ].map((platform) => (
                       <span
-                        key={platform}
-                        className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-md"
+                        key={platform.name}
+                        className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-md"
                       >
-                        {platform}
+                        <img src={platform.logo} alt={platform.name} className="w-3.5 h-3.5 rounded-sm object-cover" />
+                        {platform.name}
                       </span>
                     ))}
                   </div>

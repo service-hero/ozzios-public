@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, Shield, Zap, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, Building2, Briefcase, X, Check } from 'lucide-react';
+import { ArrowRight, Play, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, X, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
@@ -46,7 +46,7 @@ const messageVariants = {
 };
 
 export function HeroSection() {
-  const { audience, setAudience, isBusinessOwner, isAgency } = useAudience();
+  const { audience, isBusinessOwner } = useAudience();
   const content = audienceContent[audience].hero;
 
   const [activeChannel, setActiveChannel] = useState('marketing-strategy');
@@ -259,48 +259,20 @@ export function HeroSection() {
           variants={containerVariants}
           className="flex flex-col items-center"
         >
-          {/* Audience Toggle */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <div className="inline-flex items-center gap-1 p-1 rounded-full bg-muted border border-border">
-              <button
-                onClick={() => setAudience('business')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 ${
-                  isBusinessOwner
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <Briefcase className="w-3.5 h-3.5" />
-                <span>Business Owner</span>
-              </button>
-              <button
-                onClick={() => setAudience('agency')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 ${
-                  isAgency
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <Building2 className="w-3.5 h-3.5" />
-                <span>Agency</span>
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Trust badge */}
+          {/* Differentiation chip */}
           <motion.div variants={itemVariants} className="mb-8">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-muted/50 border border-border">
               <div className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-muted-foreground" />
+                <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
                 <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                  256-bit Encryption
+                  Not an open-source chatbot
                 </span>
               </div>
               <div className="w-px h-3 bg-border" />
               <div className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-signature" />
-                <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                  Enterprise Ready
+                <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                <span className="text-[11px] font-medium text-foreground uppercase tracking-wider">
+                  A complete marketing platform
                 </span>
               </div>
             </div>
@@ -356,28 +328,50 @@ export function HeroSection() {
             </motion.p>
           </AnimatePresence>
 
-          {/* Differentiation strip — OzziOS vs open-source AI agents */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 w-full max-w-2xl"
-          >
-            <div className="flex items-center justify-center gap-6 sm:gap-8 px-4 py-3 rounded-xl bg-muted/30 border border-border/50">
-              <div className="flex items-center gap-1.5">
-                <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
-                <span className="text-[11px] sm:text-[12px] text-muted-foreground">Not an open-source chatbot</span>
+          {/* Integration avatars */}
+          <motion.div variants={itemVariants} className="mt-8">
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex items-center">
+                {[
+                  { name: 'Google', logo: '/images/google-logo.svg' },
+                  { name: 'Facebook', logo: '/images/facebook-icon.svg' },
+                  { name: 'Shopify', logo: '/images/shopify-logo.webp' },
+                  { name: 'Stripe', logo: '/images/stripe-logo.webp' },
+                  { name: 'WordPress', logo: '/images/wordpress.webp' },
+                  { name: 'Google Ads', logo: '/images/google-ads-logo.webp' },
+                  { name: 'Gmail', logo: '/images/gmail-logo.webp' },
+                  { name: 'TikTok', logo: '/images/tiktok-logo.svg' },
+                ].map((integration, i) => (
+                  <div
+                    key={integration.name}
+                    className="relative w-9 h-9 -ml-2 first:ml-0 rounded-full border-2 border-background bg-white dark:bg-muted overflow-hidden shadow-sm hover:z-10 hover:scale-110 transition-transform"
+                    style={{ zIndex: 8 - i }}
+                    title={integration.name}
+                  >
+                    <img
+                      src={integration.logo}
+                      alt={integration.name}
+                      className="w-full h-full object-contain p-1.5"
+                    />
+                  </div>
+                ))}
+                <div
+                  className="relative w-9 h-9 -ml-2 rounded-full border-2 border-background bg-muted flex items-center justify-center shadow-sm"
+                  style={{ zIndex: 0 }}
+                >
+                  <span className="text-[10px] font-semibold text-muted-foreground">+20</span>
+                </div>
               </div>
-              <div className="w-px h-4 bg-border hidden sm:block" />
-              <div className="flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
-                <span className="text-[11px] sm:text-[12px] text-foreground font-medium">A complete marketing platform</span>
-              </div>
+              <span className="text-[11px] text-muted-foreground">
+                Connects to the tools you already use
+              </span>
             </div>
           </motion.div>
 
           {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
           >
             <Button
               size="lg"

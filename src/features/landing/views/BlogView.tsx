@@ -32,6 +32,19 @@ const featuredPost = {
 
 const blogPosts = [
   {
+    id: '22-ai-agents-replace-agency',
+    title: 'I Run a Marketing Agency. Here\'s Why I Built 22 AI Agents to Replace It.',
+    excerpt: '$4,500/month. That\'s the average retainer small businesses pay a marketing agency. After years of watching clients wait days for deliverables AI could produce in minutes, I stopped pretending the model wasn\'t broken.',
+    category: 'agency',
+    author: {
+      name: 'Garrett Elmore',
+      avatar: '/images/garrett-blog-profile-image.jpg',
+    },
+    image: '/images/blog-post-22-ai-agents-replace-agency.png',
+    readTime: '12 min read',
+    date: 'Feb 17, 2025',
+  },
+  {
     id: 'gohighlevel-integration',
     title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
     excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
