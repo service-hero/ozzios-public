@@ -6,9 +6,17 @@
  */
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowLeft } from 'lucide-react';
+import { createPageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/tos')({
   component: TermsOfServicePage,
+  head: () =>
+    createPageHead({
+      title: 'Terms of Service',
+      description:
+        'OzziOS terms of service and acceptable use policies.',
+      path: '/tos',
+    }),
 });
 
 function TermsOfServicePage() {

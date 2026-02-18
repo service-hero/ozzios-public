@@ -6,9 +6,18 @@
  */
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowLeft } from 'lucide-react';
+import { createPageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/data-deletion')({
   component: DataDeletionPage,
+  head: () =>
+    createPageHead({
+      title: 'Data Deletion',
+      description:
+        'Request deletion of your OzziOS account and associated data.',
+      path: '/data-deletion',
+      noindex: true,
+    }),
 });
 
 function DataDeletionPage() {

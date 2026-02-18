@@ -6,9 +6,17 @@
  */
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowLeft } from 'lucide-react';
+import { createPageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/privacy-policy')({
   component: PrivacyPolicyPage,
+  head: () =>
+    createPageHead({
+      title: 'Privacy Policy',
+      description:
+        'How OzziOS collects, uses, and protects your data.',
+      path: '/privacy-policy',
+    }),
 });
 
 function PrivacyPolicyPage() {
