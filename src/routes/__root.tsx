@@ -1,4 +1,4 @@
-import { createRootRoute, Outlet, HeadContent, Scripts } from '@tanstack/react-router'
+import { createRootRoute, Outlet, HeadContent, Scripts, Link } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import '../globals.css'
 
@@ -42,6 +42,7 @@ export const Route = createRootRoute({
   }),
   shellComponent: RootShell,
   component: RootComponent,
+  notFoundComponent: NotFound,
 })
 
 function RootShell({ children }: { children: ReactNode }) {
@@ -60,4 +61,22 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   return <Outlet />
+}
+
+function NotFound() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 text-center">
+      <p className="tag-neo mb-6 text-signature">404</p>
+      <h1 className="font-display text-display mb-4">Page not found</h1>
+      <p className="mb-8 max-w-md text-lg text-muted-foreground">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <Link
+        to="/"
+        className="btn-neo inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground"
+      >
+        Back to Home
+      </Link>
+    </div>
+  )
 }
