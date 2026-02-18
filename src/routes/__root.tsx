@@ -19,6 +19,18 @@ export const Route = createRootRoute({
         name: 'description',
         content: 'The first agentic AI employee platform. Replace entire marketing teams with an unlimited AI workforce. 30+ specialized agents, custom agent builder, unified CRM, workflows, communication, and marketing suite.',
       },
+      {
+        property: 'og:site_name',
+        content: 'OzziOS',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:image',
+        content: 'https://ozzios.com/images/og-default.png',
+      },
     ],
     links: [
       {

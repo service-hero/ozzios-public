@@ -1,10 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { DocsLayout } from '@/features/docs/layouts/DocsLayout'
 import { DocsPage } from '@/features/docs/components/DocsPage'
-
-export const Route = createFileRoute('/docs/$')({
-  component: DocsRoute,
-})
+import { createPageHead } from '@/lib/seo'
 
 const docsContent: Record<string, { title: string; description: string; breadcrumbs: { title: string; href?: string }[] }> = {
   'installation': {
@@ -48,6 +45,29 @@ const docsContent: Record<string, { title: string; description: string; breadcru
     breadcrumbs: [{ title: 'Docs', href: '/' }, { title: 'Developer API' }, { title: 'Agent Testing API' }],
   },
 }
+
+export const Route = createFileRoute('/docs/$')({
+  loader: ({ params }) => {
+    const content = docsContent[params._splat ?? '']
+    return { content, slug: params._splat }
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData?.content) {
+      return createPageHead({
+        title: 'Docs - Page Not Found',
+        description: 'The documentation page you are looking for does not exist.',
+        path: '/docs',
+        noindex: true,
+      })
+    }
+    return createPageHead({
+      title: `${loaderData.content.title} - Docs`,
+      description: loaderData.content.description,
+      path: `/docs/${loaderData.slug}`,
+    })
+  },
+  component: DocsRoute,
+})
 
 function DocsRoute() {
   const { _splat } = Route.useParams()
