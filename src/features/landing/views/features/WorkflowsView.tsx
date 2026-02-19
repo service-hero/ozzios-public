@@ -5,11 +5,14 @@ import { useRef } from 'react';
 import {
   ArrowRight,
   GitBranch,
+  GitPullRequest,
+  Globe,
   Zap,
   Clock,
   Shield,
   Play,
   RotateCcw,
+  Shuffle,
   Webhook,
   CalendarClock,
   SplitSquareVertical,
@@ -92,6 +95,21 @@ const nodeTypes = [
     icon: Mail,
     name: 'Delivery',
     description: 'Send email, SMS, or push notifications. Personalized with contact data from your CRM.',
+  },
+  {
+    icon: GitPullRequest,
+    name: 'Sub-workflow',
+    description: 'Nest workflows inside workflows. Reuse common automation patterns across your business.',
+  },
+  {
+    icon: Globe,
+    name: 'HTTP',
+    description: 'Make external HTTP requests to any API. Connect to services beyond your built-in integrations.',
+  },
+  {
+    icon: Shuffle,
+    name: 'Transform',
+    description: 'Reshape data between steps. Map, filter, and transform payloads in a secure Deno sandbox.',
   },
 ];
 
@@ -199,7 +217,7 @@ function HeroSection() {
 
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             {[
-              { value: '10', label: 'Node Types' },
+              { value: '11', label: 'Node Types' },
               { value: '20+', label: 'Event Triggers' },
               { value: '24/7', label: 'Always Running' },
               { value: '3x', label: 'Auto-Retry' },
@@ -283,7 +301,7 @@ function NodeTypesSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Building Blocks</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            8 node types. Infinite combinations.
+            11 node types. Infinite combinations.
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Drag, connect, deploy. Each node is a building block for automations that match

@@ -18,18 +18,21 @@ const workflow = new WorkflowManager(components.workflow, {
 ```
 
 ### Node Types
-| Type | Purpose |
-|------|---------|
-| **Action** | Execute a Convex action (agent response, API call) |
-| **Wait** | Delay by duration or until timestamp |
-| **Approval** | Pause for human approval |
-| **Condition** | Branch based on evaluated conditions |
-| **Loop** | Repeat until condition met |
-| **Parallel** | Execute multiple branches concurrently |
-| **Sub-workflow** | Nested workflow execution |
-| **HTTP** | External HTTP request |
-| **Transform** | Data transformation (Deno sandbox) |
-| **Delivery** | Send email, SMS, notification |
+| Type | Icon | Purpose |
+|------|------|---------|
+| **Action** | `Zap` | Execute a Convex action (agent response, API call). Full access to 127+ AI tools. |
+| **Wait** | `Clock` | Delay by duration or until a specific timestamp |
+| **Approval** | `Shield` | Pause for human approval. Push notification, approve or deny from anywhere. |
+| **Condition** | `SplitSquareVertical` | Branch logic based on evaluated conditions |
+| **Loop** | `Repeat` | Repeat until condition met |
+| **Parallel** | `GitBranch` | Execute multiple branches concurrently |
+| **Webhook** | `Webhook` | Trigger workflows from any external service (Stripe, forms, API calls) |
+| **Delivery** | `Mail` | Send email, SMS, or push notifications. Personalized with CRM contact data. |
+| **Sub-workflow** | `GitPullRequest` | Nested workflow execution |
+| **HTTP** | `Globe` | External HTTP request |
+| **Transform** | `Shuffle` | Data transformation (Deno sandbox) |
+
+All node icons use [Lucide React](https://lucide.dev/) and render in the `text-signature` (Electric Coral) color scheme with a `bg-signature/10` container.
 
 ### Execution Flow
 1. Trigger fires (event, schedule, webhook, manual)
