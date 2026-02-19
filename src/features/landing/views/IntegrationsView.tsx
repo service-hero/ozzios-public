@@ -29,7 +29,7 @@ const categories: IntegrationCategory[] = [
       { id: 'google-calendar', name: 'Google Calendar', description: 'Calendar events and scheduling', icon: '/images/google-calendar-logo.webp', status: 'available' },
       { id: 'gmail', name: 'Gmail', description: 'Email access and sync', icon: '/images/gmail-logo.webp', status: 'available' },
       { id: 'google-drive', name: 'Google Drive', description: 'Drive files and Google Docs', icon: '/images/google-drive-logo.webp', status: 'available' },
-      { id: 'google-ads', name: 'Google Ads', description: 'Ad campaigns and performance', icon: '/images/google-ads-logo.webp', status: 'coming-soon' },
+      { id: 'google-ads', name: 'Google Ads', description: 'Ad campaigns and performance', icon: '/images/google-ads-logo.webp', status: 'available' },
       { id: 'google-business', name: 'Google Business Profile', description: 'Business listings and reviews', icon: '/images/gbp-logo.svg', status: 'available' },
     ],
   },
@@ -37,7 +37,7 @@ const categories: IntegrationCategory[] = [
     id: 'advertising',
     title: 'Advertising',
     integrations: [
-      { id: 'meta-ads', name: 'Meta Ads', description: 'Facebook & Instagram advertising', icon: '/images/meta-ads-icon.webp', status: 'available' },
+      { id: 'meta-ads', name: 'Meta Ads', description: 'Facebook & Instagram advertising', icon: '/images/facebook-icon.svg', status: 'available' },
     ],
   },
   {
@@ -47,7 +47,7 @@ const categories: IntegrationCategory[] = [
       { id: 'facebook', name: 'Facebook Pages', description: 'Page management and posts', icon: '/images/facebook-icon.svg', status: 'available' },
       { id: 'facebook-leads', name: 'Facebook Lead Forms', description: 'Capture leads from Facebook ads', icon: '/images/facebook-icon.svg', status: 'available' },
       { id: 'linkedin', name: 'LinkedIn', description: 'Professional network and posts', icon: '💼', status: 'coming-soon' },
-      { id: 'twitter', name: 'X / Twitter', description: 'Social posts and engagement', icon: '/images/x-logo.jpg', status: 'coming-soon' },
+      { id: 'twitter', name: 'X / Twitter', description: 'Social posts and engagement', icon: '/images/x-logo.jpg', status: 'available' },
       { id: 'tiktok', name: 'TikTok', description: 'Short-form video content', icon: '/images/tiktok-logo.svg', status: 'coming-soon' },
       { id: 'youtube', name: 'YouTube', description: 'Video content and analytics', icon: '/images/youtube-logo.webp', status: 'available' },
     ],
@@ -81,7 +81,7 @@ const categories: IntegrationCategory[] = [
     title: 'CRM & Field Service',
     integrations: [
       { id: 'housecall-pro', name: 'HouseCall Pro', description: 'Field service management', icon: '/images/housecall-pro-logo.webp', status: 'available' },
-      { id: 'servicetitan', name: 'ServiceTitan', description: 'Enterprise field service management', icon: '/images/servicetitan-logo.webp', status: 'available' },
+      { id: 'servicetitan', name: 'ServiceTitan', description: 'Enterprise field service management', icon: '/images/servicetitan-logo.webp', status: 'coming-soon' },
       { id: 'gohighlevel', name: 'GoHighLevel', description: 'All-in-one CRM & marketing automation', icon: '/images/gohighlevel-logo.png', status: 'available' },
     ],
   },
@@ -372,7 +372,7 @@ export function IntegrationsView() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://app.ozzios.com/sign-up"
+                href="https://app.ozzios.com/sign-up?plan=solo"
                 className="btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors"
               >
                 Get started free

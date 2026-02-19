@@ -161,7 +161,7 @@ export function FeaturesSection() {
           className="mt-16 text-center"
         >
           <a
-            href="https://app.ozzios.com/sign-up"
+            href="https://app.ozzios.com/sign-up?plan=solo"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-signature text-white font-medium text-[15px] hover:bg-signature/90 transition-colors group"
           >
             Get started free
