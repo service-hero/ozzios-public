@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 // Convex HTTP endpoint for waitlist submission
-const WAITLIST_API_URL = 'https://cheerful-dachshund-758.convex.site/waitlist';
+const WAITLIST_API_URL = 'https://api.ozzios.com/waitlist';
 
 // Load signature font
 const useSignatureFont = () => {
