@@ -344,25 +344,25 @@ export function HeroSection() {
                 ].map((integration, i) => (
                   <div
                     key={integration.name}
-                    className="relative w-9 h-9 -ml-2 first:ml-0 rounded-full border-2 border-background bg-white dark:bg-muted overflow-hidden shadow-sm hover:z-10 hover:scale-110 transition-transform"
+                    className="relative w-12 h-12 -ml-2.5 first:ml-0 rounded-full border-2 border-background bg-white dark:bg-muted overflow-hidden shadow-sm hover:z-10 hover:scale-110 transition-transform"
                     style={{ zIndex: 8 - i }}
                     title={integration.name}
                   >
                     <img
                       src={integration.logo}
                       alt={integration.name}
-                      className="w-full h-full object-contain p-1.5"
+                      className="w-full h-full object-contain p-2"
                     />
                   </div>
                 ))}
                 <div
-                  className="relative w-9 h-9 -ml-2 rounded-full border-2 border-background bg-muted flex items-center justify-center shadow-sm"
+                  className="relative w-12 h-12 -ml-2.5 rounded-full border-2 border-background bg-muted flex items-center justify-center shadow-sm"
                   style={{ zIndex: 0 }}
                 >
-                  <span className="text-[10px] font-semibold text-muted-foreground">+20</span>
+                  <span className="text-xs font-semibold text-muted-foreground">+20</span>
                 </div>
               </div>
-              <span className="text-[11px] text-muted-foreground">
+              <span className="text-xs text-muted-foreground">
                 Connects to the tools you already use
               </span>
             </div>
@@ -378,7 +378,7 @@ export function HeroSection() {
               asChild
               className="h-14 px-8 text-[15px] font-medium gap-3 bg-signature text-white hover:bg-signature/90 rounded-full group"
             >
-              <a href="https://app.ozzios.com/sign-up">
+              <a href="https://app.ozzios.com/sign-up?plan=solo">
                 Start free trial
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>

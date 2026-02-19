@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Menu, X, ChevronDown, ArrowRight,
   Bot, Workflow, Users, MessageSquare, Mail,
@@ -119,21 +119,19 @@ const navItems: NavItem[] = [
           items: [
             { icon: BookOpen, label: 'Documentation', description: 'Guides and tutorials', href: '/docs' },
             { icon: FileText, label: 'Blog', description: 'Updates and insights', href: '/blog' },
-            { icon: Code, label: 'API Reference', description: 'Build integrations', href: '/docs/api' },
           ],
         },
         {
           title: 'Community',
           items: [
-            { icon: Users, label: 'Discord', description: 'Join 2,000+ agency owners', href: '#discord' },
-            { icon: MessageSquare, label: 'Support', description: 'Get help from our team', href: '#support' },
+            { icon: MessageSquare, label: 'Support', description: 'Get help from our team', href: '/contact' },
           ],
         },
       ],
       cta: {
         title: 'Start building today',
         description: 'Start your 7-day free trial today',
-        href: 'https://app.ozzios.com/sign-up',
+        href: 'https://app.ozzios.com/sign-up?plan=solo',
         image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop&auto=format',
       },
     },
@@ -186,11 +184,29 @@ export function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activeNavItem = activeMenu ? navItems.find(i => i.label === activeMenu) : null;
   const isWideMegaMenu = (activeNavItem?.megaMenu?.sections.length ?? 0) >= 4;
 
+  const openMenu = useCallback((label: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveMenu(label);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 150);
+  }, []);
+
   useEffect(() => {
     setIsMounted(true);
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -244,8 +260,8 @@ export function Navigation() {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => item.megaMenu && setActiveMenu(item.label)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseEnter={() => item.megaMenu && openMenu(item.label)}
+                onMouseLeave={closeMenu}
               >
                 {item.megaMenu ? (
                   <button
@@ -320,8 +336,8 @@ export function Navigation() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
               className="absolute top-[50px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
-              onMouseEnter={() => setActiveMenu(activeMenu)}
-              onMouseLeave={() => setActiveMenu(null)}
+              onMouseEnter={() => activeMenu && openMenu(activeMenu)}
+              onMouseLeave={closeMenu}
             >
               <div className={cn("pointer-events-auto mx-8 w-full pt-[22px]", isWideMegaMenu ? "max-w-[1100px]" : "max-w-[900px]")}>
                 {navItems.map((item) => {

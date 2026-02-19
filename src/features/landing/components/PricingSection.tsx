@@ -4,15 +4,23 @@ import { useRef } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const pricingTiers = [
+interface PricingTier {
+  name: string;
+  price: number;
+  credits: string;
+  features: string[];
+  cta: string;
+  href: string;
+  recommended: boolean;
+}
+
+const pricingTiers: PricingTier[] = [
   {
     name: 'Free',
-    tagline: 'Try the basics',
     price: 0,
-    description: 'Explore core features with no commitment.',
+    credits: '50 credits/mo',
     features: [
       '1 workspace member',
-      '50 AI credits/month',
       'Workspace, channels & inbox',
       'Tasks',
       'Basic CRM',
@@ -24,9 +32,8 @@ const pricingTiers = [
   },
   {
     name: 'Solo',
-    tagline: 'Get started solo',
     price: 197,
-    description: 'For solo operators ready to automate their marketing.',
+    credits: '500 credits/mo',
     features: [
       'Up to 2 team members',
       '500 AI credits/month',
@@ -42,13 +49,11 @@ const pricingTiers = [
   },
   {
     name: 'Starter',
-    tagline: 'Fire your freelancers',
     price: 490,
-    description: 'Perfect for small teams ready to automate their marketing basics.',
+    credits: '1,000 credits/mo',
     features: [
       'Up to 5 team members',
       '1,000 AI credits/month',
-      'Everything in Solo, plus:',
       'Email/SMS campaigns',
       'Forms builder',
       'Documents & e-sign',
@@ -61,19 +66,18 @@ const pricingTiers = [
   },
   {
     name: 'Professional',
-    tagline: 'Replace your agency',
     price: 990,
-    description: 'Everything you need to run marketing like a full-service agency.',
+    credits: '2,000 credits/mo',
     features: [
       'Up to 15 team members',
-      '2,000 AI credits/month',
-      'Everything in Starter, plus:',
+      '5 workspaces',
       'Client portal & chat widget',
+      'Portal AI agent',
+      'Huddles',
       'Video kit',
       'Code sandbox',
       'Local rank',
       'Advanced automation nodes',
-      'Priority support',
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=professional',
@@ -81,13 +85,12 @@ const pricingTiers = [
   },
   {
     name: 'Business',
-    tagline: 'Full marketing department',
     price: 1995,
-    description: 'For growing businesses that need enterprise-level marketing power.',
+    credits: '10,000 credits/mo',
     features: [
+      'Everything in Professional',
       'Up to 50 team members',
-      '10,000 AI credits/month',
-      'Everything in Professional, plus:',
+      '15 workspaces',
       'Call center & voice ops',
       'Outbound call tooling',
       'High-volume operations',
@@ -106,7 +109,7 @@ export function PricingSection() {
 
   return (
     <section id="pricing" className="relative py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           ref={ref}
@@ -126,82 +129,74 @@ export function PricingSection() {
           </p>
         </motion.div>
 
-        {/* Pricing cards - Bento grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
+        {/* Pricing cards */}
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className={cn(
-                'relative rounded-2xl p-8 transition-all duration-300',
+                'relative rounded-2xl p-6 transition-all duration-300',
                 tier.recommended
-                  ? 'border-2 border-signature bg-card lg:col-span-2'
+                  ? 'border-2 border-signature bg-card'
                   : 'border border-border bg-card hover:border-border'
               )}
             >
-              <div className={cn(tier.recommended && 'lg:flex lg:gap-10')}>
-                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
-                  {/* Tier header */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      {tier.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {tier.tagline}
-                    </p>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-5xl font-semibold text-foreground tracking-tight">
-                        {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-                      </span>
-                      {tier.price > 0 && <span className="text-base text-muted-foreground">/month</span>}
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-3">
-                      {tier.description}
-                    </p>
-                  </div>
-
-                  {/* CTA Button */}
-                  <a
-                    href={tier.href}
-                    className={cn(
-                      'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200',
-                      tier.recommended
-                        ? 'bg-signature text-white hover:bg-signature/90 mb-6 lg:mb-0'
-                        : 'bg-card text-foreground border border-border hover:bg-muted/50 mb-8'
-                    )}
-                  >
-                    {tier.cta}
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+              {tier.recommended && (
+                <div className="absolute -top-3 left-6">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-signature text-white">
+                    Most Popular
+                  </span>
                 </div>
+              )}
 
-                {/* Features */}
-                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
-                  <div className="space-y-3">
-                    {tier.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start gap-3">
-                        {!feature.includes('Everything in') && (
-                          <Check className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
-                        )}
-                        <span className={cn(
-                          'text-sm',
-                          feature.includes('Everything in')
-                            ? 'text-muted-foreground font-medium'
-                            : 'text-muted-foreground'
-                        )}>
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              {/* Tier header */}
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {tier.name}
+                </h3>
               </div>
+
+              {/* Price */}
+              <div className="mb-6">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-bold text-foreground tracking-tight">
+                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+                  </span>
+                  {tier.price > 0 && (
+                    <span className="text-sm text-muted-foreground">/mo</span>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">{tier.credits}</p>
+              </div>
+
+              {/* Features */}
+              <div className="space-y-2.5 mb-6">
+                {tier.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm text-muted-foreground">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href={tier.href}
+                className={cn(
+                  'flex items-center justify-center gap-2 w-full h-11 rounded-lg font-medium text-sm transition-all duration-200',
+                  tier.recommended
+                    ? 'bg-signature text-white hover:bg-signature/90'
+                    : 'bg-card text-foreground border border-border hover:bg-muted/50'
+                )}
+              >
+                {tier.cta}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </motion.div>
           ))}
         </div>

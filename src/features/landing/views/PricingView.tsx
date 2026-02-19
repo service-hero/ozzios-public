@@ -5,15 +5,25 @@ import { Check, X, ChevronDown, ArrowRight, Zap, Shield, Users, Headphones } fro
 import { cn } from '@/lib/utils';
 import { CTASection } from '../components/CTASection';
 
-const pricingTiers = [
+interface PricingTier {
+  name: string;
+  price: number;
+  credits: string;
+  description: string;
+  features: string[];
+  cta: string;
+  href: string;
+  recommended: boolean;
+}
+
+const pricingTiers: PricingTier[] = [
   {
     name: 'Free',
-    tagline: 'Try the basics',
     price: 0,
+    credits: '50 credits/mo',
     description: 'Explore core features with no commitment.',
     features: [
       '1 workspace member',
-      '50 AI credits/month',
       'Workspace, channels & inbox',
       'Tasks',
       'Basic CRM',
@@ -25,8 +35,8 @@ const pricingTiers = [
   },
   {
     name: 'Solo',
-    tagline: 'Get started solo',
     price: 197,
+    credits: '500 credits/mo',
     description: 'For solo operators ready to automate their marketing.',
     features: [
       'Up to 2 team members',
@@ -43,13 +53,12 @@ const pricingTiers = [
   },
   {
     name: 'Starter',
-    tagline: 'Fire your freelancers',
     price: 490,
+    credits: '1,000 credits/mo',
     description: 'Perfect for small teams ready to automate their marketing basics.',
     features: [
       'Up to 5 team members',
       '1,000 AI credits/month',
-      'Everything in Solo, plus:',
       'Email/SMS campaigns',
       'Forms builder',
       'Documents & e-sign',
@@ -62,19 +71,19 @@ const pricingTiers = [
   },
   {
     name: 'Professional',
-    tagline: 'Replace your agency',
     price: 990,
+    credits: '2,000 credits/mo',
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
       'Up to 15 team members',
-      '2,000 AI credits/month',
-      'Everything in Starter, plus:',
+      '5 workspaces',
       'Client portal & chat widget',
+      'Portal AI agent',
+      'Huddles',
       'Video kit',
       'Code sandbox',
       'Local rank',
       'Advanced automation nodes',
-      'Priority support',
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=professional',
@@ -82,13 +91,13 @@ const pricingTiers = [
   },
   {
     name: 'Business',
-    tagline: 'Full marketing department',
     price: 1995,
+    credits: '10,000 credits/mo',
     description: 'For growing businesses that need enterprise-level marketing power.',
     features: [
+      'Everything in Professional',
       'Up to 50 team members',
-      '10,000 AI credits/month',
-      'Everything in Professional, plus:',
+      '15 workspaces',
       'Call center & voice ops',
       'Outbound call tooling',
       'High-volume operations',
@@ -142,6 +151,8 @@ const comparisonFeatures = [
     category: 'Professional',
     features: [
       { name: 'Client portal & chat widget', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Portal AI agent', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Huddles', free: false, solo: false, starter: false, professional: true, business: true },
       { name: 'Video kit', free: false, solo: false, starter: false, professional: true, business: true },
       { name: 'Code sandbox', free: false, solo: false, starter: false, professional: true, business: true },
       { name: 'Local rank', free: false, solo: false, starter: false, professional: true, business: true },
@@ -160,7 +171,6 @@ const comparisonFeatures = [
     category: 'Support',
     features: [
       { name: 'Email support', free: false, solo: true, starter: true, professional: true, business: true },
-      { name: 'Priority support', free: false, solo: false, starter: false, professional: true, business: true },
       { name: 'Dedicated success manager', free: false, solo: false, starter: false, professional: false, business: true },
       { name: 'SLA & phone support', free: false, solo: false, starter: false, professional: false, business: true },
     ],
@@ -305,89 +315,75 @@ function PricingCards() {
 
   return (
     <section className="relative py-24 lg:py-32 bg-white">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8" ref={ref}>
-        {/* Pricing cards - Bento grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8" ref={ref}>
+        {/* Pricing cards */}
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className={cn(
-                'relative rounded-2xl p-8 transition-all duration-300',
+                'relative rounded-2xl p-6 transition-all duration-300',
                 tier.recommended
-                  ? 'border-2 border-signature bg-white lg:col-span-2'
+                  ? 'border-2 border-signature bg-white'
                   : 'border border-gray-200 bg-white hover:border-gray-300'
               )}
             >
               {tier.recommended && (
                 <div className="absolute -top-3 left-6">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-signature text-white">
-                    Most popular
+                    Most Popular
                   </span>
                 </div>
               )}
 
-              <div className={cn(tier.recommended && 'lg:flex lg:gap-10')}>
-                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
-                  {/* Tier header */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-black mb-1">
-                      {tier.name}
-                    </h3>
-                    <p className="text-sm text-gray-500">{tier.tagline}</p>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-5xl font-semibold text-black tracking-tight">
-                        {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-                      </span>
-                      {tier.price > 0 && <span className="text-base text-gray-400">/month</span>}
-                    </div>
-                    <p className="text-sm text-gray-500 mt-3">{tier.description}</p>
-                  </div>
-
-                  {/* CTA Button */}
-                  <a
-                    href={tier.href}
-                    className={cn(
-                      'flex items-center justify-center gap-2 w-full h-12 rounded-lg font-medium text-sm transition-all duration-200',
-                      tier.recommended
-                        ? 'bg-signature text-white hover:bg-signature/90 mb-6 lg:mb-0'
-                        : 'bg-white text-black border border-gray-300 hover:bg-gray-50 mb-8'
-                    )}
-                  >
-                    {tier.cta}
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-
-                {/* Features */}
-                <div className={cn(tier.recommended && 'lg:flex-1 lg:min-w-0')}>
-                  <div className="space-y-3">
-                    {tier.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start gap-3">
-                        {!feature.includes('Everything in') && (
-                          <Check className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
-                        )}
-                        <span
-                          className={cn(
-                            'text-sm',
-                            feature.includes('Everything in')
-                              ? 'text-gray-600 font-medium'
-                              : 'text-gray-600'
-                          )}
-                        >
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              {/* Tier header */}
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-black">
+                  {tier.name}
+                </h3>
               </div>
+
+              {/* Price */}
+              <div className="mb-6">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-bold text-black tracking-tight">
+                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+                  </span>
+                  {tier.price > 0 && (
+                    <span className="text-sm text-gray-400">/mo</span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-500 mt-1">{tier.credits}</p>
+              </div>
+
+              {/* Features */}
+              <div className="space-y-2.5 mb-6">
+                {tier.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href={tier.href}
+                className={cn(
+                  'flex items-center justify-center gap-2 w-full h-11 rounded-lg font-medium text-sm transition-all duration-200',
+                  tier.recommended
+                    ? 'bg-signature text-white hover:bg-signature/90'
+                    : 'bg-white text-black border border-gray-300 hover:bg-gray-50'
+                )}
+              >
+                {tier.cta}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </motion.div>
           ))}
         </div>
