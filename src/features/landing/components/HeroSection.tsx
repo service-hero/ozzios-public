@@ -57,6 +57,7 @@ export function HeroSection() {
   const [streamingText, setStreamingText] = useState<Record<number, string>>({});
   const [streamingComplete, setStreamingComplete] = useState<Record<number, boolean>>({});
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<{ cancelled: boolean }>({ cancelled: false });
@@ -152,6 +153,15 @@ export function HeroSection() {
       });
     }
   }, [visibleMessages, isTyping, streamingText]);
+
+  useEffect(() => {
+    if (!demoOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDemoOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [demoOpen]);
 
   // Animate messages for current channel
   useEffect(() => {
@@ -362,6 +372,7 @@ export function HeroSection() {
               </a>
             </Button>
             <button
+              onClick={() => setDemoOpen(true)}
               className="h-12 px-6 text-sm font-medium gap-2 text-foreground bg-muted/40 border border-border/50 hover:bg-muted/80 rounded-md inline-flex items-center transition-colors group"
             >
               <div className="flex items-center justify-center w-5 h-5 rounded-sm bg-foreground/10 group-hover:bg-foreground/20 transition-colors">
@@ -1203,6 +1214,46 @@ export function HeroSection() {
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+
+      {/* Demo video dialog */}
+      <AnimatePresence>
+        {demoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          >
+            <div
+              className="absolute inset-0 bg-black/85 backdrop-blur-sm"
+              onClick={() => setDemoOpen(false)}
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative z-10 w-full max-w-5xl"
+            >
+              <button
+                onClick={() => setDemoOpen(false)}
+                className="absolute -top-10 right-0 text-white/60 hover:text-white transition-colors inline-flex items-center gap-1.5 text-sm"
+              >
+                <X className="h-4 w-4" />
+                Close
+              </button>
+              <video
+                src="/images/demo-video-1.mp4"
+                controls
+                autoPlay
+                playsInline
+                className="w-full rounded-xl shadow-2xl ring-1 ring-white/10"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
