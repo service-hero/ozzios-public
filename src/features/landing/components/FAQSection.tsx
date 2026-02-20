@@ -25,17 +25,21 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20 flex flex-col items-center"
         >
-          <p className="text-xs font-medium text-signature uppercase tracking-[0.15em] mb-4">
-            FAQ
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight mb-4">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-signature" />
+            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+              FAQ
+            </p>
+            <div className="w-8 h-px bg-signature" />
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.1] tracking-tight mb-6">
             Frequently asked
             <br />
-            <span className="text-muted-foreground">questions</span>
+            <span className="text-muted-foreground/80">questions</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-md mx-auto">
+          <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
             Everything you need to know about OzziOS.
           </p>
         </motion.div>
@@ -104,21 +108,21 @@ function FAQItem({
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-6 text-left group"
+        className="w-full flex items-center justify-between gap-4 py-6 text-left group hover:bg-muted/10 transition-colors px-2"
       >
         <span className={cn(
-          'text-base font-medium transition-colors duration-200',
+          'text-base md:text-lg font-medium transition-colors duration-200',
           isOpen ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
         )}>
           {question}
         </span>
         <div className={cn(
-          'shrink-0 transition-transform duration-200',
-          isOpen && 'rotate-180'
+          'shrink-0 h-8 w-8 rounded-full border border-border/80 flex items-center justify-center transition-all duration-200',
+          isOpen ? 'rotate-180 bg-signature/5 border-signature/30' : 'group-hover:border-foreground/20 group-hover:bg-muted/50'
         )}>
           <ChevronDown className={cn(
-            'h-5 w-5 transition-colors duration-200',
-            isOpen ? 'text-signature' : 'text-muted-foreground'
+            'h-4 w-4 transition-colors duration-200',
+            isOpen ? 'text-signature' : 'text-muted-foreground group-hover:text-foreground'
           )} />
         </div>
       </button>
@@ -130,12 +134,11 @@ function FAQItem({
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden"
+            className="overflow-hidden px-2"
           >
-            <div className="pb-6">
-              <div className="pl-0">
-                <div className="h-px w-8 bg-signature mb-4" />
-                <p className="text-[15px] leading-relaxed text-muted-foreground">
+            <div className="pb-8 pt-2">
+              <div className="pl-0 border-l-2 border-signature/30 pl-4 ml-1">
+                <p className="text-base leading-relaxed text-muted-foreground/90 font-light max-w-3xl">
                   {answer}
                 </p>
               </div>

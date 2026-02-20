@@ -301,24 +301,25 @@ export function SavingsCalculatorSection() {
           variants={containerVariants}
         >
           {/* Section header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-signature/10 border border-signature/20 mb-6">
-              <Calculator className="h-4 w-4 text-signature" />
-              <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
+          <motion.div variants={itemVariants} className="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-8 h-px bg-signature" />
+              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
                 ROI Calculator
-              </span>
+              </p>
+              <div className="w-8 h-px bg-signature" />
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-4">
+            <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
               See what you'll save.
             </h2>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
               Calculate your potential savings across agencies, employees, and tools.
             </p>
           </motion.div>
 
           {/* Calculator card */}
           <motion.div variants={itemVariants}>
-            <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
+            <div className="rounded-xl border border-border/80 bg-card overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-black/5">
               <div className="relative z-10">
                 {/* Tabs */}
                 <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-border bg-muted/50">
@@ -622,18 +623,18 @@ export function SavingsCalculatorSection() {
                           </AnimatePresence>
 
                           {/* CTA */}
-                          <div className="mt-8">
+                          <div className="mt-10">
                             <Button
                               size="lg"
                               asChild
-                              className="w-full h-14 text-[15px] font-medium gap-3 bg-signature text-white hover:bg-signature/90 rounded-full group"
+                              className="w-full h-12 text-[14px] font-medium gap-2 bg-signature text-white hover:bg-signature/90 rounded-md group shadow-sm"
                             >
                               <a href="https://app.ozzios.com/sign-up?plan=solo">
                                 Start saving today
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                               </a>
                             </Button>
-                            <p className="text-center text-[12px] text-muted-foreground mt-3">
+                            <p className="text-center text-[11px] text-muted-foreground mt-4">
                               7-day free trial • Cancel anytime
                             </p>
                           </div>

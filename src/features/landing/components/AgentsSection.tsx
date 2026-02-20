@@ -75,17 +75,20 @@ export function AgentsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
-          className="mb-16 lg:mb-20 max-w-2xl"
+          className="mb-16 lg:mb-20 max-w-3xl"
         >
-          <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
-            {content.sectionLabel}
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-signature" />
+            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+              {content.sectionLabel}
+            </p>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-muted-foreground">{content.headline[1]}</span>
+            <span className="text-muted-foreground/80">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed font-light">
             {content.subheadline}
           </p>
         </motion.div>
@@ -118,10 +121,10 @@ export function AgentsSection() {
                     onMouseEnter={() => setActiveAgent(agent.name)}
                     onMouseLeave={() => setActiveAgent(null)}
                     className={cn(
-                      'group relative rounded-2xl border p-5 transition-all duration-300 cursor-pointer',
+                      'group relative rounded-xl border p-5 transition-all duration-300 cursor-pointer shadow-sm',
                       isActive
-                        ? 'border-signature/30 bg-signature/[0.02] shadow-sm'
-                        : 'border-border bg-card hover:border-border hover:shadow-sm'
+                        ? 'border-signature/40 bg-signature/[0.02] shadow-md'
+                        : 'border-border/80 bg-card hover:border-signature/30'
                     )}
                   >
                     <div className="flex items-start gap-4">
@@ -160,7 +163,7 @@ export function AgentsSection() {
               {/* +22 more card */}
               <motion.div
                 variants={itemVariants}
-                className="group relative rounded-2xl border border-dashed border-border p-5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-signature/30 hover:bg-signature/[0.02] transition-all duration-300"
+                className="group relative rounded-xl border border-dashed border-border/80 p-5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-signature/40 hover:bg-signature/[0.02] transition-all duration-300 shadow-sm"
               >
                 <div className="flex -space-x-2 mb-3">
                   {['seo', 'creative', 'tech', 'social'].map((v, i) => (

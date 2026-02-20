@@ -15,6 +15,8 @@ import {
 } from './hero/chatData';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
+import { AnimatedBackground } from './ui/AnimatedBackground';
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -250,6 +252,7 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-background"
     >
+      <AnimatedBackground />
 
       {/* Content */}
       <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32">
@@ -261,20 +264,11 @@ export function HeroSection() {
         >
           {/* Differentiation chip */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-muted/50 border border-border">
-              <div className="flex items-center gap-1.5">
-                <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
-                <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                  Not an open-source chatbot
-                </span>
-              </div>
-              <div className="w-px h-3 bg-border" />
-              <div className="flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
-                <span className="text-[11px] font-medium text-foreground uppercase tracking-wider">
-                  A complete marketing platform
-                </span>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted/30 border border-border/50">
+              <div className="w-1.5 h-1.5 rounded-full bg-signature animate-pulse" />
+              <span className="text-[11px] font-medium text-foreground tracking-widest uppercase">
+                Enterprise-Grade AI Marketing Platform
+              </span>
             </div>
           </motion.div>
 
@@ -291,24 +285,8 @@ export function HeroSection() {
               >
                 {content.headline[0]}
                 <br />
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-signature">
-                    {content.headline[1]}
-                  </span>
-                  {/* Underline accent */}
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full h-3 text-signature/30"
-                    viewBox="0 0 200 8"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0 7 Q50 0, 100 4 T200 3"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                <span className="text-signature">
+                  {content.headline[1]}
                 </span>
               </motion.h1>
             </AnimatePresence>
@@ -371,12 +349,12 @@ export function HeroSection() {
           {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button
               size="lg"
               asChild
-              className="h-14 px-8 text-[15px] font-medium gap-3 bg-signature text-white hover:bg-signature/90 rounded-full group"
+              className="h-12 px-6 text-sm font-medium gap-2 bg-signature text-white hover:bg-signature/90 rounded-md group"
             >
               <a href="https://app.ozzios.com/sign-up?plan=solo">
                 Start free trial
@@ -384,10 +362,10 @@ export function HeroSection() {
               </a>
             </Button>
             <button
-              className="h-14 px-8 text-[15px] font-medium gap-3 text-muted-foreground hover:text-foreground hover:bg-muted rounded-full inline-flex items-center transition-colors group"
+              className="h-12 px-6 text-sm font-medium gap-2 text-foreground bg-muted/40 border border-border/50 hover:bg-muted/80 rounded-md inline-flex items-center transition-colors group"
             >
-              <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-muted group-hover:bg-border transition-colors">
-                <Play className="h-3 w-3 fill-current ml-0.5" />
+              <div className="flex items-center justify-center w-5 h-5 rounded-sm bg-foreground/10 group-hover:bg-foreground/20 transition-colors">
+                <Play className="h-2.5 w-2.5 text-foreground fill-current ml-0.5" />
               </div>
               Watch demo
             </button>
@@ -396,7 +374,7 @@ export function HeroSection() {
           {/* Stats row */}
           <motion.div
             variants={itemVariants}
-            className="mt-20 flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
+            className="mt-16 flex flex-wrap items-center justify-center gap-x-16 gap-y-8 border-y border-border/40 py-8 px-4"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -428,9 +406,9 @@ export function HeroSection() {
           >
             <div className="relative">
               {/* Browser chrome */}
-              <div className="relative rounded-2xl border border-border bg-background overflow-hidden shadow-2xl shadow-black/10">
+              <div className="relative rounded-xl border border-border/80 bg-background overflow-hidden shadow-2xl shadow-black/5 ring-1 ring-black/5">
                 {/* Window controls */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
+                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border/50 bg-muted/20">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
@@ -1182,9 +1160,9 @@ export function HeroSection() {
           {/* Enterprise logos */}
           <motion.div
             variants={itemVariants}
-            className="mt-24 w-full"
+            className="mt-20 w-full"
           >
-            <p className="text-center text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
+            <p className="text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.25em] mb-10">
               Trusted by leading {isBusinessOwner ? 'businesses' : 'agencies'} worldwide
             </p>
 

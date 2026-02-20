@@ -211,6 +211,8 @@ const itemVariants = {
   },
 };
 
+import { AnimatedBackground } from './ui/AnimatedBackground';
+
 export function FeaturesShowcaseSection() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>('marketing');
   const [activeFeatureId, setActiveFeatureId] = useState<string>('email-campaigns');
@@ -239,26 +241,29 @@ export function FeaturesShowcaseSection() {
   }, [activeCategory]);
 
   return (
-    <section id="showcase" className="py-24 lg:py-32 bg-muted/30 overflow-x-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="showcase" className="relative py-24 lg:py-32 bg-muted/30 overflow-hidden">
+      <AnimatedBackground />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
-          {/* Section header */}
-          <motion.div variants={itemVariants} className="mb-12 lg:mb-16 max-w-2xl">
-            <p className="text-xs font-medium text-signature uppercase tracking-[0.15em] mb-3">
-              Features
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-foreground mb-4">
+          <motion.div variants={itemVariants} className="mb-16 lg:mb-20 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-signature" />
+              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+                Platform Capabilities
+              </p>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
               Everything your team needs.
               <br />
-              <span className="text-muted-foreground">One platform.</span>
+              <span className="text-muted-foreground/80">One unified system.</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              17 features that replace your entire marketing stack. Explore each one.
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
+              17 enterprise-grade features that replace your entire marketing stack.
             </p>
           </motion.div>
 
@@ -405,18 +410,19 @@ export function FeaturesShowcaseSection() {
 // Browser chrome wrapper
 function BrowserChrome({ children, url }: { children: React.ReactNode; url: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-background overflow-hidden shadow-2xl shadow-black/10">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
+    <div className="rounded-xl border border-border/80 bg-background overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-black/5">
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border/50 bg-muted/20">
         <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-          <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-          <div className="w-3 h-3 rounded-full bg-[#28CA41]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-border" />
+          <div className="w-2.5 h-2.5 rounded-full bg-border" />
+          <div className="w-2.5 h-2.5 rounded-full bg-border" />
         </div>
-        <div className="flex-1 mx-3">
-          <div className="bg-muted rounded-md px-3 py-1.5 text-xs text-muted-foreground font-mono">
+        <div className="flex-1 mx-3 flex justify-center">
+          <div className="bg-background/50 border border-border/50 rounded flex items-center px-3 py-1 text-[10px] text-muted-foreground font-mono w-48 justify-center">
             {url}
           </div>
         </div>
+        <div className="w-10" />
       </div>
       {children}
     </div>

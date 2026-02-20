@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 interface PricingTier {
   name: string;
   price: number;
-  credits: string;
+  usage: string;
   features: string[];
   cta: string;
   href: string;
@@ -18,7 +18,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Free',
     price: 0,
-    credits: '50 credits/mo',
+    usage: '500K ops/month',
     features: [
       '1 workspace member',
       'Workspace, channels & inbox',
@@ -33,10 +33,9 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Solo',
     price: 197,
-    credits: '500 credits/mo',
+    usage: '12M ops/month',
     features: [
       'Up to 2 team members',
-      '500 AI credits/month',
       'Social planner',
       'Blog tools',
       'Email builder',
@@ -50,10 +49,9 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Starter',
     price: 490,
-    credits: '1,000 credits/mo',
+    usage: '30M ops/month',
     features: [
       'Up to 5 team members',
-      '1,000 AI credits/month',
       'Email/SMS campaigns',
       'Forms builder',
       'Documents & e-sign',
@@ -67,7 +65,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Professional',
     price: 990,
-    credits: '2,000 credits/mo',
+    usage: '60M ops/month',
     features: [
       'Up to 15 team members',
       '5 workspaces',
@@ -86,7 +84,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Business',
     price: 1995,
-    credits: '10,000 credits/mo',
+    usage: '120M ops/month',
     features: [
       'Everything in Professional',
       'Up to 50 team members',
@@ -116,15 +114,19 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20 flex flex-col items-center"
         >
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">
-            Pricing
-          </p>
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-4">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-signature" />
+            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+              Pricing
+            </p>
+            <div className="w-8 h-px bg-signature" />
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight mb-6">
             Simple, transparent pricing
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
             Stop overpaying for agencies. Get enterprise-level marketing automation at a fraction of the cost.
           </p>
         </motion.div>
@@ -138,15 +140,15 @@ export function PricingSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className={cn(
-                'relative rounded-2xl p-6 transition-all duration-300',
+                'relative rounded-xl p-8 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col',
                 tier.recommended
-                  ? 'border-2 border-signature bg-card'
-                  : 'border border-border bg-card hover:border-border'
+                  ? 'border border-signature/60 bg-card ring-1 ring-signature/10'
+                  : 'border border-border/80 bg-card hover:border-border'
               )}
             >
               {tier.recommended && (
-                <div className="absolute -top-3 left-6">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-signature text-white">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest bg-signature text-white shadow-sm">
                     Most Popular
                   </span>
                 </div>
@@ -169,7 +171,7 @@ export function PricingSection() {
                     <span className="text-sm text-muted-foreground">/mo</span>
                   )}
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">{tier.credits}</p>
+                <p className="text-sm text-muted-foreground mt-1">{tier.usage}</p>
               </div>
 
               {/* Features */}
@@ -185,18 +187,20 @@ export function PricingSection() {
               </div>
 
               {/* CTA Button */}
-              <a
-                href={tier.href}
-                className={cn(
-                  'flex items-center justify-center gap-2 w-full h-11 rounded-lg font-medium text-sm transition-all duration-200',
-                  tier.recommended
-                    ? 'bg-signature text-white hover:bg-signature/90'
-                    : 'bg-card text-foreground border border-border hover:bg-muted/50'
-                )}
-              >
-                {tier.cta}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <div className="mt-auto pt-6">
+                <a
+                  href={tier.href}
+                  className={cn(
+                    'flex items-center justify-center gap-2 w-full h-12 rounded-md font-medium text-[13px] transition-all duration-200 group',
+                    tier.recommended
+                      ? 'bg-signature text-white hover:bg-signature/90 shadow-sm'
+                      : 'bg-transparent text-foreground border border-border/80 hover:bg-muted/50'
+                  )}
+                >
+                  {tier.cta}
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
