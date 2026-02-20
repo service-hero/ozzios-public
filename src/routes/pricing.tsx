@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/pricing')({
   head: () => createPageHead({
     title: 'Pricing',
-    description: 'Plans from Free to Enterprise. 30+ AI agents, unlimited workflows, CRM, and full marketing suite. 7-day free trial.',
+    description: 'Plans from Starter to Business. 30+ AI agents, unlimited workflows, CRM, and full marketing suite.',
     path: '/pricing',
   }),
   component: PricingPage,

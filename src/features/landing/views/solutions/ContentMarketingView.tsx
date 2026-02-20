@@ -201,7 +201,7 @@ function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://app.ozzios.com/sign-up?plan=solo"
+                href="https://app.ozzios.com/sign-up?plan=starter"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
               >
                 Scale your content
@@ -519,7 +519,7 @@ function CTASection() {
             Launch your AI content engine in minutes. Research, create, optimize, and distribute -- all on autopilot.
           </p>
           <a
-            href="https://app.ozzios.com/sign-up?plan=solo"
+            href="https://app.ozzios.com/sign-up?plan=starter"
             className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
           >
             Scale your content

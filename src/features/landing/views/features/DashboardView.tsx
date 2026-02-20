@@ -169,7 +169,7 @@ function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
-                href="https://app.ozzios.com/sign-up?plan=solo"
+                href="https://app.ozzios.com/sign-up?plan=starter"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
               >
                 See it in action
@@ -435,10 +435,10 @@ function CTASection() {
             real-time, and built for the way you work.
           </p>
           <a
-            href="https://app.ozzios.com/sign-up?plan=solo"
+            href="https://app.ozzios.com/sign-up?plan=starter"
             className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
           >
-            Start free trial
+            Get Early Access
             <ArrowRight className="w-5 h-5" />
           </a>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">

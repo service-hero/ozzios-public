@@ -379,10 +379,10 @@ export function IntegrationsView() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://app.ozzios.com/sign-up?plan=solo"
+                href="https://app.ozzios.com/sign-up?plan=starter"
                 className="btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors"
               >
-                Get started free
+                Get Early Access
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a

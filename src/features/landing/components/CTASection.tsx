@@ -48,7 +48,7 @@ export function CTASection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <a
-                href="https://app.ozzios.com/sign-up?plan=solo"
+                href="https://app.ozzios.com/sign-up?plan=starter"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-14 px-10 bg-white text-signature font-semibold text-base rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 group"
               >
                 {content.primaryButton}

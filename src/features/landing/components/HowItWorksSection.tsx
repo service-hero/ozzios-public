@@ -188,10 +188,10 @@ export function FeaturesSection() {
           className="mt-20 text-center"
         >
           <a
-            href="https://app.ozzios.com/sign-up?plan=solo"
+            href="https://app.ozzios.com/sign-up?plan=starter"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-signature text-white font-medium text-sm hover:bg-signature/90 transition-all duration-200 group shadow-sm"
           >
-            Get started free
+            Get Early Access
             <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
           </a>
         </motion.div>

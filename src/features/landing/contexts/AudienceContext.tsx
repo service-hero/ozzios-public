@@ -212,7 +212,7 @@ export const audienceContent = {
       badge: '50 Free Credits',
       headline: ['Fire your agency.', 'Hire your team.'],
       subtext: 'Your first AI employee is free. No credit card. Start building a marketing team that actually works for you.',
-      primaryButton: 'Get started for free',
+      primaryButton: 'Get Early Access',
       secondaryButton: 'See how it works',
     },
     howItWorks: {
@@ -412,15 +412,15 @@ export const audienceContent = {
         answer: 'Most clients cancel 8+ subscriptions after switching. OzziOS replaces your CRM, email marketing, social scheduling, project management, SEO tools, analytics platforms, and more. One login, one invoice, one platform.',
       },
       {
-        question: 'What\'s the catch with the free trial?',
-        answer: 'No catch. Start with 50 free credits—enough to test real workflows. No credit card required. No automatic billing. If you don\'t love it, just walk away. We\'re confident you\'ll stay.',
+        question: 'What\'s the catch with early access?',
+        answer: 'No catch. Get in early, explore the platform, and see what\'s possible. We\'re confident you\'ll want to stay.',
       },
     ],
     cta: {
       badge: '50 Free Credits',
       headline: ['Stop paying for humans', 'who leave.'],
       subtext: 'Your first AI employee is free. No credit card. Start building a team that stays forever.',
-      primaryButton: 'Get started for free',
+      primaryButton: 'Get Early Access',
       secondaryButton: 'Talk to sales',
     },
     howItWorks: {

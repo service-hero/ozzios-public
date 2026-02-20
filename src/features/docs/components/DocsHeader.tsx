@@ -76,7 +76,7 @@ export function DocsHeader() {
               asChild 
               className="h-8 px-3 text-[13px]"
             >
-              <a href="https://app.ozzios.com/sign-up?plan=solo">Get Started</a>
+              <a href="https://app.ozzios.com/sign-up?plan=starter">Get Started</a>
             </Button>
           </nav>
         </div>

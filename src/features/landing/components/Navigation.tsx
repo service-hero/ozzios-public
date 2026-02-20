@@ -132,8 +132,8 @@ const navItems: NavItem[] = [
       ],
       cta: {
         title: 'Start building today',
-        description: 'Start your 7-day free trial today',
-        href: 'https://app.ozzios.com/sign-up?plan=solo',
+        description: 'Join the OzziOS community',
+        href: 'https://app.ozzios.com/sign-up?plan=starter',
         image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop&auto=format',
       },
     },
@@ -307,8 +307,8 @@ export function Navigation() {
               asChild
               className="h-9 px-5 text-[12px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
             >
-              <a href="https://app.ozzios.com/sign-up?plan=solo">
-                Start free trial
+              <a href="https://app.ozzios.com/sign-up?plan=starter">
+                Get Early Access
                 <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </a>
             </Button>
@@ -503,8 +503,8 @@ export function Navigation() {
                     asChild
                     className="w-full h-12 text-[13px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
                   >
-                    <a href="https://app.ozzios.com/sign-up?plan=solo" onClick={() => setIsMobileMenuOpen(false)}>
-                      Start free trial
+                    <a href="https://app.ozzios.com/sign-up?plan=starter" onClick={() => setIsMobileMenuOpen(false)}>
+                      Get Early Access
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
