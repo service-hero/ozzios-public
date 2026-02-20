@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Check, X, ChevronDown, ArrowRight, Zap, Shield, Users, Headphones } from 'lucide-react';
+import { Check, X, ChevronDown, ArrowRight, Zap, Users, Headphones } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CTASection } from '../components/CTASection';
 
@@ -17,39 +17,6 @@ interface PricingTier {
 }
 
 const pricingTiers: PricingTier[] = [
-  {
-    name: 'Free',
-    price: 0,
-    usage: '500K ops/month',
-    description: 'Explore core features with no commitment.',
-    features: [
-      '1 workspace member',
-      'Workspace, channels & inbox',
-      'Tasks',
-      'Basic CRM',
-      'Basic integrations',
-    ],
-    cta: 'Get started free',
-    href: 'https://app.ozzios.com/sign-up?plan=free',
-    recommended: false,
-  },
-  {
-    name: 'Solo',
-    price: 197,
-    usage: '12M ops/month',
-    description: 'For solo operators ready to automate their marketing.',
-    features: [
-      'Up to 2 team members',
-      'Social planner',
-      'Blog tools',
-      'Email builder',
-      'All integrations',
-      'Email support',
-    ],
-    cta: 'Start free trial',
-    href: 'https://app.ozzios.com/sign-up?plan=solo',
-    recommended: false,
-  },
   {
     name: 'Starter',
     price: 490,
@@ -112,65 +79,58 @@ const comparisonFeatures = [
   {
     category: 'Limits',
     features: [
-      { name: 'Team members', free: '1', solo: '2', starter: '5', professional: '15', business: '50' },
-      { name: 'Workspaces', free: '1', solo: '1', starter: '1', professional: '5', business: '15' },
-      { name: 'Monthly AI usage', free: '500K', solo: '12M', starter: '30M', professional: '60M', business: '120M' },
+      { name: 'Team members', starter: '5', professional: '15', business: '50' },
+      { name: 'Workspaces', starter: '1', professional: '5', business: '15' },
+      { name: 'Monthly AI usage', starter: '30M', professional: '60M', business: '120M' },
     ],
   },
   {
-    category: 'Core (Free)',
+    category: 'Core',
     features: [
-      { name: 'Workspace, channels & inbox', free: true, solo: true, starter: true, professional: true, business: true },
-      { name: 'Tasks', free: true, solo: true, starter: true, professional: true, business: true },
-      { name: 'Basic CRM', free: true, solo: true, starter: true, professional: true, business: true },
-      { name: 'Basic integrations', free: true, solo: true, starter: true, professional: true, business: true },
-    ],
-  },
-  {
-    category: 'Solo',
-    features: [
-      { name: 'Social planner', free: false, solo: true, starter: true, professional: true, business: true },
-      { name: 'Blog tools', free: false, solo: true, starter: true, professional: true, business: true },
-      { name: 'Email builder', free: false, solo: true, starter: true, professional: true, business: true },
-      { name: 'All integrations', free: false, solo: true, starter: true, professional: true, business: true },
+      { name: 'Workspace, channels & inbox', starter: true, professional: true, business: true },
+      { name: 'Tasks', starter: true, professional: true, business: true },
+      { name: 'Social planner', starter: true, professional: true, business: true },
+      { name: 'Blog tools', starter: true, professional: true, business: true },
+      { name: 'Email builder', starter: true, professional: true, business: true },
+      { name: 'All integrations', starter: true, professional: true, business: true },
     ],
   },
   {
     category: 'Starter',
     features: [
-      { name: 'Email/SMS campaigns', free: false, solo: false, starter: true, professional: true, business: true },
-      { name: 'Forms builder', free: false, solo: false, starter: true, professional: true, business: true },
-      { name: 'Documents & e-sign', free: false, solo: false, starter: true, professional: true, business: true },
-      { name: 'Workflow builder', free: false, solo: false, starter: true, professional: true, business: true },
-      { name: 'Advanced CRM', free: false, solo: false, starter: true, professional: true, business: true },
+      { name: 'Email/SMS campaigns', starter: true, professional: true, business: true },
+      { name: 'Forms builder', starter: true, professional: true, business: true },
+      { name: 'Documents & e-sign', starter: true, professional: true, business: true },
+      { name: 'Workflow builder', starter: true, professional: true, business: true },
+      { name: 'Advanced CRM', starter: true, professional: true, business: true },
     ],
   },
   {
     category: 'Professional',
     features: [
-      { name: 'Client portal & chat widget', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Portal AI agent', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Huddles', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Video kit', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Code sandbox', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Local rank', free: false, solo: false, starter: false, professional: true, business: true },
-      { name: 'Advanced automation nodes', free: false, solo: false, starter: false, professional: true, business: true },
+      { name: 'Client portal & chat widget', starter: false, professional: true, business: true },
+      { name: 'Portal AI agent', starter: false, professional: true, business: true },
+      { name: 'Huddles', starter: false, professional: true, business: true },
+      { name: 'Video kit', starter: false, professional: true, business: true },
+      { name: 'Code sandbox', starter: false, professional: true, business: true },
+      { name: 'Local rank', starter: false, professional: true, business: true },
+      { name: 'Advanced automation nodes', starter: false, professional: true, business: true },
     ],
   },
   {
     category: 'Business',
     features: [
-      { name: 'Call center & voice ops', free: false, solo: false, starter: false, professional: false, business: true },
-      { name: 'Outbound call tooling', free: false, solo: false, starter: false, professional: false, business: true },
-      { name: 'High-volume operations', free: false, solo: false, starter: false, professional: false, business: true },
+      { name: 'Call center & voice ops', starter: false, professional: false, business: true },
+      { name: 'Outbound call tooling', starter: false, professional: false, business: true },
+      { name: 'High-volume operations', starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', free: false, solo: true, starter: true, professional: true, business: true },
-      { name: 'Dedicated success manager', free: false, solo: false, starter: false, professional: false, business: true },
-      { name: 'SLA & phone support', free: false, solo: false, starter: false, professional: false, business: true },
+      { name: 'Email support', starter: true, professional: true, business: true },
+      { name: 'Dedicated success manager', starter: false, professional: false, business: true },
+      { name: 'SLA & phone support', starter: false, professional: false, business: true },
     ],
   },
 ];
@@ -183,10 +143,6 @@ const pricingFaqs = [
   {
     question: 'Can I change plans at any time?',
     answer: 'Yes, you can upgrade or downgrade your plan at any time. When upgrading, you\'ll get immediate access to the new plan\'s features and your billing will be prorated. When downgrading, the change takes effect at the start of your next billing cycle.',
-  },
-  {
-    question: 'Is there a free trial?',
-    answer: 'Yes! All plans include a 7-day free trial with full access to all features. A credit card is required to start your trial, but you won\'t be charged until the trial ends. Cancel anytime before the trial is over.',
   },
   {
     question: 'What happens if I hit my usage limit?',
@@ -215,11 +171,6 @@ const valueProps = [
     icon: Zap,
     title: 'Save 70%+ vs agencies',
     description: 'Replace expensive agency retainers with AI agents that work 24/7.',
-  },
-  {
-    icon: Shield,
-    title: '7-day free trial',
-    description: 'Try any plan risk-free. Cancel anytime before your trial ends.',
   },
   {
     icon: Users,
@@ -290,7 +241,7 @@ function ValuePropsBar() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-5 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {valueProps.map((prop) => (
             <div key={prop.title} className="text-center">
@@ -393,10 +344,7 @@ function PricingCards() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-gray-500">
-            All plans include a 7-day free trial. Cancel anytime.
-          </p>
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-gray-400">
             Need a custom plan for your enterprise?{' '}
             <a
               href="mailto:sales@ozzios.com"
@@ -439,26 +387,20 @@ function ComparisonTable() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="overflow-x-auto"
         >
-          <table className="w-full min-w-[600px]">
+          <table className="w-full min-w-[500px]">
             {/* Header */}
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[20%]">
+                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[40%]">
                   Features
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
-                  Free
-                </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
-                  Solo
-                </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
                   Starter
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[16%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[20%]">
                   Professional
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[16%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
                   Business
                 </th>
               </tr>
@@ -468,7 +410,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={6}
+                      colSpan={4}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -481,12 +423,6 @@ function ComparisonTable() {
                     >
                       <td className="py-3.5 pr-4 text-sm text-gray-700">
                         {feature.name}
-                      </td>
-                      <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={feature.free} />
-                      </td>
-                      <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={feature.solo} />
                       </td>
                       <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.starter} />
