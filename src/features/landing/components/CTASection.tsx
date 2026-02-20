@@ -67,7 +67,6 @@ export function CTASection() {
             {/* Trust indicators */}
             <div className="mt-16 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-[11px] font-medium tracking-wide uppercase text-white/70">
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/50" /> 256-bit Encryption</span>
-              <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/50" /> SOC 2 Compliant</span>
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/50" /> 99.9% Uptime SLA</span>
             </div>
             

@@ -20,6 +20,7 @@ type NavItem = {
       title?: string;
       items: {
         icon?: React.ElementType;
+        iconSrc?: string;
         label: string;
         description?: string;
         href: string;
@@ -125,6 +126,7 @@ const navItems: NavItem[] = [
           title: 'Community',
           items: [
             { icon: MessageSquare, label: 'Support', description: 'Get help from our team', href: '/contact' },
+            { iconSrc: '/images/facebook-icon.svg', label: 'Facebook Group', description: 'Join the OzziOS community', href: 'https://www.facebook.com/groups/1796376351052187' },
           ],
         },
       ],
@@ -369,18 +371,22 @@ export function Navigation() {
                                   const LinkOrA = subItem.href.startsWith('/') ? Link : 'a';
                                   const linkProps = subItem.href.startsWith('/')
                                     ? { to: subItem.href, onClick: () => setActiveMenu(null) }
-                                    : { href: subItem.href };
+                                    : { href: subItem.href, target: '_blank', rel: 'noopener noreferrer' };
                                   return (
                                     <LinkOrA
                                       key={subItem.label}
                                       {...linkProps as any}
                                       className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-gray-50 group"
                                     >
-                                      {Icon && (
+                                      {subItem.iconSrc ? (
+                                        <div className="h-9 w-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-gray-200 transition-colors">
+                                          <img src={subItem.iconSrc} alt="" className="h-4 w-4" />
+                                        </div>
+                                      ) : Icon ? (
                                         <div className="h-9 w-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-gray-200 transition-colors">
                                           <Icon className="h-4 w-4 text-gray-600" />
                                         </div>
-                                      )}
+                                      ) : null}
                                       <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2">
                                           <p className="text-[13px] font-semibold text-gray-700 group-hover:text-black transition-colors">
@@ -559,8 +565,12 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
                           href={subItem.href}
                           className="flex items-center gap-3 py-2.5 text-gray-600 hover:text-black transition-colors"
                           onClick={onClose}
+                          {...(!subItem.href.startsWith('/') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                         >
-                          {Icon && <Icon className="h-4 w-4" />}
+                          {subItem.iconSrc
+                            ? <img src={subItem.iconSrc} alt="" className="h-4 w-4" />
+                            : Icon && <Icon className="h-4 w-4" />
+                          }
                           <span className="text-[14px] font-medium">{subItem.label}</span>
                         </a>
                       );

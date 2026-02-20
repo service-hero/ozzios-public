@@ -100,7 +100,7 @@ const categories: IntegrationCategory[] = [
   },
   {
     id: 'ai-models',
-    title: 'AI Models (Bring Your Own Key)',
+    title: 'AI Models',
     integrations: [
       { id: 'ollama', name: 'Ollama', description: 'Local or cloud LLM inference (Kimi K2.5)', icon: '/images/kimi-ai-logo.webp', status: 'available' },
       { id: 'groq', name: 'Groq', description: 'Ultra-fast LPU inference (Kimi K2)', icon: '/images/kimi-ai-logo.webp', status: 'available' },
