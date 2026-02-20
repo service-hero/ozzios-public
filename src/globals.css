@@ -135,16 +135,16 @@
     opacity: 0.1;
   }
 
-  /* Card - Clean with Sharp Borders */
+  /* Card - Refined Enterprise */
   .card-neo {
-    @apply bg-card border-2 border-border;
-    @apply shadow-[4px_4px_0_0_hsl(var(--border))];
-    @apply transition-all duration-150;
+    @apply bg-card border border-border/60;
+    @apply shadow-sm;
+    @apply transition-all duration-300 ease-out;
   }
 
   .card-neo:hover {
-    @apply shadow-[6px_6px_0_0_hsl(var(--border))];
-    transform: translate(-2px, -2px);
+    @apply shadow-md border-border/80;
+    transform: translateY(-2px);
   }
 
   /* Signature Color Block */
@@ -180,8 +180,8 @@
 
   /* Clean Tag/Badge */
   .tag-neo {
-    @apply inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider;
-    @apply border-2 border-current;
+    @apply inline-flex items-center px-3 py-1 text-[11px] font-medium tracking-wide rounded-full;
+    @apply border border-border/50 bg-muted/30 text-muted-foreground;
   }
 }
 

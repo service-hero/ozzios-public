@@ -232,17 +232,12 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-150',
-          hasScrolled ? 'bg-white shadow-sm' : 'bg-white'
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          hasScrolled ? 'bg-white shadow-sm border-b border-border/50 backdrop-blur-sm bg-white/95' : 'bg-transparent border-b border-transparent'
         )}
       >
-        {/* Border when scrolled */}
-        <div
-          className={cn(
-            'absolute inset-x-0 bottom-0 h-px bg-gray-200 transition-opacity duration-150',
-            hasScrolled ? 'opacity-100' : 'opacity-0'
-          )}
-        />
+        {/* Border when scrolled - removed because it's handled on the header class */}
+        <div className="hidden" />
 
         <nav className="relative mx-auto max-w-[1400px] h-[72px] flex items-center justify-between px-6 lg:px-8">
           {/* Logo */}
@@ -308,11 +303,11 @@ export function Navigation() {
             <Button
               size="sm"
               asChild
-              className="h-9 px-5 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
+              className="h-9 px-5 text-[12px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
             >
               <a href="https://app.ozzios.com/sign-up?plan=solo">
                 Start free trial
-                <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </a>
             </Button>
           </div>
@@ -492,7 +487,7 @@ export function Navigation() {
                 <div className="pt-8 mt-6 border-t border-gray-200 space-y-3">
                   <a
                     href="https://app.ozzios.com/sign-in"
-                    className="flex items-center justify-center h-12 text-[14px] font-semibold text-gray-600 border border-gray-200 rounded-full hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-center h-12 text-[14px] font-semibold text-gray-600 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign in
@@ -500,7 +495,7 @@ export function Navigation() {
                   <Button
                     size="lg"
                     asChild
-                    className="w-full h-12 text-[12px] font-bold uppercase tracking-wider bg-signature text-white hover:bg-signature/90 rounded-full"
+                    className="w-full h-12 text-[13px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
                   >
                     <a href="https://app.ozzios.com/sign-up?plan=solo" onClick={() => setIsMobileMenuOpen(false)}>
                       Start free trial

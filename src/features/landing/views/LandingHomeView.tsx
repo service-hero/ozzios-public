@@ -9,6 +9,7 @@ import { MemorySection } from '../components/MemorySection';
 import { PricingSection } from '../components/PricingSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FAQSection } from '../components/FAQSection';
+import { IntegrationsSection } from '../components/IntegrationsSection';
 import { CTASection } from '../components/CTASection';
 
 export function LandingHomeView() {
@@ -23,6 +24,7 @@ export function LandingHomeView() {
       <AgentsSection />
       <MemorySection />
       <PricingSection />
+      <IntegrationsSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

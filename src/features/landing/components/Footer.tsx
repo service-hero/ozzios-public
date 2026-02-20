@@ -75,8 +75,8 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <footer className="border-t border-border/40 bg-background pt-8 pb-4">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
         {/* Main footer content */}
         <div className="py-16 lg:py-20">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
@@ -89,18 +89,18 @@ export function Footer() {
                   className="h-6 w-auto brightness-0"
                 />
               </Link>
-              <p className="mt-4 text-[13px] leading-relaxed text-gray-500 max-w-xs">
-                The AI-powered operating system for marketing agencies.
+              <p className="mt-6 text-[13px] leading-relaxed text-muted-foreground max-w-xs font-light">
+                The enterprise AI marketing platform. Replace your entire stack with specialized agents that work 24/7.
               </p>
               {/* Social links */}
-              <div className="mt-6 flex items-center gap-4">
+              <div className="mt-8 flex items-center gap-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -112,15 +112,15 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-5">
+                <h3 className="text-[11px] font-semibold uppercase tracking-widest text-foreground mb-6">
                   {section.title}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         to={link.href}
-                        className="text-[13px] text-gray-500 hover:text-black transition-colors"
+                        className="text-[13px] text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -133,17 +133,17 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-200 py-6">
+        <div className="border-t border-border/40 py-8 mt-12">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-gray-400">
-              {new Date().getFullYear()} OzziOS. All rights reserved.
+            <p className="text-[12px] text-muted-foreground">
+              &copy; {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
-              <span className="text-[11px] text-gray-400">
+              <span className="text-[11px] text-muted-foreground">
                 All systems operational
               </span>
             </div>

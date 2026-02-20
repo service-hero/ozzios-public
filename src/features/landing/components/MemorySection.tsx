@@ -55,16 +55,19 @@ export function MemorySection() {
           variants={containerVariants}
         >
           {/* Section header */}
-          <motion.div variants={itemVariants} className="mb-16 lg:mb-20 max-w-2xl">
-            <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
-              {content.sectionLabel}
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
+          <motion.div variants={itemVariants} className="mb-16 lg:mb-20 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-signature" />
+              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+                {content.sectionLabel}
+              </p>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
               {content.headline[0]}
               <br />
-              <span className="text-muted-foreground">{content.headline[1]}</span>
+              <span className="text-muted-foreground/80">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
               {content.subheadline}
             </p>
           </motion.div>
@@ -73,7 +76,7 @@ export function MemorySection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left: Memory Layers Visualization */}
             <motion.div variants={itemVariants}>
-              <div className="bg-muted/50 rounded-2xl p-8 lg:p-10">
+              <div className="bg-muted/30 border border-border/50 rounded-xl p-8 lg:p-10 shadow-sm">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center">
                     <Layers className="h-5 w-5 text-signature" />
@@ -126,7 +129,7 @@ export function MemorySection() {
                 return (
                   <div
                     key={feature.title}
-                    className="group p-6 rounded-2xl border border-border bg-card hover:border-border hover:shadow-sm transition-all duration-200"
+                    className="group p-6 rounded-xl border border-border/80 bg-card hover:border-signature/30 hover:shadow-md transition-all duration-300 shadow-sm"
                   >
                     <div className="flex items-start gap-4">
                       <div className="shrink-0 h-10 w-10 rounded-xl bg-signature/10 flex items-center justify-center">
@@ -161,7 +164,7 @@ export function MemorySection() {
           {/* Bottom comparison callout */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 p-8 lg:p-10 rounded-2xl bg-muted/50 border border-border/50"
+            className="mt-16 p-8 lg:p-10 rounded-xl bg-muted/30 border border-border/50 shadow-sm"
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="flex items-start gap-4">

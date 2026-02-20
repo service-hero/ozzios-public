@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Search, Check, ArrowRight, Clock, Plug2, Sparkles } from 'lucide-react';
+import { Search, Check, ArrowRight, Clock, Plug2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -164,7 +164,14 @@ function StatusBadge({ status }: { status: IntegrationStatus }) {
     case 'included':
       return (
         <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-electric/10 border-2 border-electric/20">
-          <Sparkles className="w-3 h-3 text-electric" />
+          <video
+            src="/images/ozzi-avatar.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-3 h-3 object-cover rounded-sm"
+          />
           <span className="text-[11px] font-medium text-electric">Included Free</span>
         </span>
       );

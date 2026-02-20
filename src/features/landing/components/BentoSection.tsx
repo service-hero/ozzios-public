@@ -52,17 +52,19 @@ export function BentoSection() {
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
-          {/* Section header */}
-          <motion.div variants={itemVariants} className="mb-16 max-w-2xl">
-            <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">
-              {content.sectionLabel}
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-foreground mb-4">
+          <motion.div variants={itemVariants} className="mb-20 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-signature" />
+              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+                {content.sectionLabel}
+              </p>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
               {content.headline[0]}
               <br />
-              <span className="text-muted-foreground">{content.headline[1]}</span>
+              <span className="text-muted-foreground/80">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl font-light">
               {content.subheadline}
             </p>
           </motion.div>
@@ -84,18 +86,18 @@ export function BentoSection() {
 
                   {/* Content side */}
                   <div className="flex-1 p-8 lg:p-10 flex flex-col">
-                    <div className="flex items-center gap-2 mb-6">
+                    <div className="flex items-center gap-2 mb-8">
                       <span
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider text-white bg-signature"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-semibold tracking-widest uppercase text-signature bg-signature/10 border border-signature/20"
                       >
                         <Bot className="h-3.5 w-3.5" />
                         {content.cards.aiWorkforce.badge}
                       </span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mb-3">
+                    <h3 className="text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
                       {content.cards.aiWorkforce.title}
                     </h3>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-8">
+                    <p className="text-base text-muted-foreground leading-relaxed mb-10 font-light">
                       {content.cards.aiWorkforce.description}
                     </p>
 
@@ -422,13 +424,14 @@ function BentoCard({
   return (
     <div
       className={cn(
-        'relative rounded-2xl bg-card overflow-hidden transition-shadow duration-300',
+        'relative rounded-xl bg-card overflow-hidden transition-all duration-500 ease-out group',
         featured
-          ? 'border-2 border-border shadow-sm hover:shadow-md'
-          : 'border border-border hover:shadow-sm',
+          ? 'border border-border/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)]'
+          : 'border border-border/50 hover:border-border/80 hover:shadow-sm',
         className
       )}
     >
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       {children}
     </div>
   );

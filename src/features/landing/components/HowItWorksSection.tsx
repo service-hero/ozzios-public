@@ -52,29 +52,44 @@ export function FeaturesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
-          className="mb-16 lg:mb-20 max-w-2xl"
+          className="mb-16 lg:mb-20 max-w-3xl"
         >
-          <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
-            {content.sectionLabel}
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-signature" />
+            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+              {content.sectionLabel}
+            </p>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
             {content.headline[0]}
             <br />
-            <span className="text-muted-foreground">{content.headline[1]}</span>
+            <span className="text-muted-foreground/80">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed font-light">
             {content.subheadline}
           </p>
         </motion.div>
 
         {/* Steps */}
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={containerVariants}
-          className="space-y-4"
-        >
+        <div className="relative mt-8">
+          {/* Animated Connection Line (Desktop only) */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden lg:block overflow-hidden">
+            <div className="w-full h-full bg-border/40" />
+            <motion.div
+              initial={{ top: '-100%' }}
+              animate={{ top: '100%' }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 w-full h-[30%] bg-gradient-to-b from-transparent via-signature to-transparent opacity-50"
+            />
+          </div>
+
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            variants={containerVariants}
+            className="space-y-8 lg:space-y-24 relative z-10"
+          >
           {content.steps.map((step, index) => {
             const Icon = stepIcons[index];
             const image = stepImages[index];
@@ -84,8 +99,18 @@ export function FeaturesSection() {
               <motion.div
                 key={step.number}
                 variants={itemVariants}
-                className="group rounded-2xl border border-border bg-card overflow-hidden hover:border-border hover:shadow-sm transition-all duration-300"
+                className={cn(
+                  "relative group",
+                  isEven ? "lg:mr-[50%] lg:pr-12" : "lg:ml-[50%] lg:pl-12"
+                )}
               >
+                {/* Node connector dot */}
+                <div className={cn(
+                  "absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-background bg-border hidden lg:block z-20 transition-colors duration-300 group-hover:bg-signature",
+                  isEven ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"
+                )} />
+
+                <div className="rounded-xl border border-border/80 bg-card overflow-hidden hover:border-signature/30 hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                 <div className={cn(
                   'flex flex-col lg:flex-row',
                   !isEven && 'lg:flex-row-reverse'
@@ -148,21 +173,23 @@ export function FeaturesSection() {
                     </div>
                   </div>
                 </div>
+                </div>
               </motion.div>
             );
           })}
         </motion.div>
+        </div>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-20 text-center"
         >
           <a
             href="https://app.ozzios.com/sign-up?plan=solo"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-signature text-white font-medium text-[15px] hover:bg-signature/90 transition-colors group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-signature text-white font-medium text-sm hover:bg-signature/90 transition-all duration-200 group shadow-sm"
           >
             Get started free
             <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>

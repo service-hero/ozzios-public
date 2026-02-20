@@ -97,17 +97,20 @@ export function ComparisonSection() {
           viewport={{ once: true, margin: '-100px' }}
           variants={containerVariants}
         >
-          {/* Section header */}
-          <motion.div variants={itemVariants} className="text-center mb-16 lg:mb-20 max-w-2xl mx-auto">
-            <p className="text-sm font-medium text-signature uppercase tracking-wide mb-3">
-              How We're Different
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-display tracking-tight text-foreground mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-8 h-px bg-signature" />
+              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
+                How We're Different
+              </p>
+              <div className="w-8 h-px bg-signature" />
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
               Open-source agent
               <br />
-              <span className="text-muted-foreground">vs. your AI team</span>
+              <span className="text-muted-foreground/80">vs. your AI team</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
               OpenClaw is a powerful open-source tool for developers. OzziOS is a complete AI marketing team for businesses. Different tools, different jobs.
             </p>
           </motion.div>
@@ -120,7 +123,7 @@ export function ComparisonSection() {
                 <motion.div
                   key={row.label}
                   variants={itemVariants}
-                  className="rounded-2xl border border-border bg-card p-5"
+                  className="rounded-xl border border-border/80 bg-card p-5 shadow-sm"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-8 w-8 rounded-lg bg-signature/10 flex items-center justify-center shrink-0">
@@ -156,7 +159,7 @@ export function ComparisonSection() {
           {/* Comparison Table — Desktop */}
           <motion.div
             variants={itemVariants}
-            className="hidden lg:block rounded-2xl border border-border bg-card overflow-hidden"
+            className="hidden lg:block rounded-xl border border-border/80 bg-card overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             {/* Table header */}
             <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-border">
@@ -218,28 +221,28 @@ export function ComparisonSection() {
           {/* Bottom callout */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 p-8 lg:p-10 rounded-2xl bg-muted/50 border border-border/50"
+            className="mt-16 p-8 lg:p-10 rounded-xl bg-muted/30 border border-border/50"
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center shrink-0">
+                <div className="h-10 w-10 rounded-md bg-card border border-border/80 flex items-center justify-center shrink-0 shadow-sm">
                   <Cloud className="h-5 w-5 text-signature" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                  <h3 className="text-lg font-medium text-foreground mb-1">
                     Both are great. Pick the right one.
                   </h3>
-                  <p className="text-sm text-muted-foreground max-w-xl">
+                  <p className="text-sm text-muted-foreground font-light max-w-xl leading-relaxed">
                     If you're a developer who wants full control and loves tinkering — OpenClaw is fantastic. If you want a marketing team that works out of the box without managing infrastructure — that's OzziOS.
                   </p>
                 </div>
               </div>
               <a
                 href="/waitlist"
-                className="inline-flex items-center gap-2 shrink-0 rounded-xl bg-signature px-6 py-3 text-sm font-medium text-white hover:bg-signature/90 transition-colors duration-200"
+                className="inline-flex items-center gap-2 shrink-0 rounded-md bg-signature px-6 py-3 text-sm font-medium text-white hover:bg-signature/90 transition-all duration-200 group"
               >
                 Try OzziOS free
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
           </motion.div>

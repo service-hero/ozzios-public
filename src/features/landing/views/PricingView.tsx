@@ -8,7 +8,7 @@ import { CTASection } from '../components/CTASection';
 interface PricingTier {
   name: string;
   price: number;
-  credits: string;
+  usage: string;
   description: string;
   features: string[];
   cta: string;
@@ -20,7 +20,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Free',
     price: 0,
-    credits: '50 credits/mo',
+    usage: '500K ops/month',
     description: 'Explore core features with no commitment.',
     features: [
       '1 workspace member',
@@ -36,11 +36,10 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Solo',
     price: 197,
-    credits: '500 credits/mo',
+    usage: '12M ops/month',
     description: 'For solo operators ready to automate their marketing.',
     features: [
       'Up to 2 team members',
-      '500 AI credits/month',
       'Social planner',
       'Blog tools',
       'Email builder',
@@ -54,11 +53,10 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Starter',
     price: 490,
-    credits: '1,000 credits/mo',
+    usage: '30M ops/month',
     description: 'Perfect for small teams ready to automate their marketing basics.',
     features: [
       'Up to 5 team members',
-      '1,000 AI credits/month',
       'Email/SMS campaigns',
       'Forms builder',
       'Documents & e-sign',
@@ -72,7 +70,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Professional',
     price: 990,
-    credits: '2,000 credits/mo',
+    usage: '60M ops/month',
     description: 'Everything you need to run marketing like a full-service agency.',
     features: [
       'Up to 15 team members',
@@ -92,7 +90,7 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Business',
     price: 1995,
-    credits: '10,000 credits/mo',
+    usage: '120M ops/month',
     description: 'For growing businesses that need enterprise-level marketing power.',
     features: [
       'Everything in Professional',
@@ -116,7 +114,7 @@ const comparisonFeatures = [
     features: [
       { name: 'Team members', free: '1', solo: '2', starter: '5', professional: '15', business: '50' },
       { name: 'Workspaces', free: '1', solo: '1', starter: '1', professional: '5', business: '15' },
-      { name: 'AI credits/month', free: '50', solo: '500', starter: '1,000', professional: '2,000', business: '10,000' },
+      { name: 'Monthly AI usage', free: '500K', solo: '12M', starter: '30M', professional: '60M', business: '120M' },
     ],
   },
   {
@@ -179,8 +177,8 @@ const comparisonFeatures = [
 
 const pricingFaqs = [
   {
-    question: 'What are AI credits?',
-    answer: 'AI credits are used every time an AI agent performs a task -- writing content, analyzing data, scheduling posts, or running workflows. Different tasks use different amounts of credits based on complexity. Most simple tasks use 1-5 credits, while more complex operations like full content creation may use 10-25 credits.',
+    question: 'How does usage-based pricing work?',
+    answer: 'Each plan includes a monthly usage quota that covers all AI operations — writing content, analyzing data, scheduling posts, running workflows, and more. Usage is tracked automatically and resets at the start of each billing cycle. You can monitor your usage in real time from your account dashboard.',
   },
   {
     question: 'Can I change plans at any time?',
@@ -191,8 +189,8 @@ const pricingFaqs = [
     answer: 'Yes! All plans include a 7-day free trial with full access to all features. A credit card is required to start your trial, but you won\'t be charged until the trial ends. Cancel anytime before the trial is over.',
   },
   {
-    question: 'What happens if I run out of AI credits?',
-    answer: 'If you run out of credits before your monthly renewal, your agents will pause until your credits refresh. You can also purchase additional credit packs at any time, or upgrade to a higher plan for more credits.',
+    question: 'What happens if I hit my usage limit?',
+    answer: 'If you reach your monthly usage limit before your billing cycle renews, your AI agents will pause until the quota resets. You can upgrade to a higher plan at any time to get more capacity immediately.',
   },
   {
     question: 'Do you offer annual billing?',
@@ -208,7 +206,7 @@ const pricingFaqs = [
   },
   {
     question: 'Do you offer custom enterprise plans?',
-    answer: 'Yes, for organizations with specific needs, we offer custom enterprise plans with tailored AI credit allocations, custom integrations, dedicated infrastructure, and hands-on onboarding. Contact our sales team to discuss your requirements.',
+    answer: 'Yes, for organizations with specific needs, we offer custom enterprise plans with unlimited usage, custom integrations, dedicated infrastructure, and hands-on onboarding. Contact our sales team to discuss your requirements.',
   },
 ];
 
@@ -356,7 +354,7 @@ function PricingCards() {
                     <span className="text-sm text-gray-400">/mo</span>
                   )}
                 </div>
-                <p className="text-sm text-gray-500 mt-1">{tier.credits}</p>
+                <p className="text-sm text-gray-500 mt-1">{tier.usage}</p>
               </div>
 
               {/* Features */}
