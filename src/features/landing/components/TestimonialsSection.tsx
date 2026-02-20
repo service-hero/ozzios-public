@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Star } from 'lucide-react';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 const containerVariants = {
@@ -90,12 +91,30 @@ export function TestimonialsSection() {
                     {testimonial.name}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.company}
+                    {testimonial.role}{testimonial.company ? `, ${testimonial.company}` : ''}
                   </p>
                 </div>
               </div>
             </motion.div>
           ))}
+
+          {/* More reviews card */}
+          <motion.div
+            variants={cardVariants}
+            className="bg-card rounded-xl border border-border/80 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center justify-center text-center"
+          >
+            <div className="flex gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-signature text-signature" />
+              ))}
+            </div>
+            <p className="text-2xl font-semibold text-foreground mb-2">
+              Hundreds more
+            </p>
+            <p className="text-muted-foreground text-[15px] leading-relaxed">
+              We're currently in beta with early users. More reviews coming soon.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Trust indicators */}

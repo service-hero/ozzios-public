@@ -16,37 +16,6 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    name: 'Free',
-    price: 0,
-    usage: '500K ops/month',
-    features: [
-      '1 workspace member',
-      'Workspace, channels & inbox',
-      'Tasks',
-      'Basic CRM',
-      'Basic integrations',
-    ],
-    cta: 'Get started free',
-    href: 'https://app.ozzios.com/sign-up?plan=free',
-    recommended: false,
-  },
-  {
-    name: 'Solo',
-    price: 197,
-    usage: '12M ops/month',
-    features: [
-      'Up to 2 team members',
-      'Social planner',
-      'Blog tools',
-      'Email builder',
-      'All integrations',
-      'Email support',
-    ],
-    cta: 'Start free trial',
-    href: 'https://app.ozzios.com/sign-up?plan=solo',
-    recommended: false,
-  },
-  {
     name: 'Starter',
     price: 490,
     usage: '30M ops/month',
@@ -213,9 +182,6 @@ export function PricingSection() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            All plans include a 7-day free trial. Cancel anytime.
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
             Need a custom plan for your enterprise?{' '}
             <a href="mailto:sales@ozzios.com" className="text-signature hover:underline">
               Contact sales
