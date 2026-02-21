@@ -1,6 +1,6 @@
 const SITE_NAME = 'OzziOS'
 const SITE_URL = 'https://ozzios.com'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/Gemini_Generated_Image_2cfeqt2cfeqt2cfe.webp`
 
 export interface PageSEO {
   title: string

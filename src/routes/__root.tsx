@@ -29,7 +29,7 @@ export const Route = createRootRoute({
       },
       {
         property: 'og:image',
-        content: 'https://ozzios.com/images/og-default.png',
+        content: 'https://ozzios.com/images/Gemini_Generated_Image_2cfeqt2cfeqt2cfe.webp',
       },
     ],
     links: [
