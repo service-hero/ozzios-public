@@ -177,7 +177,7 @@ export function FeaturesSection() {
           className="mt-20 text-center"
         >
           <a
-            href="https://app.ozzios.com/sign-up?plan=starter"
+            href="https://app.ozzios.com/sign-up"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-signature text-white font-medium text-sm hover:bg-signature/90 transition-all duration-200 group shadow-sm"
           >
             Get Early Access

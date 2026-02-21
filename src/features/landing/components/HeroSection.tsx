@@ -366,7 +366,7 @@ export function HeroSection() {
               asChild
               className="h-12 px-6 text-sm font-medium gap-2 bg-signature text-white hover:bg-signature/90 rounded-md group"
             >
-              <a href="https://app.ozzios.com/sign-up?plan=starter">
+              <a href="https://app.ozzios.com/sign-up">
                 Get Early Access
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>

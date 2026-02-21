@@ -159,7 +159,7 @@ function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
-                href="https://app.ozzios.com/sign-up?plan=starter"
+                href="https://app.ozzios.com/sign-up"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
               >
                 Try the CRM free
@@ -450,7 +450,7 @@ function CTASection() {
             every interaction in one place.
           </p>
           <a
-            href="https://app.ozzios.com/sign-up?plan=starter"
+            href="https://app.ozzios.com/sign-up"
             className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
           >
             Get Early Access

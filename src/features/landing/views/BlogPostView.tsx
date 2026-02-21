@@ -362,7 +362,7 @@ To connect your account:
 3. Enter your API credentials
 4. Start building workflows
 
-If you're not yet using OzziOS, [get early access](https://app.ozzios.com/sign-up?plan=starter) and see what's possible when your CRM gets AI superpowers.
+If you're not yet using OzziOS, [get early access](https://app.ozzios.com/sign-up) and see what's possible when your CRM gets AI superpowers.
 
 ---
 
@@ -499,7 +499,7 @@ The future of agency work isn't about humans vs. AI. It's about humans *with* AI
 
 ---
 
-*Ready to meet your first AI employee? [Get early access](https://app.ozzios.com/sign-up?plan=starter) and see what's possible.*
+*Ready to meet your first AI employee? [Get early access](https://app.ozzios.com/sign-up) and see what's possible.*
     `,
   },
   'replace-8-tools': {
@@ -926,7 +926,7 @@ The question isn't whether this transition will happen. It's whether you'll lead
 
 ---
 
-*Ready to scale differently? [See how other agencies are doing it](https://ozzios.com/case-studies) or [get early access](https://app.ozzios.com/sign-up?plan=starter).*
+*Ready to scale differently? [See how other agencies are doing it](https://ozzios.com/case-studies) or [get early access](https://app.ozzios.com/sign-up).*
     `,
   },
   'content-automation': {
@@ -1082,7 +1082,7 @@ The agencies still doing content the old way will struggle to compete. The ones 
 
 ---
 
-*See the AI Content Writer in action. [Watch a demo](https://ozzios.com/#demo) or [start creating](https://app.ozzios.com/sign-up?plan=starter).*
+*See the AI Content Writer in action. [Watch a demo](https://ozzios.com/#demo) or [start creating](https://app.ozzios.com/sign-up).*
     `,
   },
   'client-reporting-automation': {
@@ -1180,7 +1180,7 @@ That's it. Reporting solved.
 
 ---
 
-*Ready to reclaim your Sundays? [Get early access](https://app.ozzios.com/sign-up?plan=starter) and generate your first report in minutes.*
+*Ready to reclaim your Sundays? [Get early access](https://app.ozzios.com/sign-up) and generate your first report in minutes.*
     `,
   },
   'goodbye-agency-retainers': {
@@ -1635,7 +1635,7 @@ export function BlogPostView({ postId }: { postId: string }) {
               Start with 50 free credits. No credit card required.
             </p>
             <a
-              href="https://app.ozzios.com/sign-up?plan=starter"
+              href="https://app.ozzios.com/sign-up"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-signature text-white font-medium text-[15px] hover:bg-signature/90 transition-colors"
             >
               Get Early Access

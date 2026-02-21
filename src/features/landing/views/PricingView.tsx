@@ -42,7 +42,7 @@ const pricingTiers: PricingTier[] = [
       { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
     cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=starter',
+    href: 'https://app.ozzios.com/sign-up',
     recommended: false,
   },
   {
