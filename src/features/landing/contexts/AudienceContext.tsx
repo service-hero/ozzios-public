@@ -205,7 +205,7 @@ export const audienceContent = {
       },
       {
         question: 'Can I try it before committing?',
-        answer: 'Absolutely. Start with 50 free credits—enough to test real workflows. No credit card required. If you don\'t love it, just walk away.',
+        answer: 'Early access is $490/month — no annual lock-in, cancel anytime. You get the full platform from day one. If you don\'t see the value, just walk away.',
       },
     ],
     cta: {
