@@ -1,22 +1,15 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import {
-  Rocket,
-  Bot,
-  Users,
-  TrendingUp,
-  Check,
-} from 'lucide-react';
+import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
-const stepIcons = [Rocket, Bot, Users, TrendingUp];
 const stepImages = [
-  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
+  '/images/Gemini_Generated_Image_u6mqxnu6mqxnu6mq.webp',
+  '/images/Gemini_Generated_Image_2eqehs2eqehs2eqe.webp',
+  '/images/Gemini_Generated_Image_rbkrybrbkrybrbkr.webp',
+  '/images/Gemini_Generated_Image_bj78nibj78nibj78.webp',
 ];
 
 const containerVariants = {
@@ -91,7 +84,6 @@ export function FeaturesSection() {
             className="space-y-8 lg:space-y-24 relative z-10"
           >
           {content.steps.map((step, index) => {
-            const Icon = stepIcons[index];
             const image = stepImages[index];
             const isEven = index % 2 === 0;
 
@@ -120,7 +112,7 @@ export function FeaturesSection() {
                     <img
                       src={image}
                       alt={step.title}
-                      className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className={cn(
                       'absolute inset-0',
@@ -143,9 +135,6 @@ export function FeaturesSection() {
                   {/* Content side */}
                   <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
                     <div className="flex items-start gap-4">
-                      <div className="shrink-0 h-12 w-12 rounded-xl bg-signature/10 flex items-center justify-center border border-border">
-                        <Icon className="h-5 w-5 text-signature" />
-                      </div>
                       <div className="flex-1">
                         <div className="text-[12px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                           Step {String(index + 1).padStart(2, '0')}

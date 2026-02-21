@@ -94,6 +94,61 @@ export function AgentsSection() {
         </motion.div>
 
         <div ref={ref} className="space-y-16">
+          {/* Ozzi Supervisor Featured Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{ duration: 0.7 }}
+            className="rounded-2xl border border-border/80 bg-card overflow-hidden shadow-sm"
+          >
+            <div className="flex flex-col lg:flex-row min-h-[320px]">
+              {/* Video side */}
+              <div className="relative lg:w-2/5 bg-black flex items-center justify-center min-h-[240px] lg:min-h-0">
+                <video
+                  src="/images/ozzi-avatar.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controlsList="nodownload"
+                  disablePictureInPicture
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Content side */}
+              <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-semibold tracking-widest uppercase text-signature bg-signature/10 border border-signature/20">
+                    Team Supervisor
+                  </span>
+                </div>
+                <h3 className="text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
+                  Meet Ozzi — the one who runs the team.
+                </h3>
+                <p className="text-base text-muted-foreground leading-relaxed mb-8 font-light max-w-lg">
+                  Ozzi is your AI marketing supervisor. He coordinates every agent on your team — assigning tasks, reviewing outputs, catching errors, and making sure the work gets done. While your specialists handle execution, Ozzi handles oversight so you never have to.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6">
+                  {[
+                    { label: 'Delegates tasks', description: 'Assigns the right agent to every job' },
+                    { label: 'Reviews outputs', description: 'Quality checks before anything goes live' },
+                    { label: 'Runs 24/7', description: 'Never off the clock, never misses a beat' },
+                  ].map((item) => (
+                    <div key={item.label} className="flex flex-col gap-1">
+                      <div className="flex items-center gap-2">
+                        <div className="h-1.5 w-1.5 rounded-full bg-signature shrink-0" />
+                        <span className="text-[13px] font-semibold text-foreground">{item.label}</span>
+                      </div>
+                      <p className="text-[12px] text-muted-foreground pl-3.5">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Channel Agents */}
           <div>
             <div className="flex items-center gap-4 mb-8">

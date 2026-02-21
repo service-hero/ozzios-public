@@ -22,14 +22,15 @@ export function CTASection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative rounded-[2rem] sm:rounded-[3rem] bg-gradient-to-br from-[#FF7545] via-signature to-[#D83F0D] overflow-hidden"
         >
-          {/* Subtle wave background patterns */}
-          <div className="absolute inset-0 pointer-events-none opacity-20">
-            <svg className="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="white" className="opacity-10" />
-              <path d="M0,60 Q35,40 60,60 T100,60 L100,100 L0,100 Z" fill="white" className="opacity-10" />
-              <path d="M0,70 Q45,50 70,70 T100,70 L100,100 L0,100 Z" fill="white" className="opacity-10" />
-            </svg>
-          </div>
+          {/* Background image */}
+          <img
+            src="/images/Gemini_Generated_Image_2cfeqt2cfeqt2cfe.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            aria-hidden="true"
+          />
+          {/* Overlay to keep text readable */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FF7545]/70 via-signature/60 to-[#D83F0D]/70 pointer-events-none" />
           
           <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-24 md:py-32 flex flex-col items-center text-center max-w-4xl mx-auto">
             

@@ -209,9 +209,9 @@ export const audienceContent = {
       },
     ],
     cta: {
-      badge: '50 Free Credits',
+      badge: 'Early Access',
       headline: ['Fire your agency.', 'Hire your team.'],
-      subtext: 'Your first AI employee is free. No credit card. Start building a marketing team that actually works for you.',
+      subtext: 'Get early access today. No long-term contracts. Start building a marketing team that actually works for you.',
       primaryButton: 'Get Early Access',
       secondaryButton: 'See how it works',
     },
@@ -417,9 +417,9 @@ export const audienceContent = {
       },
     ],
     cta: {
-      badge: '50 Free Credits',
+      badge: 'Early Access',
       headline: ['Stop paying for humans', 'who leave.'],
-      subtext: 'Your first AI employee is free. No credit card. Start building a team that stays forever.',
+      subtext: 'Get early access today. No long-term contracts. Start building a team that stays forever.',
       primaryButton: 'Get Early Access',
       secondaryButton: 'Talk to sales',
     },

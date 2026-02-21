@@ -78,8 +78,8 @@ export function BentoSection() {
                   {/* Image side */}
                   <div className="relative lg:w-2/5 h-48 lg:h-auto">
                     <img
-                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop&auto=format"
-                      alt="Team collaboration"
+                      src="/images/Gemini_Generated_Image_1vp39x1vp39x1vp3.webp"
+                      alt="AI marketing team collaborating"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
@@ -257,8 +257,8 @@ export function BentoSection() {
                   {/* Image side */}
                   <div className="relative lg:w-2/5 h-48 lg:h-auto">
                     <img
-                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop&auto=format"
-                      alt="Analytics dashboard"
+                      src="/images/Gemini_Generated_Image_yam1khyam1khyam1.webp"
+                      alt="Automated marketing workflow"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
