@@ -1,5 +1,3 @@
-import type { SiriOrbState } from '@/shared/components/ui/smoothui/ui/SiriOrb';
-
 // Type for messages
 export type ChatMessage = {
   id: number;
@@ -24,27 +22,15 @@ export type ChatMessage = {
   reactions?: Array<{ emoji: string; count: number }>;
 };
 
-// Helper function to get orb state based on agent activity and message context
-export const getAgentOrbState = (message: ChatMessage, isStreaming?: boolean, isStreamingComplete?: boolean): SiriOrbState => {
-  if (message.typing || (isStreaming && !isStreamingComplete)) return 'thinking';
-  if (message.reactions && message.reactions.length > 0) {
-    return 'happy';
-  }
-  if (message.content.some(part => part.type === 'text' && typeof part.text === 'string' && part.text.includes('✅'))) {
-    return 'happy';
-  }
-  return 'idle';
-};
-
-// Helper function to map agent names to SiriOrb variants
-export const getAgentVariant = (agentName: string): string => {
-  const variantMap: Record<string, string> = {
-    'Data Analyst': 'tech',
-    'Graphic Designer': 'social',
-    'Content Writer': 'creative',
-    'SEO Specialist': 'seo',
+// Helper function to map agent names to Ozzi mp4 paths
+export const getAgentMp4 = (agentName: string): string => {
+  const mp4Map: Record<string, string> = {
+    'SEO Specialist': '/images/avatars/google-ozzi.mp4',
+    'Data Analyst': '/images/avatars/firecrawl-ozzi.mp4',
+    'Graphic Designer': '/images/avatars/openai-imagegen-ozzi.mp4',
+    'Content Writer': '/images/avatars/wordpress-ozzi.mp4',
   };
-  return variantMap[agentName] || 'default';
+  return mp4Map[agentName] || '/images/avatars/generic-ozzi-1.mp4';
 };
 
 export const sidebarChannels = [
@@ -56,19 +42,19 @@ export const sidebarChannels = [
 ];
 
 export const sidebarTeam = [
-  { name: 'Sarah Mitchell', isAgent: false, status: 'online', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&h=32&fit=crop&auto=format' },
-  { name: 'SEO Specialist', isAgent: true, status: 'online', variant: 'seo' },
-  { name: 'Data Analyst', isAgent: true, status: 'online', variant: 'tech' },
-  { name: 'Graphic Designer', isAgent: true, status: 'online', variant: 'social' },
-  { name: 'Content Writer', isAgent: true, status: 'online', variant: 'creative' },
+  { name: 'Jodi Elmore', isAgent: false, status: 'online', image: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png' },
+  { name: 'SEO Specialist', isAgent: true, status: 'online', mp4: '/images/avatars/google-ozzi.mp4' },
+  { name: 'Data Analyst', isAgent: true, status: 'online', mp4: '/images/avatars/firecrawl-ozzi.mp4' },
+  { name: 'Graphic Designer', isAgent: true, status: 'online', mp4: '/images/avatars/openai-imagegen-ozzi.mp4' },
+  { name: 'Content Writer', isAgent: true, status: 'online', mp4: '/images/avatars/wordpress-ozzi.mp4' },
 ];
 
 // SEO Campaign Messages
 export const seoMessages: ChatMessage[] = [
   {
     id: 1,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '9:15 AM',
     content: [
@@ -110,8 +96,8 @@ export const seoMessages: ChatMessage[] = [
   },
   {
     id: 4,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '9:17 AM',
     content: [
@@ -152,8 +138,8 @@ export const seoMessages: ChatMessage[] = [
   },
   {
     id: 7,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '9:19 AM',
     content: [
@@ -185,8 +171,8 @@ export const seoMessages: ChatMessage[] = [
 export const marketingMessages: ChatMessage[] = [
   {
     id: 1,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '10:42 AM',
     content: [
@@ -215,8 +201,8 @@ export const marketingMessages: ChatMessage[] = [
   },
   {
     id: 3,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '10:43 AM',
     content: [
@@ -255,8 +241,8 @@ export const marketingMessages: ChatMessage[] = [
   },
   {
     id: 6,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '10:44 AM',
     content: [
@@ -297,8 +283,8 @@ export const marketingMessages: ChatMessage[] = [
   },
   {
     id: 9,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '10:45 AM',
     content: [
@@ -344,8 +330,8 @@ export const marketingMessages: ChatMessage[] = [
 export const reportsMessages: ChatMessage[] = [
   {
     id: 1,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '2:30 PM',
     content: [
@@ -435,15 +421,15 @@ export const reportsMessages: ChatMessage[] = [
         { label: 'New Customers', value: '1,247', change: '+18%' },
         { label: 'CAC', value: '$9.87', change: '-15%' },
       ]},
-      { type: 'preview', url: 'https://report-acme-dec2024.e2b.dev', title: 'Acme Agency - December 2024 Report', description: 'Interactive performance dashboard with real-time analytics' },
+      { type: 'preview', url: 'https://report-acme-dec2024.e2b.dev', title: 'Service Hero - December 2024 Report', description: 'Interactive performance dashboard with real-time analytics' },
       { type: 'text', text: '⏱️ Time saved: ~40 hours of manual report building' },
     ],
     reactions: [{ emoji: '🤯', count: 5 }, { emoji: '🚀', count: 3 }, { emoji: '💰', count: 2 }],
   },
   {
     id: 8,
-    user: 'Sarah Mitchell',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&auto=format',
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
     time: '2:35 PM',
     content: [

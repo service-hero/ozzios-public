@@ -442,7 +442,7 @@ function HeroSection() {
                                 Product Launch 2025
                               </motion.div>
                               <span className="text-[10px] sm:text-xs text-white/50">
-                                Acme Agency
+                                Service Hero
                               </span>
                             </div>
                             {/* Caption overlay */}

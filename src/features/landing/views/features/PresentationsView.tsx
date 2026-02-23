@@ -172,7 +172,7 @@ function TitleSlideContent({ theme }: { theme: SlideTheme }) {
         transition={{ duration: 0.5, delay: 0.5 }}
         className={`text-xs sm:text-sm ${theme.primary} font-medium`}
       >
-        Acme Agency -- Annual Review 2025
+        Service Hero -- Annual Review 2025
       </motion.p>
       <motion.div
         initial={{ scaleX: 0 }}
@@ -348,7 +348,7 @@ function QuoteSlideContent({ theme }: { theme: SlideTheme }) {
         className="flex flex-col items-center gap-0.5"
       >
         <span className={`text-[10px] sm:text-xs font-semibold ${theme.primary}`}>Sarah Chen</span>
-        <span className="text-[9px] sm:text-[10px] text-muted-foreground">VP of Marketing, Acme Agency</span>
+        <span className="text-[9px] sm:text-[10px] text-muted-foreground">VP of Marketing, Service Hero</span>
       </motion.div>
     </div>
   );

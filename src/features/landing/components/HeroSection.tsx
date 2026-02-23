@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Hash, ChevronDown, Search, Settings, Users, Star, MessageSquare, FileText, StickyNote, Sparkles, CheckCircle2, Send, Menu, X, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
-import { SiriOrbAvatar } from '@/shared/components/ui/SiriOrbAvatar';
 import {
   type ChatMessage,
   channelMessages,
@@ -10,8 +9,7 @@ import {
   sidebarChannels,
   sidebarTeam,
   enterpriseLogos,
-  getAgentVariant,
-  getAgentOrbState,
+  getAgentMp4,
 } from './hero/chatData';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
@@ -441,11 +439,11 @@ export function HeroSection() {
                     {/* Workspace header */}
                     <div className="p-3 border-b border-border">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-signature flex items-center justify-center">
-                          <span className="text-[10px] font-bold text-white">AC</span>
+                        <div className="w-8 h-8 rounded-lg overflow-hidden">
+                          <img src="/images/service-hero-logo.jpg" alt="Service Hero" className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="text-[12px] font-semibold text-foreground truncate">Acme Agency</div>
+                          <div className="text-[12px] font-semibold text-foreground truncate">Service Hero</div>
                           <div className="flex items-center gap-1">
                             <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                             <span className="text-[10px] text-muted-foreground">Online</span>
@@ -501,13 +499,19 @@ export function HeroSection() {
                           >
                             <div className="relative">
                               {member.isAgent ? (
-                                <SiriOrbAvatar
-                                  size={20}
-                                  variant={getAgentVariant(member.name)}
-                                  orbState="idle"
-                                  disableFloating={true}
-                                  className="rounded-md"
-                                />
+                                <div className="w-5 h-5 rounded-md overflow-hidden">
+                                  <video
+                                    src={getAgentMp4(member.name)}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    controlsList="nodownload"
+                                    disablePictureInPicture
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
                               ) : (
                                 <img
                                   src={member.image}
@@ -558,13 +562,19 @@ export function HeroSection() {
                               style={{ zIndex: 3 - i }}
                             >
                               {member.isAgent ? (
-                                <SiriOrbAvatar
-                                  size={24}
-                                  variant={getAgentVariant(member.name)}
-                                  orbState="idle"
-                                  disableFloating={true}
-                                  className="rounded-full"
-                                />
+                                <div className="w-6 h-6 rounded-full overflow-hidden">
+                                  <video
+                                    src={getAgentMp4(member.name)}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    controlsList="nodownload"
+                                    disablePictureInPicture
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
                               ) : (
                                 <img src={member.image} alt="" className="w-6 h-6 rounded-full object-cover" />
                               )}
@@ -666,17 +676,19 @@ export function HeroSection() {
                               {/* Avatar */}
                               <div className="shrink-0">
                                 {message.isAgent ? (
-                                  <SiriOrbAvatar
-                                    size={28}
-                                    variant={getAgentVariant(message.user)}
-                                    orbState={getAgentOrbState(
-                                      message,
-                                      !streamingComplete[message.id] && Boolean(streamingText[message.id]),
-                                      streamingComplete[message.id]
-                                    )}
-                                    disableFloating={true}
-                                    className="rounded-lg sm:scale-125 origin-top-left"
-                                  />
+                                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg overflow-hidden">
+                                    <video
+                                      src={getAgentMp4(message.user)}
+                                      autoPlay
+                                      loop
+                                      muted
+                                      playsInline
+                                      controlsList="nodownload"
+                                      disablePictureInPicture
+                                      onContextMenu={(e) => e.preventDefault()}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
                                 ) : (
                                   <img
                                     src={message.avatar!}
@@ -963,10 +975,10 @@ export function HeroSection() {
                                               {/* Dashboard Header */}
                                               <div className="flex items-center justify-between mb-3">
                                                 <div className="flex items-center gap-2">
-                                                  <div className="w-5 h-5 rounded bg-signature flex items-center justify-center">
-                                                    <span className="text-[7px] font-bold text-white">A</span>
+                                                  <div className="w-5 h-5 rounded overflow-hidden">
+                                                    <img src="/images/service-hero-logo.jpg" alt="Service Hero" className="w-full h-full object-cover" />
                                                   </div>
-                                                  <span className="text-[9px] font-semibold text-foreground">Acme Agency Report</span>
+                                                  <span className="text-[9px] font-semibold text-foreground">Service Hero Report</span>
                                                 </div>
                                                 <div className="flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-green-100 border border-green-200">
                                                   <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
