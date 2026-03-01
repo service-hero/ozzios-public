@@ -19,10 +19,10 @@ const footerLinks = {
   resources: {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
+      { label: 'Documentation', href: 'https://app.ozzios.com/docs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Changelog', href: '/changelog' },
-      { label: 'API Reference', href: '/docs/api' },
+      { label: 'API Reference', href: 'https://app.ozzios.com/docs/api' },
     ],
   },
   company: {

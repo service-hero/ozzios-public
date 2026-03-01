@@ -118,7 +118,7 @@ const navItems: NavItem[] = [
         {
           title: 'Learn',
           items: [
-            { icon: BookOpen, label: 'Documentation', description: 'Guides and tutorials', href: '/docs' },
+            { icon: BookOpen, label: 'Documentation', description: 'Guides and tutorials', href: 'https://app.ozzios.com/docs' },
             { icon: FileText, label: 'Blog', description: 'Updates and insights', href: '/blog' },
           ],
         },

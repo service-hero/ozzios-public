@@ -49,7 +49,6 @@ import { Route as FeaturesChatWidgetRouteImport } from './routes/features/chat-w
 import { Route as FeaturesChannelsRouteImport } from './routes/features/channels'
 import { Route as FeaturesBlogSeoRouteImport } from './routes/features/blog-seo'
 import { Route as FeaturesAiAgentsRouteImport } from './routes/features/ai-agents'
-import { Route as DocsSplatRouteImport } from './routes/docs/$'
 import { Route as BlogPostIdRouteImport } from './routes/blog.$postId'
 
 const WaitlistBusinessRoute = WaitlistBusinessRouteImport.update({
@@ -254,11 +253,6 @@ const FeaturesAiAgentsRoute = FeaturesAiAgentsRouteImport.update({
   path: '/features/ai-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocsSplatRoute = DocsSplatRouteImport.update({
-  id: '/docs/$',
-  path: '/docs/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogPostIdRoute = BlogPostIdRouteImport.update({
   id: '/$postId',
   path: '/$postId',
@@ -281,7 +275,6 @@ export interface FileRoutesByFullPath {
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
-  '/docs/$': typeof DocsSplatRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
@@ -324,7 +317,6 @@ export interface FileRoutesByTo {
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
-  '/docs/$': typeof DocsSplatRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
@@ -369,7 +361,6 @@ export interface FileRoutesById {
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
   '/blog/$postId': typeof BlogPostIdRoute
-  '/docs/$': typeof DocsSplatRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
   '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
@@ -415,7 +406,6 @@ export interface FileRouteTypes {
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
-    | '/docs/$'
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
@@ -458,7 +448,6 @@ export interface FileRouteTypes {
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
-    | '/docs/$'
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
@@ -502,7 +491,6 @@ export interface FileRouteTypes {
     | '/waitlist'
     | '/waitlist-business'
     | '/blog/$postId'
-    | '/docs/$'
     | '/features/ai-agents'
     | '/features/blog-seo'
     | '/features/channels'
@@ -546,7 +534,6 @@ export interface RootRouteChildren {
   TosRoute: typeof TosRoute
   WaitlistRoute: typeof WaitlistRoute
   WaitlistBusinessRoute: typeof WaitlistBusinessRoute
-  DocsSplatRoute: typeof DocsSplatRoute
   FeaturesAiAgentsRoute: typeof FeaturesAiAgentsRoute
   FeaturesBlogSeoRoute: typeof FeaturesBlogSeoRoute
   FeaturesChannelsRoute: typeof FeaturesChannelsRoute
@@ -856,13 +843,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesAiAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docs/$': {
-      id: '/docs/$'
-      path: '/docs/$'
-      fullPath: '/docs/$'
-      preLoaderRoute: typeof DocsSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog/$postId': {
       id: '/blog/$postId'
       path: '/$postId'
@@ -900,7 +880,6 @@ const rootRouteChildren: RootRouteChildren = {
   TosRoute: TosRoute,
   WaitlistRoute: WaitlistRoute,
   WaitlistBusinessRoute: WaitlistBusinessRoute,
-  DocsSplatRoute: DocsSplatRoute,
   FeaturesAiAgentsRoute: FeaturesAiAgentsRoute,
   FeaturesBlogSeoRoute: FeaturesBlogSeoRoute,
   FeaturesChannelsRoute: FeaturesChannelsRoute,
@@ -930,12 +909,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
