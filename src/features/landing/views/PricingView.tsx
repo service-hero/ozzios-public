@@ -24,22 +24,38 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
+    name: 'Solo',
+    price: 197,
+    usage: '18.0M tokens/mo',
+    description: 'For solo operators',
+    features: [
+      { label: 'Up to 2 team members', description: 'Everything you need to run your business solo — with room for one extra hand when you need it.' },
+      { label: '2 workspaces', description: 'Separate your projects or brands into dedicated workspaces, each with its own settings.' },
+      { label: '18M monthly tokens', description: 'Enough AI capacity for a solo operator to automate content, scheduling, and daily marketing tasks.' },
+      { label: 'Social planner', description: 'Stay consistent on social without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
+      { label: 'Blog tools', description: 'Keep your blog active and SEO-friendly — without writing every post yourself.' },
+      { label: 'Email builder', description: 'Send professional emails that actually look good — without a designer.' },
+      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
+      { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
+    ],
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=solo',
+    recommended: false,
+  },
+  {
     name: 'Starter',
     price: 490,
-    usage: '30M ops/month',
-    description: 'Everything you need to replace your agency and run marketing on autopilot.',
+    usage: '45.0M tokens/mo',
+    description: 'Perfect for small teams',
     features: [
       { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: 'Workspace, channels & inbox', description: 'Stop juggling tabs. Every message, email, SMS, and lead comes into one place so nothing slips through the cracks.' },
-      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active — without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
-      { label: 'Email builder & campaigns', description: 'Send professional email campaigns that actually look good — without a designer. Track opens, clicks, and conversions so you know what\'s working.' },
-      { label: 'SMS campaigns', description: 'Reach your customers where they actually read messages. Text campaigns get far higher open rates than email alone.' },
+      { label: '5 workspaces', description: 'Run multiple brands or projects from one login — each fully separate with its own team and settings.' },
+      { label: '45M monthly tokens', description: 'Plenty of AI capacity for a small team running campaigns, workflows, and automations every day.' },
+      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
       { label: 'Forms builder', description: 'Capture leads from your website and automatically add them to your pipeline. No manual data entry, no leads falling through the cracks.' },
       { label: 'Documents & e-sign', description: 'Send proposals and contracts and get them signed without the back-and-forth. Automatic reminders follow up for you so deals don\'t stall.' },
       { label: 'Workflow builder', description: 'Set up automations once and let them run forever. Follow-ups, notifications, task assignments — all happen automatically while you focus on growing your business.' },
       { label: 'Advanced CRM', description: 'Know exactly where every lead and customer stands. See who\'s ready to buy, who needs a nudge, and how likely each deal is to close — all in one view.' },
-      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
-      { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up',
@@ -48,15 +64,15 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Professional',
     price: 990,
-    usage: '60M ops/month',
-    description: 'Everything you need to run marketing like a full-service agency.',
+    usage: '90.0M tokens/mo',
+    description: 'For growing agencies',
     features: [
-      { label: 'Everything in Starter', description: 'Includes every feature from the Starter plan.' },
       { label: 'Up to 15 team members', description: 'Room to grow your team without switching plans.' },
       { label: '10 workspaces', description: 'Run multiple brands, locations, or client accounts from one login — each fully separate with its own team and settings.' },
       { label: 'Client portal & chat widget', description: 'Give clients their own login to see progress, approve work, and ask questions — so they stop emailing you for updates. Add a chat widget to your site and capture leads automatically.' },
       { label: 'Portal AI agent', description: 'Your AI agent answers client questions 24/7 inside the portal — so clients feel taken care of even when you\'re not available.' },
-      { label: 'Huddles & video kit', description: 'Hop on a quick call with your team or record professional videos without needing extra software. Great for client updates, walkthroughs, and marketing content.' },
+      { label: 'Huddles', description: 'Hop on a quick call with your team without needing extra software. Great for client updates and walkthroughs.' },
+      { label: 'Video kit', description: 'Record professional videos for marketing content, client updates, and walkthroughs — no extra software needed.' },
       { label: 'Code sandbox', description: 'Ozzi can build custom dashboards, calculators, and interactive tools for your business — no developer needed.' },
       { label: 'Local rank', description: 'See exactly where you rank on Google Maps for the keywords that bring in local customers — and track whether your SEO efforts are actually moving the needle.' },
       { label: 'Advanced automation nodes', description: 'Build more sophisticated automations — run multiple workflows in parallel, loop through lists, or pause for human approval before taking action.' },
@@ -68,8 +84,8 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Business',
     price: 1995,
-    usage: '120M ops/month',
-    description: 'For growing businesses that need enterprise-level marketing power.',
+    usage: '180.0M tokens/mo',
+    description: 'For established agencies',
     features: [
       { label: 'Everything in Professional', description: 'Includes every feature from the Professional plan.' },
       { label: 'Up to 50 team members', description: 'Scale your operation without needing a new platform. Everyone on your team in one place.' },
@@ -90,58 +106,58 @@ const comparisonFeatures = [
   {
     category: 'Limits',
     features: [
-      { name: 'Team members', starter: '5', professional: '15', business: '50' },
-      { name: 'Workspaces', starter: '1', professional: '10', business: 'Unlimited' },
-      { name: 'Monthly AI usage', starter: '30M', professional: '60M', business: '120M' },
+      { name: 'Team members', solo: '2', starter: '5', professional: '15', business: '50' },
+      { name: 'Workspaces', solo: '2', starter: '5', professional: '10', business: 'Unlimited' },
+      { name: 'Monthly AI tokens', solo: '18M', starter: '45M', professional: '90M', business: '180M' },
     ],
   },
   {
     category: 'Core',
     features: [
-      { name: 'Workspace, channels & inbox', starter: true, professional: true, business: true },
-      { name: 'Tasks', starter: true, professional: true, business: true },
-      { name: 'Social planner', starter: true, professional: true, business: true },
-      { name: 'Blog tools', starter: true, professional: true, business: true },
-      { name: 'Email builder', starter: true, professional: true, business: true },
-      { name: 'All integrations', starter: true, professional: true, business: true },
+      { name: 'Workspace, channels & inbox', solo: true, starter: true, professional: true, business: true },
+      { name: 'Tasks', solo: true, starter: true, professional: true, business: true },
+      { name: 'Social planner', solo: true, starter: true, professional: true, business: true },
+      { name: 'Blog tools', solo: true, starter: true, professional: true, business: true },
+      { name: 'Email builder', solo: true, starter: true, professional: true, business: true },
+      { name: 'All integrations', solo: true, starter: true, professional: true, business: true },
     ],
   },
   {
     category: 'Starter',
     features: [
-      { name: 'Email/SMS campaigns', starter: true, professional: true, business: true },
-      { name: 'Forms builder', starter: true, professional: true, business: true },
-      { name: 'Documents & e-sign', starter: true, professional: true, business: true },
-      { name: 'Workflow builder', starter: true, professional: true, business: true },
-      { name: 'Advanced CRM', starter: true, professional: true, business: true },
+      { name: 'Email/SMS campaigns', solo: false, starter: true, professional: true, business: true },
+      { name: 'Forms builder', solo: false, starter: true, professional: true, business: true },
+      { name: 'Documents & e-sign', solo: false, starter: true, professional: true, business: true },
+      { name: 'Workflow builder', solo: false, starter: true, professional: true, business: true },
+      { name: 'Advanced CRM', solo: false, starter: true, professional: true, business: true },
     ],
   },
   {
     category: 'Professional',
     features: [
-      { name: 'Client portal & chat widget', starter: false, professional: true, business: true },
-      { name: 'Portal AI agent', starter: false, professional: true, business: true },
-      { name: 'Huddles', starter: false, professional: true, business: true },
-      { name: 'Video kit', starter: false, professional: true, business: true },
-      { name: 'Code sandbox', starter: false, professional: true, business: true },
-      { name: 'Local rank', starter: false, professional: true, business: true },
-      { name: 'Advanced automation nodes', starter: false, professional: true, business: true },
+      { name: 'Client portal & chat widget', solo: false, starter: false, professional: true, business: true },
+      { name: 'Portal AI agent', solo: false, starter: false, professional: true, business: true },
+      { name: 'Huddles', solo: false, starter: false, professional: true, business: true },
+      { name: 'Video kit', solo: false, starter: false, professional: true, business: true },
+      { name: 'Code sandbox', solo: false, starter: false, professional: true, business: true },
+      { name: 'Local rank', solo: false, starter: false, professional: true, business: true },
+      { name: 'Advanced automation nodes', solo: false, starter: false, professional: true, business: true },
     ],
   },
   {
     category: 'Business',
     features: [
-      { name: 'Call center & voice ops', starter: false, professional: false, business: true },
-      { name: 'Outbound call tooling', starter: false, professional: false, business: true },
-      { name: 'High-volume operations', starter: false, professional: false, business: true },
+      { name: 'Call center & voice ops', solo: false, starter: false, professional: false, business: true },
+      { name: 'Outbound call tooling', solo: false, starter: false, professional: false, business: true },
+      { name: 'High-volume operations', solo: false, starter: false, professional: false, business: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', starter: true, professional: true, business: true },
-      { name: 'Dedicated success manager', starter: false, professional: false, business: true },
-      { name: 'SLA & phone support', starter: false, professional: false, business: true },
+      { name: 'Email support', solo: true, starter: true, professional: true, business: true },
+      { name: 'Dedicated success manager', solo: false, starter: false, professional: false, business: true },
+      { name: 'SLA & phone support', solo: false, starter: false, professional: false, business: true },
     ],
   },
 ];
@@ -277,7 +293,7 @@ function PricingCards() {
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8" ref={ref}>
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -304,10 +320,11 @@ function PricingCards() {
                 <h3 className="text-lg font-semibold text-black">
                   {tier.name}
                 </h3>
+                <p className="text-sm text-gray-500">{tier.description}</p>
               </div>
 
               {/* Price */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-black tracking-tight">
                     {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
@@ -316,7 +333,13 @@ function PricingCards() {
                     <span className="text-sm text-gray-400">/mo</span>
                   )}
                 </div>
-                <p className="text-sm text-gray-500 mt-1">{tier.usage}</p>
+              </div>
+
+              {/* Token badge */}
+              <div className="mb-6">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">
+                  {tier.usage}
+                </span>
               </div>
 
               {/* Features */}
@@ -406,20 +429,23 @@ function ComparisonTable() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="overflow-x-auto"
         >
-          <table className="w-full min-w-[500px]">
+          <table className="w-full min-w-[600px]">
             {/* Header */}
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[40%]">
+                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[32%]">
                   Features
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
+                  Solo
+                </th>
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
                   Starter
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[20%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[17%]">
                   Professional
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
                   Business
                 </th>
               </tr>
@@ -429,7 +455,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={4}
+                      colSpan={5}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -442,6 +468,9 @@ function ComparisonTable() {
                     >
                       <td className="py-3.5 pr-4 text-sm text-gray-700">
                         {feature.name}
+                      </td>
+                      <td className="py-3.5 px-3 text-center">
+                        <FeatureValue value={(feature as Record<string, boolean | string>).solo} />
                       </td>
                       <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={feature.starter} />

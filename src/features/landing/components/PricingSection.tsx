@@ -14,6 +14,7 @@ interface PricingTier {
   name: string;
   price: number;
   usage: string;
+  description?: string;
   features: PricingFeature[];
   cta: string;
   href: string;
@@ -22,21 +23,38 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
+    name: 'Solo',
+    price: 197,
+    usage: '18.0M tokens/mo',
+    description: 'For solo operators',
+    features: [
+      { label: 'Up to 2 team members', description: 'Everything you need to run your business solo — with room for one extra hand when you need it.' },
+      { label: '2 workspaces', description: 'Separate your projects or brands into dedicated workspaces, each with its own settings.' },
+      { label: '18M monthly tokens', description: 'Enough AI capacity for a solo operator to automate content, scheduling, and daily marketing tasks.' },
+      { label: 'Social planner', description: 'Stay consistent on social without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
+      { label: 'Blog tools', description: 'Keep your blog active and SEO-friendly — without writing every post yourself.' },
+      { label: 'Email builder', description: 'Send professional emails that actually look good — without a designer.' },
+      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
+      { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
+    ],
+    cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=solo',
+    recommended: false,
+  },
+  {
     name: 'Starter',
     price: 490,
-    usage: '30M ops/month',
+    usage: '45.0M tokens/mo',
+    description: 'Perfect for small teams',
     features: [
       { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: 'Workspace, channels & inbox', description: 'Stop juggling tabs. Every message, email, SMS, and lead comes into one place so nothing slips through the cracks.' },
-      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active — without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
-      { label: 'Email builder & campaigns', description: 'Send professional email campaigns that actually look good — without a designer. Track opens, clicks, and conversions so you know what\'s working.' },
-      { label: 'SMS campaigns', description: 'Reach your customers where they actually read messages. Text campaigns get far higher open rates than email alone.' },
+      { label: '5 workspaces', description: 'Run multiple brands or projects from one login — each fully separate with its own team and settings.' },
+      { label: '45M monthly tokens', description: 'Plenty of AI capacity for a small team running campaigns, workflows, and automations every day.' },
+      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
       { label: 'Forms builder', description: 'Capture leads from your website and automatically add them to your pipeline. No manual data entry, no leads falling through the cracks.' },
       { label: 'Documents & e-sign', description: 'Send proposals and contracts and get them signed without the back-and-forth. Automatic reminders follow up for you so deals don\'t stall.' },
       { label: 'Workflow builder', description: 'Set up automations once and let them run forever. Follow-ups, notifications, task assignments — all happen automatically while you focus on growing your business.' },
       { label: 'Advanced CRM', description: 'Know exactly where every lead and customer stands. See who\'s ready to buy, who needs a nudge, and how likely each deal is to close — all in one view.' },
-      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
-      { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
     cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up',
@@ -45,14 +63,15 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Professional',
     price: 990,
-    usage: '60M ops/month',
+    usage: '90.0M tokens/mo',
+    description: 'For growing agencies',
     features: [
-      { label: 'Everything in Starter', description: 'Includes every feature from the Starter plan.' },
       { label: 'Up to 15 team members', description: 'Room to grow your team without switching plans.' },
       { label: '10 workspaces', description: 'Run multiple brands, locations, or client accounts from one login — each fully separate with its own team and settings.' },
       { label: 'Client portal & chat widget', description: 'Give clients their own login to see progress, approve work, and ask questions — so they stop emailing you for updates. Add a chat widget to your site and capture leads automatically.' },
       { label: 'Portal AI agent', description: 'Your AI agent answers client questions 24/7 inside the portal — so clients feel taken care of even when you\'re not available.' },
-      { label: 'Huddles & video kit', description: 'Hop on a quick call with your team or record professional videos without needing extra software. Great for client updates, walkthroughs, and marketing content.' },
+      { label: 'Huddles', description: 'Hop on a quick call with your team without needing extra software. Great for client updates and walkthroughs.' },
+      { label: 'Video kit', description: 'Record professional videos for marketing content, client updates, and walkthroughs — no extra software needed.' },
       { label: 'Code sandbox', description: 'Ozzi can build custom dashboards, calculators, and interactive tools for your business — no developer needed.' },
       { label: 'Local rank', description: 'See exactly where you rank on Google Maps for the keywords that bring in local customers — and track whether your SEO efforts are actually moving the needle.' },
       { label: 'Advanced automation nodes', description: 'Build more sophisticated automations — run multiple workflows in parallel, loop through lists, or pause for human approval before taking action.' },
@@ -64,7 +83,8 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Business',
     price: 1995,
-    usage: '120M ops/month',
+    usage: '180.0M tokens/mo',
+    description: 'For established agencies',
     features: [
       { label: 'Everything in Professional', description: 'Includes every feature from the Professional plan.' },
       { label: 'Up to 50 team members', description: 'Scale your operation without needing a new platform. Everyone on your team in one place.' },
@@ -112,7 +132,7 @@ export function PricingSection() {
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -139,10 +159,13 @@ export function PricingSection() {
                 <h3 className="text-lg font-semibold text-foreground">
                   {tier.name}
                 </h3>
+                {tier.description && (
+                  <p className="text-sm text-muted-foreground">{tier.description}</p>
+                )}
               </div>
 
               {/* Price */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-foreground tracking-tight">
                     {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
@@ -151,7 +174,13 @@ export function PricingSection() {
                     <span className="text-sm text-muted-foreground">/mo</span>
                   )}
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">{tier.usage}</p>
+              </div>
+
+              {/* Token badge */}
+              <div className="mb-6">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground border border-border">
+                  {tier.usage}
+                </span>
               </div>
 
               {/* Features */}
