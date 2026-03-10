@@ -92,7 +92,7 @@ const securitySections: SecuritySection[] = [
     icon: <FileCheck className="w-7 h-7 text-signature" />,
     title: 'Compliance & Privacy',
     description:
-      'We take a privacy-first approach to data handling. Your client data belongs to you. We process it only as instructed and never sell or share it with third parties.',
+      'We take a privacy-first approach to data handling. Your customer data belongs to you. We process it only as instructed and never sell or share it with third parties.',
     practices: [
       'GDPR-compliant data processing agreements',
       'Right to data portability and deletion',
@@ -108,7 +108,7 @@ const securitySections: SecuritySection[] = [
     practices: [
       'Agent actions scoped to workspace permissions',
       'Full tool call logging with execution traces',
-      'No training on customer data — your data stays yours',
+      'No training on your data — your data stays yours',
       'Human-in-the-loop controls for sensitive operations',
     ],
   },
@@ -215,7 +215,7 @@ export function SecurityView() {
                 <span className="text-signature">OzziOS</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Your agency handles sensitive client data. We built OzziOS with security
+                Your business handles sensitive customer data. We built OzziOS with security
                 as a foundation, not an afterthought. Every layer of the platform is
                 designed to keep your data safe.
               </p>

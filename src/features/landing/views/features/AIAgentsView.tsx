@@ -27,34 +27,34 @@ const painPoints = [
     icon: Users,
     title: 'Turnover is killing you',
     description:
-      'You spend months training a specialist, they leave, and their client knowledge walks out the door with them. You start from scratch. Again.',
+      'You spend months training a technician, they leave, and their job knowledge walks out the door with them. You start from scratch. Again.',
   },
   {
     icon: Clock,
     title: 'You can\'t scale without hiring',
     description:
-      'Every new client means another hire, another salary, another desk. Your margins shrink as you grow. The math never works.',
+      'Every new job means another hire, another salary, another truck. Your margins shrink as you grow. The math never works.',
   },
   {
     icon: BarChart3,
     title: 'Work disappears into a black box',
     description:
-      'You\'re paying $5K-$15K per month for marketing and you can\'t see what\'s being done. Reports show results but never the work behind them.',
+      'You\'re paying for office staff, dispatchers, and managers but can\'t see what\'s being done. Reports show numbers but never the work behind them.',
   },
   {
     icon: MessageSquare,
     title: 'Context gets lost between handoffs',
     description:
-      'Your SEO specialist doesn\'t talk to your social media manager. Your content writer doesn\'t know what campaigns are running. Silos everywhere.',
+      'Your dispatcher doesn\'t talk to your bookkeeper. Your field techs don\'t know what\'s been promised to the customer. Silos everywhere.',
   },
 ];
 
 const agents = [
   { name: 'Ozzi', role: 'Supervisor', description: 'Delegates, prioritizes, orchestrates. Your AI chief of staff.' },
-  { name: 'SEO Specialist', role: 'Search', description: 'Technical audits, keyword research, content optimization.' },
-  { name: 'Content Writer', role: 'Content', description: 'Blog posts, landing pages, email copy. On-brand, always.' },
+  { name: 'SEO Specialist', role: 'Search', description: 'Local SEO, keyword research, Google Business Profile optimization.' },
+  { name: 'Content Writer', role: 'Content', description: 'Blog posts, service pages, email copy. On-brand, always.' },
   { name: 'Social Media Manager', role: 'Social', description: 'Scheduling, engagement, trend analysis across platforms.' },
-  { name: 'Data Analyst', role: 'Analytics', description: 'Campaign performance, ROI tracking, actionable insights.' },
+  { name: 'Data Analyst', role: 'Analytics', description: 'Business performance, ROI tracking, actionable insights.' },
   { name: 'Email Specialist', role: 'Email', description: 'Campaigns, sequences, A/B testing, deliverability.' },
   { name: 'Ad Manager', role: 'Paid Media', description: 'Google Ads, Meta Ads, budget optimization, ROAS.' },
   { name: 'CRM Manager', role: 'CRM', description: 'Lead scoring, pipeline management, contact enrichment.' },
@@ -70,7 +70,7 @@ const capabilities = [
   {
     icon: Brain,
     title: '7-layer memory system',
-    benefit: 'Never lose client knowledge again',
+    benefit: 'Never lose customer knowledge again',
     description:
       'Every conversation, every preference, every piece of context is stored across 7 memory layers. Your AI team remembers everything, forever.',
   },
@@ -79,14 +79,14 @@ const capabilities = [
     title: '127+ native tools',
     benefit: 'One team, every channel',
     description:
-      'From writing blog posts to managing ad campaigns to answering phone calls. 127 built-in tools plus 35+ integrations. No switching between platforms.',
+      'From answering phone calls to managing ad campaigns to scheduling appointments. 127 built-in tools plus 35+ integrations. No switching between platforms.',
   },
   {
     icon: GitBranch,
     title: 'Parallel delegation',
     benefit: 'Work that happens simultaneously',
     description:
-      'Ozzi breaks complex tasks into sub-tasks and delegates to up to 5 specialists at once. A content audit, keyword analysis, and competitive review all run in parallel.',
+      'Ozzi breaks complex tasks into sub-tasks and delegates to up to 5 specialists at once. A review response, follow-up email, and estimate generation all run in parallel.',
   },
   {
     icon: Eye,
@@ -100,7 +100,7 @@ const capabilities = [
     title: 'Human-in-the-loop controls',
     benefit: 'You stay in control',
     description:
-      'Configure approval requirements for sensitive actions. Agents ask before publishing, spending budget, or contacting clients.',
+      'Configure approval requirements for sensitive actions. Agents ask before publishing, spending budget, or contacting customers.',
   },
   {
     icon: Sparkles,
@@ -112,7 +112,7 @@ const capabilities = [
 ];
 
 const differentiators = [
-  { label: 'Traditional Agency', items: ['$5K-15K/month', '9-5 availability', '2-4 week onboarding', 'Staff turnover', 'Opaque reporting'] },
+  { label: 'Traditional Staffing', items: ['$5K-15K/month per employee', '9-5 availability', '2-4 week onboarding', 'Staff turnover', 'No visibility into output'] },
   { label: 'OzziOS AI Team', items: ['Fraction of the cost', '24/7/365 availability', 'Instant deployment', '0% turnover', 'Full transparency'], highlight: true },
 ];
 
@@ -159,7 +159,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
               An unlimited AI workforce that works 24/7, remembers everything, and shows you
-              every action they take. Your entire marketing department, for a fraction of the cost.
+              every action they take. Your entire back office, for a fraction of the cost.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
@@ -214,10 +214,10 @@ function PainPointsSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">The Problem</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Marketing teams are broken
+            Running a service business is broken
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            The agency model hasn't changed in 30 years. It's expensive, opaque, and fragile.
+            The way home service companies operate hasn't changed in 30 years. It's expensive, manual, and fragile.
           </p>
         </motion.div>
 
@@ -268,7 +268,7 @@ function AgentShowcaseSection() {
             30+ specialists. Zero drama.
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Each agent is purpose-built for a specific marketing function. They collaborate, share
+            Each agent is purpose-built for a specific business function. They collaborate, share
             context, and never compete for credit.
           </p>
         </motion.div>

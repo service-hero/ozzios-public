@@ -46,13 +46,13 @@ const painPoints = [
     icon: Layers,
     title: 'Too many tools, zero context',
     description:
-      'Your team juggles Slack, email, and 5 other apps. Client context gets lost between tools, and nobody knows where the latest conversation lives.',
+      'Your team juggles Slack, email, and 5 other apps. Customer context gets lost between tools, and nobody knows where the latest conversation lives.',
   },
   {
     icon: Users,
-    title: 'Clients stuck in email threads',
+    title: 'Customers stuck in email threads',
     description:
-      'Client communication buried in endless email chains. No visibility for your team, no real-time updates, and critical approvals take days instead of minutes.',
+      'Customer communication buried in endless email chains. No visibility for your team, no real-time updates, and critical approvals take days instead of minutes.',
   },
   {
     icon: Bot,
@@ -64,7 +64,7 @@ const painPoints = [
     icon: Search,
     title: 'Impossible to find anything',
     description:
-      'Search across 6 different platforms to find one client conversation. Onboarding new team members takes weeks because knowledge is scattered everywhere.',
+      'Search across 6 different platforms to find one customer conversation. Onboarding new team members takes weeks because knowledge is scattered everywhere.',
   },
 ];
 
@@ -73,7 +73,7 @@ const capabilities = [
     icon: Hash,
     title: 'Organized channel hierarchy',
     description:
-      'Sections, parent channels, and sub-channels keep every project organized. Public, private, and portal channels for every use case.',
+      'Sections, parent channels, and sub-channels keep every project organized. Public and private channels for every use case.',
   },
   {
     icon: Bot,
@@ -83,9 +83,9 @@ const capabilities = [
   },
   {
     icon: Globe,
-    title: 'Client portal channels',
+    title: 'Customer-facing channels',
     description:
-      'Give clients their own channels with controlled access. Real-time messaging replaces email threads. Approvals happen in minutes, not days.',
+      'Give customers their own channels with controlled access. Real-time messaging replaces email threads. Approvals happen in minutes, not days.',
   },
   {
     icon: MessageSquare,
@@ -131,11 +131,11 @@ function HeroSection() {
             </div>
             <h1 className="text-display font-display text-foreground mb-6">
               One hub for your team,{' '}
-              <span className="text-signature">clients, and AI</span>
+              <span className="text-signature">customers, and AI</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Stop juggling Slack, email, and 5 other tools. OzziOS Channels brings your
-              team, clients, and AI agents into one real-time workspace -- with full
+              team, customers, and AI agents into one real-time workspace -- with full
               context on every conversation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -246,8 +246,8 @@ function SolutionSection() {
             <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
               <p>
                 OzziOS Channels replaces your scattered communication stack with a single,
-                organized hub. Your team collaborates in channels. Your clients communicate
-                through portals. Your AI agents participate in real-time.
+                organized hub. Your team collaborates in channels. Your customers communicate
+                through dedicated channels. Your AI agents participate in real-time.
               </p>
               <p>
                 Every message, file, and conversation is searchable and contextual.
@@ -294,9 +294,9 @@ function SolutionSection() {
                     <Globe className="w-5 h-5 text-electric" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">#client-acme-portal</h3>
+                    <h3 className="font-semibold text-foreground mb-1">#customer-johnson</h3>
                     <p className="text-sm text-muted-foreground">
-                      Client approves campaign assets in real-time. No more email chains -- just instant, contextual communication.
+                      Customer approves job details in real-time. No more email chains -- just instant, contextual communication.
                     </p>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ function SolutionSection() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">AI Agent Response</h3>
                     <p className="text-sm text-muted-foreground">
-                      "I've analyzed the campaign metrics. CTR is up 23% this week. I've updated the report and pinned it to the channel."
+                      "I've analyzed this week's job completions. Revenue is up 23% this week. I've updated the report and pinned it to the channel."
                     </p>
                   </div>
                 </div>
@@ -336,10 +336,10 @@ function CapabilitiesSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Capabilities</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Built for how agencies actually work
+            Built for how service businesses actually work
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Every feature designed to eliminate the friction between your team, your clients, and your AI workforce.
+            Every feature designed to eliminate the friction between your team, your customers, and your AI workforce.
           </p>
         </motion.div>
 
@@ -386,8 +386,8 @@ function DifferentiatorSection() {
       others: 'Separate AI dashboard, no team integration',
     },
     {
-      category: 'Client communication',
-      ozzios: 'Dedicated portal channels with controlled access',
+      category: 'Customer communication',
+      ozzios: 'Dedicated customer channels with controlled access',
       others: 'Shared Slack channels or email forwarding',
     },
     {
@@ -417,7 +417,7 @@ function DifferentiatorSection() {
             Not just another chat tool
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            The only workspace where your team, clients, and AI agents communicate in one place.
+            The only workspace where your team, customers, and AI agents communicate in one place.
           </p>
         </motion.div>
 
@@ -474,7 +474,7 @@ function CTASection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
             Unify your team.
             <br />
-            <span className="text-foreground">Unify your clients.</span>
+            <span className="text-foreground">Unify your customers.</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Replace your scattered communication tools with one intelligent workspace.

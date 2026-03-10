@@ -65,7 +65,7 @@ const comparisonRows = [
     label: 'Technical Skill',
     icon: Code,
     openclaw: 'Developers and technical users. Requires command line and server management.',
-    ozzios: 'Built for business owners and agencies. No code required.',
+    ozzios: 'Built for business owners and home service companies. No code required.',
     openclawShort: 'Developer required',
     ozziosShort: 'No code needed',
   },
@@ -111,7 +111,7 @@ export function ComparisonSection() {
               <span className="text-muted-foreground/80">vs. your AI team</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              OpenClaw is a powerful open-source tool for developers. OzziOS is a complete AI marketing team for businesses. Different tools, different jobs.
+              OpenClaw is a powerful open-source tool for developers. OzziOS is a complete AI team for home service businesses. Different tools, different jobs.
             </p>
           </motion.div>
 
@@ -182,7 +182,7 @@ export function ComparisonSection() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-foreground">OzziOS</h3>
-                    <p className="text-xs text-muted-foreground">Your AI marketing team</p>
+                    <p className="text-xs text-muted-foreground">Your AI business team</p>
                   </div>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export function ComparisonSection() {
                     Both are great. Pick the right one.
                   </h3>
                   <p className="text-sm text-muted-foreground font-light max-w-xl leading-relaxed">
-                    If you're a developer who wants full control and loves tinkering — OpenClaw is fantastic. If you want a marketing team that works out of the box without managing infrastructure — that's OzziOS.
+                    If you're a developer who wants full control and loves tinkering — OpenClaw is fantastic. If you want an AI team that works out of the box without managing infrastructure — that's OzziOS.
                   </p>
                 </div>
               </div>

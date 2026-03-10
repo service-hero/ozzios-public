@@ -1145,7 +1145,7 @@ export function HeroSection() {
                           { label: 'Monthly report', icon: '📊', prompt: '@Data Analyst generate a full monthly performance report' },
                           { label: 'ROI analysis', icon: '💰', prompt: '@Data Analyst create an ROI breakdown report by channel' },
                           { label: 'Competitor report', icon: '🎯', prompt: '@Data Analyst generate a competitor analysis report' },
-                          { label: 'Client dashboard', icon: '📈', prompt: '@Data Analyst build an interactive client dashboard' },
+                          { label: 'Customer dashboard', icon: '📈', prompt: '@Data Analyst build an interactive customer performance dashboard' },
                         ] : [
                           { label: 'Check ad performance', icon: '📈', prompt: '@Data Analyst pull our Facebook Ads metrics for this week' },
                           { label: 'Generate video ads', icon: '🎬', prompt: '@Graphic Designer create 3 new video ads for retargeting' },
@@ -1186,7 +1186,7 @@ export function HeroSection() {
             className="mt-20 w-full"
           >
             <p className="text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.25em] mb-10">
-              Trusted by leading {isBusinessOwner ? 'businesses' : 'agencies'} worldwide
+              Trusted by leading {isBusinessOwner ? 'businesses' : 'companies'} worldwide
             </p>
 
             {/* Logo marquee */}

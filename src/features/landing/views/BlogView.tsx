@@ -10,14 +10,14 @@ const categories = [
   { id: 'all', label: 'All Posts' },
   { id: 'ai', label: 'AI & Automation' },
   { id: 'marketing', label: 'Marketing' },
-  { id: 'agency', label: 'Agency Growth' },
+  { id: 'growth', label: 'Business Growth' },
   { id: 'product', label: 'Product Updates' },
 ];
 
 const featuredPost = {
-  id: 'future-of-agency-work',
-  title: 'The Future of Agency Work: Why AI Employees Are Inevitable',
-  excerpt: 'The agency model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
+  id: 'future-of-home-service-work',
+  title: 'The Future of Home Service Businesses: Why AI Employees Are Inevitable',
+  excerpt: 'The traditional service business model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
   category: 'ai',
   author: {
     name: 'Garrett Elmore',
@@ -32,10 +32,10 @@ const featuredPost = {
 
 const blogPosts = [
   {
-    id: '22-ai-agents-replace-agency',
-    title: 'I Run a Marketing Agency. Here\'s Why I Built 22 AI Agents to Replace It.',
-    excerpt: '$4,500/month. That\'s the average retainer small businesses pay a marketing agency. After years of watching clients wait days for deliverables AI could produce in minutes, I stopped pretending the model wasn\'t broken.',
-    category: 'agency',
+    id: '22-ai-agents-home-service',
+    title: 'I Run a Home Service Company. Here\'s Why I Built 22 AI Agents to Run the Back Office.',
+    excerpt: '$4,500/month. That\'s the average overhead small home service businesses spend on marketing and admin. After years of watching jobs slip through the cracks while teams struggled to keep up, I stopped pretending the model wasn\'t broken.',
+    category: 'growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
@@ -47,7 +47,7 @@ const blogPosts = [
   {
     id: 'gohighlevel-integration',
     title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
-    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
+    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire business operations—all without leaving the platform.',
     category: 'product',
     author: {
       name: 'Garrett Elmore',
@@ -59,7 +59,7 @@ const blogPosts = [
   },
   {
     id: 'replace-8-tools',
-    title: 'How We Replaced 8 Marketing Tools with One Platform',
+    title: 'How We Replaced 8 Business Tools with One Platform',
     excerpt: 'Mailchimp, Hootsuite, SEMrush, Asana—we cancelled them all. Here\'s how consolidation saved us $2,400/month.',
     category: 'product',
     author: {
@@ -85,9 +85,9 @@ const blogPosts = [
   },
   {
     id: 'scaling-without-hiring',
-    title: 'Scaling Your Agency Without Adding Headcount',
+    title: 'Scaling Your Service Business Without Adding Headcount',
     excerpt: 'We grew from $50K to $200K MRR with the same team size. The secret? AI employees that work 24/7.',
-    category: 'agency',
+    category: 'growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
@@ -110,9 +110,9 @@ const blogPosts = [
     date: 'Dec 10, 2024',
   },
   {
-    id: 'client-reporting-automation',
-    title: 'Automated Client Reports That Actually Impress',
-    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards clients can explore themselves.',
+    id: 'customer-reporting-automation',
+    title: 'Automated Customer Reports That Actually Impress',
+    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards customers can explore themselves.',
     category: 'product',
     author: {
       name: 'Garrett Elmore',
@@ -123,10 +123,10 @@ const blogPosts = [
     date: 'Dec 5, 2024',
   },
   {
-    id: 'goodbye-agency-retainers',
-    title: 'Why We Fired Our Marketing Agency (And Never Looked Back)',
+    id: 'goodbye-overhead',
+    title: 'Why We Stopped Outsourcing Our Marketing (And Never Looked Back)',
     excerpt: '$8K/month for work we couldn\'t see. Now we own the AI—full transparency, better results, fraction of the cost.',
-    category: 'agency',
+    category: 'growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
@@ -190,10 +190,10 @@ export function BlogView() {
               </div>
               <h1 className="text-display font-display text-foreground mb-6">
                 Insights for the{' '}
-                <span className="text-signature">AI-first agency</span>
+                <span className="text-signature">AI-first service business</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Strategies, case studies, and product updates to help you build an agency that scales without the headcount.
+                Strategies, case studies, and product updates to help you build a service business that scales without the headcount.
               </p>
             </motion.div>
 
@@ -413,7 +413,7 @@ export function BlogView() {
               Get insights delivered
             </h3>
             <p className="text-[15px] text-muted-foreground mb-8">
-              Weekly strategies for building an AI-first agency. No spam, unsubscribe anytime.
+              Weekly strategies for building an AI-first service business. No spam, unsubscribe anytime.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -428,7 +428,7 @@ export function BlogView() {
             </div>
 
             <p className="mt-4 text-[12px] text-muted-foreground">
-              Join 2,000+ agency owners already subscribed
+              Join 2,000+ service business owners already subscribed
             </p>
           </motion.div>
         </div>

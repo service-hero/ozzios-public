@@ -5,9 +5,6 @@ import { LazySection } from '@/components/ui/lazy-section';
 const BentoSection = lazy(() =>
   import('../components/BentoSection').then((m) => ({ default: m.BentoSection })),
 );
-const ComparisonSection = lazy(() =>
-  import('../components/ComparisonSection').then((m) => ({ default: m.ComparisonSection })),
-);
 const FeaturesShowcaseSection = lazy(() =>
   import('../components/FeaturesShowcaseSection').then((m) => ({
     default: m.FeaturesShowcaseSection,
@@ -52,7 +49,6 @@ export function LandingHomeView() {
     <>
       <HeroSection />
       <LazySection component={BentoSection} />
-      <LazySection component={ComparisonSection} />
       <LazySection component={FeaturesShowcaseSection} />
       <LazySection component={SavingsCalculatorSection} />
       <LazySection component={FeaturesSection} />

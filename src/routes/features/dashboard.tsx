@@ -8,7 +8,7 @@ export const Route = createFileRoute('/features/dashboard')({
     createPageHead({
       title: 'Dashboard',
       description:
-        'Real-time marketing dashboard. Track agent activity, campaign metrics, and system health in a customizable layout.',
+        'Real-time business dashboard. Track agent activity, job metrics, and system health in a customizable layout.',
       path: '/features/dashboard',
     }),
   component: DashboardPage,

@@ -52,13 +52,13 @@ const painPoints = [
     icon: Repeat,
     title: 'Turnover drains your team',
     description:
-      'You spend 3 months training a specialist, they leave for a better offer, and their client knowledge walks out the door. You are always in hiring mode.',
+      'You spend 3 months training a technician, they leave for a better offer, and their customer knowledge walks out the door. You are always in hiring mode.',
   },
   {
     icon: AlertTriangle,
     title: 'Your team is stretched too thin',
     description:
-      'Five people doing the work of fifteen. Everyone is juggling too many clients, cutting corners on deliverables, and quality is starting to slip.',
+      'Five people doing the work of fifteen. Everyone is juggling too many jobs, cutting corners on service quality, and callbacks are starting to pile up.',
   },
   {
     icon: Clock,
@@ -68,9 +68,9 @@ const painPoints = [
   },
   {
     icon: GitBranch,
-    title: 'Silos kill collaboration',
+    title: 'Silos kill coordination',
     description:
-      'Your SEO person does not talk to your content writer. Your social manager does not know what campaigns are running. Work gets duplicated or dropped.',
+      'Your dispatcher does not talk to your marketing person. Your office staff does not know what the field techs are dealing with. Work gets duplicated or dropped.',
   },
 ];
 
@@ -78,31 +78,31 @@ const features = [
   {
     icon: Brain,
     title: 'AI employees that augment your team',
-    description: '30+ specialists that handle execution while your human team focuses on strategy, creativity, and client relationships. Plus build custom agents for your workflows.',
+    description: '30+ specialists that handle back-office execution while your human team focuses on service delivery, customer relationships, and growing the business. Plus build custom agents for your workflows.',
     link: '/features/ai-agents',
   },
   {
     icon: GitBranch,
     title: 'Workflows that connect everything',
-    description: 'Automated processes that ensure nothing falls through the cracks. One trigger can kick off work across SEO, content, email, and social.',
+    description: 'Automated processes that ensure nothing falls through the cracks. One trigger can kick off work across scheduling, follow-ups, invoicing, and marketing.',
     link: '/features/workflows',
   },
   {
     icon: MessageSquare,
-    title: 'Channels for real-time collaboration',
-    description: 'Internal team channels plus client-facing portals. Everyone stays aligned, approvals happen fast, context never gets lost.',
+    title: 'Channels for real-time coordination',
+    description: 'Internal team channels for dispatchers, technicians, and office staff. Everyone stays aligned, approvals happen fast, context never gets lost.',
     link: '/features/channels',
   },
   {
     icon: Target,
     title: 'CRM that enriches itself',
-    description: 'AI-powered lead scoring, contact enrichment, and pipeline management. Your sales process runs while your team sleeps.',
+    description: 'AI-powered lead scoring, contact enrichment, and pipeline management. Your sales process runs while your team is out in the field.',
     link: '/features/crm',
   },
   {
     icon: BarChart3,
     title: 'Dashboard for full visibility',
-    description: 'See every client, every campaign, every metric in one place. Know exactly what your team (human and AI) is working on.',
+    description: 'See every customer, every job, every metric in one place. Know exactly what your team (human and AI) is working on.',
     link: '/features/dashboard',
   },
   {
@@ -114,32 +114,32 @@ const features = [
 ];
 
 const stats = [
-  { value: '3x', label: 'More output', detail: 'Same team, triple the deliverables' },
+  { value: '3x', label: 'More output', detail: 'Same team, triple the jobs completed' },
   { value: '60%', label: 'Less admin', detail: 'AI handles reporting, scheduling, follow-ups' },
   { value: '0', label: 'Knowledge lost', detail: 'AI retains everything, even when people leave' },
-  { value: '50+', label: 'Clients managed', detail: 'Scale without proportional headcount' },
+  { value: '50+', label: 'Customers managed', detail: 'Scale without proportional headcount' },
 ];
 
 const workflowSteps = [
   {
     step: '01',
-    title: 'New client onboarded',
-    description: 'AI creates workspace, imports contacts, builds initial strategy, and sets up reporting -- in minutes.',
+    title: 'New customer onboarded',
+    description: 'AI creates the job record, imports contact details, schedules the initial visit, and sets up follow-up reminders -- in minutes.',
   },
   {
     step: '02',
-    title: 'AI executes the plan',
-    description: 'Content drafted, campaigns scheduled, SEO audits run, social posts queued. Your team reviews instead of creating from scratch.',
+    title: 'AI handles the back office',
+    description: 'Follow-up emails drafted, review requests sent, invoices generated, marketing content queued. Your team reviews instead of creating from scratch.',
   },
   {
     step: '03',
-    title: 'Human team adds the magic',
-    description: 'Your strategists refine, your creatives elevate, your account managers build relationships. The work humans do best.',
+    title: 'Human team delivers the service',
+    description: 'Your technicians do the hands-on work, your office staff handles customer relationships, your dispatchers keep things moving. The work humans do best.',
   },
   {
     step: '04',
     title: 'Results delivered automatically',
-    description: 'AI compiles reports, sends client updates, identifies optimization opportunities. Your team gets credit for flawless execution.',
+    description: 'AI compiles job reports, sends customer satisfaction surveys, identifies upsell opportunities. Your team gets credit for flawless execution.',
   },
 ];
 
@@ -156,7 +156,7 @@ function HeroSection() {
           <motion.div variants={itemVariants} className="text-center mb-12">
             <span className="tag-neo rounded-full text-signature bg-signature/10 border-signature mb-6">
               <Users className="w-4 h-4" />
-              <span className="text-[11px] font-semibold uppercase tracking-wider ml-1.5">For Agency Teams</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider ml-1.5">For Service Company Teams</span>
             </span>
             <h1 className="text-display font-display text-foreground mb-6">
               Give your team{' '}
@@ -164,7 +164,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
               Your team is talented but stretched thin. OzziOS adds an unlimited AI workforce to your
-              roster -- handling execution so your human team can focus on the work that
+              roster -- handling back-office execution so your dispatchers, technicians, and office staff can focus on the work that
               actually moves the needle.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -392,23 +392,23 @@ function StatsSection() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                  Traditional agency (50 clients)
+                  Traditional service company (50 customers)
                 </div>
                 <ul className="space-y-3">
                   <li className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Account Managers</span>
-                    <span className="text-foreground font-medium">5 hires</span>
+                    <span className="text-muted-foreground">Office Staff</span>
+                    <span className="text-foreground font-medium">3 hires</span>
                   </li>
                   <li className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Content Creators</span>
-                    <span className="text-foreground font-medium">4 hires</span>
+                    <span className="text-muted-foreground">Dispatchers</span>
+                    <span className="text-foreground font-medium">2 hires</span>
                   </li>
                   <li className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">SEO / Social / Email</span>
-                    <span className="text-foreground font-medium">4 hires</span>
+                    <span className="text-muted-foreground">Field Technicians</span>
+                    <span className="text-foreground font-medium">8 hires</span>
                   </li>
                   <li className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Admin & Reporting</span>
+                    <span className="text-muted-foreground">Admin & Marketing</span>
                     <span className="text-foreground font-medium">2 hires</span>
                   </li>
                   <li className="flex justify-between text-sm border-t border-border pt-3 mt-3">
@@ -419,24 +419,24 @@ function StatsSection() {
               </div>
               <div>
                 <div className="text-sm font-semibold text-signature uppercase tracking-wider mb-4">
-                  Agency + OzziOS (50 clients)
+                  Service company + OzziOS (50 customers)
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-mint mt-0.5 shrink-0" />
-                    <span className="text-foreground">3 Account Managers (strategy focus)</span>
+                    <span className="text-foreground">1 Office Manager (oversight)</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-mint mt-0.5 shrink-0" />
-                    <span className="text-foreground">1 Creative Director (quality control)</span>
+                    <span className="text-foreground">1 Dispatcher (scheduling focus)</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-mint mt-0.5 shrink-0" />
-                    <span className="text-foreground">1 Ops Lead (oversight)</span>
+                    <span className="text-foreground">3 Field Technicians (service delivery)</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-mint mt-0.5 shrink-0" />
-                    <span className="text-foreground">Unlimited AI agents (all execution)</span>
+                    <span className="text-foreground">Unlimited AI agents (all back-office)</span>
                   </li>
                   <li className="flex justify-between text-sm border-t border-border pt-3 mt-3">
                     <span className="text-signature font-semibold">Total headcount</span>

@@ -2,7 +2,8 @@
  * Waitlist Page
  *
  * Long-form founder letter style landing page.
- * Tells the story of why OzziOs exists and the problem it solves.
+ * Tells the story of why OzziOs exists and the problem it solves
+ * for home service companies.
  */
 
 import { useState, useEffect, FormEvent } from 'react';
@@ -165,7 +166,7 @@ export function WaitlistView() {
             A letter from the founder
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight leading-[1.15] mb-6">
-            What if you could run a 100-person agency with 35 people?
+            What if your growing service company had a full back-office team on day one?
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We're not building another SaaS tool. We're building a workforce.
@@ -180,54 +181,54 @@ export function WaitlistView() {
           {/* The Problem */}
           <section className="mb-16">
             <h2 className="text-2xl font-semibold text-foreground mb-6">
-              The agency model is broken.
+              The home service business model is broken.
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              I've spent years in the marketing agency world, and I've watched the same pattern destroy businesses over and over again.
+              I've spent years working with home service companies, and I've watched the same pattern hold businesses back over and over again.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              You land a big client. You hire to meet the demand. You train them for months. They finally become productive. Then they leave. Or the client churns. Or both happen at the same time, and suddenly you're paying for people who have nothing to do.
+              You land a big job. You need to hire more techs. You train them for weeks. They finally become productive. Then they leave. Or the seasonal slowdown hits. Or both happen at the same time, and suddenly you're paying for a team with not enough work to keep them busy.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The math never works. Here's what most agency owners don't talk about:
+              The math never works. Here's what most service business owners don't talk about:
             </p>
 
             <ul className="space-y-3 my-6">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Hiring costs $15,000-25,000 per employee</strong> when you factor in recruiting, interviewing, onboarding, and the productivity ramp-up period.
+                  <strong className="text-foreground">Every missed call costs you $200-500 in lost revenue.</strong> And when you're on a job site, every call goes to voicemail.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Average agency turnover is 30%+ annually.</strong> That means rebuilding a third of your team every year.
+                  <strong className="text-foreground">Office staff costs $40,000-55,000/year each.</strong> A dispatcher, a receptionist, a bookkeeper—that's over $120,000 before benefits.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Your best people get poached.</strong> The ones who finally understand your clients, your processes, your standards—they're the first to leave.
+                  <strong className="text-foreground">Your best techs get poached.</strong> The ones who finally know your systems, your customers, your standards—they're the first to leave for a bigger company.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Revenue is capped by headcount.</strong> You can only grow as fast as you can hire, train, and retain.
+                  <strong className="text-foreground">Growth is capped by your back office.</strong> You can only take on as many jobs as you can schedule, dispatch, follow up on, and invoice.
                 </span>
               </li>
             </ul>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              And that's before we talk about the tool sprawl. The average agency uses 8-12 different software products. Slack for communication. Asana or Monday for tasks. HubSpot for CRM. Hootsuite for social. Zapier to connect them all. Each one adds friction, costs money, and creates another place where information gets lost.
+              And that's before we talk about the tool sprawl. The average home service company uses 5-8 different software products. ServiceTitan or Housecall Pro for scheduling. QuickBooks for invoicing. Google Sheets for tracking leads. A CRM you never update. Some social media tool you signed up for and forgot about. Each one adds friction, costs money, and creates another place where information gets lost.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium">
-              I got tired of fighting this battle. So I decided to change the game entirely.
+              I got tired of watching great tradespeople struggle with this. So I decided to change the game entirely.
             </p>
           </section>
 
@@ -242,7 +243,7 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              When you sign up, you're not getting another dashboard to check. You're getting employees. AI employees who specialize in the exact roles your agency needs—and who never quit, never call in sick, never need a raise, and never take your best clients with them when they leave.
+              When you sign up, you're not getting another dashboard to check. You're getting employees. AI employees who specialize in the exact roles your service business needs—and who never quit, never call in sick, never need a raise, and never take your best customers with them when they leave.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -250,20 +251,20 @@ export function WaitlistView() {
             </p>
 
             <div className="my-8 space-y-6">
-              {/* Channel Agents */}
+              {/* Operations Agents */}
               <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Channel Agents — Work within specific projects</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Operations Agents — Handle your daily business</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
-                    { role: 'Supervisor', does: 'Coordinates the team, delegates tasks, keeps projects moving' },
-                    { role: 'SEO Specialist', does: 'Site audits, keyword research, competitor analysis' },
-                    { role: 'Content Writer', does: 'Blog posts, emails, ad copy in your brand voice' },
-                    { role: 'Social Media Manager', does: 'Content calendars, posts, engagement strategy' },
-                    { role: 'Data Analyst', does: 'Performance metrics, trends, actionable reports' },
-                    { role: 'Research Assistant', does: 'Market research, competitor intel, synthesis' },
-                    { role: 'Graphic Designer', does: 'Visual concepts, design briefs, art direction' },
-                    { role: 'GBP Expert', does: 'Google Business Profile optimization, reviews' },
-                    { role: 'Organic SEO Blogger', does: 'SEO-optimized long-form content that ranks' },
+                    { role: 'Supervisor', does: 'Coordinates the team, delegates tasks, keeps operations moving' },
+                    { role: 'Dispatch Coordinator', does: 'Job scheduling, technician routing, calendar management' },
+                    { role: 'Customer Follow-Up Specialist', does: 'Quote follow-ups, review requests, satisfaction checks' },
+                    { role: 'Marketing Manager', does: 'Social media, Google Business Profile, local SEO' },
+                    { role: 'Content Writer', does: 'Blog posts, emails, website copy in your voice' },
+                    { role: 'Bookkeeping Assistant', does: 'Invoice tracking, payment reminders, expense reports' },
+                    { role: 'Data Analyst', does: 'Performance metrics, revenue trends, actionable reports' },
+                    { role: 'GBP Expert', does: 'Google Business Profile optimization, review responses' },
+                    { role: 'Research Assistant', does: 'Competitor pricing, market analysis, service area insights' },
                   ].map((agent) => (
                     <div key={agent.role} className="p-3 rounded-lg border border-border bg-muted/30">
                       <p className="font-medium text-foreground text-sm">{agent.role}</p>
@@ -275,11 +276,11 @@ export function WaitlistView() {
 
               {/* Executive Agents */}
               <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Executive Agents — Workspace-wide oversight</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Executive Agents — Business-wide oversight</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
-                    { role: 'CEO Agent', does: 'Portfolio analytics, revenue insights, strategic planning' },
-                    { role: 'General Manager', does: 'Cross-project coordination, resource allocation' },
+                    { role: 'CEO Agent', does: 'Revenue analytics, growth insights, strategic planning' },
+                    { role: 'General Manager', does: 'Cross-location coordination, resource allocation' },
                     { role: 'Analytics Director', does: 'Aggregated metrics, benchmarking, ROI analysis' },
                     { role: 'Operations Manager', does: 'Workflow optimization, capacity planning' },
                   ].map((agent) => (
@@ -296,9 +297,9 @@ export function WaitlistView() {
                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Industry-Specific — Specialized expertise</p>
                 <div className="grid sm:grid-cols-3 gap-3">
                   {[
-                    { role: 'Real Estate', does: 'Listing specialist, lead nurture, property marketing' },
-                    { role: 'HVAC', does: 'Customer service, tech support, sales consulting' },
-                    { role: 'Marketing Agency', does: 'Account management, copywriting, social strategy' },
+                    { role: 'HVAC / Plumbing', does: 'Seasonal campaigns, maintenance reminders, emergency dispatch' },
+                    { role: 'Roofing / Exterior', does: 'Storm response, inspection scheduling, insurance follow-ups' },
+                    { role: 'Landscaping / Cleaning', does: 'Recurring service management, route optimization, upsells' },
                   ].map((agent) => (
                     <div key={agent.role} className="p-3 rounded-lg border border-border bg-muted/30">
                       <p className="font-medium text-foreground text-sm">{agent.role}</p>
@@ -314,7 +315,7 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              And here's what makes this different from every other AI tool you've tried: they remember everything. Every client preference. Every past conversation. Every project detail. They build up institutional knowledge that used to walk out the door every time an employee left.
+              And here's what makes this different from every other AI tool you've tried: they remember everything. Every customer preference. Every past conversation. Every job detail. They build up institutional knowledge that used to walk out the door every time an employee left.
             </p>
           </section>
 
@@ -329,17 +330,17 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Each client gets their own channel. Your AI employees are assigned to that channel and immediately have context about that client—their industry, their brand voice, their history, their preferences. When you @mention an employee, they get to work.
+              Each service area or location gets its own channel. Your AI employees are assigned to that channel and immediately have context about that area—the customer base, seasonal patterns, local competition, service history. When you @mention an employee, they get to work.
             </p>
 
             <div className="my-8 p-6 rounded-lg border border-border bg-muted/20">
               <p className="text-sm text-muted-foreground mb-3">Example:</p>
               <div className="space-y-3">
                 <p className="text-foreground">
-                  <span className="font-medium">You:</span> @SEO-Specialist run a full site audit on acme.com and identify the top ranking opportunities
+                  <span className="font-medium">You:</span> @Customer-Follow-Up send review requests to every customer we serviced this week. Personalize each one with the job we completed.
                 </p>
                 <p className="text-muted-foreground text-sm italic">
-                  The SEO Specialist analyzes the site, checks competitor rankings, identifies technical issues, and delivers a prioritized action plan—usually within minutes.
+                  The Customer Follow-Up Specialist pulls the week's completed jobs, drafts personalized review requests for each customer, and sends them—usually within minutes.
                 </p>
               </div>
             </div>
@@ -352,25 +353,25 @@ export function WaitlistView() {
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Create and manage tasks</strong> — They don't just tell you what to do. They create the tasks, assign them, and follow up.
+                  <strong className="text-foreground">Schedule and dispatch jobs</strong> — They don't just tell you what to do. They book the appointment, assign the tech, and send the confirmation.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Schedule meetings and send emails</strong> — Connected to your calendar and inbox. They handle the logistics.
+                  <strong className="text-foreground">Follow up on quotes and send reminders</strong> — Connected to your CRM. They chase leads so you don't have to.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Generate client reports</strong> — Ask for a monthly SEO report and get a shareable link you can send to your client. No more spending Sunday nights in Google Sheets.
+                  <strong className="text-foreground">Generate customer reports and invoices</strong> — Job summaries, payment tracking, and revenue reports you can review in seconds.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Manage ad campaigns</strong> — Direct integrations with Google Ads, Meta Ads, and more. They can analyze performance and make recommendations.
+                  <strong className="text-foreground">Manage your online presence</strong> — Google Business Profile, review responses, social media posts, and local SEO.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -384,12 +385,12 @@ export function WaitlistView() {
             {/* Screenshot showing AI collaboration */}
             <div className="my-10">
               <p className="text-sm text-muted-foreground mb-4">
-                Here's what this looks like in practice — the SEO Specialist and Content Writer collaborating on a client project:
+                Here's what this looks like in practice — the Dispatch Coordinator and Customer Follow-Up Specialist collaborating on a service project:
               </p>
               <div className="rounded-lg border border-border overflow-hidden shadow-sm">
                 <img
                   src="/images/content-writer-delegating-to-graphic-designer.png"
-                  alt="Screenshot showing AI employees collaborating - SEO Specialist working with Content Writer on a client project"
+                  alt="Screenshot showing AI employees collaborating - operations team working together on a service project"
                   className="w-full"
                 />
               </div>
@@ -414,11 +415,11 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Think about what this means: you're no longer managing individual tasks or individual employees. You're managing outcomes. You say "I need a content strategy for this client's Q1 launch" and the Supervisor coordinates the research, the writing, the SEO optimization, and the social media planning—across multiple AI employees—without you having to orchestrate any of it.
+              Think about what this means: you're no longer managing individual tasks or individual employees. You're managing outcomes. You say "I need to launch a seasonal AC tune-up campaign across all our service areas" and the Supervisor coordinates the marketing, the scheduling, the customer outreach, and the follow-ups—across multiple AI employees—without you having to orchestrate any of it.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium">
-              It's like having a project manager who works 24/7 and never drops the ball.
+              It's like having an operations manager who works 24/7 and never drops the ball.
             </p>
           </section>
 
@@ -455,11 +456,11 @@ export function WaitlistView() {
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              On the left, you have a Task Pool with pre-built templates for everything your AI employees can do: draft emails, check engagement, create posts, respond to reviews, run research. Drag a task onto an employee's timeline and it's scheduled.
+              On the left, you have a Task Pool with pre-built templates for everything your AI employees can do: follow up on quotes, request reviews, schedule maintenance reminders, post to social media, send payment reminders. Drag a task onto an employee's timeline and it's scheduled.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Tasks can be one-time or recurring. Set your SEO Specialist to audit your client sites every Monday. Have your Content Writer draft the weekly newsletter every Thursday at 9am. Your Social Media Manager can check engagement and respond to comments every afternoon.
+              Tasks can be one-time or recurring. Set your Dispatch Coordinator to optimize routes every morning. Have your Customer Follow-Up Specialist send review requests every afternoon. Your Marketing Manager can post before-and-after photos every Wednesday.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium mb-4">
@@ -482,21 +483,21 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              When a new lead comes in, you can automatically:
+              When a new service request comes in, you can automatically:
             </p>
 
             <ol className="space-y-3 my-6 list-decimal list-inside">
               <li className="text-muted-foreground pl-2">
-                Have an AI employee research the company and enrich the lead data
+                Have an AI employee qualify the lead and gather job details
               </li>
               <li className="text-muted-foreground pl-2">
-                Score them based on your criteria
+                Check technician availability and schedule the appointment
               </li>
               <li className="text-muted-foreground pl-2">
-                If qualified, create a draft proposal and notify your team
+                Send the customer a confirmation with tech details and arrival window
               </li>
               <li className="text-muted-foreground pl-2">
-                If not, send a polite decline email
+                After the job, trigger a review request and follow-up survey
               </li>
             </ol>
 
@@ -511,12 +512,12 @@ export function WaitlistView() {
             {/* Workflow Builder Screenshot */}
             <div className="my-10">
               <p className="text-sm text-muted-foreground mb-4">
-                Here's a workflow that runs three research agents in parallel, then synthesizes their findings into a single report:
+                Here's a workflow that handles a new service request end-to-end—from lead qualification to post-job follow-up:
               </p>
               <div className="rounded-lg border border-border overflow-hidden shadow-sm">
                 <img
                   src="/images/workflow-builder.png"
-                  alt="OzziOs Workflow Builder showing parallel agent execution - Market Trends Analyst, Competitor Analyst, and Customer Insights Analyst running simultaneously, then merging into a Research Synthesizer"
+                  alt="OzziOs Workflow Builder showing parallel agent execution - Lead Qualifier, Dispatch Coordinator, and Customer Follow-Up Specialist working together on a service request"
                   className="w-full"
                 />
               </div>
@@ -526,7 +527,7 @@ export function WaitlistView() {
             </div>
 
             <p className="text-muted-foreground leading-relaxed">
-              Multiple AI employees can work on different parts of a problem simultaneously, and their outputs merge automatically. It's like having a research team that can tackle a project from every angle at once.
+              Multiple AI employees can work on different parts of a job simultaneously, and their outputs merge automatically. It's like having an operations team that can tackle every aspect of a service request at once.
             </p>
           </section>
 
@@ -542,14 +543,14 @@ export function WaitlistView() {
 
             <div className="my-8 grid sm:grid-cols-2 gap-4">
               {[
-                { old: 'Slack', now: 'Built-in channels, DMs, threads' },
-                { old: 'Asana/Monday/ClickUp', now: 'Native task management' },
-                { old: 'HubSpot/Salesforce', now: 'Full CRM with pipeline' },
-                { old: 'Hootsuite/Buffer', now: 'Social media management' },
+                { old: 'Answering services', now: 'AI handles calls and booking' },
+                { old: 'ServiceTitan/Housecall Pro', now: 'Built-in scheduling and dispatch' },
+                { old: 'QuickBooks', now: 'Invoicing and payment tracking' },
+                { old: 'Podium/Birdeye', now: 'Review management built-in' },
                 { old: 'ChatGPT/Claude', now: 'AI employees included' },
                 { old: 'Zapier/Make', now: 'Workflow automation built-in' },
-                { old: 'Google Meet/Zoom', now: 'Huddles for collaboration' },
-                { old: 'Email marketing tools', now: 'Campaign builder included' },
+                { old: 'Hootsuite/Buffer', now: 'Social media management' },
+                { old: 'Mailchimp', now: 'Email campaigns included' },
               ].map((item) => (
                 <div key={item.old} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
                   <span className="text-muted-foreground line-through text-sm">{item.old}</span>
@@ -570,15 +571,15 @@ export function WaitlistView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              A mid-level marketing specialist costs $60,000-80,000/year in salary alone. Add benefits, equipment, office space, and management overhead, and you're looking at $80,000-100,000 in total cost.
+              A full-time office manager costs $45,000-55,000/year in salary alone. Add a dispatcher, a bookkeeper, and a part-time marketing person, and you're looking at $150,000-200,000 in total overhead—before benefits and equipment.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              That employee works 40 hours a week—2,080 hours a year—minus vacation, sick days, meetings, and all the other time that isn't actual productive work. Realistically, you get maybe 1,200 hours of real output.
+              Those employees work 40 hours a week—2,080 hours a year—minus vacation, sick days, and all the other time that isn't actual productive work. Realistically, you get maybe 1,200 hours of real output from each.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              An AI employee on OzziOs works 24/7/365. That's 8,760 hours of availability. They don't take breaks. They don't get distracted. They don't need to be managed. And they cost a fraction of what a human employee costs.
+              An AI employee on OzziOs works 24/7/365. That's 8,760 hours of availability. They don't take breaks. They don't get distracted. They don't need to be managed. And they cost a fraction of what human office staff costs.
             </p>
 
             <div className="my-8 p-6 rounded-lg border border-border bg-muted/20">
@@ -586,12 +587,12 @@ export function WaitlistView() {
                 The real math:
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                If you have a 100-person agency and you can automate 65% of the repetitive, process-driven work with AI employees, you can deliver the same output with 35 people. The 35 who remain focus on strategy, client relationships, and creative direction—the work that actually requires human judgment.
+                If you're a growing service company and you can automate 65% of the repetitive, process-driven back-office work with AI employees, you can deliver the same customer experience with a fraction of the office staff. The people who remain focus on complex customer issues, in-person relationships, and growing the business—the work that actually requires human judgment.
               </p>
             </div>
 
             <p className="text-foreground leading-relaxed font-medium">
-              This isn't about replacing people. It's about freeing them to do work that matters.
+              This isn't about replacing people. It's about freeing you to focus on the work that matters.
             </p>
           </section>
 
@@ -602,38 +603,38 @@ export function WaitlistView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              OzziOs is built for marketing agencies, but the model applies anywhere you have knowledge workers doing repetitive, process-driven tasks:
+              OzziOs is built for home service companies, but the model applies anywhere you have back-office operations eating into your margins:
             </p>
 
             <ul className="space-y-3 my-6">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Digital marketing agencies</strong> — SEO, PPC, social media, content marketing
+                  <strong className="text-foreground">HVAC, plumbing, and electrical</strong> — Scheduling, dispatch, maintenance reminders, emergency response
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Creative agencies</strong> — Brand strategy, design, campaigns
+                  <strong className="text-foreground">Roofing and exterior services</strong> — Storm response, inspection scheduling, insurance coordination
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Consultancies</strong> — Research, analysis, client deliverables
+                  <strong className="text-foreground">Landscaping and cleaning</strong> — Recurring service management, route optimization, seasonal campaigns
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">In-house marketing teams</strong> — Stretched thin and drowning in requests
+                  <strong className="text-foreground">Pest control, painting, and general contracting</strong> — Lead management, quote follow-ups, customer retention
                 </span>
               </li>
             </ul>
 
             <p className="text-muted-foreground leading-relaxed">
-              If you're tired of the hiring treadmill, if you're paying for 10 different tools that don't talk to each other, if you want to scale without the chaos—this is for you.
+              If you're tired of missed calls, if you're paying for 5 different tools that don't talk to each other, if you want to grow without the chaos—this is for you.
             </p>
           </section>
 
@@ -648,11 +649,11 @@ export function WaitlistView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The technology finally exists to build AI that doesn't just answer questions—it does work. Real, substantive, valuable work that used to require a human sitting at a desk.
+              The technology finally exists to build AI that doesn't just answer questions—it does work. Real, substantive, valuable work that used to require someone sitting at a desk answering phones and managing schedules.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              We're at an inflection point. The agencies that figure this out first will have an insurmountable advantage. They'll be able to take on more clients, deliver better work, and make more profit—while their competitors are still posting job ads and conducting interviews.
+              We're at an inflection point. The service companies that figure this out first will have an insurmountable advantage. They'll be able to take on more jobs, deliver better customer experiences, and grow faster—while their competitors are still letting calls go to voicemail and forgetting to follow up on quotes.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium">
@@ -669,7 +670,7 @@ export function WaitlistView() {
                   "The best time to plant a tree was 20 years ago. The second best time is now."
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I don't know if OzziOs will be the platform that defines this new era. But I know the era is coming. The question isn't whether AI will change how agencies work—it's whether you'll be leading that change or reacting to it.
+                  I don't know if OzziOs will be the platform that defines this new era. But I know the era is coming. The question isn't whether AI will change how service businesses operate—it's whether you'll be leading that change or reacting to it.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   If you're ready to find out what's possible, I'd love to have you join us.
@@ -710,12 +711,12 @@ export function WaitlistView() {
               {/* Email Field */}
               <div className="space-y-1.5">
                 <Label htmlFor="email" className="text-sm font-medium">
-                  Work email <span className="text-muted-foreground">*</span>
+                  Email <span className="text-muted-foreground">*</span>
                 </Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@agency.com"
+                  placeholder="you@yourbusiness.com"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -750,12 +751,12 @@ export function WaitlistView() {
               {/* Company Field */}
               <div className="space-y-1.5">
                 <Label htmlFor="company" className="text-sm font-medium">
-                  Agency or company
+                  Business name
                 </Label>
                 <Input
                   id="company"
                   type="text"
-                  placeholder="Where do you work?"
+                  placeholder="Your service company"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   className="h-10"

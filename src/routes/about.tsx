@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/about')({
   head: () => createPageHead({
     title: 'About Us',
-    description: 'Meet the team behind OzziOS. Built by agency operators to replace marketing overhead with AI agents that work 24/7.',
+    description: 'Meet the team behind OzziOS. Built by home service operators to replace back-office overhead with AI agents that work 24/7.',
     path: '/about',
   }),
   component: AboutPage,

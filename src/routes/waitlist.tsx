@@ -8,7 +8,7 @@ export const Route = createFileRoute('/waitlist')({
     createPageHead({
       title: 'Join the Waitlist',
       description:
-        'Get early access to OzziOS — the AI employee platform replacing marketing agencies.',
+        'Get early access to OzziOS — the AI employee platform built for home service companies.',
       path: '/waitlist',
     }),
 })

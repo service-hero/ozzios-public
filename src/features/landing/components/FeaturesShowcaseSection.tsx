@@ -155,7 +155,7 @@ const features: Feature[] = [
   {
     id: 'ai-agents',
     name: 'AI Agents',
-    description: '30+ specialized agents that learn your brand and work 24/7.',
+    description: '30+ specialized agents that learn your business and work 24/7.',
     icon: Bot,
     href: '/features/ai-agents',
     category: 'ai',
@@ -179,7 +179,7 @@ const features: Feature[] = [
   {
     id: 'channels',
     name: 'Channels',
-    description: 'Real-time community spaces for team and client collaboration.',
+    description: 'Real-time community spaces for your team and customer collaboration.',
     icon: MessageCircle,
     href: '/features/channels',
     category: 'ai',

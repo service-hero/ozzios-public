@@ -8,7 +8,7 @@ export const Route = createFileRoute('/blog/')({
     createPageHead({
       title: 'Blog',
       description:
-        'Insights on AI marketing, agency scaling, and product updates from the OzziOS team.',
+        'Insights on AI automation, business growth, and product updates from the OzziOS team.',
       path: '/blog',
     }),
 })

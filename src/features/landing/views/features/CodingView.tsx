@@ -60,19 +60,19 @@ const painPoints = [
     icon: FileX,
     title: 'Static PDFs are dead on arrival',
     description:
-      'You send a 20-page PDF and the client skims page one. No interactivity, no drill-down, no way to explore the data that matters to them.',
+      'You send a 20-page PDF and the customer skims page one. No interactivity, no drill-down, no way to explore the data that matters to them.',
   },
   {
     icon: UserX,
-    title: 'Customizing per client requires a developer',
+    title: 'Customizing per customer requires a developer',
     description:
-      'Every client wants their own branding, their own metrics, their own layout. Without a dev on staff, you are stuck with one-size-fits-all templates.',
+      'Every customer wants their own branding, their own metrics, their own layout. Without a dev on staff, you are stuck with one-size-fits-all templates.',
   },
   {
     icon: Lock,
     title: 'No way to share interactive dashboards',
     description:
-      'Your internal tools look great, but there is no clean way to give clients a live, branded view of their performance data without granting platform access.',
+      'Your internal tools look great, but there is no clean way to give customers a live, branded view of their performance data without granting platform access.',
   },
 ];
 
@@ -87,7 +87,7 @@ const capabilities = [
     icon: Link2,
     title: 'Live Shareable URLs',
     description:
-      'Every generated report gets a unique, live URL. Send it to clients and they see an interactive webpage, not a static file.',
+      'Every generated report gets a unique, live URL. Send it to customers and they see an interactive webpage, not a static file.',
   },
   {
     icon: LayoutTemplate,
@@ -99,19 +99,19 @@ const capabilities = [
     icon: Save,
     title: 'Save Custom Templates',
     description:
-      'Built the perfect report layout? Save it as a reusable template. Apply it to any client with one click, keeping your agency output consistent.',
+      'Built the perfect report layout? Save it as a reusable template. Apply it to any customer with one click, keeping your business output consistent.',
   },
   {
     icon: BarChart3,
     title: 'Interactive Charts & Dashboards',
     description:
-      'Bar charts, line graphs, pie charts, data tables, and KPI cards -- all interactive and responsive. Clients can explore their own data.',
+      'Bar charts, line graphs, pie charts, data tables, and KPI cards -- all interactive and responsive. Customers can explore their own data.',
   },
   {
     icon: Camera,
     title: 'Screenshot Capture',
     description:
-      'Automatic thumbnail generation for every report. Use screenshots in emails, proposals, or your client portal as visual previews.',
+      'Automatic thumbnail generation for every report. Use screenshots in emails, proposals, or dashboards as visual previews.',
   },
 ];
 
@@ -139,7 +139,7 @@ const templateCategories = [
   {
     icon: TrendingUp,
     title: 'Executive KPI',
-    description: 'High-level business metrics, revenue impact, and strategic goal tracking for C-suite clients.',
+    description: 'High-level business metrics, revenue impact, and strategic goal tracking for decision-makers.',
   },
 ];
 
@@ -287,7 +287,7 @@ const reportTemplates: ReportTemplate[] = [
     tableRows: [
       ['Product launch reel', '18.2K', '8.4%'],
       ['Behind the scenes', '12.6K', '6.1%'],
-      ['Client testimonial', '9.8K', '5.7%'],
+      ['Customer testimonial', '9.8K', '5.7%'],
     ],
     shareUrl: 'reports.ozzios.com/r/social-acme',
   },
@@ -329,7 +329,7 @@ const reportTemplates: ReportTemplate[] = [
     tableHeaders: ['Goal', 'Progress', 'Status'],
     tableRows: [
       ['Q1 Revenue Target', '94%', 'On Track'],
-      ['New Clients (15)', '12/15', 'At Risk'],
+      ['New Customers (15)', '12/15', 'At Risk'],
       ['Retention Rate 95%', '97.2%', 'Exceeded'],
     ],
     shareUrl: 'reports.ozzios.com/r/kpi-exec-acme',
@@ -867,7 +867,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Your AI agents generate interactive React dashboards and reports in isolated
-              sandboxes. Get a shareable URL and send it straight to your client -- no
+              sandboxes. Get a shareable URL and send it straight to your customer -- no
               developers, no static PDFs.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -1027,10 +1027,10 @@ function PainPointsSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">The Problem</span>
           <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Client reporting is broken
+            Customer reporting is broken
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies waste hours building reports that clients barely look at. There has to
+            Businesses waste hours building reports that customers barely look at. There has to
             be a better way.
           </p>
         </motion.div>
@@ -1080,13 +1080,13 @@ function SolutionSection() {
       step: '02',
       title: 'Live preview in browser',
       description:
-        'The app runs instantly in an isolated E2B sandbox. See exactly what your client will see -- interactive charts, responsive layout, live data -- before sharing.',
+        'The app runs instantly in an isolated E2B sandbox. See exactly what your customer will see -- interactive charts, responsive layout, live data -- before sharing.',
     },
     {
       step: '03',
-      title: 'Share link with client',
+      title: 'Share link with customer',
       description:
-        'Copy the shareable URL and send it. Your client opens a polished, interactive report in their browser. No downloads, no logins, no friction.',
+        'Copy the shareable URL and send it. Your customer opens a polished, interactive report in their browser. No downloads, no logins, no friction.',
     },
   ];
 
@@ -1202,7 +1202,7 @@ function TemplatesSection() {
             Start with a template, make it yours
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Pre-built report templates for the most common agency deliverables. Customize
+            Pre-built report templates for the most common business deliverables. Customize
             everything or build from scratch.
           </p>
         </motion.div>
@@ -1258,7 +1258,7 @@ function CTASection() {
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Stop sending static PDFs. Let AI agents build interactive, shareable reports
-            that make your clients say "how did you do that?"
+            that make your customers say "how did you do that?"
           </p>
           <a
             href="https://app.ozzios.com/sign-up"

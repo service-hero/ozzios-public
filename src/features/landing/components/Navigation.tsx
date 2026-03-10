@@ -87,9 +87,9 @@ const navItems: NavItem[] = [
     megaMenu: {
       sections: [
         {
-          title: 'By team size',
+          title: 'By business size',
           items: [
-            { label: 'Solo Agencies', description: 'Scale without hiring', href: '/solutions/solo-agencies' },
+            { label: 'Solo Operators', description: 'Scale without hiring', href: '/solutions/solo-operators' },
             { label: 'Teams', description: 'Collaborate with AI', href: '/solutions/teams' },
             { label: 'Enterprise', description: 'Unlimited sub-accounts', href: '/solutions/enterprise' },
           ],
@@ -99,13 +99,13 @@ const navItems: NavItem[] = [
           items: [
             { label: 'Lead Generation', description: 'Automate outreach', href: '/solutions/lead-generation' },
             { label: 'Content Marketing', description: 'AI-powered creation', href: '/solutions/content-marketing' },
-            { label: 'Client Management', description: 'Multi-tenant CRM', href: '/solutions/client-management' },
+            { label: 'Customer Management', description: 'Multi-tenant CRM', href: '/solutions/customer-management' },
           ],
         },
       ],
       cta: {
-        title: 'See how agencies use OzziOS',
-        description: 'Real examples from agencies scaling with AI agents',
+        title: 'See how home service companies use OzziOS',
+        description: 'Real examples from businesses scaling with AI agents',
         href: '#case-studies',
         image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&auto=format',
       },

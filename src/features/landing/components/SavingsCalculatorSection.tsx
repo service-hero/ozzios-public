@@ -190,7 +190,7 @@ function ToolCheckbox({
 type TabType = 'agency' | 'employees' | 'tools';
 
 const tabs: { id: TabType; label: string; icon: React.ElementType; description: string }[] = [
-  { id: 'agency', label: 'Agency Spend', icon: Building2, description: 'See what you\'re really paying for black-box retainers' },
+  { id: 'agency', label: 'Outsourced Spend', icon: Building2, description: 'See what you\'re really paying for outsourced services' },
   { id: 'employees', label: 'Employee Costs', icon: Users, description: 'Stop the hiring treadmill' },
   { id: 'tools', label: 'Tool Consolidation', icon: Layers, description: 'Cancel 8+ subscriptions' },
 ];
@@ -313,7 +313,7 @@ export function SavingsCalculatorSection() {
               See what you'll save.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              Calculate your potential savings across agencies, employees, and tools.
+              Calculate your potential savings across outsourcing, employees, and tools.
             </p>
           </motion.div>
 
@@ -370,7 +370,7 @@ export function SavingsCalculatorSection() {
                           <div>
                             <label className="flex items-center justify-between mb-4">
                               <span className="text-[14px] font-medium text-foreground">
-                                Monthly agency retainer
+                                Monthly outsourced spend
                               </span>
                               <span className="text-[18px] font-semibold text-signature tabular-nums">
                                 ${agencySpend.toLocaleString()}
@@ -460,7 +460,7 @@ export function SavingsCalculatorSection() {
                                   65% headcount reduction
                                 </p>
                                 <p className="text-[12px] text-muted-foreground">
-                                  Run a 20-person agency with 7 people. AI handles the repetitive work—your team focuses on strategy and relationships.
+                                  Run a 20-person operation with 7 people. AI handles the repetitive work—your team focuses on strategy and relationships.
                                 </p>
                               </div>
                             </div>

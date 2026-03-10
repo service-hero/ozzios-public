@@ -46,7 +46,7 @@ const painPoints = [
     icon: Shield,
     title: 'Compliance is an afterthought',
     description:
-      'GDPR requires consent tracking. You\'re storing it in a spreadsheet. Or not at all. One audit could cost you more than your entire marketing budget.',
+      'GDPR requires consent tracking. You\'re storing it in a spreadsheet. Or not at all. One audit could cost you more than your entire annual revenue.',
   },
 ];
 

@@ -11,10 +11,10 @@ export type BlogPostMeta = {
 }
 
 const blogPostsMeta: Record<string, BlogPostMeta> = {
-  '22-ai-agents-replace-agency': {
-    id: '22-ai-agents-replace-agency',
-    title: 'I Run a Marketing Agency. Here\'s Why I Built 22 AI Agents to Replace It.',
-    excerpt: '$4,500/month. That\'s the average retainer small businesses pay a marketing agency. After years of watching clients wait days for deliverables AI could produce in minutes, I stopped pretending the model wasn\'t broken.',
+  '22-ai-agents-home-service': {
+    id: '22-ai-agents-home-service',
+    title: 'I Run a Home Service Company. Here\'s Why I Built 22 AI Agents to Run the Back Office.',
+    excerpt: '$4,500/month. That\'s the average overhead small home service businesses spend on marketing and admin. After years of watching jobs slip through the cracks while teams struggled to keep up, I stopped pretending the model wasn\'t broken.',
     image: '/images/blog-post-22-ai-agents-replace-agency.png',
     date: 'February 17, 2025',
     authorName: 'Garrett Elmore',
@@ -22,22 +22,22 @@ const blogPostsMeta: Record<string, BlogPostMeta> = {
   'gohighlevel-integration': {
     id: 'gohighlevel-integration',
     title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
-    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
+    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire business operations—all without leaving the platform.',
     image: '/images/ghl_ozzi_integrated_blog_post.jpg',
     date: 'February 2, 2025',
     authorName: 'Garrett Elmore',
   },
-  'future-of-agency-work': {
-    id: 'future-of-agency-work',
-    title: 'The Future of Agency Work: Why AI Employees Are Inevitable',
-    excerpt: 'The agency model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
+  'future-of-home-service-work': {
+    id: 'future-of-home-service-work',
+    title: 'The Future of Home Service Businesses: Why AI Employees Are Inevitable',
+    excerpt: 'The traditional service business model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&h=900&fit=crop&auto=format',
     date: 'December 28, 2024',
     authorName: 'Garrett Elmore',
   },
   'replace-8-tools': {
     id: 'replace-8-tools',
-    title: 'How We Replaced 8 Marketing Tools with One Platform',
+    title: 'How We Replaced 8 Business Tools with One Platform',
     excerpt: 'Mailchimp, Hootsuite, SEMrush, Asana—we cancelled them all. Here\'s how consolidation saved us $2,400/month.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&auto=format',
     date: 'December 22, 2024',
@@ -53,7 +53,7 @@ const blogPostsMeta: Record<string, BlogPostMeta> = {
   },
   'scaling-without-hiring': {
     id: 'scaling-without-hiring',
-    title: 'Scaling Your Agency Without Adding Headcount',
+    title: 'Scaling Your Service Business Without Adding Headcount',
     excerpt: 'We grew from $50K to $200K MRR with the same team size. The secret? AI employees that work 24/7.',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&auto=format',
     date: 'December 15, 2024',
@@ -67,17 +67,17 @@ const blogPostsMeta: Record<string, BlogPostMeta> = {
     date: 'December 10, 2024',
     authorName: 'Garrett Elmore',
   },
-  'client-reporting-automation': {
-    id: 'client-reporting-automation',
-    title: 'Automated Client Reports That Actually Impress',
-    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards clients can explore themselves.',
+  'customer-reporting-automation': {
+    id: 'customer-reporting-automation',
+    title: 'Automated Customer Reports That Actually Impress',
+    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards customers can explore themselves.',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop&auto=format',
     date: 'December 5, 2024',
     authorName: 'Garrett Elmore',
   },
-  'goodbye-agency-retainers': {
-    id: 'goodbye-agency-retainers',
-    title: 'Why We Fired Our Marketing Agency (And Never Looked Back)',
+  'goodbye-overhead': {
+    id: 'goodbye-overhead',
+    title: 'Why We Stopped Outsourcing Our Marketing (And Never Looked Back)',
     excerpt: '$8K/month for work we couldn\'t see. Now we own the AI—full transparency, better results, fraction of the cost.',
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop&auto=format',
     date: 'November 28, 2024',

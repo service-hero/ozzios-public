@@ -13,7 +13,6 @@ import {
   Video,
   Globe,
   Wrench,
-  Wand2,
   Zap,
 } from 'lucide-react';
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
@@ -25,12 +24,9 @@ const showcaseAgents = [
   { name: 'YouTube Ozzi', role: 'YouTube Growth', icon: Video, description: 'Video SEO, title & description writing, thumbnail briefs, channel strategy, analytics', mp4: '/images/avatars/youtube-ozzi.mp4' },
   { name: 'WordPress Ozzi', role: 'WordPress Content', icon: FileText, description: 'Blog writing, on-page SEO, content publishing, keyword clustering, content calendars', mp4: '/images/avatars/wordpress-ozzi.mp4' },
   { name: 'Firecrawl Ozzi', role: 'Web Intelligence', icon: Globe, description: 'Competitor research, web data extraction, market analysis, trend monitoring, SERP tracking', mp4: '/images/avatars/firecrawl-ozzi.mp4' },
-  { name: 'Housecall Pro Ozzi', role: 'Field Service Marketing', icon: Wrench, description: 'Review generation, job follow-ups, local SEO, client re-engagement, booking optimization', mp4: '/images/avatars/housecall-pro-ozzi.mp4' },
-  { name: 'ImageGen Ozzi', role: 'AI Visual Creation', icon: Palette, description: 'AI image prompting, ad creatives, social graphics, brand visuals, product imagery', mp4: '/images/avatars/openai-imagegen-ozzi.mp4' },
+  { name: 'Housecall Pro Ozzi', role: 'Field Service Marketing', icon: Wrench, description: 'Review generation, job follow-ups, local SEO, customer re-engagement, booking optimization', mp4: '/images/avatars/housecall-pro-ozzi.mp4' },
+  { name: 'ImageGen Ozzi', role: 'AI Visual Creation', icon: Palette, description: 'AI image prompting, ad creatives, social graphics, business visuals, product imagery', mp4: '/images/avatars/openai-imagegen-ozzi.mp4' },
   { name: 'Nano Banana Ozzi', role: 'Micro-Task Automation', icon: Zap, description: 'Rapid task execution, lightweight workflows, quick-turn content, instant responses', mp4: '/images/avatars/nano-banana-ozzi.mp4' },
-  { name: 'Ozzi', role: 'General Purpose', icon: Wand2, description: 'Versatile AI agent for any marketing task — copy, research, strategy, reporting, and more', mp4: '/images/avatars/generic-ozzi-1.mp4' },
-  { name: 'Ozzi', role: 'General Purpose', icon: Wand2, description: 'Versatile AI agent for any marketing task — copy, research, strategy, reporting, and more', mp4: '/images/avatars/generic-ozzi-2.mp4' },
-  { name: 'Ozzi', role: 'General Purpose', icon: Wand2, description: 'Versatile AI agent for any marketing task — copy, research, strategy, reporting, and more', mp4: '/images/avatars/generic-ozzi-3.mp4' },
 ];
 
 const containerVariants = {
@@ -120,7 +116,7 @@ export function AgentsSection() {
                   Meet Ozzi — the one who runs the team.
                 </h3>
                 <p className="text-base text-muted-foreground leading-relaxed mb-8 font-light max-w-lg">
-                  Ozzi is your AI marketing supervisor. He coordinates every agent on your team — assigning tasks, reviewing outputs, catching errors, and making sure the work gets done. While your specialists handle execution, Ozzi handles oversight so you never have to.
+                  Ozzi is your AI operations supervisor. He coordinates every agent on your team — assigning tasks, reviewing outputs, catching errors, and making sure the work gets done. While your specialists handle execution, Ozzi handles oversight so you never have to.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
                   {[
@@ -148,7 +144,7 @@ export function AgentsSection() {
                 Community Agents
               </span>
               <div className="h-px flex-1 bg-border" />
-              <span className="text-[11px] text-muted-foreground">34 agents available</span>
+              <span className="text-[11px] text-muted-foreground">31 agents available</span>
             </div>
 
             <motion.div
@@ -239,7 +235,7 @@ export function AgentsSection() {
                   ))}
                 </div>
                 <span className="text-[14px] font-semibold text-foreground mb-1">+22 more agents</span>
-                <span className="text-[12px] text-muted-foreground">Real estate, home services, video, email, ads & more</span>
+                <span className="text-[12px] text-muted-foreground">Home services, HVAC, plumbing, roofing, electrical & more</span>
               </motion.div>
             </motion.div>
           </div>

@@ -132,7 +132,7 @@ export const seoMessages: ChatMessage[] = [
         { icon: '↪️', action: 'Simplified 3 redirect chains', status: 'success', detail: 'Now direct 301s' },
         { icon: '📝', action: 'Generated 8 meta descriptions', status: 'success', detail: 'AI-optimized for CTR' },
       ]},
-      { type: 'code', content: 'Example meta generated:\n"Discover premium marketing solutions that drive 3x ROI. Trusted by 500+ agencies worldwide. Start free today."' },
+      { type: 'code', content: 'Example meta generated:\n"Discover premium marketing solutions that drive 3x ROI. Trusted by 500+ businesses worldwide. Start free today."' },
     ],
     reactions: [{ emoji: '🚀', count: 3 }, { emoji: '✅', count: 2 }],
   },
@@ -156,7 +156,7 @@ export const seoMessages: ChatMessage[] = [
     content: [
       { type: 'text', text: '✅ Keyword Opportunities Found (low KD, high intent):' },
       { type: 'keywords', items: [
-        { keyword: 'ai marketing automation for agencies', volume: '1.2K', difficulty: '23', intent: 'Commercial' },
+        { keyword: 'ai marketing automation for small business', volume: '1.2K', difficulty: '23', intent: 'Commercial' },
         { keyword: 'best ai tools for digital marketing', volume: '2.4K', difficulty: '31', intent: 'Commercial' },
         { keyword: 'marketing ai assistant software', volume: '880', difficulty: '18', intent: 'Transactional' },
         { keyword: 'automated marketing campaign tools', volume: '1.8K', difficulty: '27', intent: 'Commercial' },
@@ -304,7 +304,7 @@ export const marketingMessages: ChatMessage[] = [
     time: '10:46 AM',
     content: [
       { type: 'text', text: '✅ WordPress Updated:' },
-      { type: 'code', content: 'Page: /landing-page\n- Headline: "Transform Your Marketing with AI"\n- Subhead: "Join 2,000+ agencies saving 20hrs/week"\n- Status: Published' },
+      { type: 'code', content: 'Page: /landing-page\n- Headline: "Transform Your Marketing with AI"\n- Subhead: "Join 2,000+ businesses saving 20hrs/week"\n- Status: Published' },
       { type: 'text', text: '→ Live at yoursite.com/landing-page' },
     ],
     reactions: [{ emoji: '✅', count: 1 }],
@@ -336,7 +336,7 @@ export const reportsMessages: ChatMessage[] = [
     time: '2:30 PM',
     content: [
       { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' generate a full monthly performance report for the client - include all channels, ROI breakdown, and recommendations' },
+      { type: 'text', text: ' generate a full monthly performance report for the customer - include all channels, ROI breakdown, and recommendations' },
     ],
   },
   {

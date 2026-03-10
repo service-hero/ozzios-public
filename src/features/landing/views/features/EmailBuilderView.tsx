@@ -49,7 +49,7 @@ const painPoints = [
     icon: Clock,
     title: 'Templates take days, not minutes',
     description:
-      'Designing, coding, and testing a single email template eats 4-8 hours. Multiply that across every campaign, every client, every week.',
+      'Designing, coding, and testing a single email template eats 4-8 hours. Multiply that across every campaign, every customer, every week.',
   },
   {
     icon: Smartphone,
@@ -61,7 +61,7 @@ const painPoints = [
     icon: Variable,
     title: 'Personalization is manual copy-paste',
     description:
-      'Swapping in client names, company details, and custom fields means duplicate templates and human error. One wrong merge tag, one embarrassing send.',
+      'Swapping in customer names, company details, and custom fields means duplicate templates and human error. One wrong merge tag, one embarrassing send.',
   },
 ];
 
@@ -82,7 +82,7 @@ const capabilities = [
     icon: Variable,
     title: 'Dynamic merge tags',
     description:
-      'Insert {{client.name}}, {{lead.service}}, or any custom field. Preview with real contact data before sending. No more placeholder mistakes.',
+      'Insert {{contact.name}}, {{lead.service}}, or any custom field. Preview with real contact data before sending. No more placeholder mistakes.',
   },
   {
     icon: Image,

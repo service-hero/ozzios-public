@@ -57,7 +57,7 @@ const painPoints = [
     icon: Users,
     title: 'Segmentation is a nightmare',
     description:
-      'Export from CRM, import to email tool, manually filter lists, pray you do not send to the wrong segment. One mistake and you lose client trust.',
+      'Export from CRM, import to email tool, manually filter lists, pray you do not send to the wrong segment. One mistake and you lose customer trust.',
   },
   {
     icon: Clock,
@@ -425,7 +425,7 @@ function CTASection() {
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Email campaigns that integrate with your CRM, your AI agents, and your entire
-            marketing workflow. Start in minutes.
+            business workflow. Start in minutes.
           </p>
           <a
             href="https://app.ozzios.com/sign-up"

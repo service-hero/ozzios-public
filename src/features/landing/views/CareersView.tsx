@@ -119,8 +119,8 @@ export function CareersView() {
               Join the team
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              We&apos;re building the future of marketing automation. Our AI agents
-              replace entire agency workflows -- and we need exceptional people
+              We&apos;re building the future of home service business automation. Our AI agents
+              replace entire back-office workflows -- and we need exceptional people
               to make it happen.
             </p>
           </motion.div>

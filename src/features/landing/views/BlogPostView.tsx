@@ -9,151 +9,151 @@ import remarkGfm from 'remark-gfm';
 
 // Blog post data - in a real app this would come from a CMS/API
 const blogPostsData: Record<string, BlogPost> = {
-  '22-ai-agents-replace-agency': {
-    id: '22-ai-agents-replace-agency',
-    title: 'I Run a Marketing Agency. Here\'s Why I Built 22 AI Agents to Replace It.',
-    excerpt: '$4,500/month. That\'s the average retainer small businesses pay a marketing agency. After years of watching clients wait days for deliverables AI could produce in minutes, I stopped pretending the model wasn\'t broken.',
-    category: 'agency',
-    categoryLabel: 'Agency Growth',
+  '22-ai-agents-home-service': {
+    id: '22-ai-agents-home-service',
+    title: 'I Run a Home Service Company. Here\'s Why I Built 22 AI Agents to Run the Back Office.',
+    excerpt: '$4,500/month. That\'s the average overhead small home service businesses spend on marketing and admin. After years of watching jobs slip through the cracks while teams struggled to keep up, I stopped pretending the model wasn\'t broken.',
+    category: 'growth',
+    categoryLabel: 'Business Growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: '/images/blog-post-22-ai-agents-replace-agency.png',
     readTime: '12 min read',
     date: 'February 17, 2025',
     content: `
-## The Dirty Secret: You're Paying for Coordination, Not Expertise
+## The Dirty Secret: You're Paying for Coordination, Not Results
 
-I've been on both sides. Here's what actually happens inside a marketing agency when you're paying $3,000–$5,000/month:
+I've been on both sides. Here's what actually happens inside a home service company when you're spending $3,000-$5,000/month on marketing and admin overhead:
 
-**Week 1:** Account manager gets your request. Forwards it to a specialist. Specialist juggling 12 other clients. Your task sits in a queue.
+**Week 1:** A lead comes in. The office manager routes it to a dispatcher. Dispatcher is juggling 12 other jobs. The lead sits in a queue.
 
-**Week 2:** Specialist does the work in 2–3 hours. Sends it back for review. Account manager adds "strategic context" (reformats it slightly).
+**Week 2:** Someone follows up, but the customer already called a competitor. Meanwhile, your Google Business Profile hasn't been updated in months.
 
-**Week 3:** You get the deliverable. Ask for revisions. Back to the queue.
+**Week 3:** You get a monthly report from your marketing vendor. It looks impressive. It took someone 45 minutes to generate from a template.
 
-**Week 4:** You get a report. It looks impressive. It took someone 45 minutes to generate from a template.
+**Week 4:** You realize three reviews went unanswered and your social media has been silent for two weeks.
 
-The actual *work*? Maybe 8–10 hours per month.
+The actual *work*? Maybe 8-10 hours per month of real value.
 
-The rest is overhead: project management, client communication, context switching, meetings about meetings.
+The rest is overhead: coordination, context switching, missed follow-ups, and meetings about meetings.
 
 **You're not paying for expertise. You're paying for a human coordination layer that AI eliminates entirely.**
 
 ---
 
-## What 22 AI Agents Actually Do (That Your Agency Does Slowly)
+## What 22 AI Agents Actually Do (That Your Back Office Does Slowly)
 
-Ozzi isn't a chatbot that writes blog posts. It's a supervisor-agent orchestration system — meaning there's a central AI brain delegating tasks to specialized agents, each with their own tools, memory, and execution capabilities.
+Ozzi isn't a chatbot that writes blog posts. It's a supervisor-agent orchestration system -- meaning there's a central AI brain delegating tasks to specialized agents, each with their own tools, memory, and execution capabilities.
 
 Here's what runs every single week, automatically:
 
-### Agent 1–3: Intelligence
+### Agent 1-3: Intelligence
 
-**What your agency does:** Quarterly keyword research. Monthly ranking report. Occasional competitor check.
-
-**What the agents do:**
-
-- **Keyword Research Agent** — Expands seed keywords into 200–400 variations weekly. Pulls volume, CPC, difficulty, and trend data. Flags new opportunities the moment they appear.
-- **Competitor Intel Agent** — Monitors 10+ competitors for new backlinks, content changes, and ranking movements. You know about a competitor's new strategy within days, not months.
-- **Technical SEO Agent** — Crawls your site weekly for broken links, missing meta tags, crawl errors, and Core Web Vitals issues. Generates fix-it tickets automatically.
-
-*Agency equivalent: ~$800–$1,200/month of your retainer.*
-
-### Agent 4–6: Content Operations
-
-**What your agency does:** 2–4 blog posts per month. Content brief takes 3–5 days. Writing takes another week.
+**What your team does now:** Occasional keyword research. Monthly ranking check. Rarely looks at competitors.
 
 **What the agents do:**
 
-- **Content Strategist Agent** — Analyzes top-ranking content, identifies gaps competitors are missing, and generates comprehensive briefs in minutes. Not generic templates — briefs based on real-time SERP analysis.
-- **Content Writer Agent** — Drafts SEO-optimized content that actually sounds human. Uses your brand voice guidelines stored in persistent memory. Knows your past content so it doesn't repeat itself.
-- **Content Optimizer Agent** — Takes existing content and finds opportunities: internal links you're missing, keywords you could target with minor edits, sections that need updating.
+- **Keyword Research Agent** -- Expands seed keywords into 200-400 variations weekly. Pulls volume, CPC, difficulty, and trend data. Flags new opportunities the moment they appear.
+- **Competitor Intel Agent** -- Monitors 10+ competitors for new backlinks, content changes, and ranking movements. You know about a competitor's new strategy within days, not months.
+- **Technical SEO Agent** -- Crawls your site weekly for broken links, missing meta tags, crawl errors, and Core Web Vitals issues. Generates fix-it tickets automatically.
 
-*Agency equivalent: ~$1,500–$2,500/month of your retainer.*
+*Traditional overhead equivalent: ~$800-$1,200/month.*
 
-### Agent 7–10: Paid Advertising
+### Agent 4-6: Content Operations
 
-**What your agency does:** Sets up campaigns. Checks them weekly. Adjusts bids monthly. Sends a performance report.
-
-**What the agents do:**
-
-- **Ad Strategy Agent** — Researches competitor ad copy, identifies audience gaps, and recommends campaign structures based on your budget and goals.
-- **Ad Copy Agent** — Generates dozens of variations for testing. Headlines, descriptions, CTAs — all based on what's actually converting in your space.
-- **Budget Optimization Agent** — Monitors spend daily and reallocates budget toward what's working. Doesn't wait for the Monday meeting.
-- **Ad Reporting Agent** — Compiles ROAS, CPA, and conversion data into plain-language summaries. Flags anomalies the day they happen.
-
-*Agency equivalent: ~$1,000–$2,000/month of your retainer.*
-
-### Agent 11–14: Social Media
-
-**What your agency does:** Schedules posts. Maybe 3–4 per week across platforms. Uses a generic content calendar.
+**What your team does now:** Maybe 1-2 blog posts per month, if someone remembers. Takes weeks to get anything published.
 
 **What the agents do:**
 
-- **Social Strategist Agent** — Studies trending content in your niche. Identifies formats, hooks, and topics gaining traction right now.
-- **Content Repurposing Agent** — Takes one blog post and turns it into 15+ social posts across formats: threads, carousels, short-form scripts, quotes.
-- **Engagement Agent** — Monitors mentions, comments, and relevant conversations. Drafts responses for your approval.
-- **Analytics Agent** — Tracks what's actually driving engagement vs. vanity metrics, and adjusts strategy weekly.
+- **Content Strategist Agent** -- Analyzes top-ranking content for "plumber near me," "HVAC repair," and your key services. Identifies gaps competitors are missing, and generates comprehensive briefs in minutes.
+- **Content Writer Agent** -- Drafts SEO-optimized content that actually sounds human. Uses your brand voice guidelines stored in persistent memory. Knows your service area and specialties.
+- **Content Optimizer Agent** -- Takes existing content and finds opportunities: internal links you're missing, keywords you could target with minor edits, sections that need updating.
 
-*Agency equivalent: ~$500–$1,000/month of your retainer.*
+*Traditional overhead equivalent: ~$1,500-$2,500/month.*
 
-### Agent 15–22: The Backbone
+### Agent 7-10: Paid Advertising
+
+**What happens now:** Set up campaigns. Check them occasionally. Adjust bids when someone remembers. Hope for the best.
+
+**What the agents do:**
+
+- **Ad Strategy Agent** -- Researches competitor ad copy, identifies audience gaps, and recommends campaign structures based on your budget and goals.
+- **Ad Copy Agent** -- Generates dozens of variations for testing. Headlines, descriptions, CTAs -- all based on what's actually converting in your service area.
+- **Budget Optimization Agent** -- Monitors spend daily and reallocates budget toward what's working. Doesn't wait for the Monday meeting.
+- **Ad Reporting Agent** -- Compiles ROAS, CPA, and conversion data into plain-language summaries. Flags anomalies the day they happen.
+
+*Traditional overhead equivalent: ~$1,000-$2,000/month.*
+
+### Agent 11-14: Social Media & Reputation
+
+**What happens now:** Posts once a week if lucky. Reviews go unanswered for days. No real strategy.
+
+**What the agents do:**
+
+- **Social Strategist Agent** -- Studies trending content in the home services space. Identifies formats, hooks, and topics gaining traction right now.
+- **Content Repurposing Agent** -- Takes one blog post and turns it into 15+ social posts across formats: before/after photos, tips, customer spotlights, seasonal reminders.
+- **Review Management Agent** -- Monitors reviews across Google, Yelp, and Facebook. Drafts responses for your approval. Flags negative reviews immediately.
+- **Analytics Agent** -- Tracks what's actually driving leads vs. vanity metrics, and adjusts strategy weekly.
+
+*Traditional overhead equivalent: ~$500-$1,000/month.*
+
+### Agent 15-22: The Backbone
 
 The remaining agents handle the work nobody sees but everything depends on:
 
-- **Analytics & Reporting** — Unified dashboards pulling from every source. No waiting until month-end.
-- **Brand Voice Guardian** — Ensures every piece of content sounds like *you*, not like ChatGPT wrote it.
-- **Memory & Context Manager** — The 7-layer memory architecture that means your agents remember your Q1 strategy when they're planning Q3. They remember what worked. What flopped. What you told them to never do again.
-- **Quality Assurance** — Reviews outputs before they reach you. Catches errors, inconsistencies, and off-brand messaging.
-- **Integration Orchestrator** — Connects to your existing tools: Google Analytics, Search Console, ad platforms, CRM.
+- **Analytics & Reporting** -- Unified dashboards pulling from every source. No waiting until month-end.
+- **Brand Voice Guardian** -- Ensures every piece of content sounds like *you*, not like ChatGPT wrote it.
+- **Memory & Context Manager** -- The 7-layer memory architecture that means your agents remember your busy season strategy when they're planning the slow months. They remember what worked. What flopped. What you told them to never do again.
+- **Quality Assurance** -- Reviews outputs before they reach you. Catches errors, inconsistencies, and off-brand messaging.
+- **Integration Orchestrator** -- Connects to your existing tools: Google Analytics, Search Console, ad platforms, CRM, HouseCall Pro.
 
 ---
 
-## The Part Agencies Don't Want You to Think About
+## The Part Nobody Wants You to Think About
 
-Here's a comparison that keeps me up at night — *and I'm the one running the agency:*
+Here's a comparison that keeps me up at night:
 
-| | Traditional Agency | AI Agent System |
+| | Traditional Approach | AI Agent System |
 |---|---|---|
-| **Keyword research** | Quarterly | Weekly |
-| **Competitor monitoring** | Monthly | Daily |
-| **Content briefs** | 3–5 business days | Minutes |
-| **Content production** | 2–4 pieces/month | As many as you need |
+| **Keyword research** | Quarterly (if ever) | Weekly |
+| **Competitor monitoring** | Rarely | Daily |
+| **Content creation** | 1-2 pieces/month | As many as you need |
+| **Review responses** | Days late | Same day |
 | **Ad optimization** | Weekly check-ins | Continuous |
 | **Reporting** | Monthly PDF | Real-time dashboard |
 | **Response to changes** | Next billing cycle | Same day |
-| **Scales with you** | New SOW + price increase | Same system |
-| **Remembers everything** | New account manager = reset | Persistent memory |
+| **Scales with you** | Hire more people | Same system |
+| **Remembers everything** | Staff turnover = reset | Persistent memory |
 
-That last row is the one that stings. Every agency client has experienced the account manager shuffle. New person, new ramp-up, lost context. With AI agents running on persistent memory, your marketing system gets *smarter* over time. It never forgets a campaign result, a brand guideline, or a lesson learned.
+That last row is the one that stings. Every home service company has experienced staff turnover. New person, new ramp-up, lost context. With AI agents running on persistent memory, your marketing system gets *smarter* over time. It never forgets a campaign result, a brand guideline, or a lesson learned.
 
 ---
 
 ## "But AI Can't Replace Strategy"
 
-I hear this a lot. Usually from agency owners.
+I hear this a lot. Usually from marketing vendors.
 
 And they're... partially right. Here's the nuance:
 
 **What AI agents can't (yet) do:**
-- Read the room in a board meeting
-- Navigate messy internal politics about brand direction
-- Have the creative intuition that comes from 20 years in an industry
-- Build genuine relationships with journalists and partners
+- Read the room in a meeting with a commercial property manager
+- Navigate local business politics
+- Have the creative intuition that comes from 20 years in the trades
+- Build genuine relationships with referral partners
 
 **What AI agents absolutely can do:**
-- Execute 90% of the tactical work agencies charge premium rates for
+- Execute 90% of the tactical marketing work that eats up your time
 - Process more data than any human team
 - Maintain perfect consistency across channels
-- Work 24/7 without context switching between 12 clients
+- Work 24/7 without calling in sick
 - Remember and learn from every single interaction
 
-The honest truth? Most businesses paying $3,000–$5,000/month for an agency don't need high-level strategy. They need consistent, quality execution of proven marketing playbooks. That's exactly what AI agents excel at.
+The honest truth? Most home service businesses spending $3,000-$5,000/month on marketing overhead don't need high-level strategy. They need consistent, quality execution of proven marketing playbooks. That's exactly what AI agents excel at.
 
 ---
 
@@ -175,9 +175,9 @@ Here's why a coordinated agent system is fundamentally different from copy-pasti
 - Connected to your real analytics, ad platforms, and tools
 - Executes actual campaigns, not just plans them
 - 22 specialists coordinated by a supervisor agent
-- The system is the coordinator — you're the decision maker
+- The system is the coordinator -- you're the decision maker
 
-It's the difference between having a smart friend who gives advice and having a full marketing department that shows up every morning already knowing what to do.
+It's the difference between having a smart friend who gives advice and having a full back office that shows up every morning already knowing what to do.
 
 ---
 
@@ -185,46 +185,46 @@ It's the difference between having a smart friend who gives advice and having a 
 
 Let's do the real math:
 
-**Traditional agency:** $3,000–$5,000/month = $36,000–$60,000/year
+**Traditional marketing overhead:** $3,000-$5,000/month = $36,000-$60,000/year
 
-**Building it yourself with APIs and scripts:** $75–$150/month in API costs + 20–40 hours of setup + ongoing maintenance + you need to be technical
+**Building it yourself with APIs and scripts:** $75-$150/month in API costs + 20-40 hours of setup + ongoing maintenance + you need to be technical
 
-**AI agent platform:** A fraction of agency cost, no technical setup, maintained and improved for you
+**AI agent platform:** A fraction of the traditional cost, no technical setup, maintained and improved for you
 
-That works if you're technical and have the time. We respect that — we've been those people.
+That works if you're technical and have the time. We respect that -- we've been those people.
 
-But most business owners don't want to maintain cron jobs and debug API rate limits. They want results.
+But most home service business owners don't want to maintain cron jobs and debug API rate limits. They want results.
 
 ---
 
-## When to Keep Your Agency
+## When to Keep Your Current Setup
 
-I'm not going to pretend AI agents replace everything. Keep your agency if:
+I'm not going to pretend AI agents replace everything. Keep your current approach if:
 
 - You're spending $15,000+/month and getting genuine strategic partnership
-- Your agency has deep industry relationships you can't replicate
-- You need someone to sit in meetings and present to stakeholders
-- You're in a heavily regulated industry where human review is mandatory
+- Your marketing vendor has deep relationships in your local market you can't replicate
+- You need someone to attend networking events and present to commercial prospects
+- You're in a heavily regulated trade where human review is mandatory
 
 Switch to AI agents if:
 
-- You're paying $2,000–$5,000/month and mostly getting execution work
-- You're frustrated by the turnaround time
+- You're paying $2,000-$5,000/month and mostly getting basic execution work
+- You're frustrated by slow turnaround times
 - You want daily optimization, not monthly reports
-- You're tired of re-explaining your business every time your account manager leaves
+- You're tired of re-explaining your business every time there's staff turnover
 - You want a system that gets better over time instead of resetting
 
 ---
 
-## The Uncomfortable Truth From Inside the Industry
+## The Uncomfortable Truth
 
 I built Ozzi because I saw what was coming.
 
-The marketing agency model was designed for a world where expertise was scarce and tools were expensive. Ahrefs costs $99/month. SEMrush costs $130/month. Google Ads requires certification. Content required writers.
+The traditional approach to home service marketing was designed for a world where expertise was scarce and tools were expensive. Ahrefs costs $99/month. SEMrush costs $130/month. Google Ads requires certification. Content required writers.
 
 Now? The tools are APIs. The expertise is embedded in AI models. The coordination is handled by orchestration systems.
 
-The agencies that survive will be the ones that move up the value chain — genuine strategic partners, creative directors, brand architects. The $3,000–$5,000/month execution shops? They're in trouble.
+The businesses that thrive will be the ones that embrace this shift -- using AI to handle the marketing grind while owners focus on what they do best: delivering great service.
 
 I'd rather build the future than pretend it's not coming.
 
@@ -232,30 +232,30 @@ I'd rather build the future than pretend it's not coming.
 
 ## Try It Yourself
 
-Ozzi is the AI agent platform that replaces your marketing agency's execution layer with 22 specialized agents that work every day, remember everything, and get smarter over time.
+Ozzi is the AI agent platform that replaces your marketing overhead with 22 specialized agents that work every day, remember everything, and get smarter over time.
 
 No cron jobs. No API debugging. No 20-hour setup.
 
 Just results, on autopilot.
 
-**[See how Ozzi works →](https://ozzios.com)**
+**[See how Ozzi works ->](https://ozzios.com)**
 
 ---
 
-*Building the future of marketing automation at [ozzios.com](https://ozzios.com). Follow the journey.*
+*Building the future of home service business automation at [ozzios.com](https://ozzios.com). Follow the journey.*
     `,
   },
   'gohighlevel-integration': {
     id: 'gohighlevel-integration',
     title: 'OzziOS Now Integrates with GoHighLevel: Supercharge Your CRM with AI',
-    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire marketing stack—all without leaving the platform.',
+    excerpt: 'Connect your GoHighLevel account to OzziOS and let AI agents manage contacts, automate follow-ups, and sync data across your entire business operations—all without leaving the platform.',
     category: 'product',
     categoryLabel: 'Product Updates',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: '/images/ghl_ozzi_integrated_blog_post.jpg',
@@ -264,7 +264,7 @@ Just results, on autopilot.
     content: `
 ## Your CRM Just Got Smarter
 
-We're excited to announce that OzziOS now integrates directly with **GoHighLevel**—the all-in-one CRM platform that thousands of agencies rely on for client management, marketing automation, and sales pipelines.
+We're excited to announce that OzziOS now integrates directly with **GoHighLevel**--the all-in-one CRM platform that thousands of home service businesses rely on for customer management, marketing automation, and sales pipelines.
 
 This integration means your AI employees can now work directly with your GoHighLevel data, automating tasks that used to require manual effort and bridging the gap between your CRM and your marketing operations.
 
@@ -301,10 +301,10 @@ With GoHighLevel connected to OzziOS, your AI agents can:
 Setting up the integration takes just a few minutes:
 
 ### Step 1: Generate Your API Credentials
-In GoHighLevel, navigate to **Settings → Private Integrations** and create a new integration. This generates the secure API token OzziOS needs to connect.
+In GoHighLevel, navigate to **Settings -> Private Integrations** and create a new integration. This generates the secure API token OzziOS needs to connect.
 
 ### Step 2: Enter Your Location ID
-Every GoHighLevel sub-account has a unique Location ID. You'll find this in your account settings—it's the identifier that tells our system which CRM instance to connect to.
+Every GoHighLevel sub-account has a unique Location ID. You'll find this in your account settings--it's the identifier that tells our system which CRM instance to connect to.
 
 ### Step 3: Test & Connect
 Before saving, OzziOS validates your credentials by making a test API call. If everything checks out, you're connected. If not, you'll get clear error messages explaining what to fix.
@@ -326,9 +326,9 @@ Your GoHighLevel API key never leaves your workspace, and you can disconnect the
 
 ## Why GoHighLevel + OzziOS?
 
-Agencies using both platforms often run into the same problem: **data silos**.
+Home service businesses using both platforms often run into the same problem: **data silos**.
 
-GoHighLevel handles your CRM and client communication. OzziOS handles your AI-powered marketing execution. But without integration, you're constantly copying data between systems, manually triggering campaigns, and hoping nothing falls through the cracks.
+GoHighLevel handles your CRM and customer communication. OzziOS handles your AI-powered marketing execution. But without integration, you're constantly copying data between systems, manually triggering campaigns, and hoping nothing falls through the cracks.
 
 Now, everything talks to everything:
 
@@ -344,10 +344,10 @@ Now, everything talks to everything:
 Here's how early adopters are using the integration:
 
 ### Lead Qualification Automation
-> "When a lead fills out a form, our AI scores them, enriches their profile, and either adds them to a nurture sequence or alerts sales for immediate follow-up. What took 10 minutes per lead now happens instantly."
+> "When a lead fills out a form, our AI scores them, enriches their profile, and either adds them to a nurture sequence or alerts our team for immediate follow-up. What took 10 minutes per lead now happens instantly."
 
-### Client Reporting
-> "We pull GoHighLevel campaign data into OzziOS reports automatically. Clients see email performance alongside SEO and social—one dashboard, complete picture."
+### Customer Reporting
+> "We pull GoHighLevel campaign data into OzziOS reports automatically. We can see email performance alongside SEO and social--one dashboard, complete picture."
 
 ### Re-engagement Campaigns
 > "AI monitors contact activity in GoHighLevel. When someone goes quiet for 30 days, it automatically launches a personalized re-engagement sequence. Our reactivation rate doubled."
@@ -357,7 +357,7 @@ Here's how early adopters are using the integration:
 The GoHighLevel integration is available now for all OzziOS Pro and Enterprise users.
 
 To connect your account:
-1. Go to **Settings → Integrations** in OzziOS
+1. Go to **Settings -> Integrations** in OzziOS
 2. Click **Connect** next to GoHighLevel
 3. Enter your API credentials
 4. Start building workflows
@@ -366,20 +366,20 @@ If you're not yet using OzziOS, [get early access](https://app.ozzios.com/sign-u
 
 ---
 
-*Have questions about the integration? [Check our documentation](https://docs.ozzios.com/integrations/gohighlevel) or reach out to support—we're here to help you get connected.*
+*Have questions about the integration? [Check our documentation](https://docs.ozzios.com/integrations/gohighlevel) or reach out to support--we're here to help you get connected.*
     `,
   },
-  'future-of-agency-work': {
-    id: 'future-of-agency-work',
-    title: 'The Future of Agency Work: Why AI Employees Are Inevitable',
-    excerpt: 'The agency model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
+  'future-of-home-service-work': {
+    id: 'future-of-home-service-work',
+    title: 'The Future of Home Service Businesses: Why AI Employees Are Inevitable',
+    excerpt: 'The traditional service business model is broken. Hiring costs $15-25K per employee, training takes months, and your best people leave—taking institutional knowledge with them. Here\'s how AI changes everything.',
     category: 'ai',
     categoryLabel: 'AI & Automation',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&h=900&fit=crop&auto=format',
@@ -388,68 +388,68 @@ If you're not yet using OzziOS, [get early access](https://app.ozzios.com/sign-u
     content: `
 ## The Hidden Cost of Human Teams
 
-Every agency owner knows the feeling. You finally find the perfect hire—someone who gets your clients, understands your processes, and delivers quality work. You invest months training them. They become indispensable.
+Every home service business owner knows the feeling. You finally find the perfect hire--someone who gets your customers, understands your processes, and delivers quality work. You invest months training them. They become indispensable.
 
 Then they leave.
 
-And when they walk out the door, they take everything with them: the client relationships they've built, the institutional knowledge they've accumulated, the processes they've perfected. You're left starting from scratch.
+And when they walk out the door, they take everything with them: the customer relationships they've built, the institutional knowledge they've accumulated, the processes they've perfected. You're left starting from scratch.
 
 **The numbers are brutal:**
 - Average cost to hire: $15,000 - $25,000
 - Time to full productivity: 3-6 months
-- Annual turnover rate in agencies: 30%
+- Annual turnover rate in home services: 30%
 - Knowledge retained when employees leave: ~20%
 
-This isn't sustainable. And deep down, every agency owner knows it.
+This isn't sustainable. And deep down, every business owner knows it.
 
 ## Why Traditional Hiring Can't Scale
 
-The fundamental problem with human teams isn't the people—it's the model itself.
+The fundamental problem with human teams isn't the people--it's the model itself.
 
 When you hire a human employee, you're making a bet. You're betting that:
 1. They'll stay long enough to justify the hiring cost
 2. They'll learn fast enough to become productive
 3. They'll document their knowledge (spoiler: they won't)
-4. They won't take your best clients when they leave
+4. They won't take your best customers when they leave
 
-Most of these bets don't pay off. The average agency employee stays 2.3 years. That's barely enough time to recoup your investment, let alone build lasting value.
+Most of these bets don't pay off. The average home service employee stays 2.3 years. That's barely enough time to recoup your investment, let alone build lasting value.
 
 ### The Knowledge Problem
 
-Here's what really keeps agency owners up at night: **institutional knowledge**.
+Here's what really keeps business owners up at night: **institutional knowledge**.
 
-Every conversation with a client. Every preference they've mentioned. Every campaign that worked (and why). Every relationship nuance. Every process improvement.
+Every conversation with a customer. Every preference they've mentioned. Every campaign that worked (and why). Every relationship nuance. Every process improvement.
 
 All of it lives in your employees' heads. And when they leave, it leaves with them.
 
-> "We had an account manager who'd been with us for 4 years. She knew our biggest client better than anyone. When she left for a competitor, we lost the account within 6 months. That was $400K in annual revenue—gone because we couldn't transfer what she knew."
+> "We had an office manager who'd been with us for 4 years. She knew our biggest commercial account better than anyone. When she left for a competitor, we lost the account within 6 months. That was $400K in annual revenue--gone because we couldn't transfer what she knew."
 
 This story isn't unique. It's the norm.
 
 ## Enter the AI Employee
 
-What if your employees never left? What if they remembered everything—every conversation, every preference, every detail? What if they worked 24/7 without burning out?
+What if your employees never left? What if they remembered everything--every conversation, every preference, every detail? What if they worked 24/7 without burning out?
 
 This isn't science fiction. It's what AI employees offer today.
 
 ### Infinite Memory
 
-AI employees don't forget. Every client interaction, every brand guideline, every campaign result—it's all stored permanently. When you ask your AI Content Writer about a client's brand voice, it doesn't need to check old documents. It remembers.
+AI employees don't forget. Every customer interaction, every brand guideline, every campaign result--it's all stored permanently. When you ask your AI Content Writer about your company's brand voice, it doesn't need to check old documents. It remembers.
 
-This changes everything about how agencies operate:
+This changes everything about how service businesses operate:
 - **No more knowledge loss** when team members transition
 - **No more onboarding** new people to existing accounts
-- **No more inconsistency** in client communication
+- **No more inconsistency** in customer communication
 
 ### 24/7 Availability
 
-Your AI team works while you sleep. Campaigns launch at 3am. Reports generate overnight. Client questions get answered in real-time, regardless of timezone.
+Your AI team works while you sleep. Campaigns launch at 3am. Reports generate overnight. Customer questions get answered in real-time, regardless of timezone.
 
-This isn't about replacing human judgment—it's about extending your capacity. The strategic thinking still happens during business hours. But the execution? That happens around the clock.
+This isn't about replacing human judgment--it's about extending your capacity. The strategic thinking still happens during business hours. But the execution? That happens around the clock.
 
 ### Zero Turnover Cost
 
-When was the last time an AI employee quit to join a competitor? When did one ask for a raise? When did one take your best clients with them?
+When was the last time an AI employee quit to join a competitor? When did one ask for a raise? When did one take your best customers with them?
 
 The answer is never. And it will always be never.
 
@@ -459,7 +459,7 @@ To be clear: AI employees don't replace humans entirely. They replace the repeti
 
 Your human team focuses on:
 - **Strategy and creative direction**
-- **Client relationships and sales**
+- **Customer relationships and sales**
 - **Quality control and oversight**
 - **The work that actually requires a human touch**
 
@@ -469,7 +469,7 @@ Your AI team handles:
 - **Campaign execution and optimization**
 - **The work that's important but repetitive**
 
-This hybrid model lets you scale output without scaling headcount. It lets you grow revenue without growing overhead. It lets you build an agency that's actually sustainable.
+This hybrid model lets you scale output without scaling headcount. It lets you grow revenue without growing overhead. It lets you build a business that's actually sustainable.
 
 ## Making the Transition
 
@@ -481,21 +481,21 @@ The shift to AI employees isn't about flipping a switch. It's about gradually au
 3. Measure the time saved and quality maintained
 4. Gradually expand as you build confidence
 
-**The agencies winning today** aren't the ones with the biggest teams. They're the ones who've figured out how to do more with less—how to leverage AI to multiply their human team's impact.
+**The businesses winning today** aren't the ones with the biggest teams. They're the ones who've figured out how to do more with less--how to leverage AI to multiply their human team's impact.
 
 ## The Bottom Line
 
-The agency model is evolving. Those who adapt will thrive. Those who don't will struggle to compete against leaner, faster competitors who've embraced AI.
+The home service business model is evolving. Those who adapt will thrive. Those who don't will struggle to compete against leaner, faster competitors who've embraced AI.
 
-The question isn't whether AI employees will become standard in agencies. It's whether you'll be an early adopter or a late follower.
+The question isn't whether AI employees will become standard in service businesses. It's whether you'll be an early adopter or a late follower.
 
 The early adopters are already seeing:
-- **65% reduction in headcount needs**
+- **65% reduction in back-office headcount needs**
 - **40+ hours saved per week**
 - **Zero turnover costs**
 - **Infinite institutional memory**
 
-The future of agency work isn't about humans vs. AI. It's about humans *with* AI—working together to deliver results that neither could achieve alone.
+The future of home service businesses isn't about humans vs. AI. It's about humans *with* AI--working together to deliver results that neither could achieve alone.
 
 ---
 
@@ -504,7 +504,7 @@ The future of agency work isn't about humans vs. AI. It's about humans *with* AI
   },
   'replace-8-tools': {
     id: 'replace-8-tools',
-    title: 'How We Replaced 8 Marketing Tools with One Platform',
+    title: 'How We Replaced 8 Business Tools with One Platform',
     excerpt: 'Mailchimp, Hootsuite, SEMrush, Asana—we cancelled them all. Here\'s how consolidation saved us $2,400/month.',
     category: 'product',
     categoryLabel: 'Product Updates',
@@ -512,7 +512,7 @@ The future of agency work isn't about humans vs. AI. It's about humans *with* AI
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&auto=format',
@@ -521,7 +521,7 @@ The future of agency work isn't about humans vs. AI. It's about humans *with* AI
     content: `
 ## The Tool Sprawl Problem
 
-If you've run an agency for more than a year, you know the drill. It starts innocently enough—you need email marketing, so you get Mailchimp. Then you need social scheduling, so you add Hootsuite. SEO tools? That's SEMrush. Project management? Asana. CRM? HubSpot.
+If you've run a service business for more than a year, you know the drill. It starts innocently enough--you need email marketing, so you get Mailchimp. Then you need social scheduling, so you add Hootsuite. SEO tools? That's SEMrush. Project management? Asana. CRM? HubSpot.
 
 Before you know it, you're juggling 8+ subscriptions, each with their own login, their own learning curve, their own monthly invoice.
 
@@ -542,7 +542,7 @@ Before you know it, you're juggling 8+ subscriptions, each with their own login,
 The subscription fees are just the beginning. The real costs are:
 
 ### Context Switching
-Every time you jump between tools, you lose focus. Studies show it takes 23 minutes to fully regain concentration after switching contexts. If your team switches tools 10 times a day, that's nearly 4 hours of lost productivity—per person.
+Every time you jump between tools, you lose focus. Studies show it takes 23 minutes to fully regain concentration after switching contexts. If your team switches tools 10 times a day, that's nearly 4 hours of lost productivity--per person.
 
 ### Data Silos
 Your email data lives in Mailchimp. Your social data lives in Hootsuite. Your SEO data lives in SEMrush. Getting a unified view of performance? Good luck manually exporting CSVs and building spreadsheets.
@@ -596,28 +596,28 @@ The key was running both systems in parallel during each phase. We never went co
 For the first time, we could see everything in one dashboard:
 - Email campaigns alongside social performance
 - SEO rankings next to content calendar
-- Client communications with project status
+- Customer communications with project status
 
 ## What We Didn't Expect
 
-The biggest surprise wasn't the cost savings—it was how AI agents changed our workflows.
+The biggest surprise wasn't the cost savings--it was how AI agents changed our workflows.
 
 When your email tool, SEO tool, and content tool are all connected with AI agents, new possibilities emerge:
 
-- AI spots a trending topic → automatically drafts social content → schedules across platforms → tracks performance
-- Lead comes in via email → AI enriches with SEO data → suggests personalized follow-up → logs in CRM
+- AI spots a trending topic -> automatically drafts social content -> schedules across platforms -> tracks performance
+- Lead comes in via email -> AI enriches with SEO data -> suggests personalized follow-up -> logs in CRM
 
 These workflows would've required 3-4 Zapier automations before. Now they just... happen.
 
 ## Should You Consolidate?
 
-Not every agency is ready for full consolidation. Ask yourself:
+Not every business is ready for full consolidation. Ask yourself:
 
-1. **Are you paying for features you don't use?** Most agencies use 20% of their tools' features.
+1. **Are you paying for features you don't use?** Most businesses use 20% of their tools' features.
 2. **How much time does your team spend switching contexts?** Track it for a week.
-3. **Can you get a unified view of client performance?** If not, you're working blind.
+3. **Can you get a unified view of your performance?** If not, you're working blind.
 
-If you answered "yes," "too much," and "no"—consolidation might be your answer.
+If you answered "yes," "too much," and "no"--consolidation might be your answer.
 
 ---
 
@@ -634,7 +634,7 @@ If you answered "yes," "too much," and "no"—consolidation might be your answer
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop&auto=format',
@@ -643,7 +643,7 @@ If you answered "yes," "too much," and "no"—consolidation might be your answer
     content: `
 ## The SEO Landscape Has Changed
 
-SEO in 2025 isn't what it was even two years ago. Google's AI updates have fundamentally changed how content ranks. The old playbook—keyword stuffing, link schemes, thin content at scale—doesn't just fail now. It actively hurts you.
+SEO in 2025 isn't what it was even two years ago. Google's AI updates have fundamentally changed how content ranks. The old playbook--keyword stuffing, link schemes, thin content at scale--doesn't just fail now. It actively hurts you.
 
 What works today:
 - **Quality over quantity** in content
@@ -681,7 +681,7 @@ The AI way: Give it your topic, competitor URLs, and business goals. Get back a 
 
 ### 3. Content Optimization
 
-This is where AI shines—not in writing content, but in optimizing it.
+This is where AI shines--not in writing content, but in optimizing it.
 
 AI can analyze your draft against top-ranking pages and tell you:
 - Missing subtopics to cover
@@ -692,11 +692,11 @@ AI can analyze your draft against top-ranking pages and tell you:
 
 ## A Complete AI SEO Workflow
 
-Here's the workflow we use with OzziOS for client SEO:
+Here's the workflow we use with OzziOS for local service business SEO:
 
 ### Phase 1: Discovery
 \`\`\`
-Human: Defines business goals and target audience
+Human: Defines business goals and target service area
 AI Agent: Audits current site, identifies baseline metrics
 AI Agent: Analyzes competitor landscape
 Human: Reviews and prioritizes opportunities
@@ -740,22 +740,22 @@ Here's what I've learned about where to draw the line:
 ### Keep Human:
 - Final content creation and review
 - Strategic decision-making
-- Client communication
+- Customer communication
 - Creative differentiation
 - Quality judgment calls
 
-The agencies getting AI SEO wrong are the ones using it to pump out content. The ones getting it right use AI to do the grunt work while humans focus on quality and strategy.
+The businesses getting AI SEO wrong are the ones using it to pump out content. The ones getting it right use AI to do the grunt work while humans focus on quality and strategy.
 
 ## Results We've Seen
 
-Across 23 client accounts using AI-assisted SEO:
+Across 23 accounts using AI-assisted SEO:
 
 - **Average ranking improvement:** 34 positions for target keywords
 - **Organic traffic growth:** 156% over 6 months
-- **Time per client:** Reduced from 20 hours/month to 8 hours/month
-- **Client retention:** 94% (up from 78% pre-AI)
+- **Time per account:** Reduced from 20 hours/month to 8 hours/month
+- **Customer retention:** 94% (up from 78% pre-AI)
 
-The time savings alone paid for the investment. The results made clients happier than ever.
+The time savings alone paid for the investment. The results made customers happier than ever.
 
 ## Getting Started with AI SEO
 
@@ -776,24 +776,24 @@ The biggest mistake? Trying to do everything at once. AI makes it tempting to mo
   },
   'scaling-without-hiring': {
     id: 'scaling-without-hiring',
-    title: 'Scaling Your Agency Without Adding Headcount',
+    title: 'Scaling Your Service Business Without Adding Headcount',
     excerpt: 'We grew from $50K to $200K MRR with the same team size. The secret? AI employees that work 24/7.',
-    category: 'agency',
-    categoryLabel: 'Agency Growth',
+    category: 'growth',
+    categoryLabel: 'Business Growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&auto=format',
     readTime: '7 min read',
     date: 'December 15, 2024',
     content: `
-## The Traditional Agency Math Problem
+## The Traditional Service Business Math Problem
 
-Every agency hits the same wall. You want to grow revenue, but the only way you know how is to add headcount. More clients = more people = more overhead = thinner margins.
+Every service business hits the same wall. You want to grow revenue, but the only way you know how is to add headcount. More customers = more people = more overhead = thinner margins.
 
 The math looks like this:
 
@@ -819,7 +819,7 @@ This isn't fantasy. This is what AI employees make possible.
 
 ## Our Journey: $50K to $200K MRR
 
-Eighteen months ago, our agency was stuck at $50K MRR with 5 full-time employees. We were profitable but plateaued. Taking on more clients meant hiring more people—people we'd have to find, train, and hope wouldn't leave.
+Eighteen months ago, our business was stuck at $50K MRR with 5 full-time employees. We were profitable but plateaued. Taking on more customers meant hiring more people--people we'd have to find, train, and hope wouldn't leave.
 
 Then we started experimenting with AI agents.
 
@@ -836,17 +836,17 @@ We deployed AI agents for our most time-consuming tasks:
 We refined our AI workflows and started trusting agents with more:
 - Full SEO audits
 - Campaign performance analysis
-- Client report generation
+- Customer report generation
 - Lead qualification
 
-**Result:** 35 hours saved per week. We took on 3 new clients without hiring.
+**Result:** 35 hours saved per week. We took on 3 new customers without hiring.
 
 ### Month 7-12: The Scaling Phase
 AI became core to our operations:
 - 70% of content created by AI (human edited)
 - All reporting automated
 - Lead nurturing on autopilot
-- 24/7 client support via AI
+- 24/7 customer support via AI
 
 **Result:** $200K MRR with 7 employees (we added 2 senior strategists).
 
@@ -864,7 +864,7 @@ After AI:
 - 20% coordination (AI handles routine updates)
 - 60% strategy (where humans add real value)
 
-Our clients got better work because our humans focused on what humans do best.
+Our customers got better work because our humans focused on what humans do best.
 
 ## The Playbook for Scaling Without Hiring
 
@@ -880,7 +880,7 @@ Any task that's execution-heavy is an AI candidate.
 
 ### Step 2: Start With Reporting
 Reporting is the perfect first AI use case:
-- It's time-consuming (4-8 hours per client per month)
+- It's time-consuming (4-8 hours per customer per month)
 - It's repetitive (same format, different data)
 - Errors are easily caught (you review before sending)
 
@@ -892,23 +892,23 @@ Once reporting is automated, move to content:
 
 Keep humans in the editing seat.
 
-### Step 4: Automate Client Communication
+### Step 4: Automate Customer Communication
 This is where it gets powerful:
 - Routine updates sent automatically
 - Questions answered 24/7
 - Status reports without lifting a finger
 
-Your clients feel more connected even though you're spending less time on updates.
+Your customers feel more connected even though you're spending less time on updates.
 
 ### Step 5: Scale Strategically
 Now you can grow differently:
-- Take on more clients without more junior hires
+- Take on more customers without more junior hires
 - Hire only senior people who add strategic value
 - Charge premium prices for premium thinking
 
-## The New Agency Model
+## The New Service Business Model
 
-The agencies that thrive in the next decade will look different:
+The businesses that thrive in the next decade will look different:
 
 **Old Model:**
 - Revenue grows with headcount
@@ -926,7 +926,7 @@ The question isn't whether this transition will happen. It's whether you'll lead
 
 ---
 
-*Ready to scale differently? [See how other agencies are doing it](https://ozzios.com/case-studies) or [get early access](https://app.ozzios.com/sign-up).*
+*Ready to scale differently? [See how other service businesses are doing it](https://ozzios.com/case-studies) or [get early access](https://app.ozzios.com/sign-up).*
     `,
   },
   'content-automation': {
@@ -939,7 +939,7 @@ The question isn't whether this transition will happen. It's whether you'll lead
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop&auto=format',
@@ -952,23 +952,23 @@ Every marketer knows the feeling. You need to publish consistently. The algorith
 
 But creating quality content takes time. A single blog post: 4-6 hours. A week of social content: 3-4 hours. Monthly email campaigns: 5-6 hours.
 
-Multiply that across clients, and content becomes a full-time job. Or three.
+Multiply that across your service areas and locations, and content becomes a full-time job. Or three.
 
 ## The AI Content Revolution
 
-AI doesn't replace writers—it multiplies them. Here's how our content process evolved:
+AI doesn't replace writers--it multiplies them. Here's how our content process evolved:
 
 ### Before AI
-- 4 blog posts per month per client
+- 4 blog posts per month
 - 3 social posts per week
 - 2 email campaigns per month
-- 1 content person per 3 clients
+- 1 content person stretched thin
 
 ### After AI
-- 16 blog posts per month per client
+- 16 blog posts per month
 - 5 social posts per day
 - 8 email campaigns per month
-- 1 content person per 10 clients
+- 1 content person managing 3x the output
 
 Same quality. 4x the output.
 
@@ -1014,7 +1014,7 @@ Back to AI for:
 
 Social is where AI shines brightest:
 
-1. **One blog post → 20 social posts**
+1. **One blog post -> 20 social posts**
    - AI extracts key quotes
    - Creates thread versions
    - Generates image captions
@@ -1047,13 +1047,13 @@ Feed the AI:
 Every piece goes through:
 - AI voice-check against guidelines
 - Human review for authenticity
-- Client approval on first few pieces
+- Customer approval on first few pieces
 
 After the initial training, AI-generated content is often indistinguishable from human-written content.
 
 ## Real Results
 
-One client example—B2B SaaS company:
+One customer example--a multi-location plumbing company:
 
 **Before AI (Q1):**
 - 4 blog posts
@@ -1073,29 +1073,29 @@ Same budget. Same team. 4x the output. 4x the traffic.
 
 Ready to scale your content? Here's the path:
 
-1. **Document your voice** — Create guidelines AI can learn from
-2. **Start with social** — Lowest risk, fastest feedback
-3. **Move to blogs** — First drafts only, always human-edited
-4. **Expand to email** — Personalization at scale
+1. **Document your voice** -- Create guidelines AI can learn from
+2. **Start with social** -- Lowest risk, fastest feedback
+3. **Move to blogs** -- First drafts only, always human-edited
+4. **Expand to email** -- Personalization at scale
 
-The agencies still doing content the old way will struggle to compete. The ones embracing AI are already winning.
+The businesses still doing content the old way will struggle to compete. The ones embracing AI are already winning.
 
 ---
 
 *See the AI Content Writer in action. [Watch a demo](https://ozzios.com/#demo) or [start creating](https://app.ozzios.com/sign-up).*
     `,
   },
-  'client-reporting-automation': {
-    id: 'client-reporting-automation',
-    title: 'Automated Client Reports That Actually Impress',
-    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards clients can explore themselves.',
+  'customer-reporting-automation': {
+    id: 'customer-reporting-automation',
+    title: 'Automated Customer Reports That Actually Impress',
+    excerpt: 'Stop spending Sundays building reports. Our AI generates interactive dashboards customers can explore themselves.',
     category: 'product',
     categoryLabel: 'Product Updates',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop&auto=format',
@@ -1108,7 +1108,7 @@ We've all been there. It's Sunday evening. You should be relaxing. Instead, you'
 
 There's a better way.
 
-## What Modern Client Reporting Looks Like
+## What Modern Customer Reporting Looks Like
 
 Imagine this instead:
 
@@ -1135,13 +1135,13 @@ No more manual exports. No more spreadsheet gymnastics.
 ### AI-Powered Insights
 The AI doesn't just show numbers. It explains them:
 - "Conversions increased 23% due to the new landing page launched on the 15th"
-- "CPM spiked mid-month—likely due to competitor holiday campaigns"
-- "Email open rates are 3x industry average—subject line testing is working"
+- "CPM spiked mid-month--likely due to competitor holiday campaigns"
+- "Email open rates are 3x industry average--subject line testing is working"
 
-Your clients understand what happened and why.
+Your customers understand what happened and why.
 
 ### Interactive Dashboards
-Static PDFs are dead. Modern reports let clients:
+Static PDFs are dead. Modern reports let customers:
 - Filter by date range
 - Drill down into specific campaigns
 - Compare periods
@@ -1151,23 +1151,23 @@ They feel in control. You answer fewer questions.
 
 ## Time Savings in Real Numbers
 
-Average agency before automation:
-- 4-8 hours per client per month on reporting
-- 20 clients = 100+ hours of reporting
+Average business before automation:
+- 4-8 hours per customer per month on reporting
+- 20 customers = 100+ hours of reporting
 - That's 2.5 full-time employees worth of work
 
 With automated reporting:
-- 15-30 minutes per client per month
-- 20 clients = 8 hours of reporting
+- 15-30 minutes per customer per month
+- 20 customers = 8 hours of reporting
 - One person handles it all
 
 ## What Our Users Say
 
 > "I used to spend every Sunday on reports. Now I spend 2 hours on Monday reviewing what the AI created. My weekends are mine again."
-> — Agency owner, 15 clients
+> -- Service business owner, 15 customers
 
-> "Our clients actually read the reports now. The interactive dashboards are something they show to their bosses."
-> — Marketing director, 8 clients
+> "Our customers actually read the reports now. The interactive dashboards are something they show to their management teams."
+> -- Marketing director, 8 accounts
 
 ## How to Get Started
 
@@ -1183,17 +1183,17 @@ That's it. Reporting solved.
 *Ready to reclaim your Sundays? [Get early access](https://app.ozzios.com/sign-up) and generate your first report in minutes.*
     `,
   },
-  'goodbye-agency-retainers': {
-    id: 'goodbye-agency-retainers',
-    title: 'Why We Fired Our Marketing Agency (And Never Looked Back)',
+  'goodbye-overhead': {
+    id: 'goodbye-overhead',
+    title: 'Why We Stopped Outsourcing Our Marketing (And Never Looked Back)',
     excerpt: '$8K/month for work we couldn\'t see. Now we own the AI—full transparency, better results, fraction of the cost.',
-    category: 'agency',
-    categoryLabel: 'Agency Growth',
+    category: 'growth',
+    categoryLabel: 'Business Growth',
     author: {
       name: 'Garrett Elmore',
       avatar: '/images/garrett-blog-profile-image.jpg',
       role: 'Founder/CEO, OzziOS',
-      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help agencies scale without the headcount.',
+      bio: 'Garrett is the founder and CEO of OzziOS, building AI-powered tools to help home service companies scale without the headcount.',
       twitter: '@garrettelmore',
     },
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop&auto=format',
@@ -1202,7 +1202,7 @@ That's it. Reporting solved.
     content: `
 ## The Black Box Problem
 
-For three years, we paid an agency $8,000 per month. That's $288,000 over the relationship.
+For three years, we paid a marketing vendor $8,000 per month. That's $288,000 over the relationship.
 
 What did we get? Monthly reports we didn't understand. Meetings where they told us things were "going well." Vague explanations when we asked why metrics were down.
 
@@ -1216,21 +1216,21 @@ The answer: "We don't track hours. We focus on results."
 
 But the results weren't there either. Traffic was flat. Leads were down. And we had no visibility into why.
 
-That night, I made the decision to fire them.
+That night, I made the decision to cut them loose.
 
 ## Taking Marketing In-House (Sort Of)
 
-The problem with firing your agency: someone still needs to do the work.
+The problem with dropping your marketing vendor: someone still needs to do the work.
 
-We didn't want to hire a full marketing team. We'd been down that road before—the hiring, training, turnover, and management overhead.
+We didn't want to hire a full marketing team. We'd been down that road before--the hiring, training, turnover, and management overhead.
 
 That's when we discovered AI could fill the gap.
 
 ## What AI Replaced
 
-Here's what our $8K/month agency supposedly handled:
+Here's what our $8K/month vendor supposedly handled:
 
-| Service | Agency Claim | What AI Does |
+| Service | Vendor Claim | What AI Does |
 |---------|--------------|--------------|
 | SEO | "Ongoing optimization" | Full audits, keyword tracking, content optimization |
 | Content | "2 blog posts/month" | 8 posts/month, plus social |
@@ -1242,7 +1242,7 @@ The AI does more, shows us everything, and costs a fraction.
 
 ## The Transparency Difference
 
-With our agency, we saw:
+With our vendor, we saw:
 - Monthly reports (delivered 2 weeks after month end)
 - High-level metrics only
 - No insight into actual work performed
@@ -1256,9 +1256,9 @@ With AI, we see:
 
 We went from trusting blindly to trusting with verification.
 
-## The Results: 6 Months Post-Agency
+## The Results: 6 Months Post-Switch
 
-| Metric | With Agency | With AI (6mo later) |
+| Metric | With Vendor | With AI (6mo later) |
 |--------|-------------|---------------------|
 | Monthly cost | $8,000 | $299 |
 | Organic traffic | 12,000 | 34,000 |
@@ -1267,41 +1267,41 @@ We went from trusting blindly to trusting with verification.
 
 Read that last line again. Our cost per lead dropped by 98%.
 
-## What We Miss About Agencies (Nothing)
+## What We Miss (Nothing)
 
 I thought I'd miss having people to call. Strategic partners to bounce ideas off. Experts who knew more than us.
 
 Here's what I actually found:
 - AI provides better strategic recommendations (based on data, not intuition)
-- AI explains its reasoning (try getting an agency to do that)
+- AI explains its reasoning (try getting a vendor to do that)
 - AI doesn't take vacations, get sick, or leave for a competitor
 
-The "human touch" of agencies was mostly just overhead.
+The "human touch" of outsourced marketing was mostly just overhead.
 
-## When Agencies Still Make Sense
+## When Outsourcing Still Makes Sense
 
-To be fair, there are scenarios where agencies add value:
+To be fair, there are scenarios where outsourcing adds value:
 - **True creative work:** Brand identity, video production, design
 - **Crisis management:** Situations requiring human judgment
-- **Enterprise scale:** When you need bodies in seats for meetings
+- **Enterprise scale:** When you need people in seats for meetings
 
 But for execution-level marketing work? AI wins every time.
 
 ## Making the Switch
 
-If you're considering firing your agency, here's the playbook:
+If you're considering making the switch, here's the playbook:
 
-1. **Audit current performance** — Get actual data, not agency-filtered reports
-2. **Document all services** — What are you actually paying for?
-3. **Pilot AI alternatives** — Run parallel for one month
-4. **Compare honestly** — Same metrics, same time period
-5. **Make the call** — The numbers usually make it obvious
+1. **Audit current performance** -- Get actual data, not vendor-filtered reports
+2. **Document all services** -- What are you actually paying for?
+3. **Pilot AI alternatives** -- Run parallel for one month
+4. **Compare honestly** -- Same metrics, same time period
+5. **Make the call** -- The numbers usually make it obvious
 
-Most agencies survive on inertia—clients stay because switching seems hard. Once you see the alternative, you'll wonder why you waited.
+Most businesses stick with vendors out of inertia--it just seems hard to switch. Once you see the alternative, you'll wonder why you waited.
 
 ---
 
-*Ready to see what your agency is really doing? [Get a free audit](https://ozzios.com/audit) of your current marketing performance.*
+*Ready to see what your marketing is really doing? [Get a free audit](https://ozzios.com/audit) of your current marketing performance.*
     `,
   },
 };
@@ -1315,7 +1315,7 @@ const relatedPosts = [
   },
   {
     id: 'replace-8-tools',
-    title: 'How We Replaced 8 Marketing Tools with One Platform',
+    title: 'How We Replaced 8 Business Tools with One Platform',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format',
     readTime: '5 min read',
   },
@@ -1327,7 +1327,7 @@ const relatedPosts = [
   },
   {
     id: 'scaling-without-hiring',
-    title: 'Scaling Your Agency Without Adding Headcount',
+    title: 'Scaling Your Service Business Without Adding Headcount',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&auto=format',
     readTime: '7 min read',
   },

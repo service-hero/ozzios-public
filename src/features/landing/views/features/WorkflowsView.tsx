@@ -36,13 +36,13 @@ const painPoints = [
     icon: AlertTriangle,
     title: 'Balls get dropped constantly',
     description:
-      'A lead comes in at 11pm and nobody follows up until Monday. A client goes quiet for 3 weeks and nobody notices. Leads go cold because humans forget.',
+      'A lead comes in at 11pm and nobody follows up until Monday. A customer goes quiet for 3 weeks and nobody notices. Leads go cold because humans forget.',
   },
   {
     icon: Clock,
     title: 'Duct-taped automations break',
     description:
-      'You\'ve connected 6 different tools with Zapier and Make. One API changes and the whole chain breaks silently. You find out when a client complains.',
+      'You\'ve connected 6 different tools with Zapier and Make. One API changes and the whole chain breaks silently. You find out when a customer complains.',
   },
   {
     icon: Layers,
@@ -99,7 +99,7 @@ const triggers = [
   { event: 'Lead created', source: 'CRM', description: 'Instantly engage new leads before they go cold' },
   { event: 'Form submitted', source: 'Website', description: 'Route submissions to the right team or workflow' },
   { event: 'Payment received', source: 'Stripe', description: 'Trigger onboarding, upsell, or thank-you sequences' },
-  { event: 'Client inactive', source: 'Activity', description: 'Re-engage clients before they churn' },
+  { event: 'Customer inactive', source: 'Activity', description: 'Re-engage customers before they churn' },
   { event: 'Task overdue', source: 'Tasks', description: 'Escalate automatically when deadlines are missed' },
   { event: 'Email received', source: 'Inbox', description: 'Auto-route, classify, and respond to inbound email' },
 ];
@@ -342,7 +342,7 @@ function TriggersSection() {
               something happens -- not hours later when someone checks.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Stale entity detection catches leads that haven't progressed, clients that went quiet,
+              Stale entity detection catches leads that haven't progressed, customers that went quiet,
               and tasks that are overdue. Automatically.
             </p>
           </motion.div>

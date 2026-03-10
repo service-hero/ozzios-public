@@ -40,7 +40,7 @@ const entries: ChangelogEntry[] = [
     title: 'Platform Launch',
     tag: 'new',
     description:
-      'OzziOS is officially live. The full platform is now available to agencies of all sizes with AI-powered agents ready to handle marketing operations end-to-end.',
+      'OzziOS is officially live. The full platform is now available to home service businesses of all sizes with AI-powered agents ready to handle marketing and business operations end-to-end.',
     items: [
       'Full agent workforce with Ozzi supervisor delegation',
       'Multi-workspace support with role-based access',
@@ -55,12 +55,12 @@ const entries: ChangelogEntry[] = [
     title: 'Integration Expansion',
     tag: 'improvement',
     description:
-      'Major expansion of the integration ecosystem. Agents can now connect to 30+ tools and services your agency already uses.',
+      'Major expansion of the integration ecosystem. Agents can now connect to 30+ tools and services your business already uses.',
     items: [
       'Google Workspace suite: Calendar, Gmail, Drive, Business Profile',
       'Meta Ads and Facebook Lead Forms integrations',
       'WordPress, Wix, and Shopify content publishing',
-      'HouseCall Pro and ServiceTitan for field service agencies',
+      'HouseCall Pro and ServiceTitan for field service management',
       'GoHighLevel CRM sync for seamless migration',
     ],
   },
@@ -99,7 +99,7 @@ const entries: ChangelogEntry[] = [
     title: 'Beta Release',
     tag: 'new',
     description:
-      'First beta release to select agency partners. Core agent system, conversation interface, and foundational integrations available for early testing.',
+      'First beta release to select partners. Core agent system, conversation interface, and foundational integrations available for early testing.',
     items: [
       'Core agent harness with streaming responses',
       'Conversation-based interface for agent interaction',
@@ -217,7 +217,7 @@ export function ChangelogView() {
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 See what we&apos;ve been building. Every update, improvement, and fix
-                shipped to make OzziOS better for your agency.
+                shipped to make OzziOS better for your business.
               </p>
             </motion.div>
           </motion.div>
@@ -259,7 +259,7 @@ function CTA() {
         Ready to get started?
       </h2>
       <p className="text-lg text-gray-500 mb-10 max-w-lg mx-auto">
-        Join agencies already using OzziOS to automate their marketing operations.
+        Join home service businesses already using OzziOS to automate their operations.
       </p>
       <a
         href="https://app.ozzios.com/sign-up"

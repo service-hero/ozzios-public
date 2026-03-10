@@ -1,8 +1,8 @@
 /**
  * Waitlist Page - Business Owners
  *
- * Long-form founder letter style landing page targeting business owners
- * who want to run their own marketing without hiring an agency.
+ * Long-form founder letter style landing page targeting home service
+ * business owners who want to streamline their operations with AI.
  */
 
 import { useState, useEffect, FormEvent } from 'react';
@@ -162,13 +162,13 @@ export function WaitlistBusinessView() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-sm text-muted-foreground mb-4">
-            A letter to business owners
+            A letter to home service business owners
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight leading-[1.15] mb-6">
-            What if you never had to hire a marketing agency again?
+            What if your home service business ran itself?
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Your own AI marketing team. No retainers. No mystery. No middlemen.
+            Your own AI operations team. No overhead. No chaos. No missed calls.
           </p>
         </motion.div>
       </header>
@@ -180,50 +180,50 @@ export function WaitlistBusinessView() {
           {/* The Problem */}
           <section className="mb-16">
             <h2 className="text-2xl font-semibold text-foreground mb-6">
-              You're paying for a black box.
+              You're drowning in the day-to-day.
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Let me guess: you're paying an agency somewhere between $3,000 and $15,000 a month. Maybe more. And you have no idea what they're actually doing.
+              Let me guess: you started your home service company because you're great at what you do. HVAC, plumbing, roofing, electrical, landscaping—whatever it is, you know the trade inside and out.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              They send you a report once a month. It's full of metrics you don't understand—impressions, CTR, bounce rate, domain authority. They tell you things are "trending in the right direction." They promise results are "just around the corner."
+              But now you spend more time answering phones, chasing leads, following up on quotes, managing schedules, and begging customers for reviews than you do actually running your business. You're working 60-hour weeks and still feel like you're falling behind.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Meanwhile, the invoices keep coming. And you're left wondering:
+              Meanwhile, the problems keep piling up:
             </p>
 
             <ul className="space-y-3 my-6">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">What are they actually doing all day?</strong> You're paying for 20+ hours a month, but you have no visibility into the work.
+                  <strong className="text-foreground">Missed calls = lost jobs.</strong> Every call that goes to voicemail is a customer calling your competitor instead.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Is this the right strategy?</strong> They're the "experts," but their recommendations always seem to require more budget.
+                  <strong className="text-foreground">Follow-ups fall through the cracks.</strong> You sent a quote three days ago. Did you follow up? You can't remember.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Am I getting ripped off?</strong> You've heard horror stories. Agencies charging premium rates while junior employees do the work.
+                  <strong className="text-foreground">Your online presence is an afterthought.</strong> Your Google reviews are stale, your website hasn't been updated in months, and you know you should be posting on social media but who has the time?
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Why does everything take so long?</strong> A simple blog post takes two weeks. A campaign launch takes a month. You're running a business—you don't have time for this.
+                  <strong className="text-foreground">Hiring office help is expensive and risky.</strong> A full-time office manager costs $40,000-55,000/year. A receptionist, a dispatcher, a bookkeeper—it adds up fast.
                 </span>
               </li>
             </ul>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The worst part? You feel trapped. You can't fire them because you don't have time to do marketing yourself. You can't hire in-house because a single marketing manager costs $70,000+ and can only do a fraction of what an agency promises. You're stuck in a cycle of paying for work you can't see, can't verify, and aren't sure is working.
+              The worst part? You feel trapped. You can't grow because you're stuck doing everything yourself. You can't hire because the margins are too tight. You're working harder than ever but your business isn't getting any easier to run.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium">
@@ -234,15 +234,15 @@ export function WaitlistBusinessView() {
           {/* The Vision */}
           <section className="mb-16 py-12 border-y border-border">
             <h2 className="text-2xl font-semibold text-foreground mb-6">
-              Your own marketing team. Finally.
+              Your own operations team. Finally.
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              OzziOs gives you something agencies never will: your own dedicated marketing team that works for you, reports to you, and shows you exactly what they're doing.
+              OzziOs gives you something you've never had before: a dedicated team that handles scheduling, dispatch, customer follow-ups, reviews, invoicing, and marketing—so you can focus on growing your business.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Except these aren't humans on your payroll. They're AI specialists—trained in SEO, content writing, social media, ad management, graphic design, and more. They work 24/7. They never miss deadlines. They never take your business for granted.
+              Except these aren't employees on your payroll. They're AI specialists—trained in the daily operations of home service companies. They work 24/7. They never miss a call. They never forget to follow up.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -250,21 +250,21 @@ export function WaitlistBusinessView() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              When your SEO Specialist audits your website, you watch it happen. When your Content Writer drafts a blog post, you see the reasoning. When your Social Media Manager plans next month's content, you're in the conversation. No black boxes. No mystery invoices. No wondering what you're paying for.
+              When your Dispatch Coordinator schedules a job, you see it happen. When your Customer Follow-Up Specialist sends a review request, you see the message. When your Marketing Manager plans next week's social posts, you're in the loop. No guesswork. No surprises.
             </p>
 
             <div className="my-8 space-y-6">
-              {/* Core Marketing Team */}
+              {/* Core Operations Team */}
               <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Your Core Marketing Team</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Your Core Operations Team</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
-                    { role: 'SEO Specialist', does: 'Site audits, keyword research, ranking strategy' },
+                    { role: 'Dispatch Coordinator', does: 'Job scheduling, technician routing, calendar management' },
+                    { role: 'Customer Follow-Up Specialist', does: 'Quote follow-ups, review requests, satisfaction checks' },
+                    { role: 'Marketing Manager', does: 'Social media, Google Business Profile, local SEO' },
                     { role: 'Content Writer', does: 'Blog posts, emails, website copy in your voice' },
-                    { role: 'Social Media Manager', does: 'Content calendars, posts, engagement' },
-                    { role: 'Graphic Designer', does: 'Visual concepts, social graphics, ad creative' },
-                    { role: 'Data Analyst', does: 'Performance tracking, ROI reports, insights' },
-                    { role: 'Research Assistant', does: 'Competitor analysis, market research' },
+                    { role: 'Bookkeeping Assistant', does: 'Invoice tracking, payment reminders, expense reports' },
+                    { role: 'Research Assistant', does: 'Competitor analysis, market pricing, service area insights' },
                   ].map((agent) => (
                     <div key={agent.role} className="p-3 rounded-lg border border-border bg-muted/30">
                       <p className="font-medium text-foreground text-sm">{agent.role}</p>
@@ -279,9 +279,9 @@ export function WaitlistBusinessView() {
                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Industry Specialists Available</p>
                 <div className="grid sm:grid-cols-3 gap-3">
                   {[
-                    { role: 'Local Business', does: 'Google Business Profile, reviews, local SEO' },
-                    { role: 'Real Estate', does: 'Listing marketing, lead nurture, property content' },
-                    { role: 'Home Services', does: 'Review management, seasonal campaigns, local ads' },
+                    { role: 'HVAC / Plumbing', does: 'Seasonal campaigns, maintenance reminders, emergency dispatch' },
+                    { role: 'Roofing / Exterior', does: 'Storm response, inspection scheduling, insurance follow-ups' },
+                    { role: 'Landscaping / Cleaning', does: 'Recurring service management, route optimization, upsells' },
                   ].map((agent) => (
                     <div key={agent.role} className="p-3 rounded-lg border border-border bg-muted/30">
                       <p className="font-medium text-foreground text-sm">{agent.role}</p>
@@ -304,7 +304,7 @@ export function WaitlistBusinessView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              OzziOs isn't another marketing tool. It's a workspace where you and your AI team collaborate—like Slack, but everyone actually does their job.
+              OzziOs isn't another app to check. It's a workspace where you and your AI team collaborate—like having an office manager, dispatcher, and marketing team all in one place.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -315,53 +315,53 @@ export function WaitlistBusinessView() {
               <p className="text-sm text-muted-foreground mb-3">Example:</p>
               <div className="space-y-3">
                 <p className="text-foreground">
-                  <span className="font-medium">You:</span> @Content-Writer write a blog post about the benefits of regular HVAC maintenance for homeowners. Make it helpful, not salesy.
+                  <span className="font-medium">You:</span> @Customer-Follow-Up send review requests to everyone we serviced this week. Personalize each one with the job we did.
                 </p>
                 <p className="text-muted-foreground text-sm italic">
-                  Your Content Writer researches the topic, drafts the post in your brand voice, and delivers it—usually within minutes, not weeks.
+                  Your Customer Follow-Up Specialist pulls the week's completed jobs, drafts personalized review requests for each customer, and sends them—usually within minutes.
                 </p>
               </div>
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Your team can do everything an agency does:
+              Your team handles the daily operations that eat up your time:
             </p>
 
             <ul className="space-y-3 my-6">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">SEO audits and optimization</strong> — Find out what's actually hurting your Google rankings and fix it.
+                  <strong className="text-foreground">Scheduling and dispatch</strong> — Book jobs, route technicians, and manage your calendar automatically.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Content creation</strong> — Blog posts, emails, social captions, website copy. All in your voice.
+                  <strong className="text-foreground">Customer follow-ups</strong> — Quote reminders, post-job check-ins, and review requests on autopilot.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Social media management</strong> — Plan, create, and schedule content across all your platforms.
+                  <strong className="text-foreground">Review management</strong> — Get more 5-star reviews and respond to every one professionally.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Ad campaign management</strong> — Google Ads, Meta Ads, with real analysis and recommendations.
+                  <strong className="text-foreground">Local SEO and Google Business Profile</strong> — Keep your listing optimized, post updates, and dominate local search.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Google Business Profile</strong> — Keep your listing optimized, respond to reviews, post updates.
+                  <strong className="text-foreground">Social media and content</strong> — Before-and-after posts, seasonal tips, and community engagement.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Performance reporting</strong> — Actually understand what's working and what's not.
+                  <strong className="text-foreground">Invoicing and payment follow-ups</strong> — Send invoices, track payments, and chase outstanding balances.
                 </span>
               </li>
             </ul>
@@ -374,7 +374,7 @@ export function WaitlistBusinessView() {
               <div className="rounded-lg border border-border overflow-hidden shadow-sm">
                 <img
                   src="/images/content-writer-delegating-to-graphic-designer.png"
-                  alt="Screenshot showing AI marketing team collaborating on a project"
+                  alt="Screenshot showing AI operations team collaborating on a project"
                   className="w-full"
                 />
               </div>
@@ -391,7 +391,7 @@ export function WaitlistBusinessView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              You're running a business. You don't have time to manage a marketing team—even an AI one. That's why we built the dispatch board.
+              You're running a business. You don't have time to manage a team—even an AI one. That's why we built the dispatch board.
             </p>
 
             {/* Dispatch Board Screenshot */}
@@ -399,12 +399,12 @@ export function WaitlistBusinessView() {
               <div className="rounded-lg border border-border overflow-hidden shadow-sm">
                 <img
                   src="/images/task-pool-dispatch-board.png"
-                  alt="OzziOs Dispatch Board showing scheduled marketing tasks"
+                  alt="OzziOs Dispatch Board showing scheduled business operations"
                   className="w-full"
                 />
               </div>
               <p className="text-xs text-muted-foreground mt-3 italic">
-                Schedule your marketing team's work in advance. They show up and do the job automatically.
+                Schedule your operations team's work in advance. They show up and do the job automatically.
               </p>
             </div>
 
@@ -416,31 +416,31 @@ export function WaitlistBusinessView() {
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Every Monday, your SEO Specialist checks your rankings and flags issues
+                  Every morning, your Dispatch Coordinator reviews the day's jobs and optimizes routes
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Every Tuesday, your Content Writer drafts that week's blog post
+                  Every afternoon, your Customer Follow-Up Specialist sends review requests for completed jobs
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Every afternoon, your Social Media Manager checks engagement and responds
+                  Every Wednesday, your Marketing Manager posts before-and-after photos to social media
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Every Friday, your Data Analyst sends you a performance summary
+                  Every Friday, your Bookkeeping Assistant sends you a revenue summary and flags unpaid invoices
                 </span>
               </li>
             </ul>
 
             <p className="text-foreground leading-relaxed font-medium">
-              Your marketing runs on autopilot. You check in when you want to, not because you have to.
+              Your business runs on autopilot. You check in when you want to, not because you have to.
             </p>
           </section>
 
@@ -451,7 +451,7 @@ export function WaitlistBusinessView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The average small business pays $3,000-5,000/month for basic agency services. Mid-market businesses often pay $7,000-15,000+. For a year of agency retainers, you're looking at $36,000 to $180,000.
+              The average home service company spends $3,000-8,000/month on office staff, outsourced answering services, marketing, and software subscriptions. For a year, that's $36,000 to $96,000 in monthly overhead—before you've paid a single technician.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -462,25 +462,25 @@ export function WaitlistBusinessView() {
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  A few hours a week of actual work (the rest is "strategy" and meetings)
+                  An office manager who can only handle so many calls at once
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Work done by junior employees you've never met
+                  An answering service that reads from a script and can't actually book jobs
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Zero visibility into what's actually happening
+                  Marketing you're either doing yourself (badly) or paying someone else to do (expensively)
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  A contract that's hard to get out of
+                  Five different software subscriptions that don't talk to each other
                 </span>
               </li>
             </ul>
@@ -490,12 +490,12 @@ export function WaitlistBusinessView() {
                 With OzziOs:
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                You get a full marketing team—SEO, content, social, design, analytics—working for you around the clock. You see everything they do. You can ask for anything, anytime. And it costs a fraction of what you're paying now.
+                You get a full operations team—dispatch, follow-ups, reviews, marketing, bookkeeping—working for you around the clock. You see everything they do. You can ask for anything, anytime. And it costs a fraction of what you're paying now.
               </p>
             </div>
 
             <p className="text-foreground leading-relaxed font-medium">
-              This isn't about replacing your agency with something cheaper. It's about getting something better.
+              This isn't about cutting corners. It's about running a smarter business.
             </p>
           </section>
 
@@ -509,31 +509,31 @@ export function WaitlistBusinessView() {
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">You're tired of agency BS.</strong> The jargon, the vague reports, the feeling that you're being taken for a ride.
+                  <strong className="text-foreground">You're tired of doing everything yourself.</strong> You started a service company, not an office job. But that's what it's become.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">You want control.</strong> You want to know what's happening with your marketing without having to schedule a call.
+                  <strong className="text-foreground">You're losing jobs to missed calls and slow follow-ups.</strong> You know every unanswered call is money walking out the door.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">You don't have time to become a marketing expert.</strong> You have a business to run. You need a team that handles it.
+                  <strong className="text-foreground">You can't afford a full office staff yet.</strong> But you need the help. You need a team that handles it without breaking the bank.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">You're ready to try something new.</strong> The old way clearly isn't working. This is different.
+                  <strong className="text-foreground">You're ready to grow.</strong> You know you could take on more jobs if the back office wasn't holding you back.
                 </span>
               </li>
             </ul>
 
             <p className="text-muted-foreground leading-relaxed">
-              OzziOs works for local businesses, professional services, e-commerce, real estate, home services—any business that needs marketing but doesn't want to play the agency game.
+              OzziOs works for HVAC, plumbing, roofing, electrical, landscaping, cleaning, pest control, painting—any home service business that wants to stop surviving and start scaling.
             </p>
           </section>
 
@@ -544,19 +544,19 @@ export function WaitlistBusinessView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              AI has reached a tipping point. The technology now exists to build AI that doesn't just answer questions—it does real work. Strategic work. Creative work. Work that used to require expensive human expertise.
+              AI has reached a tipping point. The technology now exists to build AI that doesn't just answer questions—it does real work. Scheduling, follow-ups, marketing, bookkeeping. Work that used to require expensive staff or outsourcing costs you couldn't justify.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The agencies know this is coming. They're terrified. They're going to tell you AI can't do what they do, that you need the "human touch," that marketing is too complex for machines.
+              The big franchise operations already have dedicated office teams handling all of this. That's their advantage. They have dispatchers, customer service reps, marketing departments, and bookkeepers on staff.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              They said the same thing about bookkeeping. And tax preparation. And customer service. And design. Every time, they were wrong.
+              Now you can have the same thing—without the payroll.
             </p>
 
             <p className="text-foreground leading-relaxed font-medium">
-              The businesses that adopt AI marketing teams first will have an unfair advantage. Lower costs. Faster execution. Complete visibility. While their competitors are still waiting on agency callbacks.
+              The service companies that adopt AI operations teams first will have an unfair advantage. Lower costs. Faster response times. No missed opportunities. While their competitors are still letting calls go to voicemail.
             </p>
           </section>
 
@@ -569,13 +569,13 @@ export function WaitlistBusinessView() {
                   "The best investment you can make is in yourself and your business."
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I built OzziOs because I've seen too many business owners get burned by agencies. Overpromised. Underdelivered. Left in the dark. You deserve better.
+                  I built OzziOs because I've seen too many home service business owners work themselves to the bone trying to do everything. Answering calls at dinner. Sending invoices at midnight. Forgetting to follow up on that big quote because they were on a job site all day.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  You deserve a marketing team that works for you—not one that treats you like a line item on their client roster. You deserve to know exactly what's being done and why. You deserve results without the runaround.
+                  You deserve an operations team that works for you—one that never misses a call, never forgets a follow-up, and never lets a customer slip through the cracks. You deserve to focus on what you're good at: running your business and doing great work.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  If you're ready to take back control of your marketing, I'd love to have you join us.
+                  If you're ready to take back control of your time, I'd love to have you join us.
                 </p>
                 <p className="mt-6 flex items-baseline gap-2">
                   <span className="text-2xl text-foreground font-signature">

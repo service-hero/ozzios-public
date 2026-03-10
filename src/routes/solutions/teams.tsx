@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/solutions/teams')({
   head: () => createPageHead({
     title: 'For Teams',
-    description: 'Multiply your team\'s output with AI employees that handle execution while humans focus on strategy.',
+    description: 'Multiply your service team\'s output with AI employees. Dispatchers, technicians, and office staff focus on service delivery while AI handles the back office.',
     path: '/solutions/teams',
   }),
   component: TeamsPage,

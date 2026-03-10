@@ -52,25 +52,25 @@ const painPoints = [
     icon: Clock,
     title: 'Leads go cold while you sleep',
     description:
-      'A prospect fills out your form at 11pm. By the time you respond the next morning, they have already talked to two competitors. Speed-to-lead is everything, and you are always behind.',
+      'A homeowner fills out your form at 11pm. By the time you respond the next morning, they have already talked to two competitors. Speed-to-lead is everything, and you are always behind.',
   },
   {
     icon: AlertTriangle,
     title: 'You waste time on unqualified leads',
     description:
-      'Your sales team spends hours on calls with people who were never going to buy. Without proper scoring and qualification, every lead gets the same treatment -- and your close rate suffers.',
+      'Your team spends hours on calls with people who were never going to book. Without proper scoring and qualification, every lead gets the same treatment -- and your close rate suffers.',
   },
   {
     icon: Shuffle,
     title: 'Your follow-up is inconsistent',
     description:
-      'Some leads get three emails and a call. Others fall through the cracks entirely. Manual follow-up means some prospects get the VIP treatment and others get ghosted.',
+      'Some leads get three texts and a call. Others fall through the cracks entirely. Manual follow-up means some homeowners get the VIP treatment and others get ghosted.',
   },
   {
     icon: TrendingUp,
     title: 'You can not track what is working',
     description:
-      'Which channel drives your best leads? Which campaign converts? You are spending money on ads, content, and outreach with no clear picture of what actually fills your pipeline.',
+      'Which channel drives your best leads? Google Local Services, Yelp, or your website? You are spending money on ads and directories with no clear picture of what actually fills your schedule.',
   },
 ];
 
@@ -87,32 +87,32 @@ const pipelineStages: PipelineStage[] = [
   {
     step: '01',
     title: 'Capture',
-    description: 'Multi-channel lead capture that works 24/7. Forms, landing pages, chat widgets, and integrations bring leads into one unified pipeline.',
-    features: ['Smart forms with conditional logic', 'Website chat widget', 'Landing page builder', 'Third-party integrations'],
+    description: 'Multi-channel lead capture that works 24/7. Forms, landing pages, chat widgets, and local directory integrations bring leads into one unified pipeline.',
+    features: ['Smart forms with conditional logic', 'Website chat widget', 'Local landing pages', 'Google & directory integrations'],
     color: 'text-signature',
     bgColor: 'bg-signature/10',
   },
   {
     step: '02',
     title: 'Enrich',
-    description: 'AI automatically researches every new lead -- pulling in company data, social profiles, and intent signals to build a complete picture.',
-    features: ['Automatic company lookup', 'Social profile matching', 'Intent signal detection', 'Contact data enrichment'],
+    description: 'AI automatically researches every new lead -- pulling in property data, neighborhood info, and service history to build a complete picture.',
+    features: ['Automatic property lookup', 'Neighborhood targeting', 'Service history detection', 'Contact data enrichment'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
   {
     step: '03',
     title: 'Score',
-    description: 'Machine learning scores every lead based on fit, engagement, and intent. Your team focuses on the leads most likely to close.',
-    features: ['AI-powered lead scoring', 'Behavioral tracking', 'Fit scoring against ICP', 'Dynamic score updates'],
+    description: 'Machine learning scores every lead based on fit, urgency, and intent. Your team focuses on the leads most likely to book.',
+    features: ['AI-powered lead scoring', 'Urgency detection', 'Job size estimation', 'Dynamic score updates'],
     color: 'text-mint',
     bgColor: 'bg-mint/10',
   },
   {
     step: '04',
     title: 'Nurture',
-    description: 'Automated, personalized sequences that move leads through your funnel. Email, SMS, and content -- all triggered by behavior.',
-    features: ['Multi-channel sequences', 'Behavior-triggered workflows', 'Personalized content delivery', 'A/B tested messaging'],
+    description: 'Automated, personalized sequences that move leads through your funnel. Email, SMS, and review requests -- all triggered by behavior.',
+    features: ['Multi-channel sequences', 'Behavior-triggered workflows', 'Review generation campaigns', 'Seasonal maintenance reminders'],
     color: 'text-signature',
     bgColor: 'bg-signature/10',
   },
@@ -120,7 +120,7 @@ const pipelineStages: PipelineStage[] = [
     step: '05',
     title: 'Convert',
     description: 'When a lead is ready, OzziOS alerts your team with full context. Every interaction, every signal, every touchpoint -- right there in the handoff.',
-    features: ['Sales-ready notifications', 'Full lead timeline', 'Meeting scheduler', 'Pipeline analytics'],
+    features: ['Sales-ready notifications', 'Full lead timeline', 'Estimate scheduler', 'Pipeline analytics'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
@@ -130,19 +130,19 @@ const featureHighlights = [
   {
     icon: Brain,
     title: 'AI Lead Scoring',
-    description: 'Machine learning evaluates every lead against your ideal customer profile. Scores update in real-time as leads interact with your content.',
+    description: 'Machine learning evaluates every lead against your ideal customer profile. Scores update in real-time as leads interact with your content and respond to outreach.',
     link: '/features/ai-agents',
   },
   {
     icon: Mail,
-    title: 'Email Campaigns',
+    title: 'Email & SMS Campaigns',
     description: 'Automated drip sequences with AI-written copy. Personalized at scale, triggered by lead behavior, and optimized by performance data.',
     link: '/features/campaigns',
   },
   {
     icon: Search,
-    title: 'SEO & Content',
-    description: 'Attract organic leads with AI-optimized content. Blog posts, landing pages, and keyword strategies that bring the right people to your site.',
+    title: 'Local SEO & Content',
+    description: 'Attract organic leads with locally-optimized content. Service pages, blog posts, and keyword strategies that bring homeowners in your area to your site.',
     link: '/features/seo',
   },
   {
@@ -154,13 +154,13 @@ const featureHighlights = [
   {
     icon: Zap,
     title: 'Workflow Automation',
-    description: 'If-this-then-that logic on autopilot. Route leads, trigger sequences, assign tasks, and update records without lifting a finger.',
+    description: 'If-this-then-that logic on autopilot. Route leads, trigger sequences, assign jobs, and update records without lifting a finger.',
     link: '/features/workflows',
   },
   {
     icon: BarChart3,
     title: 'Analytics & Attribution',
-    description: 'See exactly which channels, campaigns, and content drive your best leads. ROI tracking from first touch to closed deal.',
+    description: 'See exactly which channels, campaigns, and content drive your best leads. ROI tracking from first click to booked job.',
     link: '/features/analytics',
   },
 ];
@@ -168,7 +168,7 @@ const featureHighlights = [
 const results = [
   { value: '3x', label: 'Pipeline velocity', description: 'Leads move through your funnel 3x faster with automated nurture sequences' },
   { value: '< 5min', label: 'Response time', description: 'AI responds to every new lead in under 5 minutes, 24/7/365' },
-  { value: '40%', label: 'More qualified leads', description: 'AI scoring filters out tire-kickers so your team only talks to real prospects' },
+  { value: '40%', label: 'More qualified leads', description: 'AI scoring filters out tire-kickers so your team only talks to serious homeowners' },
   { value: '60%', label: 'Less manual work', description: 'Automation handles follow-up, enrichment, and routing while you focus on closing' },
 ];
 
@@ -216,7 +216,7 @@ function HeroSection() {
             <div className="card-neo rounded-xl p-6 text-center">
               <div className="font-display text-4xl md:text-5xl text-signature mb-2">78%</div>
               <p className="text-muted-foreground text-sm">
-                of leads go to the first company that responds. OzziOS makes sure that's you.
+                of homeowners hire the first company that responds. OzziOS makes sure that's you.
               </p>
             </div>
           </motion.div>
@@ -245,7 +245,7 @@ function ProblemSection() {
             Your pipeline has holes
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Most businesses lose leads before they ever get a chance to sell. Here's where things break down.
+            Most service businesses lose leads before they ever get a chance to sell. Here's where things break down.
           </p>
         </motion.div>
 
@@ -322,7 +322,7 @@ function PipelineSection() {
           <div className="inline-flex items-center gap-3 card-neo rounded-full px-6 py-3">
             <Zap className="w-4 h-4 text-signature" />
             <span className="text-sm text-muted-foreground">
-              Every stage runs automatically. You only step in when a lead is ready to close.
+              Every stage runs automatically. You only step in when a lead is ready to book.
             </span>
           </div>
         </motion.div>
@@ -401,7 +401,7 @@ function FeatureHighlightsSection() {
         >
           <span className="tag-neo rounded-full text-signature mb-6 inline-block">Features That Power It</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Everything you need to fill your pipeline
+            Everything you need to fill your schedule
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Six core capabilities that work together to generate, qualify, and convert leads automatically.
@@ -464,7 +464,7 @@ function ResultsSection() {
             More leads, less work
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies using OzziOS for lead generation see measurable improvements across the entire funnel.
+            Service companies using OzziOS for lead generation see measurable improvements across the entire funnel.
           </p>
         </motion.div>
 
@@ -514,7 +514,7 @@ function CTASection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
             Stop chasing leads.
             <br />
-            <span className="text-signature">Start closing them.</span>
+            <span className="text-signature">Start booking them.</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Set up your AI-powered lead pipeline in minutes. No contracts, no credit card required.

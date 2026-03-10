@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/security')({
   head: () => createPageHead({
     title: 'Security',
-    description: 'Enterprise-grade encryption, GDPR compliance, workspace isolation, and 99.9% uptime SLA for your agency data.',
+    description: 'Enterprise-grade encryption, GDPR compliance, workspace isolation, and 99.9% uptime SLA for your business data.',
     path: '/security',
   }),
   component: SecurityPage,

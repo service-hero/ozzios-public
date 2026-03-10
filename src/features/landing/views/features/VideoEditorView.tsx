@@ -130,13 +130,13 @@ const painPoints = [
     icon: Clock,
     title: 'Video production takes days, not hours',
     description:
-      'Your team spends 2-3 days on a single client video. Between filming, editing, adding music, captioning, and rendering -- it is a full pipeline before anything ships.',
+      'Your team spends 2-3 days on a single promotional video. Between filming, editing, adding music, captioning, and rendering -- it is a full pipeline before anything ships.',
   },
   {
     icon: AlertTriangle,
     title: 'Outsourcing is expensive and slow',
     description:
-      'Freelance video editors charge $50-150/hour with 3-5 day turnaround. For agencies producing weekly content, that cost adds up fast and kills margins.',
+      'Freelance video editors charge $50-150/hour with 3-5 day turnaround. For service companies producing weekly content, that cost adds up fast and kills margins.',
   },
   {
     icon: Layers,
@@ -645,7 +645,7 @@ function PainPointsSection() {
             Video production is your biggest bottleneck
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies need video content weekly but the production pipeline takes days
+            Service businesses need video content weekly but the production pipeline takes days
             and eats into margins.
           </p>
         </motion.div>
@@ -843,7 +843,7 @@ function WorkflowSection() {
       step: '04',
       title: 'Export and publish',
       description:
-        'One-click render via Remotion Lambda. Your video is delivered as a CDN-hosted file ready to share with clients or publish directly.',
+        'One-click render via Remotion Lambda. Your video is delivered as a CDN-hosted file ready to share with customers or publish directly.',
     },
   ];
 

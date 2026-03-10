@@ -8,7 +8,7 @@ export const Route = createFileRoute('/features/video-editor')({
     createPageHead({
       title: 'Video Editor',
       description:
-        'AI video creation and editing. Marketing videos, social clips, and ads generated from text prompts.',
+        'AI video creation and editing. Promotional videos, social clips, and ads generated from text prompts.',
       path: '/features/video-editor',
     }),
   component: VideoEditorPage,

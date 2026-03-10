@@ -8,7 +8,7 @@ export const Route = createFileRoute('/features/knowledge-base')({
     createPageHead({
       title: 'Knowledge Base',
       description:
-        'Create a self-service knowledge base. Help clients find answers and reduce support tickets with AI search.',
+        'Create a self-service knowledge base. Help customers find answers and reduce support tickets with AI search.',
       path: '/features/knowledge-base',
     }),
   component: KnowledgeBasePage,

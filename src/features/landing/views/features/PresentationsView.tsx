@@ -339,7 +339,7 @@ function QuoteSlideContent({ theme }: { theme: SlideTheme }) {
         transition={{ duration: 0.5, delay: 0.35 }}
         className="text-xs sm:text-sm md:text-base text-foreground font-medium italic leading-relaxed mb-2 sm:mb-3 max-w-[90%]"
       >
-        "This platform cut our presentation time from 6 hours to 15 minutes. Our clients notice the quality difference."
+        "This platform cut our presentation time from 6 hours to 15 minutes. Our customers notice the quality difference."
       </motion.blockquote>
       <motion.div
         initial={{ opacity: 0 }}
@@ -370,13 +370,13 @@ const painPoints = [
     icon: Clock,
     title: 'Hours wasted on slide design',
     description:
-      'Your team spends 4-6 hours building each client presentation. That is time not spent on strategy, campaigns, or revenue-generating work.',
+      'Your team spends 4-6 hours building each customer presentation. That is time not spent on strategy, campaigns, or revenue-generating work.',
   },
   {
     icon: AlertTriangle,
     title: 'Inconsistent brand quality',
     description:
-      'Every team member has a different PowerPoint style. Clients see different fonts, layouts, and quality levels depending on who builds the deck.',
+      'Every team member has a different PowerPoint style. Customers see different fonts, layouts, and quality levels depending on who builds the deck.',
   },
   {
     icon: Palette,
@@ -415,7 +415,7 @@ const capabilities = [
     icon: FileDown,
     title: 'PPTX Export',
     description:
-      'Export any presentation to PowerPoint format via Remotion rendering. Share with clients who live in their own tools.',
+      'Export any presentation to PowerPoint format via Remotion rendering. Share with customers who live in their own tools.',
   },
   {
     icon: Image,
@@ -456,7 +456,7 @@ function HeroSection() {
 
   const theme = themes[themeIndex];
 
-  const fullPrompt = 'Create a Q4 growth strategy deck with revenue charts, key highlights, competitive comparison, and a client testimonial...';
+  const fullPrompt = 'Create a Q4 growth strategy deck with revenue charts, key highlights, competitive comparison, and a customer testimonial...';
 
   // ---------------------------------------------------------------------------
   // Core animation loop
@@ -561,7 +561,7 @@ function HeroSection() {
               </span>
             </div>
             <h1 className="text-display font-display text-foreground mb-6">
-              Client decks in minutes,{' '}
+              Professional decks in minutes,{' '}
               <span className="text-signature">not hours</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -892,7 +892,7 @@ function PainPointsSection() {
             Presentations are your biggest time sink
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies spend 15-20% of billable hours on presentation work that clients
+            Businesses spend 15-20% of billable hours on presentation work that customers
             glance at for five minutes.
           </p>
         </motion.div>
@@ -1012,7 +1012,7 @@ function CapabilitiesSection() {
             Professional presentations without the busywork
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Everything you need to create compelling client presentations at scale.
+            Everything you need to create compelling customer presentations at scale.
           </p>
         </motion.div>
 
@@ -1073,7 +1073,7 @@ function WorkflowSection() {
       step: '04',
       title: 'Present or export',
       description:
-        'Use the built-in viewer with transitions or export to PPTX. Share directly with clients from the platform.',
+        'Use the built-in viewer with transitions or export to PPTX. Share directly with customers from the platform.',
     },
   ];
 
@@ -1140,7 +1140,7 @@ function CTASection() {
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Stop spending hours on slide design. Let AI handle the heavy lifting while
-            your team focuses on strategy and client relationships.
+            your team focuses on strategy and customer relationships.
           </p>
           <a
             href="https://app.ozzios.com/sign-up"

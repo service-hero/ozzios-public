@@ -9,7 +9,6 @@ import {
   BarChart3,
   Activity,
   Bot,
-  Users,
   Palette,
   Save,
   Inbox,
@@ -36,7 +35,7 @@ const painPoints = [
     icon: Eye,
     title: 'Your team operates blind',
     description:
-      'Nobody knows which agents are running, which tasks are overdue, or which clients need attention until someone manually asks. Reactive, not proactive.',
+      'Nobody knows which agents are running, which tasks are overdue, or which customers need attention until someone manually asks. Reactive, not proactive.',
   },
   {
     icon: Clock,
@@ -74,7 +73,7 @@ const widgetCategories = [
   {
     category: 'Lists & Activity',
     widgets: [
-      { name: 'Sub Accounts', description: 'Client list with quick-access actions' },
+      { name: 'Sub Accounts', description: 'Customer list with quick-access actions' },
       { name: 'Tasks Overview', description: 'Summary by status, priority, assignee' },
       { name: 'Activity Feed', description: 'Real-time timeline of all workspace activity' },
       { name: 'Custom Tabs', description: 'Embed Looker, Notion, or any external tool' },
@@ -95,7 +94,7 @@ const capabilities = [
     title: 'Templates & auto-save',
     benefit: 'Switch contexts in one click',
     description:
-      'Save named templates for different roles or meetings. CEO view, ops view, client review view. Auto-saves on every change.',
+      'Save named templates for different roles or meetings. Owner view, ops view, job review view. Auto-saves on every change.',
   },
   {
     icon: Activity,
@@ -118,7 +117,6 @@ const platformFeatures = [
   { icon: Search, title: 'Global Search', description: 'Find any message, contact, file, or channel instantly. Full-text search with filters and keyboard navigation.' },
   { icon: Bell, title: 'Smart Notifications', description: 'Desktop notifications, in-app center, and browser tab badges. Configurable per-user preferences.' },
   { icon: Bot, title: 'Action History', description: 'A semantic audit trail of every AI action. See what happened, when, and why -- in plain English, not function names.' },
-  { icon: Users, title: 'Client Portal', description: 'A white-labeled portal where clients see progress, files, tasks, and billing. 9 tabs of transparency.' },
   { icon: Blocks, title: 'Knowledge Base', description: 'Upload text, URLs, and PDFs. AI agents use it for context-aware responses via RAG search.' },
 ];
 
@@ -165,7 +163,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
               A customizable, real-time dashboard with 18 widget types that puts your entire
-              operation -- AI agents, clients, campaigns, and tasks -- in one view.
+              operation -- AI agents, customers, campaigns, and tasks -- in one view.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
@@ -379,7 +377,7 @@ function PlatformSection() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Your dashboard is the front door. Behind it is a full platform -- inbox, search,
-            notifications, client portal, and knowledge base.
+            notifications, and knowledge base.
           </p>
         </motion.div>
 
@@ -431,7 +429,7 @@ function CTASection() {
             Control everything.
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-            One dashboard for your AI agents, clients, campaigns, and operations. Customizable,
+            One dashboard for your AI agents, customers, campaigns, and operations. Customizable,
             real-time, and built for the way you work.
           </p>
           <a

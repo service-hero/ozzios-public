@@ -56,25 +56,25 @@ const painPoints = [
     icon: AlertTriangle,
     title: 'Things fall through the cracks',
     description:
-      'A client mentioned a deadline in an email last Tuesday. A task was supposed to go out Friday. Nobody remembered, and now you are scrambling to explain the miss.',
+      'A customer mentioned a deadline in an email last Tuesday. A job was supposed to start Friday. Nobody remembered, and now you are scrambling to explain the miss.',
   },
   {
     icon: MessageSquare,
     title: 'Communication is scattered',
     description:
-      'Client feedback lives in Slack, task updates in Asana, files in Google Drive, and invoices in QuickBooks. Finding the full picture on any client requires opening five different tools.',
+      'Customer feedback lives in texts, job updates in spreadsheets, files in Google Drive, and invoices in QuickBooks. Finding the full picture on any customer requires opening five different tools.',
   },
   {
     icon: Eye,
-    title: 'Clients have no visibility',
+    title: 'Customers have no visibility',
     description:
-      'Your clients email "just checking in" every week because they have no idea what your team is working on. You spend hours writing update emails instead of doing the actual work.',
+      'Your customers call "just checking in" every week because they have no idea when their job is scheduled. You spend hours on the phone instead of doing the actual work.',
   },
   {
     icon: Clock,
-    title: 'Onboarding takes weeks',
+    title: 'Onboarding takes too long',
     description:
-      'Every new client means a new intake process, new folder structure, new access setup, and a dozen introduction meetings. By week three, they are still waiting for real work to start.',
+      'Every new customer means a new intake process, new estimate, new scheduling setup, and a dozen back-and-forth calls. By the time you start, they are already frustrated.',
   },
 ];
 
@@ -91,23 +91,23 @@ const pipelineStages: PipelineStage[] = [
   {
     step: '01',
     title: 'Onboard',
-    description: 'Automated onboarding workflows collect client information, set up workspaces, assign team members, and kick off initial tasks -- all in one smooth process.',
-    features: ['Automated intake forms', 'Workspace provisioning', 'Team assignment workflows', 'Welcome sequence automation'],
+    description: 'Automated onboarding workflows collect customer information, set up job records, assign technicians, and kick off initial scheduling -- all in one smooth process.',
+    features: ['Automated intake forms', 'Job record creation', 'Technician assignment workflows', 'Welcome sequence automation'],
     color: 'text-signature',
     bgColor: 'bg-signature/10',
   },
   {
     step: '02',
     title: 'Communicate',
-    description: 'Every client gets a unified communication hub with an AI agent installed in their channel. It handles responses, follow-ups, and status updates automatically -- your clients get instant replies while your team focuses on strategy.',
-    features: ['AI agent in every client channel', 'Instant automated responses', 'File sharing & approvals', 'Smart escalation to humans'],
+    description: 'Every customer gets a unified communication hub with an AI agent handling responses, follow-ups, and status updates automatically -- your customers get instant replies while your team focuses on getting the job done.',
+    features: ['AI agent for every customer', 'Instant automated responses', 'File sharing & approvals', 'Smart escalation to humans'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
   {
     step: '03',
     title: 'Execute',
-    description: 'AI agents handle the day-to-day delivery. Content creation, campaign management, SEO optimization, and reporting run on autopilot with human oversight.',
+    description: 'AI agents handle the day-to-day operations. Scheduling, dispatching, follow-ups, and reporting run on autopilot with human oversight.',
     features: ['AI-powered task execution', 'Deadline tracking', 'Dependency management', 'Automated quality checks'],
     color: 'text-mint',
     bgColor: 'bg-mint/10',
@@ -115,16 +115,16 @@ const pipelineStages: PipelineStage[] = [
   {
     step: '04',
     title: 'Report',
-    description: 'Clients see real-time dashboards showing exactly what is happening and what results are being delivered. No more weekly update emails -- it is all live.',
-    features: ['Real-time client dashboards', 'Automated reporting', 'Custom KPI tracking', 'White-label client portal'],
+    description: 'Customers see real-time updates showing exactly what is happening and when their job will be completed. No more daily phone calls -- it is all live.',
+    features: ['Real-time customer updates', 'Automated reporting', 'Custom KPI tracking', 'Branded reporting'],
     color: 'text-signature',
     bgColor: 'bg-signature/10',
   },
   {
     step: '05',
     title: 'Retain',
-    description: 'AI monitors client health signals -- engagement drops, missed meetings, declining results -- and alerts you before a client churns. Proactive, not reactive.',
-    features: ['Client health scoring', 'Churn risk detection', 'Upsell opportunity flagging', 'Satisfaction tracking'],
+    description: 'AI monitors customer health signals -- engagement drops, missed appointments, declining satisfaction -- and alerts you before a customer churns. Proactive, not reactive.',
+    features: ['Customer health scoring', 'Churn risk detection', 'Upsell opportunity flagging', 'Satisfaction tracking'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
@@ -134,46 +134,46 @@ const featureHighlights = [
   {
     icon: Users,
     title: 'CRM & Contacts',
-    description: 'Complete client profiles with every interaction, file, and note. Your single source of truth for all client relationships.',
+    description: 'Complete customer profiles with every interaction, file, and note. Your single source of truth for all customer relationships.',
     link: '/features/contacts',
   },
   {
     icon: ClipboardList,
     title: 'Task Management',
-    description: 'Assign, track, and automate tasks across clients. Dependencies, deadlines, and escalation rules keep everything on schedule.',
+    description: 'Assign, track, and automate tasks across customers. Dependencies, deadlines, and escalation rules keep everything on schedule.',
     link: '/features/tasks',
   },
   {
     icon: MessageSquare,
     title: 'Channels & Messaging',
-    description: 'Dedicated communication channels per client with an AI agent installed to handle day-to-day comms. Threaded conversations, file sharing, and smart escalation.',
+    description: 'Dedicated communication channels for your team with an AI agent installed to handle day-to-day comms. Threaded conversations, file sharing, and smart escalation.',
     link: '/features/channels',
   },
   {
     icon: FileText,
     title: 'Documents & E-Signing',
-    description: 'Proposals, contracts, and SOWs with built-in e-signatures. Send, track, and close -- all inside OzziOS.',
+    description: 'Estimates, contracts, and service agreements with built-in e-signatures. Send, track, and close -- all inside OzziOS.',
     link: '/features/documents',
   },
   {
     icon: Brain,
     title: 'AI Agents',
-    description: '30+ specialist AI agents handle execution across content, SEO, social, email, and more -- plus create your own. Your team focuses on strategy.',
+    description: '30+ specialist AI agents handle execution across scheduling, communications, follow-ups, and more -- plus create your own. Your team focuses on delivering great service.',
     link: '/features/ai-agents',
   },
   {
     icon: BarChart3,
-    title: 'Client Portal & Reporting',
-    description: 'White-label client dashboards with live metrics. Clients see progress in real-time, and you never write another status update.',
+    title: 'Customer Reporting',
+    description: 'Branded dashboards with live metrics. Customers see progress in real-time, and you never write another status update.',
     link: '/features/analytics',
   },
 ];
 
 const results = [
-  { value: '0', label: 'Dropped deliverables', description: 'Automated tracking and reminders mean nothing slips through the cracks. Ever.' },
-  { value: '75%', label: 'Fewer status emails', description: 'Real-time client dashboards eliminate the weekly "where are we?" email chain' },
-  { value: '2x', label: 'Client capacity', description: 'Manage twice as many clients per team member with AI-powered execution and automation' },
-  { value: '35%', label: 'Lower churn', description: 'Proactive health monitoring catches at-risk clients before they start looking elsewhere' },
+  { value: '0', label: 'Dropped jobs', description: 'Automated tracking and reminders mean nothing slips through the cracks. Ever.' },
+  { value: '75%', label: 'Fewer status calls', description: 'Real-time customer updates eliminate the daily "when are you coming?" phone calls' },
+  { value: '2x', label: 'Customer capacity', description: 'Manage twice as many customers per team member with AI-powered execution and automation' },
+  { value: '35%', label: 'Lower churn', description: 'Proactive health monitoring catches at-risk customers before they start looking elsewhere' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -193,15 +193,15 @@ function HeroSection() {
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <span className="tag-neo rounded-full text-signature mb-6 inline-flex items-center gap-2">
               <Briefcase className="w-3.5 h-3.5" />
-              Client Management
+              Customer Management
             </span>
             <h1 className="text-display font-display text-foreground mb-6">
-              Never drop a client ball{' '}
+              Never drop a customer ball{' '}
               <span className="text-signature">again</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Onboard, communicate, execute, report, and retain -- all in one platform.
-              OzziOS replaces your patchwork of tools with an end-to-end client
+              OzziOS replaces your patchwork of tools with an end-to-end customer
               management system powered by AI.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -209,7 +209,7 @@ function HeroSection() {
                 href="https://app.ozzios.com/sign-up"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
               >
-                Manage clients better
+                Manage customers better
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
@@ -220,7 +220,7 @@ function HeroSection() {
             <div className="card-neo rounded-xl p-6 text-center">
               <div className="font-display text-4xl md:text-5xl text-signature mb-2">68%</div>
               <p className="text-muted-foreground text-sm">
-                of clients leave agencies due to poor communication, not poor results. OzziOS fixes that.
+                of customers leave service companies due to poor communication, not poor work. OzziOS fixes that.
               </p>
             </div>
           </motion.div>
@@ -246,10 +246,10 @@ function ProblemSection() {
         >
           <span className="tag-neo rounded-full text-signature mb-6 inline-block">The Problem</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Client management is a mess
+            Customer management is a mess
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            More clients should mean more revenue. Instead, it means more chaos, more dropped balls, and more churn.
+            More customers should mean more revenue. Instead, it means more chaos, more dropped balls, and more churn.
           </p>
         </motion.div>
 
@@ -301,10 +301,10 @@ function PipelineSection() {
         >
           <span className="tag-neo rounded-full text-signature mb-6 inline-block">The Lifecycle</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Every client, perfectly managed
+            Every customer, perfectly managed
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            OzziOS manages the complete client lifecycle. From first handshake to long-term retention,
+            OzziOS manages the complete customer lifecycle. From first contact to long-term retention,
             every stage is systematized and powered by AI.
           </p>
         </motion.div>
@@ -326,7 +326,7 @@ function PipelineSection() {
           <div className="inline-flex items-center gap-3 card-neo rounded-full px-6 py-3">
             <HeartHandshake className="w-4 h-4 text-signature" />
             <span className="text-sm text-muted-foreground">
-              Happy clients stay longer, spend more, and refer others. OzziOS makes that the default.
+              Happy customers stay longer, spend more, and refer others. OzziOS makes that the default.
             </span>
           </div>
         </motion.div>
@@ -392,27 +392,27 @@ function PipelineStageCard({ stage, index, isLast }: { stage: PipelineStage; ind
 const aiCommsCapabilities = [
   {
     icon: Reply,
-    title: 'Instant client responses',
+    title: 'Instant customer responses',
     description:
-      'Client asks a question at 11 PM? The AI agent responds immediately with accurate, context-aware answers pulled from your knowledge base and project history.',
+      'Customer asks a question at 11 PM? The AI agent responds immediately with accurate, context-aware answers pulled from your knowledge base and job history.',
   },
   {
     icon: BellRing,
     title: 'Proactive status updates',
     description:
-      'The agent automatically posts progress updates, milestone completions, and deliverable summaries to the client channel -- without anyone on your team lifting a finger.',
+      'The agent automatically sends progress updates, appointment reminders, and job completion summaries to customers -- without anyone on your team lifting a finger.',
   },
   {
     icon: UserCheck,
     title: 'Smart human escalation',
     description:
-      'When a client request needs human judgment -- a strategy pivot, a sensitive conversation, a contract question -- the agent flags it and routes to the right team member.',
+      'When a customer request needs human judgment -- a scheduling change, a sensitive conversation, a pricing question -- the agent flags it and routes to the right team member.',
   },
   {
     icon: Brain,
     title: 'Learns your voice and context',
     description:
-      'The agent uses your knowledge base, past conversations, and client-specific context to respond in your brand voice. Clients cannot tell the difference.',
+      'The agent uses your knowledge base, past conversations, and customer-specific context to respond in your brand voice. Customers cannot tell the difference.',
   },
 ];
 
@@ -432,13 +432,13 @@ function AICommsSection() {
         >
           <span className="tag-neo rounded-full text-signature mb-6 inline-flex items-center gap-2">
             <Bot className="w-3.5 h-3.5" />
-            AI Client Comms
+            AI Customer Comms
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Install an AI agent into every client channel
+            Install an AI agent into every team channel
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Each client channel gets its own AI agent that handles communication 24/7.
+            Each team channel gets its own AI agent that handles communication 24/7.
             It responds to questions, shares updates, and escalates to your team only when it matters.
           </p>
         </motion.div>
@@ -457,7 +457,7 @@ function AICommsSection() {
               </div>
               <div>
                 <h3 className="font-display text-xl text-foreground">How it works</h3>
-                <p className="text-sm text-muted-foreground">Three steps to always-on client communication</p>
+                <p className="text-sm text-muted-foreground">Three steps to always-on customer communication</p>
               </div>
             </div>
             <div className="space-y-6">
@@ -466,9 +466,9 @@ function AICommsSection() {
                   <span className="font-display text-signature text-sm">01</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Create a client channel</h4>
+                  <h4 className="font-semibold text-foreground mb-1">Create a team channel</h4>
                   <p className="text-sm text-muted-foreground">
-                    Set up a dedicated channel for your client -- or use one you already have. This becomes the single hub for all client communication.
+                    Set up a dedicated channel for your team -- or use one you already have. This becomes the single hub for all customer communication.
                   </p>
                 </div>
               </div>
@@ -479,7 +479,7 @@ function AICommsSection() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Install an AI agent</h4>
                   <p className="text-sm text-muted-foreground">
-                    Assign an AI agent to the channel. It instantly has access to your knowledge base, the client's history, project status, and your brand voice.
+                    Assign an AI agent to the channel. It instantly has access to your knowledge base, the customer's history, job status, and your brand voice.
                   </p>
                 </div>
               </div>
@@ -490,7 +490,7 @@ function AICommsSection() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Let it handle the conversation</h4>
                   <p className="text-sm text-muted-foreground">
-                    The agent responds to client messages, shares proactive updates, and only pulls in your team when human judgment is needed. Your clients get 24/7 responsiveness.
+                    The agent responds to customer messages, shares proactive updates, and only pulls in your team when human judgment is needed. Your customers get 24/7 responsiveness.
                   </p>
                 </div>
               </div>
@@ -547,7 +547,7 @@ function FeatureHighlightsSection() {
         >
           <span className="tag-neo rounded-full text-signature mb-6 inline-block">Features That Power It</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            One platform for every client need
+            One platform for every customer need
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Replace your stack of disconnected tools with one unified system that handles communication, execution, and reporting.
@@ -607,10 +607,10 @@ function ResultsSection() {
         >
           <span className="tag-neo rounded-full text-mint mb-6 inline-block">Results</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Better clients, better retention
+            Better customers, better retention
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies using OzziOS for client management deliver better work, communicate more effectively, and keep clients longer.
+            Service companies using OzziOS for customer management deliver better work, communicate more effectively, and keep customers longer.
           </p>
         </motion.div>
 
@@ -660,16 +660,16 @@ function CTASection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
             Stop managing chaos.
             <br />
-            <span className="text-signature">Start managing clients.</span>
+            <span className="text-signature">Start managing customers.</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-            One platform for onboarding, communication, execution, and reporting. Your clients will thank you.
+            One platform for onboarding, communication, execution, and reporting. Your customers will thank you.
           </p>
           <a
             href="https://app.ozzios.com/sign-up"
             className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
           >
-            Manage clients better
+            Manage customers better
             <ArrowRight className="w-5 h-5" />
           </a>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">

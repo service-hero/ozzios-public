@@ -25,7 +25,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsTeamsRouteImport } from './routes/solutions/teams'
-import { Route as SolutionsSoloAgenciesRouteImport } from './routes/solutions/solo-agencies'
 import { Route as SolutionsLeadGenerationRouteImport } from './routes/solutions/lead-generation'
 import { Route as SolutionsEnterpriseRouteImport } from './routes/solutions/enterprise'
 import { Route as SolutionsContentMarketingRouteImport } from './routes/solutions/content-marketing'
@@ -129,11 +128,6 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
 const SolutionsTeamsRoute = SolutionsTeamsRouteImport.update({
   id: '/solutions/teams',
   path: '/solutions/teams',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsSoloAgenciesRoute = SolutionsSoloAgenciesRouteImport.update({
-  id: '/solutions/solo-agencies',
-  path: '/solutions/solo-agencies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsLeadGenerationRoute = SolutionsLeadGenerationRouteImport.update({
@@ -298,7 +292,6 @@ export interface FileRoutesByFullPath {
   '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
-  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -340,7 +333,6 @@ export interface FileRoutesByTo {
   '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
-  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -384,7 +376,6 @@ export interface FileRoutesById {
   '/solutions/content-marketing': typeof SolutionsContentMarketingRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
-  '/solutions/solo-agencies': typeof SolutionsSoloAgenciesRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -429,7 +420,6 @@ export interface FileRouteTypes {
     | '/solutions/content-marketing'
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
-    | '/solutions/solo-agencies'
     | '/solutions/teams'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -471,7 +461,6 @@ export interface FileRouteTypes {
     | '/solutions/content-marketing'
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
-    | '/solutions/solo-agencies'
     | '/solutions/teams'
     | '/blog'
   id:
@@ -514,7 +503,6 @@ export interface FileRouteTypes {
     | '/solutions/content-marketing'
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
-    | '/solutions/solo-agencies'
     | '/solutions/teams'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -557,7 +545,6 @@ export interface RootRouteChildren {
   SolutionsContentMarketingRoute: typeof SolutionsContentMarketingRoute
   SolutionsEnterpriseRoute: typeof SolutionsEnterpriseRoute
   SolutionsLeadGenerationRoute: typeof SolutionsLeadGenerationRoute
-  SolutionsSoloAgenciesRoute: typeof SolutionsSoloAgenciesRoute
   SolutionsTeamsRoute: typeof SolutionsTeamsRoute
 }
 
@@ -673,13 +660,6 @@ declare module '@tanstack/react-router' {
       path: '/solutions/teams'
       fullPath: '/solutions/teams'
       preLoaderRoute: typeof SolutionsTeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/solo-agencies': {
-      id: '/solutions/solo-agencies'
-      path: '/solutions/solo-agencies'
-      fullPath: '/solutions/solo-agencies'
-      preLoaderRoute: typeof SolutionsSoloAgenciesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/lead-generation': {
@@ -903,7 +883,6 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsContentMarketingRoute: SolutionsContentMarketingRoute,
   SolutionsEnterpriseRoute: SolutionsEnterpriseRoute,
   SolutionsLeadGenerationRoute: SolutionsLeadGenerationRoute,
-  SolutionsSoloAgenciesRoute: SolutionsSoloAgenciesRoute,
   SolutionsTeamsRoute: SolutionsTeamsRoute,
 }
 export const routeTree = rootRouteImport

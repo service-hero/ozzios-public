@@ -102,7 +102,7 @@ const capabilities = [
     icon: Zap,
     title: 'Workflow integration',
     description:
-      'Trigger SMS campaigns from workflows, or trigger workflows from SMS replies. Two-way communication that feeds into your entire marketing automation.',
+      'Trigger SMS campaigns from workflows, or trigger workflows from SMS replies. Two-way communication that feeds into your entire business automation.',
   },
 ];
 
@@ -278,8 +278,8 @@ function SolutionSection() {
                     </div>
                     <div className="bg-card border border-border rounded-xl rounded-tl-sm p-3 max-w-[280px]">
                       <p className="text-sm text-foreground">
-                        Hey Sarah! Your quarterly SEO report is ready. Open rates are up 34% this month.
-                        View your dashboard: app.ozzios.com/r/abc123
+                        Hey Sarah! Your HVAC maintenance is due next month. Book early and save 15%.
+                        Schedule now: app.ozzios.com/r/abc123
                       </p>
                       <p className="text-[10px] text-muted-foreground mt-2">Reply STOP to opt out</p>
                     </div>
@@ -327,7 +327,7 @@ function CapabilitiesSection() {
             Enterprise SMS without enterprise complexity
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Every feature designed for agencies who need to send at scale without losing sleep over compliance.
+            Every feature designed for service businesses who need to send at scale without losing sleep over compliance.
           </p>
         </motion.div>
 
@@ -405,7 +405,7 @@ function DifferentiatorSection() {
             SMS done right
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            The only SMS platform built for agencies with compliance and CRM integration from day one.
+            The only SMS platform built for service businesses with compliance and CRM integration from day one.
           </p>
         </motion.div>
 

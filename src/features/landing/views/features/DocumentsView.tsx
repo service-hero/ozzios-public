@@ -52,7 +52,7 @@ const painPoints = [
     icon: AlertTriangle,
     title: 'No audit trail when it matters',
     description:
-      'When a client disputes what they agreed to, you need timestamped proof of every view, sign, and decline. Most tools give you nothing.',
+      'When a customer disputes what they agreed to, you need timestamped proof of every view, sign, and decline. Most tools give you nothing.',
   },
   {
     icon: Users,
@@ -64,7 +64,7 @@ const painPoints = [
     icon: Lock,
     title: 'Security is an afterthought',
     description:
-      'Sensitive client agreements sent via email with no verification. No OTP, no identity checks, no encrypted storage.',
+      'Sensitive customer agreements sent via email with no verification. No OTP, no identity checks, no encrypted storage.',
   },
 ];
 

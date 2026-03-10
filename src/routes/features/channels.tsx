@@ -8,7 +8,7 @@ export const Route = createFileRoute('/features/channels')({
     createPageHead({
       title: 'Channels',
       description:
-        'Unified team messaging and collaboration. Real-time channels for your agency, organized by client or project.',
+        'Unified team messaging and collaboration. Real-time channels for your business, organized by customer or project.',
       path: '/features/channels',
     }),
   component: ChannelsPage,

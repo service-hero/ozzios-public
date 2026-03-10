@@ -5,8 +5,8 @@ import { createPageHead } from '@/lib/seo'
 
 export const Route = createFileRoute('/solutions/client-management')({
   head: () => createPageHead({
-    title: 'Client Management',
-    description: 'Manage all agency clients in one platform. AI handles reporting, communication, and campaign execution.',
+    title: 'Customer Management',
+    description: 'Manage all your customers in one platform. AI handles reporting, communication, and job coordination.',
     path: '/solutions/client-management',
   }),
   component: ClientManagementPage,

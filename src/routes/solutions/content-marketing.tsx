@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/solutions/content-marketing')({
   head: () => createPageHead({
     title: 'Content Marketing',
-    description: 'Scale content production with AI. Produce 10x more content without 10x the headcount.',
+    description: 'Scale content production for your service business with AI. Blog posts, before/after showcases, seasonal tips, and local SEO content on autopilot.',
     path: '/solutions/content-marketing',
   }),
   component: ContentMarketingPage,

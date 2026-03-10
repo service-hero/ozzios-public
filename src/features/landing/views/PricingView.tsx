@@ -24,80 +24,61 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    name: 'Solo',
-    price: 197,
-    usage: '18.0M tokens/mo',
-    description: 'For solo operators',
+    name: 'Basic',
+    price: 49,
+    usage: '1,000 AI credits/mo',
+    description: 'For lean teams getting started',
     features: [
-      { label: 'Up to 2 team members', description: 'Everything you need to run your business solo — with room for one extra hand when you need it.' },
-      { label: '2 workspaces', description: 'Separate your projects or brands into dedicated workspaces, each with its own settings.' },
-      { label: '18M monthly tokens', description: 'Enough AI capacity for a solo operator to automate content, scheduling, and daily marketing tasks.' },
-      { label: 'Social planner', description: 'Stay consistent on social without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
-      { label: 'Blog tools', description: 'Keep your blog active and SEO-friendly — without writing every post yourself.' },
-      { label: 'Email builder', description: 'Send professional emails that actually look good — without a designer.' },
-      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
+      { label: '1 workspace member', description: 'Everything you need to run your business solo — focused and streamlined for one operator.' },
+      { label: '1 workspace', description: 'A dedicated workspace with its own settings, channels, and inbox.' },
+      { label: '1,000 AI credits', description: 'Enough AI capacity to get started with automation, content creation, and daily marketing tasks.' },
+      { label: 'Workspace, channels & inbox', description: 'Your central hub for team communication, customer messages, and task management — all in one place.' },
+      { label: 'Tasks', description: 'Organize your work with task management built right into your workspace.' },
+      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of enterprise CRM tools.' },
+      { label: 'Basic integrations', description: 'Connect the essential tools you use every day to keep your workflow moving.' },
       { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
     cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=basic',
+    recommended: false,
+  },
+  {
+    name: 'Pro',
+    price: 197,
+    usage: '5,000 AI credits/mo',
+    description: 'Workflows, video, and premium AI tools',
+    features: [
+      { label: 'Up to 2 team members', description: 'Everything you need to run your business — with room for one extra hand when you need it.' },
+      { label: '2 workspaces', description: 'Separate your projects or service areas into dedicated workspaces, each with its own settings.' },
+      { label: '5,000 AI credits', description: 'Plenty of AI capacity for content creation, workflows, and daily marketing automation.' },
+      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active and SEO-friendly — without doing it all manually.' },
+      { label: 'Email builder & all integrations', description: 'Send professional emails and connect 40+ tools — Google, Meta, Shopify, WordPress, and more.' },
+      { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
+      { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
+      { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
+      { label: 'Video kit & coding sandbox', description: 'Record professional videos and let Ozzi build custom dashboards and tools — no developer needed.' },
+      { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
+    ],
+    cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=solo',
-    recommended: false,
-  },
-  {
-    name: 'Starter',
-    price: 490,
-    usage: '45.0M tokens/mo',
-    description: 'Perfect for small teams',
-    features: [
-      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: '5 workspaces', description: 'Run multiple brands or projects from one login — each fully separate with its own team and settings.' },
-      { label: '45M monthly tokens', description: 'Plenty of AI capacity for a small team running campaigns, workflows, and automations every day.' },
-      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
-      { label: 'Forms builder', description: 'Capture leads from your website and automatically add them to your pipeline. No manual data entry, no leads falling through the cracks.' },
-      { label: 'Documents & e-sign', description: 'Send proposals and contracts and get them signed without the back-and-forth. Automatic reminders follow up for you so deals don\'t stall.' },
-      { label: 'Workflow builder', description: 'Set up automations once and let them run forever. Follow-ups, notifications, task assignments — all happen automatically while you focus on growing your business.' },
-      { label: 'Advanced CRM', description: 'Know exactly where every lead and customer stands. See who\'s ready to buy, who needs a nudge, and how likely each deal is to close — all in one view.' },
-    ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up',
-    recommended: false,
-  },
-  {
-    name: 'Professional',
-    price: 990,
-    usage: '90.0M tokens/mo',
-    description: 'For growing agencies',
-    features: [
-      { label: 'Up to 15 team members', description: 'Room to grow your team without switching plans.' },
-      { label: '10 workspaces', description: 'Run multiple brands, locations, or client accounts from one login — each fully separate with its own team and settings.' },
-      { label: 'Client portal & chat widget', description: 'Give clients their own login to see progress, approve work, and ask questions — so they stop emailing you for updates. Add a chat widget to your site and capture leads automatically.' },
-      { label: 'Portal AI agent', description: 'Your AI agent answers client questions 24/7 inside the portal — so clients feel taken care of even when you\'re not available.' },
-      { label: 'Huddles', description: 'Hop on a quick call with your team without needing extra software. Great for client updates and walkthroughs.' },
-      { label: 'Video kit', description: 'Record professional videos for marketing content, client updates, and walkthroughs — no extra software needed.' },
-      { label: 'Code sandbox', description: 'Ozzi can build custom dashboards, calculators, and interactive tools for your business — no developer needed.' },
-      { label: 'Local rank', description: 'See exactly where you rank on Google Maps for the keywords that bring in local customers — and track whether your SEO efforts are actually moving the needle.' },
-      { label: 'Advanced automation nodes', description: 'Build more sophisticated automations — run multiple workflows in parallel, loop through lists, or pause for human approval before taking action.' },
-    ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=professional',
     recommended: true,
   },
   {
-    name: 'Business',
-    price: 1995,
-    usage: '180.0M tokens/mo',
-    description: 'For established agencies',
+    name: 'Scale',
+    price: 490,
+    usage: '15,000 AI credits/mo',
+    description: 'Messaging and voice ops for scaling teams',
     features: [
-      { label: 'Everything in Professional', description: 'Includes every feature from the Professional plan.' },
-      { label: 'Up to 50 team members', description: 'Scale your operation without needing a new platform. Everyone on your team in one place.' },
-      { label: 'Unlimited workspaces', description: 'No limits on how many brands, locations, or clients you manage. Scale as big as your business grows.' },
-      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality without listening to every call.' },
-      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach — at a scale one person could never match.' },
-      { label: 'High-volume operations', description: 'Built for businesses running large campaigns or managing lots of contacts. Higher limits so you\'re never throttled at the worst time.' },
-      { label: 'Dedicated success manager', description: 'A real person on our team who knows your business, helps you get set up, and meets with you regularly to make sure you\'re getting results.' },
-      { label: 'SLA & phone support', description: 'Call us directly. Guaranteed response times so you\'re never left waiting when something urgent comes up.' },
+      { label: 'Everything in Pro', description: 'Includes every feature from the Pro plan — workflows, video, integrations, and more.' },
+      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
+      { label: '5 workspaces', description: 'Run multiple locations or projects from one login — each fully separate with its own team and settings.' },
+      { label: '15,000 AI credits', description: 'High-capacity AI for teams running campaigns, workflows, and automations at scale every day.' },
+      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
+      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality.' },
+      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach at scale.' },
     ],
     cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=business',
+    href: 'https://app.ozzios.com/sign-up?plan=starter',
     recommended: false,
   },
 ];
@@ -106,58 +87,52 @@ const comparisonFeatures = [
   {
     category: 'Limits',
     features: [
-      { name: 'Team members', solo: '2', starter: '5', professional: '15', business: '50' },
-      { name: 'Workspaces', solo: '2', starter: '5', professional: '10', business: 'Unlimited' },
-      { name: 'Monthly AI tokens', solo: '18M', starter: '45M', professional: '90M', business: '180M' },
+      { name: 'Team members', basic: '1', pro: '2', scale: '5' },
+      { name: 'Workspaces', basic: '1', pro: '2', scale: '5' },
+      { name: 'Monthly AI credits', basic: '1,000', pro: '5,000', scale: '15,000' },
     ],
   },
   {
     category: 'Core',
     features: [
-      { name: 'Workspace, channels & inbox', solo: true, starter: true, professional: true, business: true },
-      { name: 'Tasks', solo: true, starter: true, professional: true, business: true },
-      { name: 'Social planner', solo: true, starter: true, professional: true, business: true },
-      { name: 'Blog tools', solo: true, starter: true, professional: true, business: true },
-      { name: 'Email builder', solo: true, starter: true, professional: true, business: true },
-      { name: 'All integrations', solo: true, starter: true, professional: true, business: true },
+      { name: 'Workspace, channels & inbox', basic: true, pro: true, scale: true },
+      { name: 'Tasks', basic: true, pro: true, scale: true },
+      { name: 'Basic CRM', basic: true, pro: true, scale: true },
+      { name: 'Basic integrations', basic: true, pro: true, scale: true },
     ],
   },
   {
-    category: 'Starter',
+    category: 'Pro',
     features: [
-      { name: 'Email/SMS campaigns', solo: false, starter: true, professional: true, business: true },
-      { name: 'Forms builder', solo: false, starter: true, professional: true, business: true },
-      { name: 'Documents & e-sign', solo: false, starter: true, professional: true, business: true },
-      { name: 'Workflow builder', solo: false, starter: true, professional: true, business: true },
-      { name: 'Advanced CRM', solo: false, starter: true, professional: true, business: true },
+      { name: 'Social planner', basic: false, pro: true, scale: true },
+      { name: 'Blog tools', basic: false, pro: true, scale: true },
+      { name: 'Email builder', basic: false, pro: true, scale: true },
+      { name: 'All integrations', basic: false, pro: true, scale: true },
+      { name: 'Forms builder', basic: false, pro: true, scale: true },
+      { name: 'Documents & e-sign', basic: false, pro: true, scale: true },
+      { name: 'Workflow builder', basic: false, pro: true, scale: true },
+      { name: 'Advanced CRM', basic: false, pro: true, scale: true },
+      { name: 'Chat widget', basic: false, pro: true, scale: true },
+      { name: 'Huddles', basic: false, pro: true, scale: true },
+      { name: 'Video kit', basic: false, pro: true, scale: true },
+      { name: 'Coding sandbox', basic: false, pro: true, scale: true },
+      { name: 'Local rank', basic: false, pro: true, scale: true },
+      { name: 'Claude Opus', basic: false, pro: true, scale: true },
+      { name: 'Advanced automation nodes', basic: false, pro: true, scale: true },
     ],
   },
   {
-    category: 'Professional',
+    category: 'Scale',
     features: [
-      { name: 'Client portal & chat widget', solo: false, starter: false, professional: true, business: true },
-      { name: 'Portal AI agent', solo: false, starter: false, professional: true, business: true },
-      { name: 'Huddles', solo: false, starter: false, professional: true, business: true },
-      { name: 'Video kit', solo: false, starter: false, professional: true, business: true },
-      { name: 'Code sandbox', solo: false, starter: false, professional: true, business: true },
-      { name: 'Local rank', solo: false, starter: false, professional: true, business: true },
-      { name: 'Advanced automation nodes', solo: false, starter: false, professional: true, business: true },
-    ],
-  },
-  {
-    category: 'Business',
-    features: [
-      { name: 'Call center & voice ops', solo: false, starter: false, professional: false, business: true },
-      { name: 'Outbound call tooling', solo: false, starter: false, professional: false, business: true },
-      { name: 'High-volume operations', solo: false, starter: false, professional: false, business: true },
+      { name: 'Email/SMS campaigns', basic: false, pro: false, scale: true },
+      { name: 'Call center & voice ops', basic: false, pro: false, scale: true },
+      { name: 'Outbound call tooling', basic: false, pro: false, scale: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', solo: true, starter: true, professional: true, business: true },
-      { name: 'Dedicated success manager', solo: false, starter: false, professional: false, business: true },
-      { name: 'SLA & phone support', solo: false, starter: false, professional: false, business: true },
+      { name: 'Email support', basic: true, pro: true, scale: true },
     ],
   },
 ];
@@ -165,19 +140,19 @@ const comparisonFeatures = [
 const pricingFaqs = [
   {
     question: 'How does usage-based pricing work?',
-    answer: 'Each plan includes a monthly usage quota that covers all AI operations — writing content, analyzing data, scheduling posts, running workflows, and more. Usage is tracked automatically and resets at the start of each billing cycle. You can monitor your usage in real time from your account dashboard.',
+    answer: 'Each plan includes a monthly AI credit allocation that covers all AI operations — writing content, analyzing data, scheduling posts, running workflows, and more. Credits are tracked automatically and reset at the start of each billing cycle. You can monitor your usage in real time from your account dashboard, and purchase additional credit packs anytime.',
   },
   {
     question: 'Can I change plans at any time?',
     answer: 'Yes, you can upgrade or downgrade your plan at any time. When upgrading, you\'ll get immediate access to the new plan\'s features and your billing will be prorated. When downgrading, the change takes effect at the start of your next billing cycle.',
   },
   {
-    question: 'What happens if I hit my usage limit?',
-    answer: 'If you reach your monthly usage limit before your billing cycle renews, your AI agents will pause until the quota resets. You can upgrade to a higher plan at any time to get more capacity immediately.',
+    question: 'What happens if I run out of credits?',
+    answer: 'If you use all your monthly AI credits before your billing cycle renews, your AI agents will pause until credits reset. You can purchase additional credit packs anytime or upgrade to a higher plan for more monthly credits.',
   },
   {
     question: 'Do you offer annual billing?',
-    answer: 'Yes, we offer annual billing with a 20% discount on all plans. Contact our sales team or switch to annual billing in your account settings.',
+    answer: 'Yes, we offer annual billing with a 17% discount on all plans. You can switch to annual billing during checkout or in your account settings.',
   },
   {
     question: 'Can I cancel anytime?',
@@ -196,8 +171,8 @@ const pricingFaqs = [
 const valueProps = [
   {
     icon: Zap,
-    title: 'Save 70%+ vs agencies',
-    description: 'Replace expensive agency retainers with AI agents that work 24/7.',
+    title: 'Save 70%+ vs outsourcing',
+    description: 'Replace expensive outsourcing and overhead with AI agents that work 24/7.',
   },
   {
     icon: Users,
@@ -247,7 +222,7 @@ function HeroSection() {
             <span className="text-gray-400">pricing</span>
           </h1>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Stop overpaying for agencies. Get enterprise-level marketing
+            Stop overpaying for outsourced services. Get enterprise-level
             automation at a fraction of the cost. No hidden fees, no surprises.
           </p>
         </motion.div>
@@ -268,7 +243,7 @@ function ValuePropsBar() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {valueProps.map((prop) => (
             <div key={prop.title} className="text-center">
@@ -293,7 +268,7 @@ function PricingCards() {
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8" ref={ref}>
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -429,24 +404,21 @@ function ComparisonTable() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="overflow-x-auto"
         >
-          <table className="w-full min-w-[600px]">
+          <table className="w-full min-w-[500px]">
             {/* Header */}
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[32%]">
+                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[40%]">
                   Features
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
-                  Solo
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
+                  Basic
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
-                  Starter
+                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[20%]">
+                  Pro
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[17%]">
-                  Professional
-                </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[17%]">
-                  Business
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
+                  Scale
                 </th>
               </tr>
             </thead>
@@ -455,7 +427,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={5}
+                      colSpan={4}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -470,16 +442,13 @@ function ComparisonTable() {
                         {feature.name}
                       </td>
                       <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={(feature as Record<string, boolean | string>).solo} />
+                        <FeatureValue value={(feature as Record<string, boolean | string>).basic} />
                       </td>
                       <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={feature.starter} />
+                        <FeatureValue value={(feature as Record<string, boolean | string>).pro} />
                       </td>
                       <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={feature.professional} />
-                      </td>
-                      <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={feature.business} />
+                        <FeatureValue value={(feature as Record<string, boolean | string>).scale} />
                       </td>
                     </tr>
                   ))}

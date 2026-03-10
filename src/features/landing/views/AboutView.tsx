@@ -16,13 +16,13 @@ const values = [
     icon: Shield,
     title: 'Radical Transparency',
     description:
-      'No black boxes. Every action your AI team takes is logged, visible, and auditable. You see exactly what your marketing is doing, 24/7.',
+      'No black boxes. Every action your AI team takes is logged, visible, and auditable. You see exactly what your business operations are doing, 24/7.',
   },
   {
     icon: Brain,
-    title: 'Agency-First Design',
+    title: 'Service-First Design',
     description:
-      'Built by people who ran agencies. We know the pain of turnover, tool sprawl, and client churn. OzziOS is the platform we wished we had.',
+      'Built by people who ran home service companies. We know the pain of missed calls, scheduling chaos, and customer churn. OzziOS is the platform we wished we had.',
   },
   {
     icon: Users,
@@ -101,13 +101,13 @@ function HeroSection() {
         >
           <span className="tag-neo text-signature mb-8 inline-block">Our Mission</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground tracking-tight mb-6">
-            Replacing entire marketing
+            Replacing back-office overhead
             <br />
-            <span className="text-signature">departments with AI</span>
+            <span className="text-signature">for home service companies</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            We're building a future where every business has access to a full marketing
-            team -- powered by AI agents that work 24/7, never quit, and get smarter
+            We're building a future where every home service company has access to a full
+            operations team -- powered by AI agents that work 24/7, never quit, and get smarter
             every day.
           </p>
 
@@ -150,24 +150,24 @@ function StorySection() {
           >
             <span className="tag-neo text-signature mb-6 inline-block">Our Story</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-6">
-              Born from the frustration of running an agency
+              Born from the frustration of running a home service business
             </h2>
             <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
               <p>
-                We spent years running marketing agencies. We know what it's like to hire,
-                train, and lose talented people. We know the pain of explaining the same
-                processes to every new hire. We know what it costs when your best account
-                manager leaves and takes years of client knowledge with them.
+                We spent years working with home service companies -- HVAC, plumbing, roofing,
+                electrical, landscaping. We know what it's like to hire, train, and lose
+                dispatchers and office staff. We know the pain of missed calls, scheduling
+                nightmares, and losing customers because no one followed up.
               </p>
               <p>
-                So we asked a simple question: what if AI could do the repetitive,
-                process-driven work that burns out your team -- and do it better, faster,
+                So we asked a simple question: what if AI could handle the repetitive,
+                process-driven work that buries your office team -- and do it better, faster,
                 and 24/7?
               </p>
               <p>
                 OzziOS is the answer. We built an unlimited AI workforce — 30+ specialized
                 agents out of the box, plus the ability to create your own. They work together,
-                share knowledge, and never take your clients when they leave. Because they never leave.
+                share knowledge, and never leave you scrambling for coverage. Because they never leave.
               </p>
             </div>
           </motion.div>
@@ -187,8 +187,8 @@ function StorySection() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">The Problem</h3>
                     <p className="text-sm text-muted-foreground">
-                      Marketing agencies are expensive black boxes. Businesses pay thousands
-                      monthly and never see the work being done.
+                      Home service companies drown in admin work. Missed calls, scheduling
+                      errors, and dropped follow-ups cost thousands in lost revenue every month.
                     </p>
                   </div>
                 </div>
@@ -199,8 +199,8 @@ function StorySection() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">The Insight</h3>
                     <p className="text-sm text-muted-foreground">
-                      80% of agency work is repeatable process. AI can handle it -- with
-                      total transparency and zero turnover.
+                      80% of office work in a service company is repeatable process. AI can
+                      handle it -- with total transparency and zero turnover.
                     </p>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ function StorySection() {
                     <h3 className="font-semibold text-foreground mb-1">The Solution</h3>
                     <p className="text-sm text-muted-foreground">
                       An unlimited AI workforce that works 24/7, remembers everything, and shows you
-                      every action they take. Your marketing, fully visible.
+                      every action they take. Your operations, fully visible.
                     </p>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ function TeamSection() {
             The humans behind the AI
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            A small, focused team building the future of marketing automation.
+            A small, focused team building the future of home service operations.
           </p>
         </motion.div>
 
@@ -338,7 +338,7 @@ function TeamSection() {
         >
           <div className="inline-flex items-center gap-3 card-neo rounded-full px-6 py-3">
             <span className="text-sm text-muted-foreground">
-              We're hiring. Join us and build the future of marketing.
+              We're hiring. Join us and build the future of home services.
             </span>
             <a
               href="/careers"

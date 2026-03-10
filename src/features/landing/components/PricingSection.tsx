@@ -23,80 +23,61 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    name: 'Solo',
-    price: 197,
-    usage: '18.0M tokens/mo',
-    description: 'For solo operators',
+    name: 'Basic',
+    price: 49,
+    usage: '1,000 AI credits/mo',
+    description: 'For lean teams getting started',
     features: [
-      { label: 'Up to 2 team members', description: 'Everything you need to run your business solo — with room for one extra hand when you need it.' },
-      { label: '2 workspaces', description: 'Separate your projects or brands into dedicated workspaces, each with its own settings.' },
-      { label: '18M monthly tokens', description: 'Enough AI capacity for a solo operator to automate content, scheduling, and daily marketing tasks.' },
-      { label: 'Social planner', description: 'Stay consistent on social without spending hours every week doing it manually. Ozzi handles the scheduling and publishing for you.' },
-      { label: 'Blog tools', description: 'Keep your blog active and SEO-friendly — without writing every post yourself.' },
-      { label: 'Email builder', description: 'Send professional emails that actually look good — without a designer.' },
-      { label: 'All integrations', description: 'Connect the tools you already use — Google, Meta, Shopify, WordPress, and 40+ more. Everything talks to each other so you\'re not re-entering data across platforms.' },
+      { label: '1 workspace member', description: 'Everything you need to run your business solo — focused and streamlined for one operator.' },
+      { label: '1 workspace', description: 'A dedicated workspace with its own settings, channels, and inbox.' },
+      { label: '1,000 AI credits', description: 'Enough AI capacity to get started with automation, content creation, and daily marketing tasks.' },
+      { label: 'Workspace, channels & inbox', description: 'Your central hub for team communication, customer messages, and task management — all in one place.' },
+      { label: 'Tasks', description: 'Organize your work with task management built right into your workspace.' },
+      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of enterprise CRM tools.' },
+      { label: 'Basic integrations', description: 'Connect the essential tools you use every day to keep your workflow moving.' },
       { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
     cta: 'Get started',
+    href: 'https://app.ozzios.com/sign-up?plan=basic',
+    recommended: false,
+  },
+  {
+    name: 'Pro',
+    price: 197,
+    usage: '5,000 AI credits/mo',
+    description: 'Workflows, video, and premium AI tools',
+    features: [
+      { label: 'Up to 2 team members', description: 'Everything you need to run your business — with room for one extra hand when you need it.' },
+      { label: '2 workspaces', description: 'Separate your projects or service areas into dedicated workspaces, each with its own settings.' },
+      { label: '5,000 AI credits', description: 'Plenty of AI capacity for content creation, workflows, and daily marketing automation.' },
+      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active and SEO-friendly — without doing it all manually.' },
+      { label: 'Email builder & all integrations', description: 'Send professional emails and connect 40+ tools — Google, Meta, Shopify, WordPress, and more.' },
+      { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
+      { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
+      { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
+      { label: 'Video kit & coding sandbox', description: 'Record professional videos and let Ozzi build custom dashboards and tools — no developer needed.' },
+      { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
+    ],
+    cta: 'Get started',
     href: 'https://app.ozzios.com/sign-up?plan=solo',
-    recommended: false,
-  },
-  {
-    name: 'Starter',
-    price: 490,
-    usage: '45.0M tokens/mo',
-    description: 'Perfect for small teams',
-    features: [
-      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: '5 workspaces', description: 'Run multiple brands or projects from one login — each fully separate with its own team and settings.' },
-      { label: '45M monthly tokens', description: 'Plenty of AI capacity for a small team running campaigns, workflows, and automations every day.' },
-      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
-      { label: 'Forms builder', description: 'Capture leads from your website and automatically add them to your pipeline. No manual data entry, no leads falling through the cracks.' },
-      { label: 'Documents & e-sign', description: 'Send proposals and contracts and get them signed without the back-and-forth. Automatic reminders follow up for you so deals don\'t stall.' },
-      { label: 'Workflow builder', description: 'Set up automations once and let them run forever. Follow-ups, notifications, task assignments — all happen automatically while you focus on growing your business.' },
-      { label: 'Advanced CRM', description: 'Know exactly where every lead and customer stands. See who\'s ready to buy, who needs a nudge, and how likely each deal is to close — all in one view.' },
-    ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up',
-    recommended: false,
-  },
-  {
-    name: 'Professional',
-    price: 990,
-    usage: '90.0M tokens/mo',
-    description: 'For growing agencies',
-    features: [
-      { label: 'Up to 15 team members', description: 'Room to grow your team without switching plans.' },
-      { label: '10 workspaces', description: 'Run multiple brands, locations, or client accounts from one login — each fully separate with its own team and settings.' },
-      { label: 'Client portal & chat widget', description: 'Give clients their own login to see progress, approve work, and ask questions — so they stop emailing you for updates. Add a chat widget to your site and capture leads automatically.' },
-      { label: 'Portal AI agent', description: 'Your AI agent answers client questions 24/7 inside the portal — so clients feel taken care of even when you\'re not available.' },
-      { label: 'Huddles', description: 'Hop on a quick call with your team without needing extra software. Great for client updates and walkthroughs.' },
-      { label: 'Video kit', description: 'Record professional videos for marketing content, client updates, and walkthroughs — no extra software needed.' },
-      { label: 'Code sandbox', description: 'Ozzi can build custom dashboards, calculators, and interactive tools for your business — no developer needed.' },
-      { label: 'Local rank', description: 'See exactly where you rank on Google Maps for the keywords that bring in local customers — and track whether your SEO efforts are actually moving the needle.' },
-      { label: 'Advanced automation nodes', description: 'Build more sophisticated automations — run multiple workflows in parallel, loop through lists, or pause for human approval before taking action.' },
-    ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=professional',
     recommended: true,
   },
   {
-    name: 'Business',
-    price: 1995,
-    usage: '180.0M tokens/mo',
-    description: 'For established agencies',
+    name: 'Scale',
+    price: 490,
+    usage: '15,000 AI credits/mo',
+    description: 'Messaging and voice ops for scaling teams',
     features: [
-      { label: 'Everything in Professional', description: 'Includes every feature from the Professional plan.' },
-      { label: 'Up to 50 team members', description: 'Scale your operation without needing a new platform. Everyone on your team in one place.' },
-      { label: 'Unlimited workspaces', description: 'No limits on how many brands, locations, or clients you manage. Scale as big as your business grows.' },
-      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality without listening to every call.' },
-      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach — at a scale one person could never match.' },
-      { label: 'High-volume operations', description: 'Built for businesses running large campaigns or managing lots of contacts. Higher limits so you\'re never throttled at the worst time.' },
-      { label: 'Dedicated success manager', description: 'A real person on our team who knows your business, helps you get set up, and meets with you regularly to make sure you\'re getting results.' },
-      { label: 'SLA & phone support', description: 'Call us directly. Guaranteed response times so you\'re never left waiting when something urgent comes up.' },
+      { label: 'Everything in Pro', description: 'Includes every feature from the Pro plan — workflows, video, integrations, and more.' },
+      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
+      { label: '5 workspaces', description: 'Run multiple locations or projects from one login — each fully separate with its own team and settings.' },
+      { label: '15,000 AI credits', description: 'High-capacity AI for teams running campaigns, workflows, and automations at scale every day.' },
+      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
+      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality.' },
+      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach at scale.' },
     ],
     cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=business',
+    href: 'https://app.ozzios.com/sign-up?plan=starter',
     recommended: false,
   },
 ];
@@ -127,12 +108,12 @@ export function PricingSection() {
             Simple, transparent pricing
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
-            Stop overpaying for agencies. Get enterprise-level marketing automation at a fraction of the cost.
+            Stop overpaying for outsourced services. Get enterprise-level automation at a fraction of the cost.
           </p>
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}

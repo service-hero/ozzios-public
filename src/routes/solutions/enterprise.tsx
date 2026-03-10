@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/solutions/enterprise')({
   head: () => createPageHead({
     title: 'Enterprise',
-    description: 'Enterprise-grade AI employee platform. Custom agents, SSO, dedicated support, and unlimited workflows.',
+    description: 'Enterprise-grade AI platform for multi-location service companies. Custom agents, SSO, dedicated support, and unlimited workflows.',
     path: '/solutions/enterprise',
   }),
   component: EnterprisePage,

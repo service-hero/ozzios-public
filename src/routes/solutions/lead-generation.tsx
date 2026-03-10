@@ -6,7 +6,7 @@ import { createPageHead } from '@/lib/seo'
 export const Route = createFileRoute('/solutions/lead-generation')({
   head: () => createPageHead({
     title: 'Lead Generation',
-    description: 'AI-powered lead generation that works 24/7. Capture, qualify, and nurture leads across every channel.',
+    description: 'AI-powered lead generation for home service companies. Capture homeowner leads, qualify with AI scoring, and nurture with automated follow-ups 24/7.',
     path: '/solutions/lead-generation',
   }),
   component: LeadGenerationPage,

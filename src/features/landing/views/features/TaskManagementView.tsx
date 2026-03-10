@@ -44,7 +44,7 @@ const painPoints = [
     icon: AlertTriangle,
     title: 'Tasks fall through the cracks',
     description:
-      'Spreadsheets, sticky notes, and scattered tools mean deadlines get missed and clients notice. You need a single source of truth.',
+      'Spreadsheets, sticky notes, and scattered tools mean deadlines get missed and customers notice. You need a single source of truth.',
   },
   {
     icon: Clock,
@@ -62,7 +62,7 @@ const painPoints = [
     icon: Repeat,
     title: 'Repetitive work stays manual',
     description:
-      'Client onboarding, campaign launches, monthly reports -- the same task lists get recreated from scratch every time.',
+      'Customer onboarding, seasonal maintenance reminders, monthly reports -- the same task lists get recreated from scratch every time.',
   },
 ];
 
@@ -89,7 +89,7 @@ const capabilities = [
     icon: Repeat,
     title: 'Recurring Tasks',
     description:
-      'Set tasks to repeat daily, weekly, or monthly. Client reporting, status calls, content calendars -- create once, run forever.',
+      'Set tasks to repeat daily, weekly, or monthly. Customer follow-ups, equipment inspections, service reminders -- create once, run forever.',
   },
   {
     icon: Bot,
@@ -101,7 +101,7 @@ const capabilities = [
     icon: Tag,
     title: 'Templates & Tags',
     description:
-      'Save reusable task templates for campaigns, onboarding, and reporting. Tag and filter to find anything in seconds.',
+      'Save reusable task templates for new jobs, onboarding, and inspections. Tag and filter to find anything in seconds.',
   },
 ];
 
@@ -190,10 +190,10 @@ function PainPointsSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">The Problem</span>
           <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Your task management is costing you clients
+            Your task management is costing you customers
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies lose an average of 12% of revenue to missed deliverables and poor
+            Service businesses lose an average of 12% of revenue to missed appointments and poor
             coordination. Here is why.
           </p>
         </motion.div>
@@ -296,7 +296,7 @@ function CapabilitiesSection() {
             Everything your team needs to ship on time
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Built for agencies that juggle dozens of clients and hundreds of deliverables.
+            Built for service companies that juggle dozens of customers and hundreds of jobs.
           </p>
         </motion.div>
 

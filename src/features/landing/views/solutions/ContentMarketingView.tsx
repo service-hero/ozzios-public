@@ -51,25 +51,25 @@ const painPoints = [
     icon: Clock,
     title: 'Content takes forever to produce',
     description:
-      'A single blog post takes 4-6 hours. A full content calendar takes weeks of planning. By the time you publish, the topic is old news and your competitors already own the SERP.',
+      'A single blog post about your services takes 4-6 hours. A full content calendar takes weeks of planning. By the time you publish, your competitors already own the local search results.',
   },
   {
     icon: Users,
-    title: 'Writers are expensive and inconsistent',
+    title: 'Writers do not understand your trade',
     description:
-      'Freelancers miss deadlines. In-house writers cost $60K+/year. And neither can cover every topic your clients need. Quality swings wildly from piece to piece.',
+      'Freelancers miss deadlines and do not know HVAC from plumbing. In-house writers cost $60K+/year. And neither can cover every service you offer. Quality swings wildly from piece to piece.',
   },
   {
     icon: TrendingDown,
     title: 'Content gets published and forgotten',
     description:
-      'You spend hours creating a piece, hit publish, share it once on social, and move on. No optimization, no repurposing, no distribution strategy. Most content dies the day it goes live.',
+      'You spend hours creating a before/after project showcase, hit publish, share it once on social, and move on. No optimization, no repurposing, no distribution strategy. Most content dies the day it goes live.',
   },
   {
     icon: Layers,
     title: 'No system connects creation to results',
     description:
-      'Your content calendar lives in one tool, SEO data in another, social scheduling in a third. Nobody knows which content drives leads, and proving ROI to clients is a guessing game.',
+      'Your content calendar lives in one tool, local SEO data in another, social scheduling in a third. Nobody knows which content drives leads, and proving ROI is a guessing game.',
   },
 ];
 
@@ -86,24 +86,24 @@ const pipelineStages: PipelineStage[] = [
   {
     step: '01',
     title: 'Research',
-    description: 'AI analyzes competitor content, keyword gaps, trending topics, and audience intent to build a data-driven content strategy. No more guessing what to write about.',
-    features: ['Keyword gap analysis', 'Competitor content audit', 'Topic clustering', 'Audience intent mapping'],
+    description: 'AI analyzes competitor content, local keyword gaps, trending home improvement topics, and homeowner intent to build a data-driven content strategy. No more guessing what to write about.',
+    features: ['Local keyword gap analysis', 'Competitor content audit', 'Seasonal topic planning', 'Homeowner intent mapping'],
     color: 'text-signature',
     bgColor: 'bg-signature/10',
   },
   {
     step: '02',
     title: 'Create',
-    description: 'AI drafts blog posts, social content, email copy, and landing pages in your brand voice. Human-quality writing produced in minutes, not days.',
-    features: ['Blog post generation', 'Social media copy', 'Email campaign content', 'Landing page copy'],
+    description: 'AI drafts blog posts about your services, before/after project showcases, seasonal maintenance tips, and landing pages in your brand voice. Professional content produced in minutes, not days.',
+    features: ['Service area blog posts', 'Before/after showcases', 'Seasonal tip guides', 'Service landing pages'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
   {
     step: '03',
     title: 'Optimize',
-    description: 'Every piece is automatically optimized for search engines, readability, and conversion. Meta tags, internal links, and structured data -- all handled.',
-    features: ['On-page SEO optimization', 'Readability scoring', 'Internal link suggestions', 'Schema markup generation'],
+    description: 'Every piece is automatically optimized for local search engines, readability, and conversion. Meta tags, internal links, and structured data -- all handled.',
+    features: ['Local SEO optimization', 'Readability scoring', 'Internal link suggestions', 'Schema markup generation'],
     color: 'text-mint',
     bgColor: 'bg-mint/10',
   },
@@ -118,8 +118,8 @@ const pipelineStages: PipelineStage[] = [
   {
     step: '05',
     title: 'Measure',
-    description: 'Track every piece from publish to conversion. See which content drives traffic, generates leads, and contributes to revenue -- then feed those insights back into research.',
-    features: ['Content performance tracking', 'Lead attribution', 'SEO rank monitoring', 'ROI reporting'],
+    description: 'Track every piece from publish to conversion. See which content drives traffic, generates leads, and books jobs -- then feed those insights back into research.',
+    features: ['Content performance tracking', 'Lead attribution', 'Local rank monitoring', 'ROI reporting'],
     color: 'text-electric',
     bgColor: 'bg-electric/10',
   },
@@ -129,13 +129,13 @@ const featureHighlights = [
   {
     icon: Brain,
     title: 'AI Content Writer',
-    description: 'Generates blog posts, social content, and marketing copy in your brand voice. Trained on your style, audience, and industry.',
+    description: 'Generates blog posts, project showcases, and service pages in your brand voice. Trained on your trade, service area, and customer base.',
     link: '/features/ai-agents',
   },
   {
     icon: Search,
-    title: 'SEO Engine',
-    description: 'Keyword research, on-page optimization, rank tracking, and technical audits. Every piece of content is built to rank.',
+    title: 'Local SEO Engine',
+    description: 'Local keyword research, on-page optimization, rank tracking, and technical audits. Every piece of content is built to rank in your service area.',
     link: '/features/seo',
   },
   {
@@ -147,7 +147,7 @@ const featureHighlights = [
   {
     icon: Mail,
     title: 'Email Campaigns',
-    description: 'Turn content into email sequences. AI writes subject lines, personalizes copy, and optimizes send times for maximum engagement.',
+    description: 'Turn content into seasonal email campaigns. AI writes subject lines, personalizes copy, and optimizes send times for maximum engagement.',
     link: '/features/campaigns',
   },
   {
@@ -159,7 +159,7 @@ const featureHighlights = [
   {
     icon: BarChart3,
     title: 'Performance Analytics',
-    description: 'See exactly which content drives traffic, leads, and revenue. Attribution modeling shows the full journey from first read to closed deal.',
+    description: 'See exactly which content drives traffic, leads, and booked jobs. Attribution modeling shows the full journey from first read to signed estimate.',
     link: '/features/analytics',
   },
 ];
@@ -167,8 +167,8 @@ const featureHighlights = [
 const results = [
   { value: '10x', label: 'Content output', description: 'Produce 10x more content with the same team size using AI-assisted creation' },
   { value: '60%', label: 'Faster production', description: 'Cut content creation time from hours to minutes with AI drafting and optimization' },
-  { value: '3x', label: 'Organic traffic', description: 'SEO-optimized content that ranks higher and drives more qualified organic traffic' },
-  { value: '45%', label: 'Better engagement', description: 'Data-driven content strategy means every piece resonates with your audience' },
+  { value: '3x', label: 'Organic traffic', description: 'Locally-optimized content that ranks higher and drives more qualified leads in your service area' },
+  { value: '45%', label: 'Better engagement', description: 'Data-driven content strategy means every piece resonates with homeowners in your area' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -244,7 +244,7 @@ function ProblemSection() {
             Content is a treadmill
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Every agency knows content is king. But producing enough quality content consistently is a battle most lose.
+            Every service company knows content is king. But producing enough quality content consistently is a battle most lose.
           </p>
         </motion.div>
 
@@ -463,7 +463,7 @@ function ResultsSection() {
             More content, better results
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Agencies using OzziOS for content marketing produce more, rank higher, and prove ROI to clients.
+            Service companies using OzziOS for content marketing produce more, rank higher locally, and book more jobs.
           </p>
         </motion.div>
 
@@ -511,9 +511,9 @@ function CTASection() {
           className="text-center"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
-            Stop hiring writers.
+            Stop struggling for content.
             <br />
-            <span className="text-signature">Start scaling content.</span>
+            <span className="text-signature">Start scaling it.</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             Launch your AI content engine in minutes. Research, create, optimize, and distribute -- all on autopilot.
