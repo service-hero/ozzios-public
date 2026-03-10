@@ -91,7 +91,7 @@ const navItems: NavItem[] = [
           items: [
             { label: 'Solo Operators', description: 'Scale without hiring', href: '/solutions/solo-operators' },
             { label: 'Teams', description: 'Collaborate with AI', href: '/solutions/teams' },
-            { label: 'Enterprise', description: 'Unlimited sub-accounts', href: '/solutions/enterprise' },
+            { label: 'Multi-Location', description: 'Manage multiple locations', href: '/solutions/enterprise' },
           ],
         },
         {

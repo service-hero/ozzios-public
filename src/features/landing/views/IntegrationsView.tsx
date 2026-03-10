@@ -81,7 +81,7 @@ const categories: IntegrationCategory[] = [
     title: 'CRM & Field Service',
     integrations: [
       { id: 'housecall-pro', name: 'HouseCall Pro', description: 'Field service management', icon: '/images/housecall-pro-logo.webp', status: 'available' },
-      { id: 'servicetitan', name: 'ServiceTitan', description: 'Enterprise field service management', icon: '/images/servicetitan-logo.webp', status: 'coming-soon' },
+      { id: 'servicetitan', name: 'ServiceTitan', description: 'Field service management platform', icon: '/images/servicetitan-logo.webp', status: 'coming-soon' },
       { id: 'gohighlevel', name: 'GoHighLevel', description: 'All-in-one CRM & marketing automation', icon: '/images/gohighlevel-logo.png', status: 'available' },
     ],
   },

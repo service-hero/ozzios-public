@@ -863,7 +863,7 @@ function CodingPreview() {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="text-sm font-semibold text-foreground">Report Builder</div>
+          <div className="text-sm font-semibold text-foreground">App Builder</div>
           <span className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
             Live

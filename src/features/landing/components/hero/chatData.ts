@@ -35,10 +35,10 @@ export const getAgentMp4 = (agentName: string): string => {
 
 export const sidebarChannels = [
   { name: 'general', starred: true, hasMessages: false },
-  { name: 'marketing-strategy', starred: true, hasMessages: true },
-  { name: 'seo-campaigns', starred: false, hasMessages: true },
+  { name: 'lead-follow-up', starred: true, hasMessages: true },
+  { name: 'reviews-seo', starred: false, hasMessages: true },
   { name: 'reports', starred: true, hasMessages: true },
-  { name: 'content-calendar', starred: false, hasMessages: false },
+  { name: 'scheduling', starred: false, hasMessages: false },
 ];
 
 export const sidebarTeam = [
@@ -49,135 +49,17 @@ export const sidebarTeam = [
   { name: 'Content Writer', isAgent: true, status: 'online', mp4: '/images/avatars/wordpress-ozzi.mp4' },
 ];
 
-// SEO Campaign Messages
-export const seoMessages: ChatMessage[] = [
+// Lead Follow-Up Messages — missed calls, estimate recovery, dead lead reactivation
+export const leadFollowUpMessages: ChatMessage[] = [
   {
     id: 1,
     user: 'Jodi Elmore',
     avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
-    time: '9:15 AM',
-    content: [
-      { type: 'mention', text: '@SEO Specialist' },
-      { type: 'text', text: ' run a full site audit on clientsite.com and identify critical issues' },
-    ],
-  },
-  {
-    id: 2,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:15 AM',
-    content: [
-      { type: 'text', text: 'Running technical SEO audit...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 3,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:16 AM',
-    content: [
-      { type: 'text', text: '✅ Site Audit Complete — clientsite.com (847 pages crawled):' },
-      { type: 'metrics', items: [
-        { label: 'Health Score', value: '64/100', change: '' },
-        { label: 'Critical', value: '12', change: '' },
-        { label: 'Warnings', value: '47', change: '' },
-        { label: 'Indexed', value: '723', change: '' },
-      ]},
-      { type: 'text', text: '🚨 Critical Issues Found:' },
-      { type: 'list', items: ['23 pages with duplicate title tags', '12 broken internal links (404s)', '8 pages missing meta descriptions', '3 redirect chains over 3 hops'] },
-    ],
-    reactions: [{ emoji: '👀', count: 2 }],
-  },
-  {
-    id: 4,
-    user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
-    isAgent: false,
-    time: '9:17 AM',
-    content: [
-      { type: 'text', text: 'Fix the broken links and redirect chains automatically. Also ' },
-      { type: 'mention', text: '@SEO Specialist' },
-      { type: 'text', text: ' generate optimized meta descriptions for those 8 pages' },
-    ],
-  },
-  {
-    id: 5,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:17 AM',
-    content: [
-      { type: 'text', text: 'Connecting to WordPress...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 6,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:18 AM',
-    content: [
-      { type: 'text', text: '✅ Fixes Applied to WordPress:' },
-      { type: 'actions', items: [
-        { icon: '🔗', action: 'Fixed 12 broken links', status: 'success', detail: 'Redirected to valid pages' },
-        { icon: '↪️', action: 'Simplified 3 redirect chains', status: 'success', detail: 'Now direct 301s' },
-        { icon: '📝', action: 'Generated 8 meta descriptions', status: 'success', detail: 'AI-optimized for CTR' },
-      ]},
-      { type: 'code', content: 'Example meta generated:\n"Discover premium marketing solutions that drive 3x ROI. Trusted by 500+ businesses worldwide. Start free today."' },
-    ],
-    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '✅', count: 2 }],
-  },
-  {
-    id: 7,
-    user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
-    isAgent: false,
-    time: '9:19 AM',
-    content: [
-      { type: 'text', text: 'Now do keyword research for "AI marketing tools" and find low competition opportunities' },
-    ],
-  },
-  {
-    id: 8,
-    user: 'SEO Specialist',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '9:19 AM',
-    content: [
-      { type: 'text', text: '✅ Keyword Opportunities Found (low KD, high intent):' },
-      { type: 'keywords', items: [
-        { keyword: 'ai marketing automation for small business', volume: '1.2K', difficulty: '23', intent: 'Commercial' },
-        { keyword: 'best ai tools for digital marketing', volume: '2.4K', difficulty: '31', intent: 'Commercial' },
-        { keyword: 'marketing ai assistant software', volume: '880', difficulty: '18', intent: 'Transactional' },
-        { keyword: 'automated marketing campaign tools', volume: '1.8K', difficulty: '27', intent: 'Commercial' },
-      ]},
-      { type: 'text', text: '💡 Recommendation: Target "marketing ai assistant software" first — lowest difficulty with strong buyer intent.' },
-    ],
-    reactions: [{ emoji: '💎', count: 2 }, { emoji: '🎯', count: 1 }],
-  },
-];
-
-// Marketing Strategy Messages
-export const marketingMessages: ChatMessage[] = [
-  {
-    id: 1,
-    user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
-    isAgent: false,
-    time: '10:42 AM',
+    time: '8:15 AM',
     content: [
       { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' pull our Facebook Ads performance for Q4 campaigns' },
+      { type: 'text', text: ' pull all missed calls and unsold estimates from the last 7 days — I want to see what we\'re leaving on the table' },
     ],
   },
   {
@@ -186,147 +68,221 @@ export const marketingMessages: ChatMessage[] = [
     avatar: null,
     isAgent: true,
     agentColor: 'emerald',
-    time: '10:42 AM',
+    time: '8:15 AM',
     content: [
-      { type: 'text', text: 'Connected to Facebook Ads API. Here\'s your Q4 performance:' },
-      { type: 'metrics', items: [
-        { label: 'Spend', value: '$12.4K', change: '' },
-        { label: 'ROAS', value: '4.2x', change: '+18%' },
-        { label: 'Conversions', value: '847', change: '+32%' },
-        { label: 'CPA', value: '$14.63', change: '-22%' },
-      ]},
-      { type: 'text', text: '⚠️ Ad Set "Retargeting - Cart Abandoners" underperforming (1.8x ROAS)' },
+      { type: 'text', text: 'Pulling data from your CRM and phone system...' },
     ],
-    reactions: [{ emoji: '📊', count: 1 }],
+    typing: true,
   },
   {
     id: 3,
-    user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
-    isAgent: false,
-    time: '10:43 AM',
+    user: 'Data Analyst',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '8:16 AM',
     content: [
-      { type: 'mention', text: '@Graphic Designer' },
-      { type: 'text', text: ' generate 3 new video ads for the retargeting campaign - use testimonial style with motion graphics' },
+      { type: 'text', text: '⚠️ Here\'s what slipped through the cracks this week:' },
+      { type: 'metrics', items: [
+        { label: 'Missed Calls', value: '23', change: '' },
+        { label: 'Unsold Estimates', value: '14', change: '' },
+        { label: 'No-Shows', value: '6', change: '' },
+        { label: 'Est. Lost Revenue', value: '$18.4K', change: '' },
+      ]},
+      { type: 'text', text: '🔥 Top missed opportunities:' },
+      { type: 'list', items: ['$4,200 HVAC install — estimate sent, no follow-up in 5 days', '$2,800 water heater replacement — missed call, never called back', '$1,900 duct cleaning — customer asked for callback, still waiting', '8 missed calls from Google Ads — zero follow-up'] },
     ],
+    reactions: [{ emoji: '😬', count: 2 }],
   },
   {
     id: 4,
-    user: 'Graphic Designer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'violet',
-    time: '10:43 AM',
-    content: [
-      { type: 'text', text: 'Generating video ads with AI...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 5,
-    user: 'Graphic Designer',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'violet',
-    time: '10:44 AM',
-    content: [
-      { type: 'text', text: '✅ Created 3 video variations (1080x1080, 15s each):' },
-      { type: 'videos', items: [
-        { image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-        { image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-        { image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&h=200&fit=crop&auto=format', duration: '0:15' },
-      ]},
-    ],
-    reactions: [{ emoji: '🎬', count: 2 }],
-  },
-  {
-    id: 6,
     user: 'Jodi Elmore',
     avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
     isAgent: false,
-    time: '10:44 AM',
+    time: '8:17 AM',
     content: [
-      { type: 'text', text: 'Perfect! ' },
-      { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' push these to Facebook - replace creatives in the retargeting ad set & update targeting to exclude purchasers from last 30 days' },
-    ],
-  },
-  {
-    id: 7,
-    user: 'Data Analyst',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '10:44 AM',
-    content: [
-      { type: 'text', text: 'Updating Facebook Ads Manager...' },
-    ],
-    typing: true,
-  },
-  {
-    id: 8,
-    user: 'Data Analyst',
-    avatar: null,
-    isAgent: true,
-    agentColor: 'emerald',
-    time: '10:45 AM',
-    content: [
-      { type: 'text', text: '✅ Facebook Ads Updated Live:' },
-      { type: 'actions', items: [
-        { icon: '🎨', action: 'Replaced 3 creatives', status: 'success', detail: 'Ad Set: Retargeting - Cart Abandoners' },
-        { icon: '🎯', action: 'Updated targeting', status: 'success', detail: 'Excluded: Purchasers (30 days)' },
-        { icon: '💰', action: 'Budget unchanged', status: 'info', detail: '$150/day' },
-      ]},
-      { type: 'text', text: '→ Changes are now live in Ads Manager' },
-    ],
-    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '🔥', count: 2 }],
-  },
-  {
-    id: 9,
-    user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
-    isAgent: false,
-    time: '10:45 AM',
-    content: [
-      { type: 'text', text: 'Now ' },
+      { type: 'text', text: 'That\'s brutal. ' },
       { type: 'mention', text: '@Content Writer' },
-      { type: 'text', text: ' update our WordPress landing page headline to match the new campaign messaging. Also ' },
-      { type: 'mention', text: '@Graphic Designer' },
-      { type: 'text', text: ' generate a new hero image' },
+      { type: 'text', text: ' send follow-up texts to every missed call and unsold estimate. Personalize each one based on the service they needed' },
     ],
   },
   {
-    id: 10,
+    id: 5,
     user: 'Content Writer',
     avatar: null,
     isAgent: true,
     agentColor: 'amber',
-    time: '10:46 AM',
+    time: '8:17 AM',
     content: [
-      { type: 'text', text: '✅ WordPress Updated:' },
-      { type: 'code', content: 'Page: /landing-page\n- Headline: "Transform Your Marketing with AI"\n- Subhead: "Join 2,000+ businesses saving 20hrs/week"\n- Status: Published' },
-      { type: 'text', text: '→ Live at yoursite.com/landing-page' },
+      { type: 'text', text: 'Drafting personalized follow-ups...' },
     ],
-    reactions: [{ emoji: '✅', count: 1 }],
+    typing: true,
   },
   {
-    id: 11,
-    user: 'Graphic Designer',
+    id: 6,
+    user: 'Content Writer',
     avatar: null,
     isAgent: true,
-    agentColor: 'violet',
-    time: '10:46 AM',
+    agentColor: 'amber',
+    time: '8:18 AM',
     content: [
-      { type: 'text', text: '✅ Hero image generated & uploaded to WordPress media library. Applied to landing page.' },
-      { type: 'images', items: [
-        { image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format', wide: true },
+      { type: 'text', text: '✅ Follow-ups sent to 37 contacts:' },
+      { type: 'actions', items: [
+        { icon: '📱', action: '23 missed call texts sent', status: 'success', detail: '"Hi [name], sorry we missed you..."' },
+        { icon: '💰', action: '14 estimate follow-ups sent', status: 'success', detail: 'Personalized per service type' },
+        { icon: '📋', action: 'Auto-scheduled callbacks', status: 'success', detail: '6 no-shows rebooked for this week' },
       ]},
+      { type: 'code', content: 'Example text sent:\n"Hi Mike, this is Service Hero. We missed your call about the AC repair yesterday. We have a tech available tomorrow morning — want us to come take a look? Reply YES to confirm."' },
     ],
-    reactions: [{ emoji: '😍', count: 4 }, { emoji: '🎨', count: 2 }],
+    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '💪', count: 2 }],
+  },
+  {
+    id: 7,
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    isAgent: false,
+    time: '8:19 AM',
+    content: [
+      { type: 'text', text: 'Set this up to run automatically every morning at 8am — I never want to miss another lead again' },
+    ],
+  },
+  {
+    id: 8,
+    user: 'Content Writer',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'amber',
+    time: '8:19 AM',
+    content: [
+      { type: 'text', text: '✅ Automated workflow created:' },
+      { type: 'actions', items: [
+        { icon: '⏰', action: 'Daily 8:00 AM trigger set', status: 'success', detail: 'Runs every morning automatically' },
+        { icon: '📱', action: 'Auto-text missed calls', status: 'success', detail: 'Within 5 min of missed call' },
+        { icon: '💰', action: 'Estimate follow-up at 48hrs', status: 'success', detail: 'Then again at 5 days' },
+        { icon: '📊', action: 'Weekly summary to you', status: 'success', detail: 'Every Monday at 7 AM' },
+      ]},
+      { type: 'text', text: '→ You\'ll never manually chase a lead again. I\'ll handle it.' },
+    ],
+    reactions: [{ emoji: '🔥', count: 4 }, { emoji: '🤖', count: 2 }],
   },
 ];
 
-// Reports Channel Messages - AI generates full React report websites
+// Reviews & SEO Messages — Google review responses, GBP optimization, local rankings
+export const reviewsSeoMessages: ChatMessage[] = [
+  {
+    id: 1,
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    isAgent: false,
+    time: '9:30 AM',
+    content: [
+      { type: 'mention', text: '@SEO Specialist' },
+      { type: 'text', text: ' check our Google reviews — any new ones that need responses? Also how are we ranking locally?' },
+    ],
+  },
+  {
+    id: 2,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:30 AM',
+    content: [
+      { type: 'text', text: 'Checking Google Business Profile...' },
+    ],
+    typing: true,
+  },
+  {
+    id: 3,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:31 AM',
+    content: [
+      { type: 'text', text: '📊 Google Business Profile Summary:' },
+      { type: 'metrics', items: [
+        { label: 'Rating', value: '4.7★', change: '+0.1' },
+        { label: 'New Reviews', value: '8', change: 'This week' },
+        { label: 'Unanswered', value: '5', change: '' },
+        { label: 'Map Pack Rank', value: '#2', change: '+1 spot' },
+      ]},
+      { type: 'text', text: '⚠️ 5 reviews need responses (3 are 5-star, 1 is 4-star, 1 is 2-star):' },
+      { type: 'list', items: ['⭐⭐⭐⭐⭐ "Best HVAC service in town. Mike was amazing!" — Sarah T.', '⭐⭐⭐⭐⭐ "Fixed our AC same day. Very professional." — James R.', '⭐⭐⭐⭐⭐ "Fair price, great work on our furnace." — Linda M.', '⭐⭐⭐⭐ "Good service but arrived 30 min late." — Dave K.', '⭐⭐ "Quoted $800 for a simple repair. Too expensive." — Chris P.'] },
+    ],
+    reactions: [{ emoji: '👀', count: 1 }],
+  },
+  {
+    id: 4,
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    isAgent: false,
+    time: '9:32 AM',
+    content: [
+      { type: 'text', text: 'Draft responses for all 5. Be professional on the negative one — acknowledge the concern and offer to make it right' },
+    ],
+  },
+  {
+    id: 5,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:32 AM',
+    content: [
+      { type: 'text', text: 'Writing personalized responses...' },
+    ],
+    typing: true,
+  },
+  {
+    id: 6,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:33 AM',
+    content: [
+      { type: 'text', text: '✅ All 5 review responses drafted and posted:' },
+      { type: 'actions', items: [
+        { icon: '⭐', action: '3 five-star responses posted', status: 'success', detail: 'Thanked by name, mentioned service' },
+        { icon: '👍', action: '1 four-star response posted', status: 'success', detail: 'Apologized for delay, offered priority next time' },
+        { icon: '🤝', action: '1 two-star response posted', status: 'success', detail: 'Offered free re-evaluation' },
+      ]},
+      { type: 'code', content: '2-star response posted:\n"Hi Chris, thank you for your feedback. We understand pricing concerns — our quotes include a 2-year warranty on all parts and labor. We\'d love to offer you a free second look. Please call us at (555) 123-4567 and ask for Jodi. — Service Hero Team"' },
+    ],
+    reactions: [{ emoji: '✅', count: 2 }, { emoji: '👏', count: 3 }],
+  },
+  {
+    id: 7,
+    user: 'Jodi Elmore',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    isAgent: false,
+    time: '9:34 AM',
+    content: [
+      { type: 'text', text: 'Now send review request texts to last week\'s completed jobs — the ones that haven\'t left a review yet' },
+    ],
+  },
+  {
+    id: 8,
+    user: 'SEO Specialist',
+    avatar: null,
+    isAgent: true,
+    agentColor: 'emerald',
+    time: '9:34 AM',
+    content: [
+      { type: 'text', text: '✅ Review requests sent:' },
+      { type: 'actions', items: [
+        { icon: '📱', action: '18 review request texts sent', status: 'success', detail: 'Completed jobs with no review' },
+        { icon: '🔗', action: 'Direct Google review link', status: 'success', detail: 'One-tap to leave review' },
+        { icon: '📊', action: 'Avg response rate: 34%', status: 'info', detail: 'Expect ~6 new reviews' },
+      ]},
+      { type: 'text', text: '→ At this rate, you\'ll hit 200 reviews by end of month. That\'ll push you to #1 in the Map Pack.' },
+    ],
+    reactions: [{ emoji: '🚀', count: 3 }, { emoji: '⭐', count: 2 }],
+  },
+];
+
+// Reports Channel Messages — job performance, revenue tracking, contractor-specific metrics
 export const reportsMessages: ChatMessage[] = [
   {
     id: 1,
@@ -336,7 +292,7 @@ export const reportsMessages: ChatMessage[] = [
     time: '2:30 PM',
     content: [
       { type: 'mention', text: '@Data Analyst' },
-      { type: 'text', text: ' generate a full monthly performance report for the customer - include all channels, ROI breakdown, and recommendations' },
+      { type: 'text', text: ' build me a monthly performance report — I need to see revenue by service type, close rates, and where our leads are coming from' },
     ],
   },
   {
@@ -347,7 +303,7 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:30 PM',
     content: [
-      { type: 'text', text: 'Collecting data from connected platforms...' },
+      { type: 'text', text: 'Pulling data from your CRM, Google Ads, and phone system...' },
     ],
     typing: true,
   },
@@ -359,14 +315,14 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:31 PM',
     content: [
-      { type: 'text', text: '✅ Data collected from 6 sources:' },
+      { type: 'text', text: '✅ Data collected from all sources:' },
       { type: 'actions', items: [
-        { icon: '📊', action: 'Google Analytics', status: 'success', detail: '47K sessions' },
-        { icon: '📈', action: 'Facebook Ads', status: 'success', detail: '$8.2K spend' },
-        { icon: '🔍', action: 'Google Ads', status: 'success', detail: '$4.1K spend' },
-        { icon: '📧', action: 'Mailchimp', status: 'success', detail: '12 campaigns' },
-        { icon: '🛒', action: 'Shopify', status: 'success', detail: '$124K revenue' },
-        { icon: '📱', action: 'Instagram', status: 'success', detail: '89K reach' },
+        { icon: '📊', action: 'CRM & job history', status: 'success', detail: '142 jobs completed' },
+        { icon: '📞', action: 'Call tracking', status: 'success', detail: '287 inbound calls' },
+        { icon: '📈', action: 'Google Ads', status: 'success', detail: '$3.2K spend' },
+        { icon: '🔍', action: 'Google Business Profile', status: 'success', detail: '4,200 profile views' },
+        { icon: '📱', action: 'Facebook Ads', status: 'success', detail: '$1.8K spend' },
+        { icon: '🌐', action: 'Website analytics', status: 'success', detail: '2,100 visitors' },
       ]},
     ],
   },
@@ -378,7 +334,7 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:31 PM',
     content: [
-      { type: 'text', text: 'Generating interactive React report...' },
+      { type: 'text', text: 'Building your interactive dashboard...' },
     ],
     typing: true,
   },
@@ -390,8 +346,8 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:32 PM',
     content: [
-      { type: 'text', text: '🚀 Building report website with React + Tailwind...' },
-      { type: 'code', content: 'Creating components:\n→ ExecutiveSummary.tsx\n→ ChannelBreakdown.tsx\n→ ROIAnalysis.tsx\n→ RecommendationsPanel.tsx\n→ InteractiveCharts.tsx' },
+      { type: 'text', text: '🚀 Building report with React + Tailwind...' },
+      { type: 'code', content: 'Creating components:\n→ RevenueByService.tsx\n→ LeadSourceBreakdown.tsx\n→ CloseRateTracker.tsx\n→ TechPerformance.tsx\n→ AdSpendROI.tsx' },
     ],
   },
   {
@@ -402,7 +358,7 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:33 PM',
     content: [
-      { type: 'text', text: 'Publishing your report...' },
+      { type: 'text', text: 'Building your app...' },
     ],
     typing: true,
   },
@@ -414,15 +370,15 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:34 PM',
     content: [
-      { type: 'text', text: '✅ Monthly Performance Report Generated & Deployed!' },
+      { type: 'text', text: '✅ Monthly Performance Report Ready!' },
       { type: 'metrics', items: [
-        { label: 'Total Revenue', value: '$124,847', change: '+23%' },
-        { label: 'ROAS', value: '4.8x', change: '+31%' },
-        { label: 'New Customers', value: '1,247', change: '+18%' },
-        { label: 'CAC', value: '$9.87', change: '-15%' },
+        { label: 'Revenue', value: '$87,400', change: '+18%' },
+        { label: 'Jobs Completed', value: '142', change: '+12%' },
+        { label: 'Avg Ticket', value: '$615', change: '+8%' },
+        { label: 'Close Rate', value: '64%', change: '+5%' },
       ]},
-      { type: 'preview', url: 'https://report-acme-dec2024.e2b.dev', title: 'Service Hero - December 2024 Report', description: 'Interactive performance dashboard with real-time analytics' },
-      { type: 'text', text: '⏱️ Time saved: ~40 hours of manual report building' },
+      { type: 'preview', url: 'https://report-servicehero-jan2025.e2b.dev', title: 'Service Hero — January 2025 Report', description: 'Revenue by service, lead sources, tech performance & ad ROI' },
+      { type: 'text', text: '💡 Key insight: Google Ads drove 47% of booked jobs at $38/lead. Facebook was $67/lead — consider shifting $500/mo from FB to Google.' },
     ],
     reactions: [{ emoji: '🤯', count: 5 }, { emoji: '🚀', count: 3 }, { emoji: '💰', count: 2 }],
   },
@@ -433,7 +389,7 @@ export const reportsMessages: ChatMessage[] = [
     isAgent: false,
     time: '2:35 PM',
     content: [
-      { type: 'text', text: 'This is incredible! Can you add a competitor comparison section?' },
+      { type: 'text', text: 'Add a section showing revenue by tech — I want to see who\'s selling the most maintenance agreements' },
     ],
   },
   {
@@ -444,13 +400,13 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:35 PM',
     content: [
-      { type: 'text', text: '✅ Added competitor analysis section to the report:' },
+      { type: 'text', text: '✅ Tech performance section added:' },
       { type: 'actions', items: [
-        { icon: '📊', action: 'Competitor benchmarks added', status: 'success', detail: '5 competitors analyzed' },
-        { icon: '📈', action: 'Market share chart', status: 'success', detail: 'Interactive visualization' },
-        { icon: '🎯', action: 'Gap analysis', status: 'success', detail: 'Opportunity highlights' },
+        { icon: '👨‍🔧', action: 'Revenue per technician', status: 'success', detail: 'Mike leads at $24.2K' },
+        { icon: '📋', action: 'Maintenance agreements sold', status: 'success', detail: '28 new this month' },
+        { icon: '📊', action: 'Upsell rate by tech', status: 'success', detail: 'Range: 18% to 42%' },
       ]},
-      { type: 'text', text: '→ Report auto-updated at same URL' },
+      { type: 'text', text: '→ Report updated. Mike sold 12 agreements, Tony sold 9. Consider having Mike train the team on his approach.' },
     ],
     reactions: [{ emoji: '⚡', count: 3 }],
   },
@@ -458,8 +414,8 @@ export const reportsMessages: ChatMessage[] = [
 
 // Channel to messages map
 export const channelMessages: Record<string, ChatMessage[]> = {
-  'marketing-strategy': marketingMessages,
-  'seo-campaigns': seoMessages,
+  'lead-follow-up': leadFollowUpMessages,
+  'reviews-seo': reviewsSeoMessages,
   'reports': reportsMessages,
 };
 

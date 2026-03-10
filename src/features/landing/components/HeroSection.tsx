@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import {
   type ChatMessage,
   channelMessages,
-  marketingMessages,
+  leadFollowUpMessages,
   sidebarChannels,
   sidebarTeam,
   enterpriseLogos,
@@ -49,7 +49,7 @@ export function HeroSection() {
   const { audience, isBusinessOwner } = useAudience();
   const content = audienceContent[audience].hero;
 
-  const [activeChannel, setActiveChannel] = useState('marketing-strategy');
+  const [activeChannel, setActiveChannel] = useState('lead-follow-up');
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [streamingText, setStreamingText] = useState<Record<number, string>>({});
@@ -61,7 +61,7 @@ export function HeroSection() {
   const animationRef = useRef<{ cancelled: boolean }>({ cancelled: false });
   const streamingRefs = useRef<Record<number, { cancelled: boolean }>>({});
 
-  const currentMessages = channelMessages[activeChannel] || marketingMessages;
+  const currentMessages = channelMessages[activeChannel] || leadFollowUpMessages;
 
   // Get channels that have messages for rotation
   const activeChannels = sidebarChannels.filter(c => c.hasMessages).map(c => c.name);
@@ -167,7 +167,7 @@ export function HeroSection() {
     animationRef.current = controller;
 
     const showMessages = async () => {
-      const messages = channelMessages[activeChannel] || marketingMessages;
+      const messages = channelMessages[activeChannel] || leadFollowUpMessages;
 
       for (let i = 0; i < messages.length; i++) {
         if (controller.cancelled) return;
@@ -275,7 +275,7 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted/30 border border-border/50">
               <div className="w-1.5 h-1.5 rounded-full bg-signature animate-pulse" />
               <span className="text-[11px] font-medium text-foreground tracking-widest uppercase">
-                Enterprise-Grade AI Marketing Platform
+                The AI Platform Built for Service Companies
               </span>
             </div>
           </motion.div>
@@ -989,10 +989,10 @@ export function HeroSection() {
                                               {/* Mini Metrics Row */}
                                               <div className="grid grid-cols-4 gap-1.5 mb-3">
                                                 {[
-                                                  { label: 'Revenue', value: '$124K', color: 'text-green-600' },
-                                                  { label: 'ROAS', value: '4.8x', color: 'text-blue-600' },
-                                                  { label: 'Visitors', value: '47K', color: 'text-violet-600' },
-                                                  { label: 'Conv.', value: '3.2%', color: 'text-signature' },
+                                                  { label: 'Revenue', value: '$87.4K', color: 'text-green-600' },
+                                                  { label: 'Jobs', value: '142', color: 'text-blue-600' },
+                                                  { label: 'Avg Ticket', value: '$615', color: 'text-violet-600' },
+                                                  { label: 'Close Rate', value: '64%', color: 'text-signature' },
                                                 ].map((metric) => (
                                                   <div key={metric.label} className="p-1.5 rounded bg-background border border-border">
                                                     <div className="text-[6px] text-muted-foreground uppercase">{metric.label}</div>
@@ -1004,7 +1004,7 @@ export function HeroSection() {
                                               {/* Mini Chart */}
                                               <div className="p-2 rounded bg-background border border-border mb-2">
                                                 <div className="flex items-center justify-between mb-1.5">
-                                                  <span className="text-[7px] text-muted-foreground">Revenue by Channel</span>
+                                                  <span className="text-[7px] text-muted-foreground">Revenue by Service</span>
                                                   <span className="text-[6px] text-muted-foreground">Last 30 days</span>
                                                 </div>
                                                 <div className="flex items-end gap-1 h-8">
@@ -1021,14 +1021,14 @@ export function HeroSection() {
                                               {/* Mini Table */}
                                               <div className="rounded bg-background border border-border overflow-hidden">
                                                 <div className="grid grid-cols-3 gap-2 px-2 py-1 bg-muted/50 border-b border-border">
-                                                  <span className="text-[6px] text-muted-foreground uppercase">Channel</span>
+                                                  <span className="text-[6px] text-muted-foreground uppercase">Service</span>
                                                   <span className="text-[6px] text-muted-foreground uppercase text-right">Revenue</span>
-                                                  <span className="text-[6px] text-muted-foreground uppercase text-right">ROI</span>
+                                                  <span className="text-[6px] text-muted-foreground uppercase text-right">Jobs</span>
                                                 </div>
                                                 {[
-                                                  { channel: 'Facebook Ads', revenue: '$48.2K', roi: '+312%' },
-                                                  { channel: 'Google Ads', revenue: '$31.4K', roi: '+245%' },
-                                                  { channel: 'Email', revenue: '$28.1K', roi: '+890%' },
+                                                  { channel: 'HVAC Install', revenue: '$38.2K', roi: '34' },
+                                                  { channel: 'Repairs', revenue: '$28.4K', roi: '67' },
+                                                  { channel: 'Maintenance', revenue: '$20.8K', roi: '41' },
                                                 ].map((row) => (
                                                   <div key={row.channel} className="grid grid-cols-3 gap-2 px-2 py-1 border-b border-border/50 last:border-0">
                                                     <span className="text-[7px] text-muted-foreground">{row.channel}</span>
@@ -1136,21 +1136,21 @@ export function HeroSection() {
                     <div className="px-3 pt-3 pb-2 border-t border-border bg-background">
                       <div className="flex items-center gap-1.5 mb-2 overflow-x-auto scrollbar-hidden">
                         <span className="text-[10px] text-muted-foreground shrink-0">Try:</span>
-                        {(activeChannel === 'seo-campaigns' ? [
-                          { label: 'Run site audit', icon: '🔍', prompt: '@SEO Specialist run a technical audit on our website' },
-                          { label: 'Find keywords', icon: '🎯', prompt: '@SEO Specialist find low competition keywords for our niche' },
-                          { label: 'Check rankings', icon: '📊', prompt: '@SEO Specialist show me our current keyword rankings' },
-                          { label: 'Fix errors', icon: '🔧', prompt: '@SEO Specialist fix the critical SEO issues you found' },
+                        {(activeChannel === 'reviews-seo' ? [
+                          { label: 'Check new reviews', icon: '⭐', prompt: '@SEO Specialist check our Google reviews and respond' },
+                          { label: 'Send review requests', icon: '📱', prompt: '@SEO Specialist send review requests to last week\'s jobs' },
+                          { label: 'Local rankings', icon: '📊', prompt: '@SEO Specialist how are we ranking in the Map Pack?' },
+                          { label: 'Update GBP posts', icon: '🔍', prompt: '@SEO Specialist create a new Google Business post' },
                         ] : activeChannel === 'reports' ? [
-                          { label: 'Monthly report', icon: '📊', prompt: '@Data Analyst generate a full monthly performance report' },
-                          { label: 'ROI analysis', icon: '💰', prompt: '@Data Analyst create an ROI breakdown report by channel' },
-                          { label: 'Competitor report', icon: '🎯', prompt: '@Data Analyst generate a competitor analysis report' },
-                          { label: 'Customer dashboard', icon: '📈', prompt: '@Data Analyst build an interactive customer performance dashboard' },
+                          { label: 'Monthly report', icon: '📊', prompt: '@Data Analyst build a monthly performance report' },
+                          { label: 'Revenue by service', icon: '💰', prompt: '@Data Analyst break down revenue by service type' },
+                          { label: 'Tech performance', icon: '👨‍🔧', prompt: '@Data Analyst show me revenue per technician' },
+                          { label: 'Ad spend ROI', icon: '📈', prompt: '@Data Analyst compare cost per lead across all ad channels' },
                         ] : [
-                          { label: 'Check ad performance', icon: '📈', prompt: '@Data Analyst pull our Facebook Ads metrics for this week' },
-                          { label: 'Generate video ads', icon: '🎬', prompt: '@Graphic Designer create 3 new video ads for retargeting' },
-                          { label: 'Update WordPress', icon: '🌐', prompt: '@Content Writer update the landing page headline and copy' },
-                          { label: 'Analyze ROI', icon: '💰', prompt: '@Data Analyst show me the ROI breakdown by campaign' },
+                          { label: 'Missed calls today', icon: '📞', prompt: '@Data Analyst show me today\'s missed calls' },
+                          { label: 'Follow up estimates', icon: '💰', prompt: '@Content Writer follow up on unsold estimates' },
+                          { label: 'Reactivate dead leads', icon: '🔄', prompt: '@Content Writer send reactivation texts to old leads' },
+                          { label: 'Book callbacks', icon: '📋', prompt: '@Content Writer schedule callbacks for no-shows' },
                         ]).map((chip) => (
                           <button
                             key={chip.label}

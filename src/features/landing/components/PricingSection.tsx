@@ -33,7 +33,7 @@ const pricingTiers: PricingTier[] = [
       { label: '1,000 AI credits', description: 'Enough AI capacity to get started with automation, content creation, and daily marketing tasks.' },
       { label: 'Workspace, channels & inbox', description: 'Your central hub for team communication, customer messages, and task management — all in one place.' },
       { label: 'Tasks', description: 'Organize your work with task management built right into your workspace.' },
-      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of enterprise CRM tools.' },
+      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of expensive CRM tools.' },
       { label: 'Basic integrations', description: 'Connect the essential tools you use every day to keep your workflow moving.' },
       { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
@@ -55,7 +55,7 @@ const pricingTiers: PricingTier[] = [
       { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
       { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
       { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
-      { label: 'Video kit & report builder', description: 'Record professional videos and let Ozzi build custom dashboards and tools — no developer needed.' },
+      { label: 'Video kit & app builder', description: 'Record professional videos and let Ozzi build custom apps, dashboards, and tools — no developer needed.' },
       { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
     ],
     cta: 'Get started',
@@ -108,7 +108,7 @@ export function PricingSection() {
             Simple, transparent pricing
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
-            Stop overpaying for outsourced services. Get enterprise-level automation at a fraction of the cost.
+            Stop overpaying for outsourced services. Get professional-grade automation at a fraction of the cost.
           </p>
         </motion.div>
 
@@ -211,7 +211,7 @@ export function PricingSection() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            Need a custom plan for your enterprise?{' '}
+            Need a custom plan for your larger team?{' '}
             <a href="mailto:sales@ozzios.com" className="text-signature hover:underline">
               Contact sales
             </a>

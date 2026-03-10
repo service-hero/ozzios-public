@@ -354,7 +354,7 @@ Here's how early adopters are using the integration:
 
 ## Getting Started
 
-The GoHighLevel integration is available now for all OzziOS Pro and Enterprise users.
+The GoHighLevel integration is available now for all OzziOS Pro and Scale users.
 
 To connect your account:
 1. Go to **Settings -> Integrations** in OzziOS
@@ -1283,7 +1283,7 @@ The "human touch" of outsourced marketing was mostly just overhead.
 To be fair, there are scenarios where outsourcing adds value:
 - **True creative work:** Brand identity, video production, design
 - **Crisis management:** Situations requiring human judgment
-- **Enterprise scale:** When you need people in seats for meetings
+- **Larger scale:** When you need people in seats for meetings
 
 But for execution-level marketing work? AI wins every time.
 

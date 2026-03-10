@@ -405,7 +405,7 @@ function SecuritySection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Security & Compliance</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Enterprise-grade from day one
+            Professional-grade from day one
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Public-facing endpoints protected by multiple security layers. GDPR compliant without bolt-on add-ons.

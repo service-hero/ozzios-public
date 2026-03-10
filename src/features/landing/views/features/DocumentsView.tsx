@@ -295,7 +295,7 @@ function CapabilitiesSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Capabilities</span>
           <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Enterprise-grade signing for every deal
+            Professional-grade signing for every deal
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Everything you need to create, send, track, and legally enforce digital documents.

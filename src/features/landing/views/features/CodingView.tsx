@@ -901,7 +901,7 @@ function HeroSection() {
                   <div className="flex-1 flex justify-center">
                     <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-background border border-border">
                       <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                      <span className="text-[11px] text-muted-foreground font-mono">app.ozzios.com/report</span>
+                      <span className="text-[11px] text-muted-foreground font-mono">app.ozzios.com/builder</span>
                     </div>
                   </div>
                   <div className="w-16" />

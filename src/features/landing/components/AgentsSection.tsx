@@ -252,7 +252,7 @@ export function AgentsSection() {
           {[
             { label: 'Deep reasoning', value: 'Thinks through complex problems' },
             { label: 'You\'re in control', value: 'Approve actions before they happen' },
-            { label: 'Enterprise-safe', value: 'Built-in content protection' },
+            { label: 'Brand-safe', value: 'Built-in content protection' },
           ].map((item) => (
             <div
               key={item.label}

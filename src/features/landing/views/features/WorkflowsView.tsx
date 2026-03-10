@@ -397,7 +397,7 @@ function CapabilitiesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="tag-neo text-signature mb-6 inline-block">Enterprise-Grade</span>
+          <span className="tag-neo text-signature mb-6 inline-block">Professional-Grade</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
             Automation that takes itself seriously
           </h2>

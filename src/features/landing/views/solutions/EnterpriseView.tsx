@@ -134,7 +134,7 @@ const securityFeatures = [
   {
     icon: FileCheck,
     title: 'Compliance ready',
-    description: 'GDPR data processing agreements. Right to deletion. Enterprise-grade data protection.',
+    description: 'GDPR data processing agreements. Right to deletion. Professional-grade data protection.',
   },
   {
     icon: Eye,
@@ -188,7 +188,7 @@ function HeroSection() {
                 href="/pricing"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 border-2 border-border text-foreground font-medium text-base rounded-lg hover:border-signature/30 transition-colors duration-200"
               >
-                See enterprise pricing
+                See pricing
               </a>
             </div>
           </motion.div>
@@ -259,9 +259,9 @@ function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="tag-neo text-signature mb-6 inline-block">Enterprise Platform</span>
+          <span className="tag-neo text-signature mb-6 inline-block">Multi-Location Platform</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Built for enterprise-scale operations
+            Built for multi-location scale
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Every feature designed for service companies managing 50+ locations.
@@ -318,7 +318,7 @@ function SecuritySection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Security & Compliance</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Enterprise security, not an afterthought
+            Security built in, not an afterthought
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Your customers trust you with their data. We take that responsibility seriously.
@@ -369,7 +369,7 @@ function StatsSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">By the Numbers</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Enterprise results at a fraction of the cost
+            Big results at a fraction of the cost
           </h2>
         </motion.div>
 
@@ -401,7 +401,7 @@ function StatsSection() {
         >
           <div className="card-neo rounded-xl p-8 md:p-10">
             <h3 className="font-display text-xl text-foreground mb-6 text-center">
-              Enterprise plan includes
+              Multi-location plan includes
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {enterpriseBenefits.map((benefit) => (
@@ -439,7 +439,7 @@ function CTASection() {
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
             See how OzziOS can transform your service company operations. Get a personalized
-            demo from our enterprise team.
+            demo from our team.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -457,7 +457,7 @@ function CTASection() {
             </a>
           </div>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> Enterprise Security</span>
+            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> Professional Security</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>GDPR Compliant</span>
             <span className="hidden sm:inline text-border">|</span>

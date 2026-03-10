@@ -361,7 +361,7 @@ export function BentoSection() {
               </BentoCard>
             </motion.div>
 
-            {/* Card 8: Enterprise Security */}
+            {/* Card 8: Built-in Security */}
             <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <BentoCard className="h-full">
                 <div className="p-7 flex flex-col h-full">
@@ -377,7 +377,7 @@ export function BentoSection() {
                   <div className="mt-auto flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-signature" />
                     <span className="text-sm font-medium text-signature">
-                      Enterprise Security
+                      Built-in Security
                     </span>
                   </div>
                 </div>
