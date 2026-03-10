@@ -32,7 +32,7 @@ const trustBadges: TrustBadge[] = [
   {
     icon: <Shield className="w-6 h-6" />,
     label: 'Data Protection',
-    detail: 'Enterprise-grade security',
+    detail: 'Professional-grade security',
   },
   {
     icon: <Globe className="w-6 h-6" />,
@@ -42,7 +42,7 @@ const trustBadges: TrustBadge[] = [
   {
     icon: <Clock className="w-6 h-6" />,
     label: '99.9% Uptime',
-    detail: 'Enterprise SLA',
+    detail: 'Guaranteed SLA',
   },
   {
     icon: <Lock className="w-6 h-6" />,
@@ -80,7 +80,7 @@ const securitySections: SecuritySection[] = [
     icon: <Server className="w-7 h-7 text-signature" />,
     title: 'Infrastructure',
     description:
-      'Built on enterprise-grade infrastructure with automatic scaling, redundancy, and geographic distribution. Continuous monitoring detects and responds to threats in real time.',
+      'Built on professional-grade infrastructure with automatic scaling, redundancy, and geographic distribution. Continuous monitoring detects and responds to threats in real time.',
     practices: [
       'Convex serverless backend with automatic scaling',
       'Cloudflare edge network for DDoS protection',
@@ -207,7 +207,7 @@ export function SecurityView() {
               <div className="tag-neo rounded-full bg-signature/10 border-signature mb-6">
                 <Shield className="w-4 h-4 text-signature" />
                 <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
-                  Enterprise-Grade Security
+                  Professional-Grade Security
                 </span>
               </div>
               <h1 className="text-display font-display text-foreground mb-6">

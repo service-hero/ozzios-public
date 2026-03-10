@@ -190,7 +190,7 @@ function ToolCheckbox({
 type TabType = 'agency' | 'employees' | 'tools';
 
 const tabs: { id: TabType; label: string; icon: React.ElementType; description: string }[] = [
-  { id: 'agency', label: 'Outsourced Spend', icon: Building2, description: 'See what you\'re really paying for outsourced services' },
+  { id: 'agency', label: 'Marketing Spend', icon: Building2, description: 'See what you\'re really paying your marketing company or freelancers' },
   { id: 'employees', label: 'Employee Costs', icon: Users, description: 'Stop the hiring treadmill' },
   { id: 'tools', label: 'Tool Consolidation', icon: Layers, description: 'Cancel 8+ subscriptions' },
 ];
@@ -228,7 +228,7 @@ export function SavingsCalculatorSection() {
     setActiveTab(isBusinessOwner ? 'agency' : 'employees');
   }, [isBusinessOwner]);
 
-  // Agency tab state
+  // Marketing spend tab state
   const [agencySpend, setAgencySpend] = useState(5000);
 
   // Employee tab state
@@ -240,10 +240,10 @@ export function SavingsCalculatorSection() {
 
   // Calculate savings for each tab
   const calculateAgencySavings = useCallback(() => {
-    const annualAgencyCost = agencySpend * 12;
+    const annualMarketingCost = agencySpend * 12;
     const estimatedOzziOsCost = 299 * 12; // Estimated OzziOS annual cost
-    const savings = annualAgencyCost - estimatedOzziOsCost;
-    const percentage = Math.round((savings / annualAgencyCost) * 100);
+    const savings = annualMarketingCost - estimatedOzziOsCost;
+    const percentage = Math.round((savings / annualMarketingCost) * 100);
     return { annual: savings, percentage, monthly: agencySpend - 299 };
   }, [agencySpend]);
 
@@ -313,7 +313,7 @@ export function SavingsCalculatorSection() {
               See what you'll save.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              Calculate your potential savings across outsourcing, employees, and tools.
+              Calculate your potential savings across marketing services, employees, and tools.
             </p>
           </motion.div>
 
@@ -370,7 +370,7 @@ export function SavingsCalculatorSection() {
                           <div>
                             <label className="flex items-center justify-between mb-4">
                               <span className="text-[14px] font-medium text-foreground">
-                                Monthly outsourced spend
+                                Monthly marketing spend
                               </span>
                               <span className="text-[18px] font-semibold text-signature tabular-nums">
                                 ${agencySpend.toLocaleString()}
@@ -387,13 +387,13 @@ export function SavingsCalculatorSection() {
                           </div>
 
                           <div className="p-4 rounded-xl bg-muted/50 border border-border">
-                            <p className="text-[12px] text-muted-foreground mb-3">What you're paying for:</p>
+                            <p className="text-[12px] text-muted-foreground mb-3">What you're paying your marketing company for:</p>
                             <div className="space-y-2">
                               {[
-                                'Monthly reports you don\'t understand',
-                                'Junior employees doing the actual work',
-                                'Zero visibility into hours spent',
-                                '"Strategy" meetings that go nowhere',
+                                'Cookie-cutter campaigns that don\'t fit your market',
+                                'Freelancers who don\'t understand your trade',
+                                'Zero visibility into what\'s actually getting done',
+                                'Generic "strategy" calls that waste your time',
                               ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-2">
                                   <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 shrink-0" />
@@ -543,7 +543,7 @@ export function SavingsCalculatorSection() {
                                 className="space-y-4"
                               >
                                 <div className="flex items-center justify-between py-3 border-t border-border">
-                                  <span className="text-[14px] text-muted-foreground">Current annual spend</span>
+                                  <span className="text-[14px] text-muted-foreground">Current annual marketing cost</span>
                                   <span className="text-[14px] font-medium text-foreground">
                                     ${(agencySpend * 12).toLocaleString()}
                                   </span>

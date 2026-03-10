@@ -402,7 +402,7 @@ export const reportsMessages: ChatMessage[] = [
     agentColor: 'emerald',
     time: '2:33 PM',
     content: [
-      { type: 'text', text: 'Deploying to E2B sandbox...' },
+      { type: 'text', text: 'Publishing your report...' },
     ],
     typing: true,
   },
@@ -464,12 +464,10 @@ export const channelMessages: Record<string, ChatMessage[]> = {
 };
 
 export const enterpriseLogos = [
-  { name: 'Deloitte', width: 'w-24' },
-  { name: 'McKinsey', width: 'w-20' },
-  { name: 'Accenture', width: 'w-24' },
-  { name: 'BCG', width: 'w-16' },
-  { name: 'Bain', width: 'w-16' },
-  { name: 'PwC', width: 'w-14' },
-  { name: 'EY', width: 'w-12' },
-  { name: 'KPMG', width: 'w-16' },
+  { name: 'ServiceTitan', width: 'w-24' },
+  { name: 'Housecall Pro', width: 'w-24' },
+  { name: 'Jobber', width: 'w-20' },
+  { name: 'FieldEdge', width: 'w-20' },
+  { name: 'ServiceFusion', width: 'w-24' },
+  { name: 'Workiz', width: 'w-16' },
 ];

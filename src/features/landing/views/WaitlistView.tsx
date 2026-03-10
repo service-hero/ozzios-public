@@ -479,7 +479,7 @@ export function WaitlistView() {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Beyond scheduling, we built an enterprise-grade workflow engine into OzziOs. Not because automation is trendy, but because the combination of AI employees + automation creates something genuinely new.
+              Beyond scheduling, we built a professional-grade workflow engine into OzziOs. Not because automation is trendy, but because the combination of AI employees + automation creates something genuinely new.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-4">

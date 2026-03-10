@@ -34,7 +34,7 @@ const pricingTiers: PricingTier[] = [
       { label: '1,000 AI credits', description: 'Enough AI capacity to get started with automation, content creation, and daily marketing tasks.' },
       { label: 'Workspace, channels & inbox', description: 'Your central hub for team communication, customer messages, and task management — all in one place.' },
       { label: 'Tasks', description: 'Organize your work with task management built right into your workspace.' },
-      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of enterprise CRM tools.' },
+      { label: 'Basic CRM', description: 'Track your contacts and deals without the complexity of expensive CRM tools.' },
       { label: 'Basic integrations', description: 'Connect the essential tools you use every day to keep your workflow moving.' },
       { label: 'Email support', description: 'Our team is here when you need help. Reach out anytime and get a real response within one business day.' },
     ],
@@ -56,7 +56,7 @@ const pricingTiers: PricingTier[] = [
       { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
       { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
       { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
-      { label: 'Video kit & coding sandbox', description: 'Record professional videos and let Ozzi build custom dashboards and tools — no developer needed.' },
+      { label: 'Video kit & report builder', description: 'Record professional videos and let Ozzi build custom dashboards and tools — no developer needed.' },
       { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
     ],
     cta: 'Get started',
@@ -115,7 +115,7 @@ const comparisonFeatures = [
       { name: 'Chat widget', basic: false, pro: true, scale: true },
       { name: 'Huddles', basic: false, pro: true, scale: true },
       { name: 'Video kit', basic: false, pro: true, scale: true },
-      { name: 'Coding sandbox', basic: false, pro: true, scale: true },
+      { name: 'Report builder', basic: false, pro: true, scale: true },
       { name: 'Local rank', basic: false, pro: true, scale: true },
       { name: 'Claude Opus', basic: false, pro: true, scale: true },
       { name: 'Advanced automation nodes', basic: false, pro: true, scale: true },
@@ -163,8 +163,8 @@ const pricingFaqs = [
     answer: 'Priority support includes faster response times (under 4 hours), dedicated support channels, and access to our team of marketing automation specialists who can help optimize your workflows and agent configurations.',
   },
   {
-    question: 'Do you offer custom enterprise plans?',
-    answer: 'Yes, for organizations with specific needs, we offer custom enterprise plans with unlimited usage, custom integrations, dedicated infrastructure, and hands-on onboarding. Contact our sales team to discuss your requirements.',
+    question: 'Do you offer custom plans for larger teams?',
+    answer: 'Yes, for businesses with specific needs, we offer custom plans for larger teams with unlimited usage, custom integrations, dedicated infrastructure, and hands-on onboarding. Contact our sales team to discuss your requirements.',
   },
 ];
 
@@ -222,7 +222,7 @@ function HeroSection() {
             <span className="text-gray-400">pricing</span>
           </h1>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Stop overpaying for outsourced services. Get enterprise-level
+            Stop overpaying for outsourced services. Get professional-grade
             automation at a fraction of the cost. No hidden fees, no surprises.
           </p>
         </motion.div>
@@ -310,7 +310,7 @@ function PricingCards() {
                 </div>
               </div>
 
-              {/* Token badge */}
+              {/* Credit badge */}
               <div className="mb-6">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">
                   {tier.usage}
@@ -362,7 +362,7 @@ function PricingCards() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-gray-400">
-            Need a custom plan for your enterprise?{' '}
+            Need a custom plan for your team?{' '}
             <a
               href="mailto:sales@ozzios.com"
               className="text-signature hover:underline"

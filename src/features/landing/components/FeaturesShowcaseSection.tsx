@@ -155,7 +155,7 @@ const features: Feature[] = [
   {
     id: 'ai-agents',
     name: 'AI Agents',
-    description: '30+ specialized agents that learn your business and work 24/7.',
+    description: '30+ AI team members that learn your business and work around the clock.',
     icon: Bot,
     href: '/features/ai-agents',
     category: 'ai',
@@ -263,7 +263,7 @@ export function FeaturesShowcaseSection() {
               <span className="text-muted-foreground/80">One unified system.</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              17 enterprise-grade features that replace your entire marketing stack.
+              17 powerful features that replace your entire marketing stack.
             </p>
           </motion.div>
 
@@ -863,7 +863,7 @@ function CodingPreview() {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="text-sm font-semibold text-foreground">Code Sandbox</div>
+          <div className="text-sm font-semibold text-foreground">Report Builder</div>
           <span className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
             Live

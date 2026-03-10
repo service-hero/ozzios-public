@@ -64,13 +64,13 @@ const painPoints = [
     icon: Globe,
     title: 'Consistency across locations is impossible',
     description:
-      'Different team members, different processes, different quality levels. Your enterprise customers expect uniform excellence. You struggle to deliver it at scale.',
+      'Different team members, different processes, different quality levels. Your customers expect uniform excellence. You struggle to deliver it at scale.',
   },
   {
     icon: Shield,
     title: 'Security and compliance are non-negotiable',
     description:
-      'Your enterprise customers require strict security, GDPR compliance, and data isolation. One breach could end relationships worth millions in annual revenue.',
+      'Your customers require strict security, GDPR compliance, and data isolation. One breach could end relationships worth millions in annual revenue.',
   },
 ];
 
@@ -89,13 +89,13 @@ const features = [
   },
   {
     icon: GitBranch,
-    title: 'Enterprise workflow engine',
+    title: 'Advanced workflow engine',
     description: 'Build standardized processes with approval gates, conditional logic, and cross-channel orchestration. Codify your best practices.',
     link: '/features/workflows',
   },
   {
     icon: Shield,
-    title: 'Enterprise-grade security',
+    title: 'Professional-grade security',
     description: 'GDPR-compliant, AES-256 encryption, RBAC, audit logging, and workspace-scoped data isolation.',
     link: '/security',
   },
@@ -114,10 +114,10 @@ const features = [
 ];
 
 const stats = [
-  { value: '100+', label: 'Locations managed', detail: 'Per enterprise account on average' },
+  { value: '100+', label: 'Locations managed', detail: 'Per multi-location account on average' },
   { value: '70%', label: 'Cost reduction', detail: 'vs. equivalent human headcount' },
-  { value: '99.9%', label: 'Uptime SLA', detail: 'Enterprise-grade reliability' },
-  { value: '0', label: 'Data breaches', detail: 'Enterprise-grade security infrastructure' },
+  { value: '99.9%', label: 'Uptime SLA', detail: 'Professional-grade reliability' },
+  { value: '0', label: 'Data breaches', detail: 'Professional-grade security infrastructure' },
 ];
 
 const securityFeatures = [
@@ -165,7 +165,7 @@ function HeroSection() {
           <motion.div variants={itemVariants} className="text-center mb-12">
             <span className="tag-neo rounded-full text-signature bg-signature/10 border-signature mb-6">
               <Building2 className="w-4 h-4" />
-              <span className="text-[11px] font-semibold uppercase tracking-wider ml-1.5">For Enterprise Service Companies</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider ml-1.5">For Multi-Location Service Companies</span>
             </span>
             <h1 className="text-display font-display text-foreground mb-6">
               Scale to 100+ locations{' '}
@@ -173,7 +173,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
               You manage dozens of service areas, each expecting white-glove service. OzziOS
-              gives you the infrastructure to deliver enterprise-grade operations at
+              gives you the infrastructure to deliver professional-grade operations at
               scale -- with AI doing the heavy lifting across every location.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

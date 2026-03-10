@@ -81,7 +81,7 @@ const capabilities = [
     icon: Brain,
     title: 'AI-Generated React Apps',
     description:
-      'Describe what you need and the AI agent writes a complete React application -- charts, tables, layouts, and styling -- in an isolated sandbox.',
+      'Describe what you need and the AI agent writes a complete React application -- charts, tables, layouts, and styling -- in a secure cloud workspace.',
   },
   {
     icon: Link2,
@@ -429,7 +429,7 @@ function AnimatedCodeEditor({
           {phase === 'building' && (
             <span className="flex items-center gap-1.5 text-[9px] text-amber-400">
               <Loader2 className="w-3 h-3 animate-spin" />
-              Building in E2B sandbox...
+              Building in cloud workspace...
             </span>
           )}
           {(phase === 'preview' || phase === 'share') && (
@@ -586,7 +586,7 @@ function LivePreviewPanel({
             </motion.div>
             <div className="text-center">
               <p className="text-[12px] text-foreground font-medium mb-1">Building app...</p>
-              <p className="text-[10px] text-muted-foreground">Compiling React in E2B sandbox</p>
+              <p className="text-[10px] text-muted-foreground">Compiling in secure cloud workspace</p>
             </div>
             {/* Build progress */}
             <div className="w-48">
@@ -867,7 +867,7 @@ function HeroSection() {
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Your AI agents generate interactive React dashboards and reports in isolated
-              sandboxes. Get a shareable URL and send it straight to your customer -- no
+              secure cloud workspaces. Get a shareable URL and send it straight to your customer -- no
               developers, no static PDFs.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -901,7 +901,7 @@ function HeroSection() {
                   <div className="flex-1 flex justify-center">
                     <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-background border border-border">
                       <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                      <span className="text-[11px] text-muted-foreground font-mono">app.ozzios.com/sandbox</span>
+                      <span className="text-[11px] text-muted-foreground font-mono">app.ozzios.com/report</span>
                     </div>
                   </div>
                   <div className="w-16" />
@@ -1080,7 +1080,7 @@ function SolutionSection() {
       step: '02',
       title: 'Live preview in browser',
       description:
-        'The app runs instantly in an isolated E2B sandbox. See exactly what your customer will see -- interactive charts, responsive layout, live data -- before sharing.',
+        'The app runs instantly in a secure cloud workspace. See exactly what your customer will see -- interactive charts, responsive layout, live data -- before sharing.',
     },
     {
       step: '03',

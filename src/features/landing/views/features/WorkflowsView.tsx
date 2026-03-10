@@ -117,7 +117,7 @@ const capabilities = [
     title: 'Visual builder',
     benefit: 'Build without code',
     description:
-      'Drag-and-drop workflow editor built on React Flow. Connect nodes, set conditions, and deploy in minutes. See your automation logic as a clear, visual DAG.',
+      'Drag-and-drop workflow editor built on React Flow. Connect nodes, set conditions, and deploy in minutes. See your entire automation as a clear, visual diagram.',
   },
   {
     icon: Timer,
@@ -402,8 +402,8 @@ function CapabilitiesSection() {
             Automation that takes itself seriously
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Built on durable execution, not fragile webhooks. These workflows survive server
-            restarts, retry on failure, and never lose state.
+            Reliable automation that never drops the ball. Your workflows keep running through
+            outages, retry automatically when something fails, and never lose track of where they left off.
           </p>
         </motion.div>
 

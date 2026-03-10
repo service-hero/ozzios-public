@@ -59,7 +59,7 @@ const agents = [
   { name: 'Ad Manager', role: 'Paid Media', description: 'Google Ads, Meta Ads, budget optimization, ROAS.' },
   { name: 'CRM Manager', role: 'CRM', description: 'Lead scoring, pipeline management, contact enrichment.' },
   { name: 'Reputation Manager', role: 'Reviews', description: 'Review monitoring, response drafting, sentiment analysis.' },
-  { name: 'Web Developer', role: 'Development', description: 'Landing pages, forms, embeds. Code in a sandbox.' },
+  { name: 'Web Developer', role: 'Development', description: 'Landing pages, forms, embeds. Code in a secure environment.' },
   { name: 'Video Producer', role: 'Video', description: 'Scripting, editing, rendering. AI-powered video creation.' },
   { name: 'Voice Agent', role: 'Voice', description: 'Inbound/outbound calls, appointment setting, lead qualification.' },
   { name: 'Research Analyst', role: 'Research', description: 'Market research, competitive analysis, trend reports.' },
@@ -69,17 +69,17 @@ const agents = [
 const capabilities = [
   {
     icon: Brain,
-    title: '7-layer memory system',
+    title: 'Complete business memory',
     benefit: 'Never lose customer knowledge again',
     description:
-      'Every conversation, every preference, every piece of context is stored across 7 memory layers. Your AI team remembers everything, forever.',
+      'Every conversation, every preference, every piece of context is remembered. Your AI team knows your customers, your services, and your history -- forever.',
   },
   {
     icon: Wrench,
-    title: '127+ native tools',
+    title: 'Built-in tools for everything',
     benefit: 'One team, every channel',
     description:
-      'From answering phone calls to managing ad campaigns to scheduling appointments. 127 built-in tools plus 35+ integrations. No switching between platforms.',
+      'Answering calls, managing reviews, scheduling jobs, sending follow-ups, running ads -- all built in. Plus 35+ integrations with the tools you already use. No switching between platforms.',
   },
   {
     icon: GitBranch,
@@ -318,7 +318,7 @@ function CapabilitiesSection() {
             Not just chatbots. Real employees.
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Built with enterprise-grade infrastructure that makes these agents actually useful, not just impressive demos.
+            Built with professional-grade infrastructure that makes these agents actually useful, not just impressive demos.
           </p>
         </motion.div>
 

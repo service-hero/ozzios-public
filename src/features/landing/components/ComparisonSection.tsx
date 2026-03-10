@@ -49,7 +49,7 @@ const comparisonRows = [
     label: 'AI Agents',
     icon: Users,
     openclaw: 'One general-purpose agent you configure yourself with prompts and tools.',
-    ozzios: '30+ specialized agents — SEO, content, social, ads, analytics — working as a team.',
+    ozzios: '30+ AI team members handling your marketing, reviews, follow-ups, scheduling, and more.',
     openclawShort: '1 general agent',
     ozziosShort: '30+ specialist agents',
   },

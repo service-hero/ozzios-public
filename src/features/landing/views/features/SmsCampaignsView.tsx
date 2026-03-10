@@ -324,7 +324,7 @@ function CapabilitiesSection() {
         >
           <span className="tag-neo text-signature mb-6 inline-block">Capabilities</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Enterprise SMS without enterprise complexity
+            Powerful SMS without the complexity
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Every feature designed for service businesses who need to send at scale without losing sleep over compliance.

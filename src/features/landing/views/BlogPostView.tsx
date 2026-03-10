@@ -48,7 +48,7 @@ The rest is overhead: coordination, context switching, missed follow-ups, and me
 
 ## What 22 AI Agents Actually Do (That Your Back Office Does Slowly)
 
-Ozzi isn't a chatbot that writes blog posts. It's a supervisor-agent orchestration system -- meaning there's a central AI brain delegating tasks to specialized agents, each with their own tools, memory, and execution capabilities.
+Ozzi isn't a chatbot that writes blog posts. It's an AI team where a supervisor delegates to specialists -- meaning there's a central AI brain handing out tasks to specialized agents, each with their own tools, memory, and ability to get work done.
 
 Here's what runs every single week, automatically:
 
@@ -108,7 +108,7 @@ The remaining agents handle the work nobody sees but everything depends on:
 
 - **Analytics & Reporting** -- Unified dashboards pulling from every source. No waiting until month-end.
 - **Brand Voice Guardian** -- Ensures every piece of content sounds like *you*, not like ChatGPT wrote it.
-- **Memory & Context Manager** -- The 7-layer memory architecture that means your agents remember your busy season strategy when they're planning the slow months. They remember what worked. What flopped. What you told them to never do again.
+- **Memory & Context Manager** -- The built-in memory system that means your agents remember your busy season strategy when they're planning the slow months. They remember what worked. What flopped. What you told them to never do again.
 - **Quality Assurance** -- Reviews outputs before they reach you. Catches errors, inconsistencies, and off-brand messaging.
 - **Integration Orchestrator** -- Connects to your existing tools: Google Analytics, Search Console, ad platforms, CRM, HouseCall Pro.
 
@@ -232,7 +232,7 @@ I'd rather build the future than pretend it's not coming.
 
 ## Try It Yourself
 
-Ozzi is the AI agent platform that replaces your marketing overhead with 22 specialized agents that work every day, remember everything, and get smarter over time.
+Ozzi is the AI agent platform that replaces your marketing overhead with a full team of AI specialists that work every day, remember everything, and get smarter over time.
 
 No cron jobs. No API debugging. No 20-hour setup.
 

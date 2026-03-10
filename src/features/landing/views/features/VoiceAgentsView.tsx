@@ -250,7 +250,7 @@ function SolutionSection() {
             </div>
             <ul className="mt-8 space-y-3">
               {[
-                'Twilio SIP trunking for enterprise-grade telephony',
+                'Twilio SIP trunking for reliable, professional-grade phone service',
                 'Deepgram streaming STT with sub-second latency',
                 'ElevenLabs natural voice synthesis',
                 'Full CRM integration and tool execution during calls',

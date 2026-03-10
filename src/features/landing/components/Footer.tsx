@@ -90,7 +90,7 @@ export function Footer() {
                 />
               </Link>
               <p className="mt-6 text-[13px] leading-relaxed text-muted-foreground max-w-xs font-light">
-                The enterprise AI marketing platform. Replace your entire stack with specialized agents that work 24/7.
+                The AI platform built for home service companies. Automate your marketing, follow-ups, and operations without hiring more staff.
               </p>
               {/* Social links */}
               <div className="mt-8 flex items-center gap-4">
