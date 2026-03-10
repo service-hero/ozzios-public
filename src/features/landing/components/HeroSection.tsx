@@ -1186,7 +1186,7 @@ export function HeroSection() {
             className="mt-20 w-full"
           >
             <p className="text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.25em] mb-10">
-              Trusted by leading {isBusinessOwner ? 'businesses' : 'companies'} worldwide
+              Integrates with the tools you already use
             </p>
 
             {/* Logo marquee */}
@@ -1202,7 +1202,7 @@ export function HeroSection() {
                   x: {
                     repeat: Infinity,
                     repeatType: 'loop',
-                    duration: 30,
+                    duration: 60,
                     ease: 'linear',
                   },
                 }}
@@ -1211,11 +1211,19 @@ export function HeroSection() {
                 {[...enterpriseLogos, ...enterpriseLogos].map((logo, i) => (
                   <div
                     key={`${logo.name}-${i}`}
-                    className={`${logo.width} shrink-0 flex items-center justify-center`}
+                    className={`${logo.width} shrink-0 flex items-center justify-center h-12`}
                   >
-                    <span className="text-sm font-semibold text-muted-foreground/50 tracking-wide whitespace-nowrap">
-                      {logo.name}
-                    </span>
+                    {logo.logo ? (
+                      <img
+                        src={logo.logo}
+                        alt={logo.name}
+                        className="h-10 w-auto object-contain opacity-50 hover:opacity-80 transition-opacity grayscale"
+                      />
+                    ) : (
+                      <span className="text-sm font-semibold text-muted-foreground/50 tracking-wide whitespace-nowrap">
+                        {logo.name}
+                      </span>
+                    )}
                   </div>
                 ))}
               </motion.div>

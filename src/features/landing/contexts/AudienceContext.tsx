@@ -45,9 +45,9 @@ export function useAudience() {
 export const audienceContent = {
   business: {
     hero: {
-      headline: ['What if you never had to', 'worry about marketing again?'],
-      subheadline: 'Your own AI marketing team. No overhead. No mystery. No middlemen.',
-      subtext: 'Finally see exactly what your marketing team is doing, 24/7.',
+      headline: ['The first AI agent platform', 'built for the trades.'],
+      subheadline: 'Manus-level AI agents that actually know your business. HVAC, plumbing, roofing, electrical--purpose-built, not generic.',
+      subtext: 'The agent revolution is here. OzziOS brings it to home services first.',
       stats: [
         { value: '30+', label: 'AI Agents' },
         { value: '24/7', label: 'Coverage' },
@@ -56,14 +56,14 @@ export const audienceContent = {
       ],
     },
     bento: {
-      sectionLabel: 'Your Marketing Team',
-      headline: ['Stop overpaying for marketing.', 'Keep the results.'],
-      subheadline: 'Stop paying for a black box. Your AI team shows you exactly what they\'re doing.',
+      sectionLabel: 'Your AI Agent Team',
+      headline: ['General-purpose AI fails 75% of the time.', 'Ours is built for your trade.'],
+      subheadline: 'Generic agents don\'t know a service call from a sales call. Ozzi agents are trained on home services from day one.',
       cards: {
         aiWorkforce: {
-          badge: 'Your Team',
-          title: 'A team that works for you',
-          description: 'Not an outsourced team that treats you like a line item. AI employees who actually show you the work.',
+          badge: 'Purpose-Built',
+          title: 'Agents that know your trade',
+          description: 'Not a generic chatbot with a logo slapped on it. AI agents trained on home service workflows, terminology, and customers.',
         },
         tools: {
           title: 'All your tools in one place',
@@ -104,7 +104,7 @@ export const audienceContent = {
         { value: 100, suffix: '%', label: 'Transparency', description: 'See all the work' },
         { value: 0, suffix: '', label: 'Surprises', description: 'No hidden fees' },
       ],
-      socialProof: 'Join 500+ home service companies',
+      socialProof: 'Join 500+ home service companies using AI agents',
     },
     calculator: {
       defaultTab: 'overhead',
@@ -114,14 +114,14 @@ export const audienceContent = {
       ],
     },
     agents: {
-      sectionLabel: 'Your AI Team',
-      headline: ['Meet your new team.', 'They actually show you their work.'],
-      subheadline: 'You see exactly what each team member does--every task, every decision.',
+      sectionLabel: 'Your AI Agent Team',
+      headline: ['The AI agents everyone\'s talking about.', 'Now built for home services.'],
+      subheadline: 'Platforms like Manus proved agents could run entire workflows. Ozzi brings that power to the trades--with agents that know your industry inside and out.',
     },
     memory: {
-      sectionLabel: 'Self-Learning Memory',
-      headline: ['They remember everything.', 'And they never forget.'],
-      subheadline: 'Your AI team builds on every interaction. They learn your brand, remember your preferences, and get smarter over time.',
+      sectionLabel: 'Institutional Memory',
+      headline: ['Generic AI forgets you exist.', 'Ozzi never does.'],
+      subheadline: 'General-purpose agents start from zero every time. Your Ozzi team remembers your brand, your services, your customers--and gets sharper with every interaction.',
       features: [
         {
           title: 'Total Brand Recall',
@@ -153,12 +153,16 @@ export const audienceContent = {
     },
     faq: [
       {
+        question: 'How is this different from Manus or ChatGPT?',
+        answer: 'Manus and ChatGPT are general-purpose--they can do a little of everything but aren\'t built for anything specific. OzziOS is a vertical AI agent platform purpose-built for home services. Our agents understand service calls, seasonal demand, local SEO, and trade-specific marketing out of the box. General AI fails 75% of the time in business. Specialists win.',
+      },
+      {
         question: 'Is this really cheaper than hiring a marketing team?',
-        answer: 'Significantly. Traditional marketing costs $3-15K/month in overhead for work you can\'t always see. With OzziOS, you get a full AI marketing team--SEO, content, social, ads--for a fraction of that. And you see exactly what they do.',
+        answer: 'Significantly. Traditional marketing costs $3-15K/month in overhead for work you can\'t always see. With OzziOS, you get a full AI agent team--SEO, content, social, ads--for a fraction of that. And you see exactly what they do.',
       },
       {
         question: 'Can AI really handle marketing for a home service company?',
-        answer: 'For the repetitive, process-driven work? Yes--and often better. Site audits, content drafts, social scheduling, Google Business Profile management, performance reports. Your AI team handles these 24/7 without the back-and-forth.',
+        answer: 'For the repetitive, process-driven work? Yes--and often better. Site audits, content drafts, social scheduling, Google Business Profile management, performance reports. Your AI agents handle these 24/7 without the back-and-forth.',
       },
       {
         question: 'Will I finally understand what\'s happening with my marketing?',
@@ -166,11 +170,7 @@ export const audienceContent = {
       },
       {
         question: 'What if I need human help?',
-        answer: 'Your AI team handles the heavy lifting, but you\'re always in control. Set up approval workflows for important decisions. Our support team is here when you need guidance.',
-      },
-      {
-        question: 'How do I train the AI on my business?',
-        answer: 'Share examples, provide feedback, and your AI team learns. They maintain persistent memory of your preferences, service details, and business details. The more you work with them, the better they get.',
+        answer: 'Your AI agents handle the heavy lifting, but you\'re always in control. Set up approval workflows for important decisions. Our support team is here when you need guidance.',
       },
       {
         question: 'Can I try it before committing?',
@@ -179,46 +179,46 @@ export const audienceContent = {
     ],
     cta: {
       badge: 'Early Access',
-      headline: ['Stop overpaying for marketing.', 'Meet your AI team.'],
-      subtext: 'Get early access today. No long-term contracts. Start building a marketing team that actually works for you.',
+      headline: ['The trades deserve better than generic AI.', 'Meet your Ozzi team.'],
+      subtext: 'The first AI agent platform built for home services. No long-term contracts. Your agents start working today.',
       primaryButton: 'Get Early Access',
       secondaryButton: 'See how it works',
     },
     howItWorks: {
       sectionLabel: 'How it works',
-      headline: ['The marketing headache', 'ends here.'],
-      subheadline: 'Stop paying for mystery overhead. Stop waiting for callbacks. Start seeing exactly what your marketing team does.',
+      headline: ['From sign-up to running', 'in under 5 minutes.'],
+      subheadline: 'No consultants. No onboarding calls. Tell Ozzi your trade, and your AI agent team gets to work.',
       steps: [
         {
           number: '01',
-          title: 'Get started today',
-          description: 'Set up your AI marketing team in minutes. Email campaigns, social media scheduling, and SEO audits start running from day one.',
-          benefits: ['5-minute setup', 'Email, social & SEO included'],
+          title: 'Tell Ozzi your trade',
+          description: 'HVAC, plumbing, roofing, electrical--Ozzi knows the industry. Your agents configure themselves around your services, service area, and customers.',
+          benefits: ['5-minute setup', 'Trade-specific from day one'],
         },
         {
           number: '02',
-          title: 'Meet your new team',
-          description: '30+ AI agents learn your brand voice and handle content writing, blog posts, presentations, and ad optimization--showing you every step.',
+          title: 'Your agents get to work',
+          description: '30+ AI agents handle SEO, content, social, ads, and Google Business Profile--trained on home service marketing, not generic templates.',
           benefits: ['Blog & SEO', 'Presentations & reports'],
         },
         {
           number: '03',
-          title: 'Marketing runs while you sleep',
-          description: 'Automated workflows trigger email campaigns, SMS follow-ups, and social posts. Voice agents answer calls. Dashboards update in real time.',
+          title: 'Everything runs while you\'re on the job',
+          description: 'Automated workflows trigger email campaigns, SMS follow-ups, and social posts. Voice agents answer calls. You\'re on a roof, not behind a desk.',
           benefits: ['Workflows & voice agents', 'Real-time dashboards'],
         },
         {
           number: '04',
-          title: 'Grow without the overhead',
-          description: 'Manage your pipeline in the built-in CRM, track tasks on kanban boards, and store knowledge in your wiki--all without scaling your monthly costs.',
+          title: 'Scale without hiring',
+          description: 'CRM, task management, knowledge base, call center--all built in. Grow from 1 truck to 10 without adding marketing headcount.',
           benefits: ['CRM & task management', 'Knowledge base included'],
         },
       ],
     },
     testimonials: {
-      sectionLabel: 'Testimonials',
-      headline: ['They automated their marketing.', 'Here\'s why.'],
-      subheadline: 'Real stories from home service business owners who took back control of their marketing.',
+      sectionLabel: 'From the Field',
+      headline: ['Don\'t take our word for it.', 'Ask the contractors.'],
+      subheadline: 'Real home service business owners running AI agents on their marketing. Here\'s what happened.',
       items: [
         {
           name: 'Anthony Cass',

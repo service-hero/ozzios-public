@@ -113,10 +113,10 @@ export function AgentsSection() {
                   </span>
                 </div>
                 <h3 className="text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
-                  Meet Ozzi — the one who runs the team.
+                  Meet Ozzi — your AI operations supervisor.
                 </h3>
                 <p className="text-base text-muted-foreground leading-relaxed mb-8 font-light max-w-lg">
-                  Ozzi is your AI operations supervisor. He coordinates every agent on your team — assigning tasks, reviewing outputs, catching errors, and making sure the work gets done. While your specialists handle execution, Ozzi handles oversight so you never have to.
+                  Think of Ozzi as the foreman for your AI agent team. He coordinates every agent — assigning tasks, reviewing outputs, catching errors, and making sure the work gets done. The same autonomous agent technology powering platforms like Manus, purpose-built for your trade.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
                   {[
@@ -250,9 +250,9 @@ export function AgentsSection() {
           className="mt-16 pt-12 border-t border-border/50 flex flex-wrap items-center justify-center gap-6 lg:gap-12"
         >
           {[
-            { label: 'Deep reasoning', value: 'Thinks through complex problems' },
+            { label: 'Trade-trained', value: 'Agents built for home services' },
             { label: 'You\'re in control', value: 'Approve actions before they happen' },
-            { label: 'Brand-safe', value: 'Built-in content protection' },
+            { label: 'Autonomous', value: 'Manus-level agent intelligence' },
           ].map((item) => (
             <div
               key={item.label}
