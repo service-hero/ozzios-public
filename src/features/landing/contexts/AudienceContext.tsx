@@ -174,7 +174,7 @@ export const audienceContent = {
       },
       {
         question: 'Can I try it before committing?',
-        answer: 'Early access is $490/month -- no annual lock-in, cancel anytime. You get the full platform from day one. If you don\'t see the value, just walk away.',
+        answer: 'Early access is $795/month -- no annual lock-in, cancel anytime. You get the full platform from day one. If you don\'t see the value, just walk away.',
       },
     ],
     cta: {

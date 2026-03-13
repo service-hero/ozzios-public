@@ -43,7 +43,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: 'Pro',
-    price: 197,
+    price: 295,
     usage: '5,000 AI credits/mo',
     description: 'Workflows, video, and premium AI tools',
     features: [
@@ -64,7 +64,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: 'Scale',
-    price: 490,
+    price: 795,
     usage: '15,000 AI credits/mo',
     description: 'Messaging and voice ops for scaling teams',
     features: [
