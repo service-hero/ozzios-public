@@ -25,6 +25,7 @@ import {
   Reply,
   BellRing,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Animation Variants
@@ -693,12 +694,24 @@ export function ClientManagementView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <ProblemSection />
-      <PipelineSection />
-      <AICommsSection />
-      <FeatureHighlightsSection />
-      <ResultsSection />
-      <CTASection />
+      <DeferredSection>
+        <ProblemSection />
+      </DeferredSection>
+      <DeferredSection>
+        <PipelineSection />
+      </DeferredSection>
+      <DeferredSection>
+        <AICommsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeatureHighlightsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <ResultsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

@@ -17,6 +17,7 @@ import {
   Code2,
   LayoutGrid,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -473,11 +474,21 @@ export function EmailBuilderView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <SolutionShowcaseSection />
-      <CapabilitiesSection />
-      <BlockTypesSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <BlockTypesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

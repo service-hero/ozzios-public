@@ -28,6 +28,7 @@ import {
   Loader2,
   Globe,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -1287,11 +1288,21 @@ export function CodingView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainPointsSection />
-      <SolutionSection />
-      <CapabilitiesSection />
-      <TemplatesSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <TemplatesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

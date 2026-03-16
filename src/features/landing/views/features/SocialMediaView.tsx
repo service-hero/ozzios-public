@@ -1,5 +1,6 @@
 'use client';
 
+import { DeferredSection } from '@/components/ui/lazy-section';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
@@ -514,11 +515,21 @@ export function SocialMediaView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <SolutionShowcaseSection />
-      <CapabilitiesSection />
-      <AdPlatformsSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <AdPlatformsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

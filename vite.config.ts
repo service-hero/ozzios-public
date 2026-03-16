@@ -16,6 +16,20 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     react(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-icons': ['lucide-react'],
+          'vendor-radix': ['@radix-ui/react-avatar', '@radix-ui/react-slot'],
+          'vendor-markdown': ['react-markdown', 'remark-gfm'],
+          'vendor-router': ['@tanstack/react-router', '@tanstack/react-start'],
+        },
+      },
+    },
+  },
   server: {
     port: 5174,
     watch: {

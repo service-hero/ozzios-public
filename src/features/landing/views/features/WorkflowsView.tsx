@@ -20,6 +20,7 @@ import {
   Timer,
   MousePointerClick,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Data
@@ -486,11 +487,21 @@ export function WorkflowsView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <NodeTypesSection />
-      <TriggersSection />
-      <CapabilitiesSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <NodeTypesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <TriggersSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

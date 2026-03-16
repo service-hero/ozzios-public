@@ -17,6 +17,7 @@ import {
   BarChart3,
   Wrench,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Data
@@ -460,11 +461,21 @@ export function AIAgentsView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <AgentShowcaseSection />
-      <CapabilitiesSection />
-      <ComparisonSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <AgentShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <ComparisonSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

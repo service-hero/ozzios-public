@@ -26,6 +26,7 @@ import {
   Globe,
   Sparkles,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Data
@@ -622,13 +623,27 @@ export function ChatWidgetView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <CapabilitiesSection />
-      <IdentificationSection />
-      <SecuritySection />
-      <DeploySection />
-      <ComparisonSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <IdentificationSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SecuritySection />
+      </DeferredSection>
+      <DeferredSection>
+        <DeploySection />
+      </DeferredSection>
+      <DeferredSection>
+        <ComparisonSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

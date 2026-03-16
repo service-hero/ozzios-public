@@ -16,6 +16,7 @@ import {
   RefreshCw,
   BarChart3,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -488,11 +489,21 @@ export function FormsView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <SolutionShowcaseSection />
-      <CapabilitiesSection />
-      <EmbedSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <EmbedSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }
