@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Google Keyword Planner icon - inspired by Google Ads colors with search/keyword theme -->
+  
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34A853;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main circle background -->
+  <circle cx="24" cy="24" r="22" fill="url(#grad1)"/>
+  
+  <!-- Search/Magnifying glass icon (representing keyword search) -->
+  <circle cx="19" cy="19" r="8" fill="none" stroke="white" stroke-width="2.5"/>
+  <line x1="25" y1="25" x2="32" y2="32" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Chart bars (representing keyword metrics/data) -->
+  <g opacity="0.9">
+    <rect x="29" y="14" width="3" height="8" fill="white" rx="1"/>
+    <rect x="33" y="10" width="3" height="12" fill="white" rx="1"/>
+    <rect x="37" y="16" width="3" height="6" fill="white" rx="1"/>
+  </g>
+  
+  <!-- Small "K" for Keyword -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">K</text>
+</svg>

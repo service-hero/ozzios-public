@@ -1,5 +1,6 @@
 'use client';
 
+import { DeferredSection } from '@/components/ui/lazy-section';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import {
@@ -1003,12 +1004,24 @@ export function VideoEditorView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainPointsSection />
-      <TrackTypesSection />
-      <CapabilitiesSection />
-      <WorkflowSection />
-      <FeaturesListSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <TrackTypesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <WorkflowSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeaturesListSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

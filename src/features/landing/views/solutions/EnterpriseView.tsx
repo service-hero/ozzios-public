@@ -21,6 +21,7 @@ import {
   Clock,
   Eye,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Animation Variants
@@ -479,11 +480,21 @@ export function EnterpriseView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainSection />
-      <FeaturesSection />
-      <SecuritySection />
-      <StatsSection />
-      <CTASection />
+      <DeferredSection>
+        <PainSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeaturesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SecuritySection />
+      </DeferredSection>
+      <DeferredSection>
+        <StatsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

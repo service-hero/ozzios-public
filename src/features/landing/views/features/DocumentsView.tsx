@@ -20,6 +20,7 @@ import {
   PenTool,
   Eye,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -442,11 +443,21 @@ export function DocumentsView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainPointsSection />
-      <SolutionSection />
-      <CapabilitiesSection />
-      <ComplianceSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <ComplianceSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

@@ -19,6 +19,7 @@ import {
   Gauge,
   Blocks,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Data
@@ -460,11 +461,21 @@ export function DashboardView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <WidgetShowcaseSection />
-      <CapabilitiesSection />
-      <PlatformSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <WidgetShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <PlatformSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

@@ -20,6 +20,7 @@ import {
   Shield,
   Palette,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Animation Variants
@@ -546,11 +547,21 @@ export function ContentMarketingView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <ProblemSection />
-      <PipelineSection />
-      <FeatureHighlightsSection />
-      <ResultsSection />
-      <CTASection />
+      <DeferredSection>
+        <ProblemSection />
+      </DeferredSection>
+      <DeferredSection>
+        <PipelineSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeatureHighlightsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <ResultsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

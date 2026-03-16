@@ -21,6 +21,7 @@ import {
   UserPlus,
   Target,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Animation Variants
@@ -511,11 +512,21 @@ export function TeamsView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainSection />
-      <WorkflowSection />
-      <FeaturesSection />
-      <StatsSection />
-      <CTASection />
+      <DeferredSection>
+        <PainSection />
+      </DeferredSection>
+      <DeferredSection>
+        <WorkflowSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeaturesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <StatsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

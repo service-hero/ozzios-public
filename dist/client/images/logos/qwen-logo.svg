@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Qwen logo">
+  <defs>
+    <linearGradient id="qwenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#qwenGradient)" />
+  <path
+    d="M32 12c-11.046 0-20 8.954-20 20s8.954 20 20 20c3.08 0 6.008-.694 8.626-1.934L49 58l5-3-8.131-8.131A19.913 19.913 0 0 0 52 32c0-11.046-8.954-20-20-20zm0 6c7.732 0 14 6.268 14 14s-6.268 14-14 14-14-6.268-14-14 6.268-14 14-14z"
+    fill="#ffffff"
+  />
+</svg>

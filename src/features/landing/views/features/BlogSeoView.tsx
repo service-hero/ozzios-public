@@ -17,6 +17,7 @@ import {
   Keyboard,
   Eye,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -464,11 +465,21 @@ export function BlogSeoView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <SolutionShowcaseSection />
-      <CapabilitiesSection />
-      <SEOFeaturesSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionShowcaseSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SEOFeaturesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }

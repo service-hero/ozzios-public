@@ -1,5 +1,6 @@
 'use client';
 
+import { DeferredSection } from '@/components/ui/lazy-section';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import {
@@ -1169,11 +1170,21 @@ export function PresentationsView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainPointsSection />
-      <SolutionSection />
-      <CapabilitiesSection />
-      <WorkflowSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <WorkflowSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

@@ -20,6 +20,7 @@ import {
   Layers,
   Sparkles,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -495,11 +496,21 @@ export function KnowledgeBaseView() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <PainPointsSection />
-      <SolutionSection />
-      <CapabilitiesSection />
-      <DifferentiatorSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <SolutionSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <DifferentiatorSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </div>
   );
 }

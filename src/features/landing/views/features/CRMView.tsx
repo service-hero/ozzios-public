@@ -18,6 +18,7 @@ import {
   Phone,
   MessageSquare,
 } from 'lucide-react';
+import { DeferredSection } from '@/components/ui/lazy-section';
 
 // ---------------------------------------------------------------------------
 // Data
@@ -477,11 +478,21 @@ export function CRMView() {
   return (
     <>
       <HeroSection />
-      <PainPointsSection />
-      <LifecycleSection />
-      <CapabilitiesSection />
-      <FeaturesListSection />
-      <CTASection />
+      <DeferredSection>
+        <PainPointsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <LifecycleSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CapabilitiesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeaturesListSection />
+      </DeferredSection>
+      <DeferredSection>
+        <CTASection />
+      </DeferredSection>
     </>
   );
 }
