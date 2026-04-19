@@ -1,16 +1,39 @@
-import { Link } from '@tanstack/react-router';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { Link, useRouterState } from '@tanstack/react-router';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  Menu, X, ChevronDown, ArrowRight,
-  Bot, Workflow, Users, MessageSquare, Mail,
-  BookOpen, FileText, Code,
-  LayoutDashboard, Phone, Smartphone, Palette, PenLine,
-  Share2, CheckSquare, FilePen, Monitor, Brain, ClipboardList,
+  ArrowRight,
+  BookOpen,
+  Bot,
+  Brain,
+  CheckSquare,
+  ChevronDown,
+  ClipboardList,
+  Code,
+  FileText,
+  LayoutDashboard,
+  Mail,
+  Menu,
+  MessageSquare,
   MessageSquareText,
+  Palette,
+  Phone,
+  Share2,
+  Smartphone,
+  Users,
+  Workflow,
+  X,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+type NavLinkItem = {
+  icon?: React.ElementType;
+  label: string;
+  description?: string;
+  href: string;
+  badge?: string;
+};
 
 type NavItem = {
   label: string;
@@ -18,20 +41,12 @@ type NavItem = {
   megaMenu?: {
     sections: {
       title?: string;
-      items: {
-        icon?: React.ElementType;
-        iconSrc?: string;
-        label: string;
-        description?: string;
-        href: string;
-        badge?: string;
-      }[];
+      items: NavLinkItem[];
     }[];
     cta?: {
       title: string;
       description: string;
       href: string;
-      image?: string;
     };
   };
 };
@@ -42,41 +57,38 @@ const navItems: NavItem[] = [
     megaMenu: {
       sections: [
         {
-          title: 'Core Platform',
+          title: 'Core platform',
           items: [
-            { icon: Bot, label: 'AI Agents', description: 'Unlimited AI workforce', href: '/features/ai-agents', badge: 'Core' },
-            { icon: Workflow, label: 'Workflows', description: 'Durable automation engine', href: '/features/workflows' },
-            { icon: Users, label: 'CRM & Contacts', description: 'Scoring, enrichment & segmentation', href: '/features/crm' },
-            { icon: LayoutDashboard, label: 'Dashboard', description: '18 customizable widget types', href: '/features/dashboard' },
+            { icon: Bot, label: 'AI Agents', description: 'Specialized operators that work around the clock', href: '/features/ai-agents', badge: 'Core' },
+            { icon: Workflow, label: 'Workflows', description: 'Triggers, conditions, and durable execution', href: '/features/workflows' },
+            { icon: Users, label: 'CRM & Contacts', description: 'Segmentation, scoring, and activity history', href: '/features/crm' },
+            { icon: LayoutDashboard, label: 'Dashboard', description: 'Configurable reporting surfaces for every team', href: '/features/dashboard' },
           ],
         },
         {
           title: 'Communication',
           items: [
-            { icon: MessageSquare, label: 'Channels', description: 'Public, private, voice & DMs', href: '/features/channels' },
-            { icon: Mail, label: 'Email Campaigns', description: 'Broadcast, schedule & track', href: '/features/email-campaigns' },
-            { icon: Smartphone, label: 'SMS Campaigns', description: 'Rate-limited Twilio messaging', href: '/features/sms-campaigns' },
-            { icon: Phone, label: 'Voice Agents', description: 'AI call center with transcription', href: '/features/voice-agents', badge: 'New' },
-            { icon: MessageSquareText, label: 'Chat Widget', description: 'AI-powered website chat', href: '/features/chat-widget', badge: 'New' },
+            { icon: MessageSquare, label: 'Channels', description: 'Private, public, and cross-team conversations', href: '/features/channels' },
+            { icon: Mail, label: 'Email Campaigns', description: 'Batch sending with control and attribution', href: '/features/email-campaigns' },
+            { icon: Smartphone, label: 'SMS Campaigns', description: 'Rate-aware messaging flows through Twilio', href: '/features/sms-campaigns' },
+            { icon: Phone, label: 'Voice Agents', description: 'AI reception and outbound call orchestration', href: '/features/voice-agents', badge: 'New' },
+            { icon: MessageSquareText, label: 'Chat Widget', description: 'Site chat tied to CRM and knowledge', href: '/features/chat-widget', badge: 'New' },
           ],
         },
         {
-          title: 'Marketing & Content',
+          title: 'Marketing & content',
           items: [
-            { icon: Palette, label: 'Email Builder', description: 'Drag-and-drop with 16 block types', href: '/features/email-builder' },
-            { icon: PenLine, label: 'Blog & SEO', description: 'Editorial suite with WordPress sync', href: '/features/blog-seo' },
-            { icon: Share2, label: 'Social Media', description: 'Schedule across 5 platforms', href: '/features/social-media' },
-            { icon: ClipboardList, label: 'Forms', description: 'Lead capture with conditional logic', href: '/features/forms' },
+            { icon: Palette, label: 'Email Builder', description: 'Drag-and-drop editing with brand-safe blocks', href: '/features/email-builder' },
+            { icon: Share2, label: 'Social Media', description: 'Scheduling, approvals, and multi-channel posting', href: '/features/social-media' },
+            { icon: ClipboardList, label: 'Forms', description: 'Lead capture with native automation triggers', href: '/features/forms' },
           ],
         },
         {
           title: 'Operations',
           items: [
-            { icon: CheckSquare, label: 'Task Management', description: 'Kanban boards with dependencies', href: '/features/tasks' },
-            { icon: FilePen, label: 'Documents & E-Sign', description: 'Templates, signing & audit trails', href: '/features/documents' },
-            { icon: Monitor, label: 'Presentations', description: 'AI slides with PPTX export', href: '/features/presentations' },
-            { icon: Code, label: 'Coding', description: 'AI-generated reports & dashboards', href: '/features/coding' },
-            { icon: Brain, label: 'Knowledge Base', description: 'RAG-powered search & indexing', href: '/features/knowledge-base' },
+            { icon: CheckSquare, label: 'Task Management', description: 'Boards, owners, and execution visibility', href: '/features/tasks' },
+            { icon: Code, label: 'Coding', description: 'Generated reports, apps, and shareable deliverables', href: '/features/coding' },
+            { icon: Brain, label: 'Knowledge Base', description: 'Indexed documents and retrieval-backed answers', href: '/features/knowledge-base' },
           ],
         },
       ],
@@ -89,25 +101,24 @@ const navItems: NavItem[] = [
         {
           title: 'By business size',
           items: [
-            { label: 'Solo Operators', description: 'Scale without hiring', href: '/solutions/solo-operators' },
-            { label: 'Teams', description: 'Collaborate with AI', href: '/solutions/teams' },
-            { label: 'Multi-Location', description: 'Manage multiple locations', href: '/solutions/enterprise' },
+            { label: 'Solo Operators', description: 'Scale output without adding headcount', href: '/solutions/solo-operators' },
+            { label: 'Teams', description: 'Coordinate humans and agents in one system', href: '/solutions/teams' },
+            { label: 'Multi-Location', description: 'Standardize performance across branches', href: '/solutions/enterprise' },
           ],
         },
         {
           title: 'By use case',
           items: [
-            { label: 'Lead Generation', description: 'Automate outreach', href: '/solutions/lead-generation' },
-            { label: 'Content Marketing', description: 'AI-powered creation', href: '/solutions/content-marketing' },
-            { label: 'Customer Management', description: 'Multi-tenant CRM', href: '/solutions/customer-management' },
+            { label: 'Lead Generation', description: 'Acquisition programs that stay measurable', href: '/solutions/lead-generation' },
+            { label: 'Content Marketing', description: 'Planning, production, and publishing in one flow', href: '/solutions/content-marketing' },
+            { label: 'Customer Management', description: 'Lifecycle automation across every touchpoint', href: '/solutions/customer-management' },
           ],
         },
       ],
       cta: {
-        title: 'See how home service companies use OzziOS',
-        description: 'Real examples from businesses scaling with AI agents',
-        href: '#case-studies',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&auto=format',
+        title: 'See how service businesses deploy OzziOS',
+        description: 'Use cases that tie marketing, follow-up, and execution into a single operating layer.',
+        href: '/pricing',
       },
     },
   },
@@ -118,82 +129,61 @@ const navItems: NavItem[] = [
         {
           title: 'Learn',
           items: [
-            { icon: BookOpen, label: 'Documentation', description: 'Guides and tutorials', href: 'https://app.ozzios.com/docs' },
-            { icon: FileText, label: 'Blog', description: 'Updates and insights', href: '/blog' },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            { icon: MessageSquare, label: 'Support', description: 'Get help from our team', href: '/contact' },
-            { iconSrc: '/images/facebook-icon.svg', label: 'Facebook Group', description: 'Join the OzziOS community', href: 'https://www.facebook.com/groups/1796376351052187' },
+            { icon: BookOpen, label: 'Documentation', description: 'Implementation guides and API references', href: 'https://app.ozzios.com/docs' },
+            { icon: FileText, label: 'Changelog', description: 'Recent product releases and updates', href: '/changelog' },
           ],
         },
       ],
-      cta: {
-        title: 'Start building today',
-        description: 'Join the OzziOS community',
-        href: 'https://app.ozzios.com/sign-up',
-        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop&auto=format',
-      },
     },
   },
-  {
-    label: 'Integrations',
-    megaMenu: {
-      sections: [
-        {
-          title: 'Google Workspace',
-          items: [
-            { label: 'Gmail & Calendar', description: 'Two-way email and calendar sync', href: '/integrations#google' },
-            { label: 'Google Ads', description: 'Campaign management and analytics', href: '/integrations#google' },
-            { label: 'Google Business Profile', description: 'Local SEO and listing management', href: '/integrations#google' },
-            { label: 'Search Console', description: 'Organic search data and insights', href: '/integrations#google' },
-          ],
-        },
-        {
-          title: 'Communication',
-          items: [
-            { label: 'Twilio', description: 'SMS, voice calls and WhatsApp', href: '/integrations#communication' },
-            { label: 'Resend', description: 'Transactional email and domains', href: '/integrations#communication' },
-            { label: 'Deepgram', description: 'Real-time speech-to-text', href: '/integrations#communication' },
-            { label: 'ElevenLabs', description: 'AI voice synthesis', href: '/integrations#communication' },
-          ],
-        },
-        {
-          title: 'Advertising & Platforms',
-          items: [
-            { label: 'Meta Ads', description: 'Facebook and Instagram campaigns', href: '/integrations#advertising' },
-            { label: 'Shopify', description: 'E-commerce store integration', href: '/integrations#platforms' },
-            { label: 'WordPress', description: 'CMS publishing and sync', href: '/integrations#platforms' },
-            { label: 'LinkedIn & TikTok', description: 'Social ad management', href: '/integrations#advertising' },
-          ],
-        },
-      ],
-      cta: {
-        title: 'Explore all integrations',
-        description: 'Connect with 30+ platforms and services',
-        href: '/integrations',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop&auto=format',
-      },
-    },
-  },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Pricing', href: '/pricing' },
 ];
 
+function NavDestination({
+  href,
+  className,
+  children,
+  onClick,
+}: {
+  href: string;
+  className: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  if (href.startsWith('/')) {
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+    >
+      {children}
+    </a>
+  );
+}
+
 export function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const activeNavItem = activeMenu ? navItems.find(i => i.label === activeMenu) : null;
-  const isWideMegaMenu = (activeNavItem?.megaMenu?.sections.length ?? 0) >= 4;
+  const activeNavItem = activeMenu ? navItems.find((item) => item.label === activeMenu) : null;
 
   const openMenu = useCallback((label: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
     }
     setActiveMenu(label);
   }, []);
@@ -201,378 +191,388 @@ export function Navigation() {
   const closeMenu = useCallback(() => {
     closeTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 150);
+    }, 120);
   }, []);
 
   useEffect(() => {
-    setIsMounted(true);
-    return () => {
-      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-    };
+    const onScroll = () => setHasScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setHasScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setActiveMenu(null);
+  }, [pathname]);
+
+  const headerChrome = hasScrolled
+    ? 'border-border/80 bg-[rgba(252,248,244,0.86)] shadow-[0_18px_70px_rgba(67,46,33,0.08)]'
+    : 'border-white/70 bg-[rgba(255,252,249,0.72)] shadow-[0_10px_40px_rgba(67,46,33,0.04)]';
+
   return (
     <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          hasScrolled ? 'bg-white shadow-sm border-b border-border/50 backdrop-blur-sm bg-white/95' : 'bg-transparent border-b border-transparent'
-        )}
-      >
-        {/* Border when scrolled - removed because it's handled on the header class */}
-        <div className="hidden" />
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
+        <div
+          className={cn(
+            'mx-auto max-w-[1460px] rounded-[1.35rem] border backdrop-blur-xl transition-all duration-300 sm:rounded-[1.75rem]',
+            headerChrome,
+          )}
+        >
+          <nav className="flex h-[68px] items-center justify-between gap-3 px-4 sm:h-[76px] sm:px-6 lg:px-8">
+            <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+              <Link to="/" className="min-w-0 shrink-0 transition-opacity hover:opacity-75">
+                <img
+                  src="/images/ozzios-logo.svg"
+                  alt="OzziOS"
+                  className="h-5 w-auto brightness-0 sm:h-6"
+                />
+              </Link>
 
-        <nav className="relative mx-auto max-w-[1400px] h-[72px] flex items-center justify-between px-6 lg:px-8">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-70">
-            <img
-              src="/images/ozzios-logo.svg"
-              alt="OzziOS"
-              className="h-6 w-auto brightness-0"
-            />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-0">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => item.megaMenu && openMenu(item.label)}
-                onMouseLeave={closeMenu}
-              >
-                {item.megaMenu ? (
-                  <button
-                    className={cn(
-                      'flex items-center gap-1.5 px-4 py-2 text-[13px] font-semibold transition-colors',
-                      activeMenu === item.label
-                        ? 'text-black'
-                        : 'text-gray-500 hover:text-black'
-                    )}
-                  >
-                    {item.label}
-                    <ChevronDown className={cn(
-                      'h-3.5 w-3.5 transition-transform duration-150',
-                      activeMenu === item.label && 'rotate-180'
-                    )} />
-                  </button>
-                ) : item.href?.startsWith('/') ? (
-                  <Link
-                    to={item.href}
-                    className="px-4 py-2 text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="px-4 py-2 text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://app.ozzios.com/sign-in"
-              className="text-[13px] font-semibold text-gray-500 hover:text-black transition-colors"
-            >
-              Sign in
-            </a>
-            <Button
-              size="sm"
-              asChild
-              className="h-9 px-5 text-[12px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
-            >
-              <a href="https://app.ozzios.com/sign-up">
-                Get Early Access
-                <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 -mr-2 text-gray-600 hover:text-black transition-colors"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </nav>
-
-        {/* Mega Menu Dropdowns */}
-        <AnimatePresence>
-          {activeMenu && isMounted && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
-              className="absolute top-[50px] left-0 right-0 hidden lg:flex justify-center pointer-events-none"
-              onMouseEnter={() => activeMenu && openMenu(activeMenu)}
-              onMouseLeave={closeMenu}
-            >
-              <div className={cn("pointer-events-auto mx-8 w-full pt-[22px]", isWideMegaMenu ? "max-w-[1100px]" : "max-w-[900px]")}>
+              <div className="hidden items-center rounded-full border border-border/70 bg-background/70 p-1 lg:flex">
                 {navItems.map((item) => {
-                  if (item.label !== activeMenu || !item.megaMenu) return null;
+                  const isActive = pathname === item.href;
+                  if (item.megaMenu) {
+                    return (
+                      <div
+                        key={item.label}
+                        className="relative"
+                        onMouseEnter={() => openMenu(item.label)}
+                        onMouseLeave={closeMenu}
+                      >
+                        <button
+                          className={cn(
+                            'inline-flex h-11 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-all duration-300',
+                            activeMenu === item.label || isActive
+                              ? 'bg-foreground text-background'
+                              : 'text-foreground/68 hover:text-foreground',
+                          )}
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={cn(
+                              'h-3.5 w-3.5 transition-transform duration-300',
+                              activeMenu === item.label && 'rotate-180',
+                            )}
+                          />
+                        </button>
+                      </div>
+                    );
+                  }
 
                   return (
-                    <div
+                    <NavDestination
                       key={item.label}
-                      className="border border-gray-200 bg-white p-6 shadow-lg rounded-2xl"
+                      href={item.href ?? '/'}
+                      className={cn(
+                        'inline-flex h-11 items-center rounded-full px-4 text-sm font-medium transition-all duration-300',
+                        isActive ? 'bg-foreground text-background' : 'text-foreground/68 hover:text-foreground',
+                      )}
                     >
-                      <div className="grid grid-cols-12 gap-8">
-                        {/* Sections */}
-                        <div className={cn(
-                          'col-span-12 grid gap-8',
-                          item.megaMenu.cta ? 'lg:col-span-8' : 'lg:col-span-12',
-                          item.megaMenu.sections.length >= 4
-                            ? 'sm:grid-cols-2 lg:grid-cols-4'
-                            : item.megaMenu.sections.length === 3
-                              ? 'sm:grid-cols-3'
-                              : item.megaMenu.sections.length > 1
-                                ? 'sm:grid-cols-2'
-                                : 'sm:grid-cols-1'
-                        )}>
-                          {item.megaMenu.sections.map((section, idx) => (
-                            <div key={idx}>
-                              {section.title && (
-                                <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                                  {section.title}
-                                </p>
-                              )}
-                              <div className="space-y-1">
-                                {section.items.map((subItem) => {
-                                  const Icon = subItem.icon;
-                                  const LinkOrA = subItem.href.startsWith('/') ? Link : 'a';
-                                  const linkProps = subItem.href.startsWith('/')
-                                    ? { to: subItem.href, onClick: () => setActiveMenu(null) }
-                                    : { href: subItem.href, target: '_blank', rel: 'noopener noreferrer' };
-                                  return (
-                                    <LinkOrA
-                                      key={subItem.label}
-                                      {...linkProps as any}
-                                      className="flex items-start gap-3 p-3 rounded-xl transition-colors hover:bg-gray-50 group"
-                                    >
-                                      {subItem.iconSrc ? (
-                                        <div className="h-9 w-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-gray-200 transition-colors">
-                                          <img src={subItem.iconSrc} alt="" className="h-4 w-4" />
-                                        </div>
-                                      ) : Icon ? (
-                                        <div className="h-9 w-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-gray-200 transition-colors">
-                                          <Icon className="h-4 w-4 text-gray-600" />
-                                        </div>
-                                      ) : null}
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-2">
-                                          <p className="text-[13px] font-semibold text-gray-700 group-hover:text-black transition-colors">
-                                            {subItem.label}
-                                          </p>
-                                          {subItem.badge && (
-                                            <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white bg-signature rounded">
-                                              {subItem.badge}
-                                            </span>
-                                          )}
-                                        </div>
-                                        {subItem.description && (
-                                          <p className="text-[12px] text-gray-400 mt-0.5">
-                                            {subItem.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                    </LinkOrA>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* CTA Section */}
-                        {item.megaMenu.cta && (
-                          <div className="col-span-12 lg:col-span-4">
-                            <a
-                              href={item.megaMenu.cta.href}
-                              className="block h-full border border-gray-200 rounded-xl overflow-hidden transition-all hover:border-gray-300 hover:shadow-sm group"
-                            >
-                              {item.megaMenu.cta.image && (
-                                <div className="relative h-32 overflow-hidden">
-                                  <img
-                                    src={item.megaMenu.cta.image}
-                                    alt=""
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                  />
-                                </div>
-                              )}
-                              <div className="p-5 bg-gray-50">
-                                <p className="text-[14px] font-semibold text-black mb-1">
-                                  {item.megaMenu.cta.title}
-                                </p>
-                                <p className="text-[12px] text-gray-500 leading-relaxed mb-3">
-                                  {item.megaMenu.cta.description}
-                                </p>
-                                <div className="flex items-center gap-1 text-[12px] font-semibold text-signature">
-                                  {item.label === 'Product' ? 'Watch demo' : item.label === 'Solutions' ? 'View case studies' : item.label === 'Integrations' ? 'View all' : 'Get started'}
-                                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                      {item.label}
+                    </NavDestination>
                   );
                 })}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+
+            <div className="flex items-center gap-2 lg:hidden">
+              <a
+                href="https://app.ozzios.com/sign-up"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-4 text-sm font-medium text-background shadow-[0_12px_28px_rgba(34,27,22,0.14)] transition-colors hover:bg-foreground/92"
+              >
+                Start
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen((open) => !open)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground transition-colors hover:bg-background"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              >
+                {isMobileMenuOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
+              </button>
+            </div>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              <a
+                href="https://app.ozzios.com/sign-in"
+                className="text-sm font-medium text-foreground/68 transition-colors hover:text-foreground"
+              >
+                Sign in
+              </a>
+              <Button
+                size="sm"
+                asChild
+                className="h-11 rounded-full border-0 bg-foreground px-5 text-sm font-medium text-background shadow-[0_16px_40px_rgba(34,27,22,0.18)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-foreground/92"
+              >
+                <a href="https://app.ozzios.com/sign-up">
+                  Start with OzziOS
+                  <ArrowRight className="ml-1.5 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+
+          </nav>
+
+          <AnimatePresence>
+            {activeNavItem?.megaMenu ? (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="hidden px-5 pb-5 lg:block"
+                onMouseEnter={() => openMenu(activeNavItem.label)}
+                onMouseLeave={closeMenu}
+              >
+                <div className="overflow-hidden rounded-[1.75rem] border border-border/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,241,235,0.96))] shadow-[0_24px_80px_rgba(67,46,33,0.12)]">
+                  <div className="grid gap-8 px-8 py-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+                    <div
+                      className={cn(
+                        'grid gap-6',
+                        activeNavItem.megaMenu.sections.length >= 4
+                          ? 'md:grid-cols-2 xl:grid-cols-4'
+                          : activeNavItem.megaMenu.sections.length === 3
+                            ? 'md:grid-cols-3'
+                            : 'md:grid-cols-2',
+                      )}
+                    >
+                      {activeNavItem.megaMenu.sections.map((section) => (
+                        <div key={section.title ?? 'links'}>
+                          {section.title ? (
+                            <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.22em] text-foreground/45">
+                              {section.title}
+                            </p>
+                          ) : null}
+                          <div className="space-y-2">
+                            {section.items.map((item) => {
+                              const Icon = item.icon;
+                              return (
+                                <NavDestination
+                                  key={item.label}
+                                  href={item.href}
+                                  onClick={() => setActiveMenu(null)}
+                                  className="group flex min-h-[92px] gap-4 rounded-[1.4rem] border border-transparent bg-white/55 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-border/80 hover:bg-white"
+                                >
+                                  {Icon ? (
+                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-foreground/[0.045] text-foreground/70 transition-colors duration-300 group-hover:bg-foreground group-hover:text-background">
+                                      <Icon className="h-4.5 w-4.5" />
+                                    </div>
+                                  ) : null}
+                                  <div className="min-w-0">
+                                    <div className="flex items-center gap-2">
+                                      <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                                      {item.badge ? (
+                                        <span className="rounded-full bg-foreground px-2 py-0.5 text-[0.6rem] font-semibold tracking-[0.18em] text-background">
+                                          {item.badge}
+                                        </span>
+                                      ) : null}
+                                    </div>
+                                    {item.description ? (
+                                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                                        {item.description}
+                                      </p>
+                                    ) : null}
+                                  </div>
+                                </NavDestination>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-[1.75rem] border border-border/70 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.18),transparent_34%),linear-gradient(180deg,rgba(36,28,22,0.98),rgba(74,52,39,0.94))] p-7 text-white">
+                      <p className="max-w-[12ch] font-display text-[2rem] leading-[0.95] tracking-[-0.04em]">
+                        {activeNavItem.megaMenu.cta?.title ?? 'A cleaner operating layer for service teams.'}
+                      </p>
+                      <p className="mt-4 text-sm leading-6 text-white/72">
+                        {activeNavItem.megaMenu.cta?.description ??
+                          'Explore the product surface and see how each part connects back to revenue, response time, and execution quality.'}
+                      </p>
+                      <a
+                        href={activeNavItem.megaMenu.cta?.href ?? 'https://app.ozzios.com/sign-up'}
+                        className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-white transition-opacity hover:opacity-80"
+                      >
+                        Explore further
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
+        </div>
       </header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-40 bg-white lg:hidden"
+            className="fixed inset-0 z-[60] bg-[rgba(27,21,17,0.44)] backdrop-blur-sm lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            <div className="h-full overflow-y-auto pt-[72px] pb-safe">
-              <div className="px-6 py-8 space-y-2">
-                {navItems.map((item) => (
-                  <div key={item.label}>
-                    {item.megaMenu ? (
-                      <MobileMenuSection item={item} onClose={() => setIsMobileMenuOpen(false)} />
-                    ) : item.href?.startsWith('/') ? (
-                      <Link
-                        to={item.href}
-                        className="flex items-center h-12 text-[15px] font-semibold text-gray-700"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={item.href}
-                        className="flex items-center h-12 text-[15px] font-semibold text-gray-700"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    )}
-                  </div>
-                ))}
-
-                {/* CTA section */}
-                <div className="pt-8 mt-6 border-t border-gray-200 space-y-3">
-                  <a
-                    href="https://app.ozzios.com/sign-in"
-                    className="flex items-center justify-center h-12 text-[14px] font-semibold text-gray-600 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Sign in
-                  </a>
-                  <Button
-                    size="lg"
-                    asChild
-                    className="w-full h-12 text-[13px] font-bold tracking-wide bg-signature text-white hover:bg-signature/90 rounded-md shadow-sm"
-                  >
-                    <a href="https://app.ozzios.com/sign-up" onClick={() => setIsMobileMenuOpen(false)}>
-                      Get Early Access
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </div>
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
+              className="ml-auto flex h-full w-full max-w-md flex-col border-l border-border/70 bg-[linear-gradient(180deg,rgba(255,252,249,0.98),rgba(247,240,234,1))] px-4 pb-6 pt-5 shadow-[0_20px_80px_rgba(43,31,22,0.18)] sm:px-5"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <Link
+                  to="/"
+                  className="inline-flex items-center rounded-full border border-border/70 bg-white/80 px-4 py-2.5"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <img
+                    src="/images/ozzios-logo.svg"
+                    alt="OzziOS"
+                    className="h-5 w-auto brightness-0"
+                  />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-white/80 text-foreground"
+                  aria-label="Close menu"
+                >
+                  <X className="h-4.5 w-4.5" />
+                </button>
               </div>
-            </div>
+
+              <div className="space-y-2 overflow-y-auto pr-1">
+                {navItems.map((item) => (
+                  <MobileMenuSection
+                    key={item.label}
+                    item={item}
+                    pathname={pathname}
+                    onClose={() => setIsMobileMenuOpen(false)}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-6 space-y-3 border-t border-border/60 pt-5">
+                <a
+                  href="https://app.ozzios.com/sign-in"
+                  className="flex h-12 items-center justify-center rounded-full border border-border/70 bg-background/80 text-sm font-medium text-foreground"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign in
+                </a>
+                <Button
+                  size="lg"
+                  asChild
+                  className="h-12 w-full rounded-full border-0 bg-foreground text-sm font-medium text-background"
+                >
+                  <a href="https://app.ozzios.com/sign-up" onClick={() => setIsMobileMenuOpen(false)}>
+                    Start with OzziOS
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <a
+                  href="/pricing"
+                  className="flex h-11 items-center justify-center rounded-full text-sm font-medium text-foreground/72 transition-colors hover:text-foreground"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  View pricing
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </>
   );
 }
 
-function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => void }) {
-  const [isOpen, setIsOpen] = useState(false);
+function MobileMenuSection({
+  item,
+  pathname,
+  onClose,
+}: {
+  item: NavItem;
+  pathname: string;
+  onClose: () => void;
+}) {
+  const [isOpen, setIsOpen] = useState(item.label === 'Product');
 
-  if (!item.megaMenu) return null;
-
-  return (
-    <div>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
+  if (!item.megaMenu) {
+    return (
+      <NavDestination
+        href={item.href ?? '/'}
+        onClick={onClose}
         className={cn(
-          'flex items-center justify-between w-full h-12 text-[15px] font-semibold transition-colors',
-          isOpen ? 'text-black' : 'text-gray-700'
+          'flex min-h-[56px] items-center rounded-[1.4rem] border px-4 text-base font-medium transition-colors',
+          pathname === item.href
+            ? 'border-foreground bg-foreground text-background'
+            : 'border-border/70 bg-white/70 text-foreground',
         )}
       >
         {item.label}
-        <ChevronDown className={cn(
-          'h-4 w-4 text-gray-400 transition-transform duration-150',
-          isOpen && 'rotate-180'
-        )} />
+      </NavDestination>
+    );
+  }
+
+  return (
+    <div className="rounded-[1.5rem] border border-border/70 bg-white/70 px-4 py-2">
+      <button
+        type="button"
+        onClick={() => setIsOpen((open) => !open)}
+        className="flex min-h-[52px] w-full items-center justify-between text-left"
+      >
+        <span className="text-base font-medium text-foreground">{item.label}</span>
+        <ChevronDown className={cn('h-4 w-4 text-foreground/45 transition-transform duration-300', isOpen && 'rotate-180')} />
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
+      <AnimatePresence initial={false}>
+        {isOpen ? (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="py-3 pl-4 space-y-6 border-l border-gray-200">
-              {item.megaMenu.sections.map((section, idx) => (
-                <div key={idx}>
-                  {section.title && (
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            <div className="space-y-5 pb-3 pt-2">
+              {item.megaMenu.sections.map((section) => (
+                <div key={section.title ?? 'mobile-links'}>
+                  {section.title ? (
+                    <p className="mb-3 text-[0.68rem] font-semibold tracking-[0.2em] text-foreground/45">
                       {section.title}
                     </p>
-                  )}
-                  <div className="space-y-1">
+                  ) : null}
+                  <div className="space-y-2">
                     {section.items.map((subItem) => {
                       const Icon = subItem.icon;
                       return (
-                        <a
+                        <NavDestination
                           key={subItem.label}
                           href={subItem.href}
-                          className="flex items-center gap-3 py-2.5 text-gray-600 hover:text-black transition-colors"
                           onClick={onClose}
-                          {...(!subItem.href.startsWith('/') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                          className="flex items-start gap-3 rounded-[1.2rem] border border-transparent px-3 py-3 transition-colors hover:border-border/60 hover:bg-background/80"
                         >
-                          {subItem.iconSrc
-                            ? <img src={subItem.iconSrc} alt="" className="h-4 w-4" />
-                            : Icon && <Icon className="h-4 w-4" />
-                          }
-                          <span className="text-[14px] font-medium">{subItem.label}</span>
-                        </a>
+                          {Icon ? <Icon className="mt-0.5 h-4 w-4 shrink-0 text-foreground/55" /> : null}
+                          <div>
+                            <p className="text-sm font-medium text-foreground">{subItem.label}</p>
+                            {subItem.description ? (
+                              <p className="mt-1 text-sm leading-5 text-muted-foreground">
+                                {subItem.description}
+                              </p>
+                            ) : null}
+                          </div>
+                        </NavDestination>
                       );
                     })}
                   </div>
@@ -580,7 +580,7 @@ function MobileMenuSection({ item, onClose }: { item: NavItem; onClose: () => vo
               ))}
             </div>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </div>
   );

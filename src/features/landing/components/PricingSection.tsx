@@ -45,17 +45,17 @@ const pricingTiers: PricingTier[] = [
     name: 'Pro',
     price: 295,
     usage: '5,000 AI credits/mo',
-    description: 'Workflows, video, and premium AI tools',
+    description: 'Workflows and premium AI tools',
     features: [
       { label: 'Up to 2 team members', description: 'Everything you need to run your business — with room for one extra hand when you need it.' },
       { label: '2 workspaces', description: 'Separate your projects or service areas into dedicated workspaces, each with its own settings.' },
       { label: '5,000 AI credits', description: 'Plenty of AI capacity for content creation, workflows, and daily marketing automation.' },
-      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active and SEO-friendly — without doing it all manually.' },
+      { label: 'Social content planner', description: 'Stay consistent on social with AI-assisted planning and scheduling — without living in multiple tools.' },
       { label: 'Email builder & all integrations', description: 'Send professional emails and connect 40+ tools — Google, Meta, Shopify, WordPress, and more.' },
-      { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
+      { label: 'Forms & lead capture', description: 'Build smart lead forms and route every submission into the right follow-up workflow automatically.' },
       { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
       { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
-      { label: 'Video kit & app builder', description: 'Record professional videos and let Ozzi build custom apps, dashboards, and tools — no developer needed.' },
+      { label: 'App builder & dashboards', description: 'Let Ozzi build custom apps, dashboards, and internal tools — no developer needed.' },
       { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
     ],
     cta: 'Get started',
@@ -87,33 +87,30 @@ export function PricingSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="pricing" className="relative py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="pricing" className="relative overflow-hidden py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-x-0 top-24 h-80 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.1),transparent_58%)] blur-3xl" />
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20 flex flex-col items-center"
+          className="mb-20 max-w-5xl"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              Pricing
-            </p>
-            <div className="w-8 h-px bg-signature" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight mb-6">
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+            Pricing
+          </p>
+          <h2 className="mb-6 text-[clamp(3rem,5.2vw,5.2rem)] font-display font-medium text-foreground tracking-[-0.06em] leading-[0.92]">
             Simple, transparent pricing
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             Stop overpaying for outsourced services. Get professional-grade automation at a fraction of the cost.
           </p>
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -121,15 +118,15 @@ export function PricingSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className={cn(
-                'relative rounded-xl p-8 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col',
+                'relative flex flex-col rounded-[2rem] p-8 transition-all duration-300',
                 tier.recommended
-                  ? 'border border-signature/60 bg-card ring-1 ring-signature/10'
-                  : 'border border-border/80 bg-card hover:border-border'
+                  ? 'border border-signature/40 bg-[linear-gradient(180deg,rgba(255,250,247,0.96),rgba(243,232,224,0.98))] shadow-[0_28px_80px_rgba(56,40,29,0.12)]'
+                  : 'border border-white/80 bg-white/80 shadow-[0_20px_60px_rgba(56,40,29,0.08)] hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(56,40,29,0.12)]'
               )}
             >
               {tier.recommended && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest bg-signature text-white shadow-sm">
+                  <span className="inline-flex items-center rounded-full bg-foreground px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm">
                     Most Popular
                   </span>
                 </div>
@@ -159,7 +156,7 @@ export function PricingSection() {
 
               {/* Credit badge */}
               <div className="mb-6">
-                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground border border-border">
+                <span className="inline-flex items-center rounded-full border border-border/70 bg-[rgba(247,241,235,0.9)] px-3 py-1 text-xs font-medium text-muted-foreground">
                   {tier.usage}
                 </span>
               </div>
@@ -189,9 +186,9 @@ export function PricingSection() {
                 <a
                   href={tier.href}
                   className={cn(
-                    'flex items-center justify-center gap-2 w-full h-12 rounded-md font-medium text-[13px] transition-all duration-200 group',
+                    'group flex h-12 w-full items-center justify-center gap-2 rounded-full font-medium text-[13px] transition-all duration-200',
                     tier.recommended
-                      ? 'bg-signature text-white hover:bg-signature/90 shadow-sm'
+                      ? 'bg-foreground text-white hover:bg-foreground/92 shadow-[0_16px_40px_rgba(41,30,23,0.14)]'
                       : 'bg-transparent text-foreground border border-border/80 hover:bg-muted/50'
                   )}
                 >

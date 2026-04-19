@@ -18,7 +18,7 @@ import {
 import { useAudience, audienceContent } from '../contexts/AudienceContext';
 
 const showcaseAgents = [
-  { name: 'Google Ozzi', role: 'Google Marketing', icon: Search, description: 'Search campaigns, SEO audits, Google Ads management, Analytics reporting, GBP optimization', mp4: '/images/avatars/google-ozzi.mp4' },
+  { name: 'Google Ozzi', role: 'Google Marketing', icon: Search, description: 'Search campaigns, local SEO strategy, Google Ads management, analytics reporting, GBP optimization', mp4: '/images/avatars/google-ozzi.mp4' },
   { name: 'Facebook Ozzi', role: 'Facebook & Instagram', icon: Share2, description: 'Ad creation, audience targeting, page management, content scheduling, campaign optimization', mp4: '/images/avatars/facebook-ozzi.mp4' },
   { name: 'Gmail Ozzi', role: 'Email Marketing', icon: Mail, description: 'Campaign writing, drip sequences, cold outreach, inbox management, follow-up automation', mp4: '/images/avatars/gmail-ozzi.mp4' },
   { name: 'YouTube Ozzi', role: 'YouTube Growth', icon: Video, description: 'Video SEO, title & description writing, thumbnail briefs, channel strategy, analytics', mp4: '/images/avatars/youtube-ozzi.mp4' },
@@ -56,27 +56,24 @@ export function AgentsSection() {
   const [activeAgent, setActiveAgent] = useState<string | null>(null);
 
   return (
-    <section id="agents" className="py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <section id="agents" className="py-32 lg:py-40">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
-          className="mb-16 lg:mb-20 max-w-3xl"
+          className="mb-16 max-w-5xl lg:mb-20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              {content.sectionLabel}
-            </p>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+            {content.sectionLabel}
+          </p>
+          <h2 className="max-w-5xl text-[clamp(3rem,5.4vw,5.4rem)] font-display font-medium leading-[0.92] tracking-[-0.06em] text-foreground mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-muted-foreground/80">{content.headline[1]}</span>
+            <span className="text-muted-foreground/78">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed font-light">
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             {content.subheadline}
           </p>
         </motion.div>

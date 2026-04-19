@@ -18,14 +18,14 @@ import { useAudience } from '../contexts/AudienceContext';
 
 // Tool data with estimated monthly costs
 const tools = [
-  { id: 'slack', name: 'Slack', cost: 15, icon: '💬' },
-  { id: 'hubspot', name: 'HubSpot', cost: 800, icon: '🔶' },
-  { id: 'mailchimp', name: 'Mailchimp', cost: 100, icon: '📧' },
-  { id: 'hootsuite', name: 'Hootsuite', cost: 99, icon: '🦉' },
-  { id: 'semrush', name: 'SEMrush', cost: 130, icon: '📊' },
-  { id: 'asana', name: 'Asana', cost: 25, icon: '✅' },
-  { id: 'zapier', name: 'Zapier', cost: 50, icon: '⚡' },
-  { id: 'chatgpt', name: 'ChatGPT/Claude', cost: 20, icon: '🤖' },
+  { id: 'slack', name: 'Slack', cost: 15, icon: 'SL' },
+  { id: 'hubspot', name: 'HubSpot', cost: 800, icon: 'HB' },
+  { id: 'mailchimp', name: 'Mailchimp', cost: 100, icon: 'MC' },
+  { id: 'hootsuite', name: 'Hootsuite', cost: 99, icon: 'HS' },
+  { id: 'semrush', name: 'SEMrush', cost: 130, icon: 'SR' },
+  { id: 'asana', name: 'Asana', cost: 25, icon: 'AS' },
+  { id: 'zapier', name: 'Zapier', cost: 50, icon: 'ZP' },
+  { id: 'chatgpt', name: 'ChatGPT/Claude', cost: 20, icon: 'AI' },
 ];
 
 // Animated number component with smooth transitions
@@ -171,7 +171,9 @@ function ToolCheckbox({
       )}>
         {checked && <Check className="w-3 h-3 text-white" />}
       </div>
-      <span className="text-lg">{tool.icon}</span>
+      <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-foreground/[0.05] font-mono text-[0.7rem] font-semibold tracking-[0.14em] text-foreground/68">
+        {tool.icon}
+      </span>
       <div className="flex-1 text-left">
         <p className={cn(
           'text-[13px] font-medium transition-colors',
@@ -292,8 +294,9 @@ export function SavingsCalculatorSection() {
   const totalSavings = getTotalSavings();
 
   return (
-    <section id="calculator" className="py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <section id="calculator" className="relative overflow-hidden py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-x-0 top-20 h-80 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.1),transparent_58%)] blur-3xl" />
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -301,28 +304,24 @@ export function SavingsCalculatorSection() {
           variants={containerVariants}
         >
           {/* Section header */}
-          <motion.div variants={itemVariants} className="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-8 h-px bg-signature" />
-              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-                ROI Calculator
-              </p>
-              <div className="w-8 h-px bg-signature" />
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
+          <motion.div variants={itemVariants} className="mb-16 max-w-5xl lg:mb-20">
+            <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+              ROI calculator
+            </p>
+            <h2 className="mb-6 text-[clamp(3rem,5.2vw,5.2rem)] font-display font-medium tracking-[-0.06em] text-foreground leading-[0.92]">
               See what you'll save.
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-light">
+            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
               Calculate your potential savings across marketing services, employees, and tools.
             </p>
           </motion.div>
 
           {/* Calculator card */}
           <motion.div variants={itemVariants}>
-            <div className="rounded-xl border border-border/80 bg-card overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-black/5">
+            <div className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/80 shadow-[0_24px_70px_rgba(56,40,29,0.08)] ring-1 ring-black/5">
               <div className="relative z-10">
                 {/* Tabs */}
-                <div className="flex flex-col sm:flex-row gap-2 p-4 border-b border-border bg-muted/50">
+                <div className="flex flex-col gap-2 border-b border-border/60 bg-[rgba(247,241,235,0.88)] p-4 sm:flex-row">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
@@ -331,10 +330,10 @@ export function SavingsCalculatorSection() {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={cn(
-                          'flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-[14px] transition-all duration-300',
+                          'flex-1 flex items-center justify-center gap-2 rounded-full px-4 py-3 font-medium text-[14px] transition-all duration-300',
                           isActive
-                            ? 'bg-card text-foreground border border-border shadow-sm'
-                            : 'text-muted-foreground hover:text-foreground/80 hover:bg-card/50'
+                            ? 'border border-white/80 bg-white text-foreground shadow-[0_12px_30px_rgba(56,40,29,0.08)]'
+                            : 'text-muted-foreground hover:bg-white/50 hover:text-foreground/80'
                         )}
                       >
                         <Icon className={cn(
@@ -348,9 +347,9 @@ export function SavingsCalculatorSection() {
                 </div>
 
                 {/* Content area */}
-                <div className="grid lg:grid-cols-2 gap-8 p-6 lg:p-10">
+                <div className="grid gap-8 p-6 lg:grid-cols-2 lg:gap-10 lg:p-10">
                   {/* Input side */}
-                  <div className="space-y-8">
+                  <div className="space-y-8 rounded-[1.75rem] border border-white/80 bg-[rgba(255,255,255,0.52)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] lg:p-8">
                     <div>
                       <p className="text-[13px] text-muted-foreground mb-6">
                         {tabs.find(t => t.id === activeTab)?.description}
@@ -386,7 +385,7 @@ export function SavingsCalculatorSection() {
                             />
                           </div>
 
-                          <div className="p-4 rounded-xl bg-muted/50 border border-border">
+                          <div className="rounded-[1.4rem] border border-border/60 bg-[rgba(247,241,235,0.9)] p-4">
                             <p className="text-[12px] text-muted-foreground mb-3">What you're paying your marketing company for:</p>
                             <div className="space-y-2">
                               {[
@@ -498,7 +497,7 @@ export function SavingsCalculatorSection() {
                             ))}
                           </div>
 
-                          <div className="p-4 rounded-xl bg-green-50 border border-green-200">
+                          <div className="rounded-[1.4rem] border border-emerald-200 bg-emerald-50/90 p-4">
                             <div className="flex items-start gap-3">
                               <Sparkles className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                               <div>
@@ -519,7 +518,7 @@ export function SavingsCalculatorSection() {
                   {/* Results side */}
                   <div className="relative">
                     <div className="sticky top-8">
-                      <div className="p-8 rounded-2xl bg-muted/50 border border-border">
+                      <div className="rounded-[1.75rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(244,238,232,0.98))] p-8 shadow-[0_20px_60px_rgba(56,40,29,0.08)]">
                         <div className="relative z-10">
                           <p className="text-[12px] text-muted-foreground uppercase tracking-wider mb-2">
                             Estimated Annual Savings
@@ -627,7 +626,7 @@ export function SavingsCalculatorSection() {
                             <Button
                               size="lg"
                               asChild
-                              className="w-full h-12 text-[14px] font-medium gap-2 bg-signature text-white hover:bg-signature/90 rounded-md group shadow-sm"
+                              className="group h-12 w-full gap-2 rounded-full bg-foreground text-[14px] font-medium text-white shadow-[0_16px_40px_rgba(41,30,23,0.14)] hover:bg-foreground/92"
                             >
                               <a href="https://app.ozzios.com/sign-up">
                                 Start saving today

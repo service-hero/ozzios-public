@@ -1,1 +1,0 @@
-import{j as o}from"./vendor-framer-GuenOveB.js";import{O as t}from"./vendor-router-C_nCrc1R.js";import{L as r}from"./LandingLayout-D_izjCK6.js";import"./vendor-react-Cgg2GOmP.js";import"./vendor-radix-CKGqWGqO.js";import"./utils-CDN07tui.js";import"./button-ypw8MCAr.js";import"./vendor-icons-B7mb7gJZ.js";function x(){return o.jsx(r,{children:o.jsx(t,{})})}export{x as component};

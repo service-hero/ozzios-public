@@ -20,10 +20,8 @@ import { Route as DataDeletionRouteImport } from './routes/data-deletion'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CareersRouteImport } from './routes/careers'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsTeamsRouteImport } from './routes/solutions/teams'
 import { Route as SolutionsLeadGenerationRouteImport } from './routes/solutions/lead-generation'
 import { Route as SolutionsEnterpriseRouteImport } from './routes/solutions/enterprise'
@@ -35,20 +33,16 @@ import { Route as FeaturesVideoEditorRouteImport } from './routes/features/video
 import { Route as FeaturesTasksRouteImport } from './routes/features/tasks'
 import { Route as FeaturesSocialMediaRouteImport } from './routes/features/social-media'
 import { Route as FeaturesSmsCampaignsRouteImport } from './routes/features/sms-campaigns'
-import { Route as FeaturesPresentationsRouteImport } from './routes/features/presentations'
 import { Route as FeaturesKnowledgeBaseRouteImport } from './routes/features/knowledge-base'
 import { Route as FeaturesFormsRouteImport } from './routes/features/forms'
 import { Route as FeaturesEmailCampaignsRouteImport } from './routes/features/email-campaigns'
 import { Route as FeaturesEmailBuilderRouteImport } from './routes/features/email-builder'
-import { Route as FeaturesDocumentsRouteImport } from './routes/features/documents'
 import { Route as FeaturesDashboardRouteImport } from './routes/features/dashboard'
 import { Route as FeaturesCrmRouteImport } from './routes/features/crm'
 import { Route as FeaturesCodingRouteImport } from './routes/features/coding'
 import { Route as FeaturesChatWidgetRouteImport } from './routes/features/chat-widget'
 import { Route as FeaturesChannelsRouteImport } from './routes/features/channels'
-import { Route as FeaturesBlogSeoRouteImport } from './routes/features/blog-seo'
 import { Route as FeaturesAiAgentsRouteImport } from './routes/features/ai-agents'
-import { Route as BlogPostIdRouteImport } from './routes/blog.$postId'
 
 const WaitlistBusinessRoute = WaitlistBusinessRouteImport.update({
   id: '/waitlist-business',
@@ -105,11 +99,6 @@ const CareersRoute = CareersRouteImport.update({
   path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -119,11 +108,6 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BlogRoute,
 } as any)
 const SolutionsTeamsRoute = SolutionsTeamsRouteImport.update({
   id: '/solutions/teams',
@@ -182,11 +166,6 @@ const FeaturesSmsCampaignsRoute = FeaturesSmsCampaignsRouteImport.update({
   path: '/features/sms-campaigns',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FeaturesPresentationsRoute = FeaturesPresentationsRouteImport.update({
-  id: '/features/presentations',
-  path: '/features/presentations',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FeaturesKnowledgeBaseRoute = FeaturesKnowledgeBaseRouteImport.update({
   id: '/features/knowledge-base',
   path: '/features/knowledge-base',
@@ -205,11 +184,6 @@ const FeaturesEmailCampaignsRoute = FeaturesEmailCampaignsRouteImport.update({
 const FeaturesEmailBuilderRoute = FeaturesEmailBuilderRouteImport.update({
   id: '/features/email-builder',
   path: '/features/email-builder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeaturesDocumentsRoute = FeaturesDocumentsRouteImport.update({
-  id: '/features/documents',
-  path: '/features/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesDashboardRoute = FeaturesDashboardRouteImport.update({
@@ -237,26 +211,15 @@ const FeaturesChannelsRoute = FeaturesChannelsRouteImport.update({
   path: '/features/channels',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FeaturesBlogSeoRoute = FeaturesBlogSeoRouteImport.update({
-  id: '/features/blog-seo',
-  path: '/features/blog-seo',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FeaturesAiAgentsRoute = FeaturesAiAgentsRouteImport.update({
   id: '/features/ai-agents',
   path: '/features/ai-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogPostIdRoute = BlogPostIdRouteImport.update({
-  id: '/$postId',
-  path: '/$postId',
-  getParentRoute: () => BlogRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/careers': typeof CareersRoute
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
@@ -268,20 +231,16 @@ export interface FileRoutesByFullPath {
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
-  '/blog/$postId': typeof BlogPostIdRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
-  '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
   '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
-  '/features/documents': typeof FeaturesDocumentsRoute
   '/features/email-builder': typeof FeaturesEmailBuilderRoute
   '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
   '/features/forms': typeof FeaturesFormsRoute
   '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
-  '/features/presentations': typeof FeaturesPresentationsRoute
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
@@ -293,7 +252,6 @@ export interface FileRoutesByFullPath {
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
-  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -309,20 +267,16 @@ export interface FileRoutesByTo {
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
-  '/blog/$postId': typeof BlogPostIdRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
-  '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
   '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
-  '/features/documents': typeof FeaturesDocumentsRoute
   '/features/email-builder': typeof FeaturesEmailBuilderRoute
   '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
   '/features/forms': typeof FeaturesFormsRoute
   '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
-  '/features/presentations': typeof FeaturesPresentationsRoute
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
@@ -334,13 +288,11 @@ export interface FileRoutesByTo {
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
-  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/careers': typeof CareersRoute
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
@@ -352,20 +304,16 @@ export interface FileRoutesById {
   '/tos': typeof TosRoute
   '/waitlist': typeof WaitlistRoute
   '/waitlist-business': typeof WaitlistBusinessRoute
-  '/blog/$postId': typeof BlogPostIdRoute
   '/features/ai-agents': typeof FeaturesAiAgentsRoute
-  '/features/blog-seo': typeof FeaturesBlogSeoRoute
   '/features/channels': typeof FeaturesChannelsRoute
   '/features/chat-widget': typeof FeaturesChatWidgetRoute
   '/features/coding': typeof FeaturesCodingRoute
   '/features/crm': typeof FeaturesCrmRoute
   '/features/dashboard': typeof FeaturesDashboardRoute
-  '/features/documents': typeof FeaturesDocumentsRoute
   '/features/email-builder': typeof FeaturesEmailBuilderRoute
   '/features/email-campaigns': typeof FeaturesEmailCampaignsRoute
   '/features/forms': typeof FeaturesFormsRoute
   '/features/knowledge-base': typeof FeaturesKnowledgeBaseRoute
-  '/features/presentations': typeof FeaturesPresentationsRoute
   '/features/sms-campaigns': typeof FeaturesSmsCampaignsRoute
   '/features/social-media': typeof FeaturesSocialMediaRoute
   '/features/tasks': typeof FeaturesTasksRoute
@@ -377,14 +325,12 @@ export interface FileRoutesById {
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/lead-generation': typeof SolutionsLeadGenerationRoute
   '/solutions/teams': typeof SolutionsTeamsRoute
-  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
     | '/careers'
     | '/changelog'
     | '/contact'
@@ -396,20 +342,16 @@ export interface FileRouteTypes {
     | '/tos'
     | '/waitlist'
     | '/waitlist-business'
-    | '/blog/$postId'
     | '/features/ai-agents'
-    | '/features/blog-seo'
     | '/features/channels'
     | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
-    | '/features/documents'
     | '/features/email-builder'
     | '/features/email-campaigns'
     | '/features/forms'
     | '/features/knowledge-base'
-    | '/features/presentations'
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
@@ -421,7 +363,6 @@ export interface FileRouteTypes {
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
     | '/solutions/teams'
-    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -437,20 +378,16 @@ export interface FileRouteTypes {
     | '/tos'
     | '/waitlist'
     | '/waitlist-business'
-    | '/blog/$postId'
     | '/features/ai-agents'
-    | '/features/blog-seo'
     | '/features/channels'
     | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
-    | '/features/documents'
     | '/features/email-builder'
     | '/features/email-campaigns'
     | '/features/forms'
     | '/features/knowledge-base'
-    | '/features/presentations'
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
@@ -462,12 +399,10 @@ export interface FileRouteTypes {
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
     | '/solutions/teams'
-    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
     | '/careers'
     | '/changelog'
     | '/contact'
@@ -479,20 +414,16 @@ export interface FileRouteTypes {
     | '/tos'
     | '/waitlist'
     | '/waitlist-business'
-    | '/blog/$postId'
     | '/features/ai-agents'
-    | '/features/blog-seo'
     | '/features/channels'
     | '/features/chat-widget'
     | '/features/coding'
     | '/features/crm'
     | '/features/dashboard'
-    | '/features/documents'
     | '/features/email-builder'
     | '/features/email-campaigns'
     | '/features/forms'
     | '/features/knowledge-base'
-    | '/features/presentations'
     | '/features/sms-campaigns'
     | '/features/social-media'
     | '/features/tasks'
@@ -504,13 +435,11 @@ export interface FileRouteTypes {
     | '/solutions/enterprise'
     | '/solutions/lead-generation'
     | '/solutions/teams'
-    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRouteWithChildren
   CareersRoute: typeof CareersRoute
   ChangelogRoute: typeof ChangelogRoute
   ContactRoute: typeof ContactRoute
@@ -523,18 +452,15 @@ export interface RootRouteChildren {
   WaitlistRoute: typeof WaitlistRoute
   WaitlistBusinessRoute: typeof WaitlistBusinessRoute
   FeaturesAiAgentsRoute: typeof FeaturesAiAgentsRoute
-  FeaturesBlogSeoRoute: typeof FeaturesBlogSeoRoute
   FeaturesChannelsRoute: typeof FeaturesChannelsRoute
   FeaturesChatWidgetRoute: typeof FeaturesChatWidgetRoute
   FeaturesCodingRoute: typeof FeaturesCodingRoute
   FeaturesCrmRoute: typeof FeaturesCrmRoute
   FeaturesDashboardRoute: typeof FeaturesDashboardRoute
-  FeaturesDocumentsRoute: typeof FeaturesDocumentsRoute
   FeaturesEmailBuilderRoute: typeof FeaturesEmailBuilderRoute
   FeaturesEmailCampaignsRoute: typeof FeaturesEmailCampaignsRoute
   FeaturesFormsRoute: typeof FeaturesFormsRoute
   FeaturesKnowledgeBaseRoute: typeof FeaturesKnowledgeBaseRoute
-  FeaturesPresentationsRoute: typeof FeaturesPresentationsRoute
   FeaturesSmsCampaignsRoute: typeof FeaturesSmsCampaignsRoute
   FeaturesSocialMediaRoute: typeof FeaturesSocialMediaRoute
   FeaturesTasksRoute: typeof FeaturesTasksRoute
@@ -627,13 +553,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -647,13 +566,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/blog/': {
-      id: '/blog/'
-      path: '/'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof BlogRoute
     }
     '/solutions/teams': {
       id: '/solutions/teams'
@@ -732,13 +644,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesSmsCampaignsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/features/presentations': {
-      id: '/features/presentations'
-      path: '/features/presentations'
-      fullPath: '/features/presentations'
-      preLoaderRoute: typeof FeaturesPresentationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/features/knowledge-base': {
       id: '/features/knowledge-base'
       path: '/features/knowledge-base'
@@ -765,13 +670,6 @@ declare module '@tanstack/react-router' {
       path: '/features/email-builder'
       fullPath: '/features/email-builder'
       preLoaderRoute: typeof FeaturesEmailBuilderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/features/documents': {
-      id: '/features/documents'
-      path: '/features/documents'
-      fullPath: '/features/documents'
-      preLoaderRoute: typeof FeaturesDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features/dashboard': {
@@ -809,13 +707,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesChannelsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/features/blog-seo': {
-      id: '/features/blog-seo'
-      path: '/features/blog-seo'
-      fullPath: '/features/blog-seo'
-      preLoaderRoute: typeof FeaturesBlogSeoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/features/ai-agents': {
       id: '/features/ai-agents'
       path: '/features/ai-agents'
@@ -823,32 +714,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesAiAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$postId': {
-      id: '/blog/$postId'
-      path: '/$postId'
-      fullPath: '/blog/$postId'
-      preLoaderRoute: typeof BlogPostIdRouteImport
-      parentRoute: typeof BlogRoute
-    }
   }
 }
-
-interface BlogRouteChildren {
-  BlogPostIdRoute: typeof BlogPostIdRoute
-  BlogIndexRoute: typeof BlogIndexRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogPostIdRoute: BlogPostIdRoute,
-  BlogIndexRoute: BlogIndexRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRouteWithChildren,
   CareersRoute: CareersRoute,
   ChangelogRoute: ChangelogRoute,
   ContactRoute: ContactRoute,
@@ -861,18 +732,15 @@ const rootRouteChildren: RootRouteChildren = {
   WaitlistRoute: WaitlistRoute,
   WaitlistBusinessRoute: WaitlistBusinessRoute,
   FeaturesAiAgentsRoute: FeaturesAiAgentsRoute,
-  FeaturesBlogSeoRoute: FeaturesBlogSeoRoute,
   FeaturesChannelsRoute: FeaturesChannelsRoute,
   FeaturesChatWidgetRoute: FeaturesChatWidgetRoute,
   FeaturesCodingRoute: FeaturesCodingRoute,
   FeaturesCrmRoute: FeaturesCrmRoute,
   FeaturesDashboardRoute: FeaturesDashboardRoute,
-  FeaturesDocumentsRoute: FeaturesDocumentsRoute,
   FeaturesEmailBuilderRoute: FeaturesEmailBuilderRoute,
   FeaturesEmailCampaignsRoute: FeaturesEmailCampaignsRoute,
   FeaturesFormsRoute: FeaturesFormsRoute,
   FeaturesKnowledgeBaseRoute: FeaturesKnowledgeBaseRoute,
-  FeaturesPresentationsRoute: FeaturesPresentationsRoute,
   FeaturesSmsCampaignsRoute: FeaturesSmsCampaignsRoute,
   FeaturesSocialMediaRoute: FeaturesSocialMediaRoute,
   FeaturesTasksRoute: FeaturesTasksRoute,

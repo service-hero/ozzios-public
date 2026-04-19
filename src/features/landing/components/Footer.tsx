@@ -11,7 +11,6 @@ const footerLinks = {
       { label: 'Email Builder', href: '/features/email-builder' },
       { label: 'Voice Agents', href: '/features/voice-agents' },
       { label: 'Task Management', href: '/features/tasks' },
-      { label: 'Documents & E-Sign', href: '/features/documents' },
       { label: 'Integrations', href: '/integrations' },
       { label: 'Pricing', href: '/pricing' },
     ],
@@ -20,7 +19,6 @@ const footerLinks = {
     title: 'Resources',
     links: [
       { label: 'Documentation', href: 'https://app.ozzios.com/docs' },
-      { label: 'Blog', href: '/blog' },
       { label: 'Changelog', href: '/changelog' },
       { label: 'API Reference', href: 'https://app.ozzios.com/docs/api' },
     ],
@@ -75,32 +73,30 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background pt-8 pb-4">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
-        {/* Main footer content */}
-        <div className="py-16 lg:py-20">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
-            {/* Brand column */}
-            <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:pr-8">
-              <Link to="/" className="inline-block transition-opacity hover:opacity-80">
+    <footer className="relative mt-24 border-t border-border/60 bg-[linear-gradient(180deg,rgba(255,252,249,0.7),rgba(245,239,232,0.98))] pb-6 pt-10">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
+        <div className="rounded-[2rem] border border-white/70 bg-white/80 px-6 py-10 shadow-[0_30px_120px_rgba(69,48,33,0.08)] backdrop-blur-xl sm:px-8 lg:px-12 lg:py-14">
+          <div className="grid gap-10 lg:grid-cols-[1.35fr_repeat(4,minmax(0,1fr))]">
+            <div className="max-w-sm lg:pr-10">
+              <Link to="/" className="inline-flex items-center transition-opacity hover:opacity-75">
                 <img
                   src="/images/ozzios-logo.svg"
                   alt="OzziOS"
-                  className="h-6 w-auto brightness-0"
+                  className="h-7 w-auto brightness-0"
                 />
               </Link>
-              <p className="mt-6 text-[13px] leading-relaxed text-muted-foreground max-w-xs font-light">
-                The AI platform built for home service companies. Automate your marketing, follow-ups, and operations without hiring more staff.
+              <p className="mt-6 text-sm leading-7 text-muted-foreground">
+                Operations, marketing, and follow-up systems designed for home service teams that
+                need more output without another layer of overhead.
               </p>
-              {/* Social links */}
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-8 flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-border/70 bg-background/90 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/20 hover:text-foreground"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -109,43 +105,48 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Link columns */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h3 className="text-[11px] font-semibold uppercase tracking-widest text-foreground mb-6">
+                <h3 className="text-[0.72rem] font-semibold tracking-[0.24em] text-foreground/70">
                   {section.title}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="mt-5 space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        to={link.href}
-                        className="text-[13px] text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.href.startsWith('/') ? (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-border/40 py-8 mt-12">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-[12px] text-muted-foreground">
+          <div className="mt-12 flex flex-col gap-4 border-t border-border/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-muted-foreground">
               &copy; {new Date().getFullYear()} OzziOS. All rights reserved.
             </p>
-            <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            <div className="inline-flex items-center gap-3 rounded-full border border-border/70 bg-background/80 px-4 py-2 text-xs text-muted-foreground">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
               </span>
-              <span className="text-[11px] text-muted-foreground">
-                All systems operational
-              </span>
+              <span>Platform status: operational</span>
             </div>
           </div>
         </div>

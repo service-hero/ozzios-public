@@ -46,8 +46,9 @@ export function MemorySection() {
   const content = audienceContent[audience].memory;
 
   return (
-    <section id="memory" className="py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="memory" className="relative overflow-hidden py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-x-0 top-24 h-72 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.1),transparent_58%)] blur-3xl" />
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -55,28 +56,25 @@ export function MemorySection() {
           variants={containerVariants}
         >
           {/* Section header */}
-          <motion.div variants={itemVariants} className="mb-16 lg:mb-20 max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-signature" />
-              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-                {content.sectionLabel}
-              </p>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
+          <motion.div variants={itemVariants} className="mb-16 max-w-5xl lg:mb-20">
+            <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+              {content.sectionLabel}
+            </p>
+            <h2 className="mb-6 text-[clamp(3rem,5.2vw,5.3rem)] font-display font-medium tracking-[-0.06em] text-foreground leading-[0.92]">
               {content.headline[0]}
               <br />
-              <span className="text-muted-foreground/80">{content.headline[1]}</span>
+              <span className="text-muted-foreground/78">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-light">
+            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
               {content.subheadline}
             </p>
           </motion.div>
 
           {/* Main content grid */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left: Memory Layers Visualization */}
             <motion.div variants={itemVariants}>
-              <div className="bg-muted/30 border border-border/50 rounded-xl p-8 lg:p-10 shadow-sm">
+              <div className="rounded-[2rem] border border-white/80 bg-white/80 p-8 shadow-[0_24px_70px_rgba(56,40,29,0.08)] lg:p-10">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center">
                     <Layers className="h-5 w-5 text-signature" />
@@ -91,7 +89,7 @@ export function MemorySection() {
                   {memoryLayers.map((layer, index) => (
                     <div
                       key={layer.id}
-                      className="flex items-center gap-4 p-3 rounded-xl bg-card border border-border"
+                      className="flex items-center gap-4 rounded-[1.2rem] border border-border/70 bg-[rgba(247,241,235,0.86)] p-3"
                     >
                       <span className="text-xs font-mono font-bold text-muted-foreground w-6">
                         {layer.id}
@@ -106,7 +104,7 @@ export function MemorySection() {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4">
+                <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border/60 pt-6">
                   {[
                     { value: '∞', label: 'Retention' },
                     { value: '7', label: 'Layers' },
@@ -129,7 +127,7 @@ export function MemorySection() {
                 return (
                   <div
                     key={feature.title}
-                    className="group p-6 rounded-xl border border-border/80 bg-card hover:border-signature/30 hover:shadow-md transition-all duration-300 shadow-sm"
+                    className="group rounded-[1.75rem] border border-white/80 bg-white/78 p-6 shadow-[0_18px_50px_rgba(56,40,29,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(56,40,29,0.1)]"
                   >
                     <div className="flex items-start gap-4">
                       <div className="shrink-0 h-10 w-10 rounded-xl bg-signature/10 flex items-center justify-center">
@@ -148,7 +146,7 @@ export function MemorySection() {
                               key={bullet}
                               className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"
                             >
-                              <Check className="h-3 w-3 text-muted-foreground" />
+                              <Check className="h-3 w-3 text-signature" />
                               {bullet}
                             </span>
                           ))}
@@ -164,7 +162,7 @@ export function MemorySection() {
           {/* Bottom comparison callout */}
           <motion.div
             variants={itemVariants}
-            className="mt-16 p-8 lg:p-10 rounded-xl bg-muted/30 border border-border/50 shadow-sm"
+            className="mt-16 rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),rgba(244,238,232,0.98))] p-8 shadow-[0_20px_60px_rgba(56,40,29,0.08)] lg:p-10"
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="flex items-start gap-4">

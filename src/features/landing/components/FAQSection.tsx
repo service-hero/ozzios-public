@@ -17,50 +17,44 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-2xl px-6 lg:px-8">
-        {/* Section header */}
+    <section id="faq" className="relative py-32 lg:py-40">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20 flex flex-col items-center"
+          className="mb-16 max-w-5xl lg:mb-20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              FAQ
-            </p>
-            <div className="w-8 h-px bg-signature" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.1] tracking-tight mb-6">
-            Frequently asked
-            <br />
-            <span className="text-muted-foreground/80">questions</span>
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+            Common questions
+          </p>
+          <h2 className="mb-6 text-[clamp(3rem,5vw,5rem)] font-display font-medium text-foreground leading-[0.92] tracking-[-0.06em]">
+            Everything people ask before they switch.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
-            Everything you need to know about OzziOS.
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+            Pricing, rollout, implementation, and what the platform replaces.
           </p>
         </motion.div>
 
-        {/* FAQ Items */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-0"
+          className="max-w-5xl"
         >
-          {faqs.map((faq, index) => (
-            <FAQItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openIndex === index}
-              onToggle={() => toggleFAQ(index)}
-              isFirst={index === 0}
-            />
-          ))}
+          <div className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/75 shadow-[0_20px_60px_rgba(56,40,29,0.08)] backdrop-blur-xl">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onToggle={() => toggleFAQ(index)}
+                isFirst={index === 0}
+              />
+            ))}
+          </div>
         </motion.div>
 
         {/* Contact CTA */}
@@ -68,9 +62,9 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center"
+          className="mt-16 max-w-5xl text-left"
         >
-          <p className="text-muted-foreground mb-3">
+          <p className="mb-3 text-muted-foreground">
             Still have questions?
           </p>
           <a
@@ -108,7 +102,7 @@ function FAQItem({
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-6 text-left group hover:bg-muted/10 transition-colors px-2"
+        className="group flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-muted/10"
       >
         <span className={cn(
           'text-base md:text-lg font-medium transition-colors duration-200',
@@ -134,7 +128,7 @@ function FAQItem({
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden px-2"
+            className="overflow-hidden px-6"
           >
             <div className="pb-8 pt-2">
               <div className="pl-0 border-l-2 border-signature/30 pl-4 ml-1">

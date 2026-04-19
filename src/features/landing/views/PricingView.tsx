@@ -46,17 +46,17 @@ const pricingTiers: PricingTier[] = [
     name: 'Pro',
     price: 295,
     usage: '5,000 AI credits/mo',
-    description: 'Workflows, video, and premium AI tools',
+    description: 'Workflows and premium AI tools',
     features: [
       { label: 'Up to 2 team members', description: 'Everything you need to run your business — with room for one extra hand when you need it.' },
       { label: '2 workspaces', description: 'Separate your projects or service areas into dedicated workspaces, each with its own settings.' },
       { label: '5,000 AI credits', description: 'Plenty of AI capacity for content creation, workflows, and daily marketing automation.' },
-      { label: 'Social planner & blog tools', description: 'Stay consistent on social and keep your blog active and SEO-friendly — without doing it all manually.' },
+      { label: 'Social content planner', description: 'Stay consistent on social with AI-assisted planning and scheduling — without living in multiple tools.' },
       { label: 'Email builder & all integrations', description: 'Send professional emails and connect 40+ tools — Google, Meta, Shopify, WordPress, and more.' },
-      { label: 'Forms, documents & e-sign', description: 'Capture leads, send proposals, and get contracts signed — all without the back-and-forth.' },
+      { label: 'Forms & lead capture', description: 'Build smart lead forms and route every submission into the right follow-up workflow automatically.' },
       { label: 'Workflow builder & advanced CRM', description: 'Set up automations that run forever and know exactly where every lead stands.' },
       { label: 'Chat widget', description: 'Capture leads with an AI-powered chat widget on your site that answers questions and qualifies visitors 24/7.' },
-      { label: 'Video kit & app builder', description: 'Record professional videos and let Ozzi build custom apps, dashboards, and tools — no developer needed.' },
+      { label: 'App builder & dashboards', description: 'Let Ozzi build custom apps, dashboards, and internal tools — no developer needed.' },
       { label: 'Local rank & Claude Opus', description: 'Track your Google Maps rankings and access the most powerful AI model for complex tasks.' },
     ],
     cta: 'Get started',
@@ -105,16 +105,13 @@ const comparisonFeatures = [
     category: 'Pro',
     features: [
       { name: 'Social planner', basic: false, pro: true, scale: true },
-      { name: 'Blog tools', basic: false, pro: true, scale: true },
       { name: 'Email builder', basic: false, pro: true, scale: true },
       { name: 'All integrations', basic: false, pro: true, scale: true },
       { name: 'Forms builder', basic: false, pro: true, scale: true },
-      { name: 'Documents & e-sign', basic: false, pro: true, scale: true },
       { name: 'Workflow builder', basic: false, pro: true, scale: true },
       { name: 'Advanced CRM', basic: false, pro: true, scale: true },
       { name: 'Chat widget', basic: false, pro: true, scale: true },
       { name: 'Huddles', basic: false, pro: true, scale: true },
-      { name: 'Video kit', basic: false, pro: true, scale: true },
       { name: 'App builder', basic: false, pro: true, scale: true },
       { name: 'Local rank', basic: false, pro: true, scale: true },
       { name: 'Claude Opus', basic: false, pro: true, scale: true },
@@ -268,8 +265,8 @@ function PricingCards() {
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8" ref={ref}>
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start">
-          {pricingTiers.map((tier, index) => (
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 items-start max-w-4xl mx-auto">
+          {pricingTiers.filter(tier => tier.name !== 'Scale').map((tier, index) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 20 }}
@@ -417,9 +414,7 @@ function ComparisonTable() {
                 <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[20%]">
                   Pro
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
-                  Scale
-                </th>
+                {/* Scale column temporarily hidden */}
               </tr>
             </thead>
             <tbody>
@@ -427,7 +422,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={4}
+                      colSpan={3}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -447,9 +442,7 @@ function ComparisonTable() {
                       <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={(feature as Record<string, boolean | string>).pro} />
                       </td>
-                      <td className="py-3.5 px-3 text-center">
-                        <FeatureValue value={(feature as Record<string, boolean | string>).scale} />
-                      </td>
+                      {/* Scale column temporarily hidden */}
                     </tr>
                   ))}
                 </>

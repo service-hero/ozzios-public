@@ -32,30 +32,26 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 lg:py-32 bg-background"
+      className="relative py-32 lg:py-40"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-24 flex flex-col items-center"
+          className="mb-16 max-w-5xl lg:mb-24"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              {content.sectionLabel}
-            </p>
-            <div className="w-8 h-px bg-signature" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.1] tracking-tight mb-6">
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+            {content.sectionLabel}
+          </p>
+          <h2 className="max-w-5xl text-[clamp(3rem,5.6vw,5.6rem)] font-display font-medium text-foreground leading-[0.92] tracking-[-0.06em] mb-6">
             {content.headline[0]}
             <br />
-            <span className="text-muted-foreground/80">{content.headline[1]}</span>
+            <span className="text-muted-foreground/78">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl font-light leading-relaxed">
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             {content.subheadline}
           </p>
         </motion.div>
@@ -66,16 +62,16 @@ export function TestimonialsSection() {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 lg:grid-cols-[1.2fr_1fr_1fr]"
         >
           {content.items.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              className="bg-card rounded-xl border border-border/80 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] hover:border-signature/30 transition-all duration-300"
+              className="rounded-[2rem] border border-white/80 bg-white/80 p-8 shadow-[0_20px_60px_rgba(56,40,29,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(56,40,29,0.12)]"
             >
               {/* Quote content */}
-              <p className="text-muted-foreground text-[15px] leading-relaxed mb-8">
+              <p className="mb-8 text-[15px] leading-8 text-muted-foreground">
                 "{testimonial.content}"
               </p>
 
@@ -84,7 +80,7 @@ export function TestimonialsSection() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="h-12 w-12 rounded-full object-cover"
+                  className="h-12 w-12 rounded-2xl object-cover"
                 />
                 <div>
                   <p className="text-[15px] font-medium text-foreground">
@@ -101,38 +97,57 @@ export function TestimonialsSection() {
           {/* More reviews card */}
           <motion.div
             variants={cardVariants}
-            className="bg-card rounded-xl border border-border/80 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center justify-center text-center"
+            className="flex h-full flex-col justify-between rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,249,244,0.98),rgba(239,226,214,0.98))] p-8 shadow-[0_24px_70px_rgba(56,40,29,0.1)]"
           >
-            <div className="flex gap-1 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-signature text-signature" />
-              ))}
-            </div>
-            <p className="text-2xl font-semibold text-foreground mb-2">
-              Hundreds more
-            </p>
-            <p className="text-muted-foreground text-[15px] leading-relaxed">
-              We're currently in beta with early users. More reviews coming soon.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Trust indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 lg:mt-20 pt-12 border-t border-border/50"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-12 lg:gap-20">
-            {content.trustStats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-semibold text-foreground mb-1">{stat.value}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+            <div>
+              <div className="mb-6 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-signature text-signature" />
+                ))}
               </div>
-            ))}
-          </div>
+              <p className="mb-3 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-foreground/45">
+                Operator sentiment
+              </p>
+              <h3 className="max-w-[11ch] font-display text-[2.3rem] leading-[0.94] tracking-[-0.05em] text-foreground">
+                Early teams are sticking with it.
+              </h3>
+              <p className="mt-4 max-w-sm text-[15px] leading-7 text-muted-foreground">
+                We are still onboarding beta customers, so the public quote wall is intentionally tight.
+                The usage signal is already strong.
+              </p>
+            </div>
+
+            <div className="mt-10">
+              <div className="mb-6 flex items-center">
+                {content.items.map((testimonial, index) => (
+                  <img
+                    key={testimonial.name}
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="relative -ml-3 h-11 w-11 rounded-2xl border border-white/80 object-cover first:ml-0"
+                    style={{ zIndex: content.items.length - index }}
+                  />
+                ))}
+                <div className="relative -ml-3 flex h-11 w-11 items-center justify-center rounded-2xl border border-border/70 bg-white/70 text-[11px] font-semibold tracking-[0.12em] text-foreground/68">
+                  +498
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                {content.trustStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-[1.35rem] border border-border/60 bg-white/60 px-4 py-4"
+                  >
+                    <div className="text-xl font-semibold tracking-tight text-foreground">{stat.value}</div>
+                    <div className="mt-1 text-[0.64rem] uppercase tracking-[0.18em] text-foreground/45">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

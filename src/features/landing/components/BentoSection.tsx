@@ -43,34 +43,32 @@ export function BentoSection() {
   return (
     <section
       id="features"
-      className="relative py-24 lg:py-32 bg-background overflow-hidden"
+      className="relative overflow-hidden py-32 lg:py-40"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="pointer-events-none absolute inset-x-0 top-24 h-72 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.12),transparent_58%)] blur-3xl" />
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
-          <motion.div variants={itemVariants} className="mb-20 max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-signature" />
-              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-                {content.sectionLabel}
-              </p>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
+          <motion.div variants={itemVariants} className="mb-20 max-w-5xl">
+            <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+              {content.sectionLabel}
+            </p>
+            <h2 className="max-w-5xl text-[clamp(3rem,5.8vw,5.8rem)] font-display font-medium leading-[0.92] tracking-[-0.06em] text-foreground mb-6">
               {content.headline[0]}
               <br />
-              <span className="text-muted-foreground/80">{content.headline[1]}</span>
+              <span className="text-muted-foreground/78">{content.headline[1]}</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl font-light">
+            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
               {content.subheadline}
             </p>
           </motion.div>
 
           {/* Bento Grid */}
-          <div className="grid grid-cols-12 gap-5">
+          <div className="grid grid-flow-dense grid-cols-12 gap-5 lg:gap-6">
             {/* Card 1: AI Agents - Featured hero card */}
             <motion.div variants={itemVariants} className="col-span-12 lg:col-span-8">
               <BentoCard featured>
@@ -87,9 +85,7 @@ export function BentoSection() {
                   {/* Content side */}
                   <div className="flex-1 p-8 lg:p-10 flex flex-col">
                     <div className="flex items-center gap-2 mb-8">
-                      <span
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-semibold tracking-widest uppercase text-signature bg-signature/10 border border-signature/20"
-                      >
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-signature/20 bg-signature/10 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-signature">
                         <Bot className="h-3.5 w-3.5" />
                         {content.cards.aiWorkforce.badge}
                       </span>
@@ -386,19 +382,19 @@ export function BentoSection() {
           </div>
 
           {/* Feature count callout */}
-          <motion.div variants={itemVariants} className="mt-8 p-6 rounded-2xl bg-muted/50 border border-border/50">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <motion.div variants={itemVariants} className="mt-8 rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-[0_20px_60px_rgba(56,40,29,0.08)] backdrop-blur-xl">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-foreground">
                   17 features across 4 categories
                 </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  Email campaigns, SMS, social media, forms, voice agents, presentations, coding, and more.
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Email campaigns, SMS, social media, forms, voice agents, dashboards, coding, and more.
                 </p>
               </div>
               <a
                 href="#showcase"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors shrink-0"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
               >
                 See all features
                 <ArrowRight className="h-4 w-4" />
@@ -424,14 +420,14 @@ function BentoCard({
   return (
     <div
       className={cn(
-        'relative rounded-xl bg-card overflow-hidden transition-all duration-500 ease-out group',
+        'group relative overflow-hidden rounded-[2rem] bg-white/80 transition-all duration-500 ease-out',
         featured
-          ? 'border border-border/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)]'
-          : 'border border-border/50 hover:border-border/80 hover:shadow-sm',
+          ? 'border border-white/80 shadow-[0_24px_70px_rgba(56,40,29,0.08)] hover:-translate-y-1 hover:shadow-[0_34px_90px_rgba(56,40,29,0.12)]'
+          : 'border border-white/70 shadow-[0_16px_48px_rgba(56,40,29,0.06)] hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(56,40,29,0.1)]',
         className
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(233,222,214,0.28)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       {children}
     </div>
   );

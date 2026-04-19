@@ -11,7 +11,6 @@ import {
   Eye,
   UserCheck,
   Brain,
-  FileText,
   BarChart3,
   Mail,
   CheckCircle2,
@@ -136,7 +135,7 @@ const featureHighlights = [
     icon: Users,
     title: 'CRM & Contacts',
     description: 'Complete customer profiles with every interaction, file, and note. Your single source of truth for all customer relationships.',
-    link: '/features/contacts',
+    link: '/features/crm',
   },
   {
     icon: ClipboardList,
@@ -151,13 +150,13 @@ const featureHighlights = [
     link: '/features/channels',
   },
   {
-    icon: FileText,
-    title: 'Documents & E-Signing',
-    description: 'Estimates, contracts, and service agreements with built-in e-signatures. Send, track, and close -- all inside OzziOS.',
-    link: '/features/documents',
+    icon: Brain,
+    title: 'Knowledge Base',
+    description: 'Searchable SOPs, customer context, and internal playbooks keep your team and AI agents aligned on every account.',
+    link: '/features/knowledge-base',
   },
   {
-    icon: Brain,
+    icon: Bot,
     title: 'AI Agents',
     description: '30+ specialist AI agents handle execution across scheduling, communications, follow-ups, and more -- plus create your own. Your team focuses on delivering great service.',
     link: '/features/ai-agents',
@@ -166,7 +165,7 @@ const featureHighlights = [
     icon: BarChart3,
     title: 'Customer Reporting',
     description: 'Branded dashboards with live metrics. Customers see progress in real-time, and you never write another status update.',
-    link: '/features/analytics',
+    link: '/features/dashboard',
   },
 ];
 

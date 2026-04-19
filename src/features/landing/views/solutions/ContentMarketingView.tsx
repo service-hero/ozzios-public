@@ -14,7 +14,7 @@ import {
   Share2,
   BarChart3,
   Mail,
-  FileText,
+  Video,
   CheckCircle2,
   Zap,
   Shield,
@@ -152,10 +152,10 @@ const featureHighlights = [
     link: '/features/campaigns',
   },
   {
-    icon: FileText,
-    title: 'Blog & Content Hub',
-    description: 'Built-in publishing platform with templates, scheduling, and version control. Your entire content operation in one place.',
-    link: '/features/blog',
+    icon: Video,
+    title: 'Video Studio',
+    description: 'Edit and produce video content with timeline tools and AI-assisted assets — keep creative work inside OzziOS.',
+    link: '/features/video-editor',
   },
   {
     icon: BarChart3,

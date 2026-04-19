@@ -10,12 +10,10 @@ import {
   FileInput,
   Phone,
   FileText,
-  Monitor,
   Code,
   CheckSquare,
   Users,
   LayoutDashboard,
-  FileCheck,
   BookOpen,
   MessageCircle,
   Workflow,
@@ -87,22 +85,6 @@ const features: Feature[] = [
   },
   // Content & Creative
   {
-    id: 'blog-seo',
-    name: 'Blog & SEO',
-    description: 'AI-written articles optimized for search with built-in SEO scoring.',
-    icon: FileText,
-    href: '/features/blog-seo',
-    category: 'content',
-  },
-  {
-    id: 'presentations',
-    name: 'Presentations',
-    description: 'Generate professional slide decks from a single prompt.',
-    icon: Monitor,
-    href: '/features/presentations',
-    category: 'content',
-  },
-  {
     id: 'coding',
     name: 'Reports & Code',
     description: 'AI generates custom dashboards, reports, and applications.',
@@ -141,14 +123,6 @@ const features: Feature[] = [
     description: '18 widget types for real-time business analytics and reporting.',
     icon: LayoutDashboard,
     href: '/features/dashboard',
-    category: 'productivity',
-  },
-  {
-    id: 'documents',
-    name: 'Documents & E-Sign',
-    description: 'Create, share, and collect digital signatures on documents.',
-    icon: FileCheck,
-    href: '/features/documents',
     category: 'productivity',
   },
   // AI & Communication
@@ -241,44 +215,41 @@ export function FeaturesShowcaseSection() {
   }, [activeCategory]);
 
   return (
-    <section id="showcase" className="relative py-24 lg:py-32 bg-muted/30 overflow-hidden">
+    <section id="showcase" className="relative overflow-hidden py-32 lg:py-40">
       <AnimatedBackground />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
-          <motion.div variants={itemVariants} className="mb-16 lg:mb-20 max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-signature" />
-              <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-                Platform Capabilities
-              </p>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1] tracking-tight text-foreground mb-6">
+          <motion.div variants={itemVariants} className="mb-16 max-w-5xl lg:mb-20">
+            <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+              Platform capabilities
+            </p>
+            <h2 className="max-w-5xl text-[clamp(3rem,5.6vw,5.8rem)] font-display font-medium leading-[0.92] tracking-[-0.06em] text-foreground mb-6">
               Everything your team needs.
               <br />
-              <span className="text-muted-foreground/80">One unified system.</span>
+              <span className="text-muted-foreground/78">One unified system.</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              17 powerful features that replace your entire marketing stack.
+            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+              17 product surfaces replacing the patchwork stack most service businesses bolt together.
             </p>
           </motion.div>
 
           {/* Category tabs */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
+            <div className="scrollbar-hide -mx-1 flex gap-2 overflow-x-auto px-1 pb-2">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   className={cn(
-                    'px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200',
+                    'whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-medium transition-all duration-200',
                     activeCategory === cat.id
                       ? 'bg-foreground text-background'
-                      : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/20'
+                      : 'border border-border bg-white/70 text-muted-foreground hover:border-foreground/20 hover:text-foreground'
                   )}
                 >
                   {cat.label}
@@ -290,7 +261,7 @@ export function FeaturesShowcaseSection() {
           {/* Main content: Feature list + Preview */}
           <motion.div variants={itemVariants}>
             <div
-              className="grid lg:grid-cols-5 gap-6"
+              className="grid gap-6 lg:grid-cols-5"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
@@ -371,9 +342,9 @@ export function FeaturesShowcaseSection() {
 
               {/* Right: Preview */}
               <div className="lg:col-span-3">
-                <div className="sticky top-8">
-                  <BrowserChrome url={`app.ozzios.com/${activeFeature.id}`}>
-                    <div className="relative h-[440px] overflow-hidden">
+                  <div className="sticky top-8">
+                    <BrowserChrome url={`app.ozzios.com/${activeFeature.id}`}>
+                      <div className="relative h-[440px] overflow-hidden">
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={activeFeature.id}
@@ -396,7 +367,7 @@ export function FeaturesShowcaseSection() {
           {/* Bottom: All features link */}
           <motion.div variants={itemVariants} className="mt-12 text-center">
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">17 features</span> across 4
+              <span className="font-semibold text-foreground">14 features</span> across 4
               categories.{' '}
               <span className="text-muted-foreground">All included in every plan.</span>
             </p>
@@ -442,10 +413,6 @@ function FeaturePreview({ featureId }: { featureId: string }) {
       return <EmailBuilderPreview />;
     case 'forms':
       return <FormsPreview />;
-    case 'blog-seo':
-      return <BlogSeoPreview />;
-    case 'presentations':
-      return <PresentationsPreview />;
     case 'coding':
       return <CodingPreview />;
     case 'knowledge-base':
@@ -456,8 +423,6 @@ function FeaturePreview({ featureId }: { featureId: string }) {
       return <CrmPreview />;
     case 'dashboard':
       return <DashboardPreview />;
-    case 'documents':
-      return <DocumentsPreview />;
     case 'ai-agents':
       return <AIAgentsPreview />;
     case 'voice-agents':
@@ -727,137 +692,6 @@ function FormsPreview() {
   );
 }
 
-function BlogSeoPreview() {
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-foreground">Blog Editor</div>
-        <span className="px-2 py-0.5 text-[10px] font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full">
-          SEO Score: 92
-        </span>
-      </div>
-      <div className="flex gap-4">
-        {/* Article content */}
-        <div className="flex-1 space-y-3">
-          <div className="h-4 bg-foreground/80 rounded w-3/4" />
-          <div className="space-y-1.5">
-            <div className="h-2 bg-muted rounded w-full" />
-            <div className="h-2 bg-muted rounded w-5/6" />
-            <div className="h-2 bg-muted rounded w-full" />
-            <div className="h-2 bg-muted rounded w-4/5" />
-          </div>
-          <div className="h-28 bg-muted/50 rounded-lg flex items-center justify-center">
-            <span className="text-[10px] text-muted-foreground">Featured Image</span>
-          </div>
-          <div className="space-y-1.5">
-            <div className="h-3 bg-foreground/60 rounded w-1/2" />
-            <div className="h-2 bg-muted rounded w-full" />
-            <div className="h-2 bg-muted rounded w-5/6" />
-          </div>
-        </div>
-        {/* SEO sidebar */}
-        <div className="w-32 space-y-3">
-          <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-            SEO Analysis
-          </div>
-          {[
-            { label: 'Readability', score: 94, color: 'bg-green-500' },
-            { label: 'Keywords', score: 88, color: 'bg-green-500' },
-            { label: 'Meta Tags', score: 100, color: 'bg-green-500' },
-            { label: 'Links', score: 75, color: 'bg-yellow-500' },
-          ].map((item) => (
-            <div key={item.label} className="space-y-1">
-              <div className="flex justify-between">
-                <span className="text-[10px] text-muted-foreground">{item.label}</span>
-                <span className="text-[10px] font-medium text-foreground">{item.score}</span>
-              </div>
-              <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${item.score}%` }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className={cn('h-full rounded-full', item.color)}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PresentationsPreview() {
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-foreground">Presentation Builder</div>
-        <div className="flex gap-2 items-center">
-          <span className="px-2 py-0.5 text-[10px] font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded-full">
-            AI Generated
-          </span>
-        </div>
-      </div>
-      {/* Main slide */}
-      <div className="aspect-[16/9] bg-gradient-to-br from-muted/50 to-muted rounded-lg border border-border p-6 flex flex-col justify-between relative overflow-hidden">
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-base font-semibold text-foreground"
-          >
-            Q4 Marketing Strategy
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-xs text-muted-foreground mt-1"
-          >
-            Growth Plan & Revenue Targets
-          </motion.div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="flex gap-3"
-        >
-          {[65, 82, 45, 91].map((h, i) => (
-            <div key={i} className="flex-1 flex flex-col justify-end">
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: `${h}%` }}
-                transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                className="bg-signature/60 rounded-t-sm min-h-[4px]"
-                style={{ maxHeight: 60 }}
-              />
-            </div>
-          ))}
-        </motion.div>
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-signature" />
-      </div>
-      {/* Slide thumbnails */}
-      <div className="flex gap-2">
-        {['Title Slide', 'Overview', 'Charts', 'Strategy', 'Timeline'].map((s, i) => (
-          <div
-            key={s}
-            className={cn(
-              'flex-1 h-12 rounded-md border flex items-center justify-center',
-              i === 2
-                ? 'border-signature bg-signature/5'
-                : 'border-border bg-muted/30'
-            )}
-          >
-            <span className="text-[8px] text-muted-foreground">{s}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function CodingPreview() {
   return (
     <div className="space-y-3">
@@ -984,7 +818,7 @@ function TasksPreview() {
           {
             title: 'To Do',
             count: 5,
-            cards: ['Design landing page', 'Write blog post', 'Review SEO audit'],
+            cards: ['Design landing page', 'Write blog post', 'Review monthly report'],
           },
           {
             title: 'In Progress',
@@ -1123,55 +957,6 @@ function DashboardPreview() {
   );
 }
 
-function DocumentsPreview() {
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-foreground">Document Editor</div>
-        <span className="px-2 py-0.5 text-[10px] font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full">
-          Signed
-        </span>
-      </div>
-      <div className="bg-white dark:bg-muted/20 border border-border rounded-lg p-6 space-y-4">
-        <div className="text-center">
-          <div className="text-sm font-bold text-foreground">Service Agreement</div>
-          <div className="text-[10px] text-muted-foreground">Effective Date: Feb 1, 2025</div>
-        </div>
-        <div className="space-y-2">
-          <div className="h-2 bg-muted rounded w-full" />
-          <div className="h-2 bg-muted rounded w-5/6" />
-          <div className="h-2 bg-muted rounded w-full" />
-          <div className="h-2 bg-muted rounded w-3/4" />
-        </div>
-        <div className="h-px bg-border" />
-        <div className="space-y-2">
-          <div className="h-2 bg-muted rounded w-full" />
-          <div className="h-2 bg-muted rounded w-4/5" />
-        </div>
-        {/* Signature area */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="pt-4 border-t border-dashed border-border"
-        >
-          <div className="flex justify-between items-end">
-            <div>
-              <div className="text-xs text-muted-foreground mb-1">Signature</div>
-              <div className="text-base font-script italic text-signature">John Smith</div>
-              <div className="h-px w-32 bg-border mt-1" />
-            </div>
-            <div className="flex items-center gap-1 text-green-600 dark:text-green-400">
-              <CheckSquare className="h-3.5 w-3.5" />
-              <span className="text-[10px] font-medium">Verified</span>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
 function AIAgentsPreview() {
   return (
     <div className="space-y-4">
@@ -1181,7 +966,7 @@ function AIAgentsPreview() {
       </div>
       <div className="grid grid-cols-2 gap-2.5">
         {[
-          { name: 'SEO Specialist', task: 'Running site audit...', status: 'active' },
+          { name: 'SEO Specialist', task: 'Tracking ranking changes...', status: 'active' },
           { name: 'Content Writer', task: 'Drafting blog post...', status: 'active' },
           { name: 'Social Manager', task: 'Scheduling posts...', status: 'active' },
           { name: 'Data Analyst', task: 'Generating report...', status: 'active' },
@@ -1383,7 +1168,7 @@ function ChannelsPreview() {
             {[
               { name: 'Alex', msg: 'Just finished the Q4 campaign deck. Looks great!', time: '2:34 PM' },
               { name: 'Sarah', msg: 'Can someone review the new landing page copy?', time: '2:36 PM' },
-              { name: 'AI Bot', msg: 'SEO audit complete. 12 issues found, 3 critical. See report →', time: '2:38 PM', isBot: true },
+              { name: 'AI Bot', msg: 'Weekly report ready. 3 trends flagged. View dashboard →', time: '2:38 PM', isBot: true },
             ].map((m, i) => (
               <motion.div
                 key={i}

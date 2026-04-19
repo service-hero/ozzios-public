@@ -162,7 +162,7 @@ export const audienceContent = {
       },
       {
         question: 'Can AI really handle marketing for a home service company?',
-        answer: 'For the repetitive, process-driven work? Yes--and often better. Site audits, content drafts, social scheduling, Google Business Profile management, performance reports. Your AI agents handle these 24/7 without the back-and-forth.',
+        answer: 'For the repetitive, process-driven work? Yes--and often better. Content drafts, social scheduling, Google Business Profile management, performance reports, and follow-up workflows. Your AI agents handle these 24/7 without the back-and-forth.',
       },
       {
         question: 'Will I finally understand what\'s happening with my marketing?',
@@ -199,7 +199,7 @@ export const audienceContent = {
           number: '02',
           title: 'Your agents get to work',
           description: '30+ AI agents handle SEO, content, social, ads, and Google Business Profile--trained on home service marketing, not generic templates.',
-          benefits: ['Blog & SEO', 'Presentations & reports'],
+          benefits: ['Social & email campaigns', 'Dashboards & reports'],
         },
         {
           number: '03',
@@ -225,14 +225,14 @@ export const audienceContent = {
           role: 'Owner',
           company: 'Roof Experts',
           content: 'Ozzi is insane. You just tell it what you want to do and it builds a custom workflow--pulling in the right agents automatically. In the first 20 minutes it found and fixed a sitemap issue on my website I didn\'t even know existed. Two days later, I\'m already seeing more traffic.',
-          image: '/images/anthony-profile.jpg',
+          image: '/images/anthony-profile.webp',
         },
         {
           name: 'Gregory Underwood',
           role: 'Owner',
           company: 'Extreme Carpet',
           content: 'In my first day using it, Ozzi set up a full 12-week posting schedule for my Google Business Profile and built out a complete service page for my website that looked really professional. Only needed a quick manual fix for some meta tags because of Yoast SEO--minor thing. Impressive for less than 24 hours in.',
-          image: '/images/greg-profile-image.jpg',
+          image: '/images/greg-profile-image.webp',
         },
       ],
       trustStats: [

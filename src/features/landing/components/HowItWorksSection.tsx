@@ -38,27 +38,25 @@ export function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <section id="how-it-works" className="relative overflow-hidden py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-x-0 top-32 h-80 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.08),transparent_60%)] blur-3xl" />
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
-          className="mb-16 lg:mb-20 max-w-3xl"
+          className="mb-20 max-w-5xl"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              {content.sectionLabel}
-            </p>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-display font-medium tracking-tight text-foreground mb-6 leading-[1.1]">
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
+            {content.sectionLabel}
+          </p>
+          <h2 className="max-w-5xl text-[clamp(3rem,5.4vw,5.4rem)] font-display font-medium tracking-[-0.06em] text-foreground mb-6 leading-[0.92]">
             {content.headline[0]}
             <br />
-            <span className="text-muted-foreground/80">{content.headline[1]}</span>
+            <span className="text-muted-foreground/78">{content.headline[1]}</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed font-light">
+          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             {content.subheadline}
           </p>
         </motion.div>
@@ -102,7 +100,10 @@ export function FeaturesSection() {
                   isEven ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"
                 )} />
 
-                <div className="rounded-xl border border-border/80 bg-card overflow-hidden hover:border-signature/30 hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div
+                  className="overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_20px_60px_rgba(56,40,29,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(56,40,29,0.12)]"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.94)' }}
+                >
                 <div className={cn(
                   'flex flex-col lg:flex-row',
                   !isEven && 'lg:flex-row-reverse'
@@ -125,7 +126,7 @@ export function FeaturesSection() {
 
                     {/* Step number overlay */}
                     <div className={cn(
-                      'absolute top-6 font-bold text-[64px] leading-none text-border',
+                      'absolute top-6 font-bold text-[64px] leading-none text-foreground/[0.08]',
                       isEven ? 'left-6' : 'right-6'
                     )}>
                       {String(index + 1).padStart(2, '0')}
@@ -136,9 +137,6 @@ export function FeaturesSection() {
                   <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
                     <div className="flex items-start gap-4">
                       <div className="flex-1">
-                        <div className="text-[12px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                          Step {String(index + 1).padStart(2, '0')}
-                        </div>
                         <h3 className="text-xl lg:text-2xl font-display text-foreground mb-3">
                           {step.title}
                         </h3>
@@ -151,9 +149,9 @@ export function FeaturesSection() {
                           {step.benefits.map((benefit) => (
                             <span
                               key={benefit}
-                              className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground"
-                            >
-                              <Check className="h-3.5 w-3.5 text-muted-foreground" />
+                            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground"
+                          >
+                              <Check className="h-3.5 w-3.5 text-signature" />
                               {benefit}
                             </span>
                           ))}
@@ -178,7 +176,7 @@ export function FeaturesSection() {
         >
           <a
             href="https://app.ozzios.com/sign-up"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-signature text-white font-medium text-sm hover:bg-signature/90 transition-all duration-200 group shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-medium text-white transition-all duration-200 group shadow-[0_18px_40px_rgba(41,30,23,0.16)] hover:bg-foreground/92"
           >
             Get Early Access
             <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>

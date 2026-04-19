@@ -45,6 +45,17 @@ const messageVariants = {
   },
 };
 
+const heroIntegrations = [
+  { name: 'Google', logo: '/images/google-logo.svg' },
+  { name: 'Facebook', logo: '/images/facebook-icon.svg' },
+  { name: 'Shopify', logo: '/images/shopify-logo.webp' },
+  { name: 'Stripe', logo: '/images/stripe-logo.webp' },
+  { name: 'WordPress', logo: '/images/wordpress.webp' },
+  { name: 'Google Ads', logo: '/images/google-ads-logo.webp' },
+  { name: 'Gmail', logo: '/images/gmail-logo.webp' },
+  { name: 'TikTok', logo: '/images/tiktok-logo.svg' },
+];
+
 export function HeroSection() {
   const { audience, isBusinessOwner } = useAudience();
   const content = audienceContent[audience].hero;
@@ -258,166 +269,187 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-background"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-background"
     >
       <AnimatedBackground />
 
-      {/* Content */}
-      <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32">
+      <div className="pointer-events-none absolute inset-x-0 top-24 z-[1] h-[34rem] bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.16),transparent_44%)] blur-3xl" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-6 pb-24 pt-32 lg:px-8 lg:pb-36 lg:pt-44">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col items-center"
+          className="flex flex-col"
         >
-          {/* Differentiation chip */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted/30 border border-border/50">
-              <div className="w-1.5 h-1.5 rounded-full bg-signature animate-pulse" />
-              <span className="text-[11px] font-medium text-foreground tracking-widest uppercase">
-                The AI Platform Built for Service Companies
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Main headline - Editorial serif typography */}
-          <motion.div variants={itemVariants} className="text-center max-w-5xl">
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={audience}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="text-[clamp(2.5rem,8vw,5.5rem)] font-display leading-[0.95] tracking-[-0.02em] text-foreground"
-              >
-                {content.headline[0]}
-                <br />
-                <span className="text-signature">
-                  {content.headline[1]}
-                </span>
-              </motion.h1>
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Subheadline */}
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`sub-${audience}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="mt-8 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl text-center font-light"
-            >
-              {content.subheadline}
-            </motion.p>
-          </AnimatePresence>
-
-          {/* Integration avatars */}
-          <motion.div variants={itemVariants} className="mt-8">
-            <div className="flex flex-col items-center gap-3">
-              <div className="flex items-center">
-                {[
-                  { name: 'Google', logo: '/images/google-logo.svg' },
-                  { name: 'Facebook', logo: '/images/facebook-icon.svg' },
-                  { name: 'Shopify', logo: '/images/shopify-logo.webp' },
-                  { name: 'Stripe', logo: '/images/stripe-logo.webp' },
-                  { name: 'WordPress', logo: '/images/wordpress.webp' },
-                  { name: 'Google Ads', logo: '/images/google-ads-logo.webp' },
-                  { name: 'Gmail', logo: '/images/gmail-logo.webp' },
-                  { name: 'TikTok', logo: '/images/tiktok-logo.svg' },
-                ].map((integration, i) => (
-                  <div
-                    key={integration.name}
-                    className="relative w-12 h-12 -ml-2.5 first:ml-0 rounded-full border-2 border-background bg-white dark:bg-muted overflow-hidden shadow-sm hover:z-10 hover:scale-110 transition-transform"
-                    style={{ zIndex: 8 - i }}
-                    title={integration.name}
+          <div className="grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
+            <motion.div variants={itemVariants} className="lg:col-span-7">
+              <div className="max-w-6xl">
+                <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.28em] text-foreground/52">
+                  Operating system for the trades
+                </p>
+                <AnimatePresence mode="wait">
+                  <motion.h1
+                    key={audience}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.35 }}
+                    className="max-w-6xl text-[clamp(3.35rem,7vw,6.4rem)] font-display leading-[0.88] tracking-[-0.06em] text-foreground"
                   >
-                    <img
-                      src={integration.logo}
-                      alt={integration.name}
-                      className="w-full h-full object-contain p-2"
-                    />
-                  </div>
-                ))}
-                <div
-                  className="relative w-12 h-12 -ml-2.5 rounded-full border-2 border-background bg-muted flex items-center justify-center shadow-sm"
-                  style={{ zIndex: 0 }}
+                    {content.headline[0]}{' '}
+                    <span className="mx-2 inline-flex h-12 w-24 items-center rounded-full border border-white/80 bg-[linear-gradient(135deg,rgba(34,25,19,0.96),rgba(96,62,41,0.92))] px-2.5 align-middle shadow-[0_12px_28px_rgba(41,30,23,0.18)] sm:h-14 sm:w-28 md:h-16 md:w-36 md:px-3">
+                      <span className="flex items-center gap-1.5 md:gap-2">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[rgba(255,255,255,0.14)] md:h-9 md:w-9">
+                          <span className="h-2.5 w-2.5 rounded-full bg-signature shadow-[0_0_18px_rgba(214,123,73,0.65)] md:h-3 md:w-3" />
+                        </span>
+                        <span className="flex flex-col gap-1 md:gap-1.5">
+                          <span className="h-1.5 w-8 rounded-full bg-white/85 md:w-12" />
+                          <span className="h-1.5 w-5 rounded-full bg-white/35 md:w-7" />
+                        </span>
+                      </span>
+                    </span>
+                    <span className="text-signature">{content.headline[1]}</span>
+                  </motion.h1>
+                </AnimatePresence>
+
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`sub-${audience}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.35, delay: 0.08 }}
+                    className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl"
+                  >
+                    {content.subheadline}
+                  </motion.p>
+                </AnimatePresence>
+
+                <motion.div
+                  variants={itemVariants}
+                  className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center"
                 >
-                  <span className="text-xs font-semibold text-muted-foreground">+20</span>
+                  <Button
+                    size="lg"
+                    asChild
+                    className="h-14 rounded-full border-0 bg-foreground px-7 text-sm font-medium text-white shadow-[0_18px_40px_rgba(41,30,23,0.18)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-foreground/92"
+                  >
+                    <a href="https://app.ozzios.com/sign-up">
+                      Get Early Access
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </a>
+                  </Button>
+                  <button
+                    onClick={() => setDemoOpen(true)}
+                    className="inline-flex h-14 items-center gap-3 rounded-full border border-border/70 bg-white/70 px-7 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground text-background">
+                      <Play className="ml-0.5 h-3.5 w-3.5 fill-current" />
+                    </span>
+                    Watch demo
+                  </button>
+                </motion.div>
+
+                <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-5">
+                  <div className="flex items-center">
+                    {heroIntegrations.map((integration, i) => (
+                      <div
+                        key={integration.name}
+                        className="relative -ml-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-white/80 bg-white shadow-[0_10px_24px_rgba(41,30,23,0.1)] first:ml-0"
+                        style={{ zIndex: heroIntegrations.length - i }}
+                        title={integration.name}
+                      >
+                        <img
+                          src={integration.logo}
+                          alt={integration.name}
+                          className="h-full w-full object-contain p-2"
+                        />
+                      </div>
+                    ))}
+                    <div className="relative -ml-3 flex h-12 w-12 items-center justify-center rounded-full border border-white/80 bg-muted shadow-[0_10px_24px_rgba(41,30,23,0.1)]">
+                      <span className="text-xs font-semibold text-muted-foreground">+20</span>
+                    </div>
+                  </div>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    Connected to the systems you already run, from search and ads to billing and follow-up.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="lg:col-span-5">
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(248,242,237,0.96))] p-6 shadow-[0_28px_90px_rgba(54,39,29,0.12)] backdrop-blur-xl">
+                <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+                <div className="flex items-center justify-between">
+                  <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-foreground/45">
+                    What the team sees
+                  </p>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-3 py-1 text-xs text-muted-foreground">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    Live automation
+                  </div>
+                </div>
+                <div className="mt-6 space-y-4">
+                  {[
+                    {
+                      title: 'Missed-call recovery',
+                      detail: 'Lead follow-up triggers personalized text and email sequences within minutes.',
+                    },
+                    {
+                      title: 'Review response drafting',
+                      detail: 'Agents draft, route, and post responses without waiting on office staff.',
+                    },
+                    {
+                      title: 'Daily operating summary',
+                      detail: 'Revenue leaks, campaign changes, and open tasks land in one thread each morning.',
+                    },
+                  ].map((item, index) => (
+                    <div
+                      key={item.title}
+                      className="group rounded-[1.5rem] border border-border/60 bg-white/75 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-foreground text-sm font-semibold text-background">
+                          0{index + 1}
+                        </div>
+                        <div>
+                          <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <span className="text-xs text-muted-foreground">
-                Connects to the tools you already use
-              </span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* CTA buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button
-              size="lg"
-              asChild
-              className="h-12 px-6 text-sm font-medium gap-2 bg-signature text-white hover:bg-signature/90 rounded-md group"
+          <motion.div variants={itemVariants} className="mt-12 overflow-hidden rounded-full border border-border/60 bg-white/55 py-3 shadow-[0_14px_38px_rgba(41,30,23,0.06)] backdrop-blur-xl">
+            <motion.div
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
+              className="flex min-w-max items-center gap-10 px-6"
             >
-              <a href="https://app.ozzios.com/sign-up">
-                Get Early Access
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </Button>
-            <button
-              onClick={() => setDemoOpen(true)}
-              className="h-12 px-6 text-sm font-medium gap-2 text-foreground bg-muted/40 border border-border/50 hover:bg-muted/80 rounded-md inline-flex items-center transition-colors group"
-            >
-              <div className="flex items-center justify-center w-5 h-5 rounded-sm bg-foreground/10 group-hover:bg-foreground/20 transition-colors">
-                <Play className="h-2.5 w-2.5 text-foreground fill-current ml-0.5" />
-              </div>
-              Watch demo
-            </button>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 flex flex-wrap items-center justify-center gap-x-16 gap-y-8 border-y border-border/40 py-8 px-4"
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`stats-${audience}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-                className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
-              >
-                {content.stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
-                      {stat.value}
-                    </div>
-                    <div className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+              {[...content.stats, ...content.stats].map((stat, index) => (
+                <div key={`${stat.label}-${index}`} className="flex items-center gap-3 whitespace-nowrap">
+                  <span className="text-lg font-semibold tracking-tight text-foreground">{stat.value}</span>
+                  <span className="text-[0.72rem] uppercase tracking-[0.24em] text-foreground/45">{stat.label}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Product visualization - Animated Chat Interface */}
           <motion.div
             variants={itemVariants}
-            className="mt-20 w-full max-w-5xl"
+            className="mt-10 w-full"
           >
             <div className="relative">
-              {/* Browser chrome */}
-              <div className="relative rounded-xl border border-border/80 bg-background overflow-hidden shadow-2xl shadow-black/5 ring-1 ring-black/5">
+              <div className="pointer-events-none absolute -inset-x-10 top-10 h-48 bg-[radial-gradient(circle_at_center,rgba(196,88,63,0.14),transparent_58%)] blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-background/90 shadow-[0_38px_120px_rgba(36,29,24,0.12)] ring-1 ring-black/5">
                 {/* Window controls */}
-                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border/50 bg-muted/20">
+                <div className="flex items-center gap-2 border-b border-border/50 bg-muted/20 px-4 py-2.5">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
@@ -440,7 +472,7 @@ export function HeroSection() {
                     <div className="p-3 border-b border-border">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg overflow-hidden">
-                          <img src="/images/service-hero-logo.jpg" alt="Service Hero" className="w-full h-full object-cover" />
+                          <img src="/images/service-hero-logo.webp" alt="Service Hero" className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-[12px] font-semibold text-foreground truncate">Service Hero</div>
@@ -976,7 +1008,7 @@ export function HeroSection() {
                                               <div className="flex items-center justify-between mb-3">
                                                 <div className="flex items-center gap-2">
                                                   <div className="w-5 h-5 rounded overflow-hidden">
-                                                    <img src="/images/service-hero-logo.jpg" alt="Service Hero" className="w-full h-full object-cover" />
+                                                    <img src="/images/service-hero-logo.webp" alt="Service Hero" className="w-full h-full object-cover" />
                                                   </div>
                                                   <span className="text-[9px] font-semibold text-foreground">Service Hero Report</span>
                                                 </div>

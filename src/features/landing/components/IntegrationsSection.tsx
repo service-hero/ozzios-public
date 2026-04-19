@@ -31,43 +31,41 @@ export function IntegrationsSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-background overflow-hidden border-t border-border/40">
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
+    <section className="relative overflow-hidden border-t border-border/40 py-32 lg:py-40">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-8">
         
-        <div className="text-center mb-16">
-          <motion.div
+        <div className="mb-16 max-w-5xl">
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-3 mb-6"
+            className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45"
           >
-            <div className="w-8 h-px bg-signature" />
-            <p className="text-[11px] font-semibold text-signature uppercase tracking-[0.2em]">
-              Connect Anything
-            </p>
-            <div className="w-8 h-px bg-signature" />
-          </motion.div>
-          
-          <motion.h2 
+            Connect anything
+          </motion.p>
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-display font-medium text-foreground tracking-tight mb-4"
+            className="mb-6 text-[clamp(3rem,5vw,5.1rem)] font-display font-medium tracking-[-0.06em] text-foreground leading-[0.92]"
           >
             Integrates with your stack
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="max-w-2xl text-lg leading-8 text-muted-foreground"
           >
             Ozzi works seamlessly with the tools you already use, pulling data and triggering actions across your entire business.
           </motion.p>
         </div>
 
         {/* Integration Map - Bulletproof Coordinate System */}
-        <div ref={ref} className="relative w-full max-w-5xl mx-auto aspect-square md:aspect-[16/9] mt-12 md:mt-24">
+        <div
+          ref={ref}
+          className="relative mx-auto mt-12 aspect-square w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.76),rgba(245,239,233,0.96))] p-6 shadow-[0_28px_80px_rgba(56,40,29,0.08)] md:mt-20 md:aspect-[16/9] md:p-10"
+        >
           
           {/* Animated SVG Connections (0-100 Coordinate Space) */}
           <svg 
@@ -126,7 +124,7 @@ export function IntegrationsSection() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
               transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-              className="w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-signature/20 rounded-full blur-[80px] md:blur-[120px]"
+              className="h-[300px] w-[300px] rounded-full bg-signature/20 blur-[80px] md:h-[500px] md:w-[500px] md:blur-[120px]"
             />
           </div>
 
@@ -147,7 +145,7 @@ export function IntegrationsSection() {
                   damping: 20, 
                   delay: 1.2 + (i * 0.1) 
                 }}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white dark:bg-card border border-border/60 shadow-lg flex items-center justify-center hover:scale-110 hover:border-signature/30 hover:shadow-signature/20 transition-all duration-300 cursor-pointer group"
+                className="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-border/60 bg-white shadow-lg transition-all duration-300 hover:scale-110 hover:border-signature/30 hover:shadow-signature/20 md:h-16 md:w-16 md:rounded-2xl"
               >
                 <img 
                   src={node.logo} 
@@ -169,7 +167,7 @@ export function IntegrationsSection() {
                 damping: 20, 
                 delay: 0.4 
               }}
-              className="relative flex items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white dark:bg-card border-2 border-signature shadow-[0_0_40px_rgba(255,87,34,0.3)] group cursor-pointer overflow-hidden"
+              className="group relative flex h-24 w-24 cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-2 border-signature bg-white shadow-[0_0_40px_rgba(255,87,34,0.3)] md:h-28 md:w-28"
             >
               <video
                 src="/images/ozzi-avatar.mp4"
