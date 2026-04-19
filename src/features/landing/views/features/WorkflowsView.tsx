@@ -1,37 +1,44 @@
-'use client';
-
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import {
-  ArrowRight,
-  GitBranch,
-  Zap,
-  Clock,
-  Shield,
-  Play,
-  RotateCcw,
-  Webhook,
-  CalendarClock,
-  SplitSquareVertical,
-  Repeat,
-  Mail,
   AlertTriangle,
+  CalendarClock,
+  Clock,
+  GitBranch,
   Layers,
-  Timer,
+  Mail,
   MousePointerClick,
+  Play,
+  Repeat,
+  RotateCcw,
+  Shield,
+  SplitSquareVertical,
+  Timer,
+  Webhook,
+  Zap,
+  type LucideIcon,
 } from 'lucide-react';
+import { useRef } from 'react';
+import { cn } from '@/lib/utils';
 import { DeferredSection } from '@/components/ui/lazy-section';
+import {
+  CapabilitiesBlock,
+  FeatureCTABlock,
+  FeatureHero,
+  PainPointsBlock,
+  SectionHeader,
+  SectionHeading,
+  innerContainerVariants,
+  innerItemVariants,
+  type Capability,
+  type PainPoint,
+} from '../../components/_landing-primitives';
 
-// ---------------------------------------------------------------------------
-// Data
-// ---------------------------------------------------------------------------
-
-const painPoints = [
+const painPoints: PainPoint[] = [
   {
     icon: MousePointerClick,
     title: 'Manual processes drain your team',
     description:
-      'Every new lead means a manual email, a CRM update, a Slack notification, and a follow-up reminder. Multiply that by 100 leads a week and your team is drowning in busywork.',
+      'Every new lead means a manual email, a CRM update, a Slack notification, and a follow-up reminder. Multiply that by 100 leads a week.',
   },
   {
     icon: AlertTriangle,
@@ -43,57 +50,31 @@ const painPoints = [
     icon: Clock,
     title: 'Duct-taped automations break',
     description:
-      'You\'ve connected 6 different tools with Zapier and Make. One API changes and the whole chain breaks silently. You find out when a customer complains.',
+      "You've connected 6 different tools with Zapier and Make. One API changes and the whole chain breaks silently. You find out when a customer complains.",
   },
   {
     icon: Layers,
-    title: 'No visibility into what\'s running',
+    title: 'No visibility into what is running',
     description:
       'Your automations are scattered across platforms. Nobody knows what triggers what. When something breaks, you spend hours debugging across 4 dashboards.',
   },
 ];
 
-const nodeTypes = [
-  {
-    icon: Zap,
-    name: 'Action',
-    description: 'Execute agent responses, API calls, or Convex functions. Full access to your 127+ AI tools.',
-  },
-  {
-    icon: Clock,
-    name: 'Wait',
-    description: 'Delay by duration or until a specific timestamp. "Wait 3 days, then follow up."',
-  },
-  {
-    icon: Shield,
-    name: 'Approval',
-    description: 'Pause for human decision. Get a push notification, approve or deny from anywhere.',
-  },
-  {
-    icon: SplitSquareVertical,
-    name: 'Condition',
-    description: 'Branch logic. If lead score > 80, fast-track to sales. Otherwise, nurture sequence.',
-  },
-  {
-    icon: Repeat,
-    name: 'Loop',
-    description: 'Repeat until a condition is met. Check status every hour until the deal closes.',
-  },
-  {
-    icon: GitBranch,
-    name: 'Parallel',
-    description: 'Execute multiple branches at once. Send email, update CRM, and notify Slack simultaneously.',
-  },
-  {
-    icon: Webhook,
-    name: 'Webhook',
-    description: 'Trigger workflows from any external service. Stripe payment, form submission, API call.',
-  },
-  {
-    icon: Mail,
-    name: 'Delivery',
-    description: 'Send email, SMS, or push notifications. Personalized with contact data from your CRM.',
-  },
+interface NodeType {
+  icon: LucideIcon;
+  name: string;
+  description: string;
+}
+
+const nodeTypes: NodeType[] = [
+  { icon: Zap, name: 'Action', description: 'Execute agent responses, API calls, or Convex functions. Full access to 127+ tools.' },
+  { icon: Clock, name: 'Wait', description: 'Delay by duration or until a specific timestamp. "Wait 3 days, then follow up."' },
+  { icon: Shield, name: 'Approval', description: 'Pause for human decision. Get a push notification, approve or deny from anywhere.' },
+  { icon: SplitSquareVertical, name: 'Condition', description: 'Branch logic. If lead score > 80, fast-track to sales. Otherwise, nurture sequence.' },
+  { icon: Repeat, name: 'Loop', description: 'Repeat until a condition is met. Check status every hour until the deal closes.' },
+  { icon: GitBranch, name: 'Parallel', description: 'Execute multiple branches at once. Send email, update CRM, notify Slack simultaneously.' },
+  { icon: Webhook, name: 'Webhook', description: 'Trigger workflows from any external service. Stripe payment, form submission, API call.' },
+  { icon: Mail, name: 'Delivery', description: 'Send email, SMS, or push notifications. Personalized with contact data from your CRM.' },
 ];
 
 const triggers = [
@@ -105,27 +86,27 @@ const triggers = [
   { event: 'Email received', source: 'Inbox', description: 'Auto-route, classify, and respond to inbound email' },
 ];
 
-const capabilities = [
+const capabilities: Capability[] = [
   {
     icon: RotateCcw,
     title: 'Durable execution',
     benefit: 'Workflows that never fail silently',
     description:
-      'Every step is checkpointed. If a server restarts, your workflow resumes exactly where it left off. Failed steps retry automatically with exponential backoff.',
+      'Every step is checkpointed. If a server restarts, your workflow resumes exactly where it left off. Failed steps retry automatically.',
   },
   {
     icon: Play,
     title: 'Visual builder',
     benefit: 'Build without code',
     description:
-      'Drag-and-drop workflow editor built on React Flow. Connect nodes, set conditions, and deploy in minutes. See your entire automation as a clear, visual diagram.',
+      'Drag-and-drop workflow editor built on React Flow. Connect nodes, set conditions, and deploy in minutes. See your entire automation as a clear diagram.',
   },
   {
     icon: Timer,
     title: 'Timezone-aware scheduling',
     benefit: 'Reach people at the right time',
     description:
-      'Schedule workflows in any timezone. Send that follow-up email at 9am in the recipient\'s local time, not yours.',
+      "Schedule workflows in any timezone. Send that follow-up email at 9am in the recipient's local time, not yours.",
   },
   {
     icon: Shield,
@@ -136,181 +117,52 @@ const capabilities = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
-
-// ---------------------------------------------------------------------------
-// Sections
-// ---------------------------------------------------------------------------
-
-function HeroSection() {
-  return (
-    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-30" />
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div initial="hidden" animate="visible" variants={containerVariants}>
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <div className="tag-neo rounded-full bg-signature/10 border-signature mb-6 inline-flex items-center gap-2">
-              <GitBranch className="w-4 h-4 text-signature" />
-              <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
-                Workflow Automation
-              </span>
-            </div>
-            <h1 className="text-display font-display text-foreground mb-6">
-              Automate the work{' '}
-              <span className="text-signature">that burns you out.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-              Durable, visual workflows that connect your AI agents, triggers, and actions into
-              automations that run 24/7 and never break silently.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <a
-                href="https://app.ozzios.com/sign-up"
-                className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
-              >
-                Build your first workflow
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/pricing"
-                className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-card border-2 border-border text-foreground font-medium text-base rounded-lg hover:border-signature/30 transition-colors duration-200"
-              >
-                See pricing
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-            {[
-              { value: '10', label: 'Node Types' },
-              { value: '20+', label: 'Event Triggers' },
-              { value: '24/7', label: 'Always Running' },
-              { value: '3x', label: 'Auto-Retry' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-display text-3xl md:text-4xl text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function PainPointsSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-neo text-signature mb-6 inline-block">The Problem</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Your automations are held together with tape
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Zapier chains, manual follow-ups, and "I'll remember to do that" -- until you don't.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          {painPoints.map((point) => {
-            const Icon = point.icon;
-            return (
-              <motion.div
-                key={point.title}
-                variants={itemVariants}
-                className="card-neo rounded-xl p-8 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-5 group-hover:bg-destructive/20 transition-colors">
-                  <Icon className="w-6 h-6 text-destructive" />
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-3">{point.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{point.description}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+// ────────────────────────────────────────────────────────────────────────────
+// Node types section
+// ────────────────────────────────────────────────────────────────────────────
 
 function NodeTypesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <section className="relative isolate overflow-hidden border-t border-border/50 py-24 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 lg:mb-14"
         >
-          <span className="tag-neo text-signature mb-6 inline-block">Building Blocks</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            8 node types. Infinite combinations.
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Drag, connect, deploy. Each node is a building block for automations that match
-            exactly how your business works.
-          </p>
+          <SectionHeader
+            eyebrow="Building blocks"
+            headlineLines={['8 node types.', 'Infinite combinations.']}
+            sub="Drag, connect, deploy. Each node is a building block for automations that match exactly how your business works."
+          />
         </motion.div>
 
         <motion.div
-          variants={containerVariants}
+          variants={innerContainerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {nodeTypes.map((node) => {
             const Icon = node.icon;
             return (
               <motion.div
                 key={node.name}
-                variants={itemVariants}
-                className="bg-card border-2 border-border rounded-lg p-6 hover:border-signature/30 transition-colors duration-200 group"
+                variants={innerItemVariants}
+                className="group/n rounded-xl border border-border/60 bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-[0_14px_30px_-18px_rgba(34,27,22,0.25)]"
               >
-                <div className="w-10 h-10 rounded-lg bg-signature/10 flex items-center justify-center mb-4 group-hover:bg-signature/20 transition-colors">
-                  <Icon className="w-5 h-5 text-signature" />
-                </div>
-                <h3 className="font-semibold text-foreground text-sm mb-2">{node.name}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{node.description}</p>
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border/60 bg-background text-foreground/70 transition-colors duration-200 group-hover/n:border-foreground/25 group-hover/n:bg-foreground group-hover/n:text-background">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <h3 className="mt-4 text-[13.5px] font-semibold text-foreground">{node.name}</h3>
+                <p className="mt-1.5 text-[11.5px] leading-[1.5] text-muted-foreground">
+                  {node.description}
+                </p>
               </motion.div>
             );
           })}
@@ -320,62 +172,72 @@ function NodeTypesSection() {
   );
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// Triggers section
+// ────────────────────────────────────────────────────────────────────────────
+
 function TriggersSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="relative isolate overflow-hidden border-t border-border/50 py-24 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="tag-neo text-signature mb-6 inline-block">Triggers</span>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-6">
-              React to anything, instantly
-            </h2>
-            <p className="text-muted-foreground text-base leading-relaxed mb-6">
-              Event-based, time-based, and webhook triggers mean your workflows fire the moment
-              something happens -- not hours later when someone checks.
-            </p>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              Stale entity detection catches leads that haven't progressed, customers that went quiet,
-              and tasks that are overdue. Automatically.
-            </p>
+            <SectionHeader
+              eyebrow="Triggers"
+              headlineLines={['React to anything,', 'instantly.']}
+              sub="Event-based, time-based, and webhook triggers mean your workflows fire the moment something happens — not hours later when someone checks. Stale entity detection catches leads that haven't progressed and customers that went quiet. Automatically."
+            />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="space-y-3">
-              {triggers.map((trigger, i) => (
-                <motion.div
-                  key={trigger.event}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
-                  className="flex items-start gap-4 bg-card border-2 border-border rounded-lg p-4 hover:border-signature/30 transition-colors"
-                >
-                  <div className="w-8 h-8 rounded bg-signature/10 flex items-center justify-center shrink-0">
-                    <CalendarClock className="w-4 h-4 text-signature" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="font-semibold text-foreground text-sm">{trigger.event}</span>
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider bg-muted px-1.5 py-0.5 rounded">
-                        {trigger.source}
-                      </span>
+            <div className="overflow-hidden rounded-xl border border-border/60 bg-background">
+              <div className="border-b border-border/60 bg-muted/30 px-5 py-3">
+                <SectionHeading label="Event triggers" />
+              </div>
+              <div className="divide-y divide-border/60">
+                {triggers.map((trigger, i) => (
+                  <motion.div
+                    key={trigger.event}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
+                    className="flex items-start gap-4 px-5 py-3.5 transition-colors hover:bg-muted/30"
+                  >
+                    <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border/60 bg-background text-signature">
+                      <CalendarClock className="h-3.5 w-3.5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[13px] font-semibold text-foreground">
+                          {trigger.event}
+                        </span>
+                        <span
+                          className={cn(
+                            'inline-flex items-center rounded-[5px] border border-border/60 bg-muted px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-muted-foreground',
+                          )}
+                        >
+                          {trigger.source}
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-[11.5px] leading-[1.5] text-muted-foreground">
+                        {trigger.description}
+                      </p>
                     </div>
-                    <p className="text-xs text-muted-foreground">{trigger.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -384,123 +246,68 @@ function TriggersSection() {
   );
 }
 
-function CapabilitiesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-neo text-signature mb-6 inline-block">Professional-Grade</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-4">
-            Automation that takes itself seriously
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Reliable automation that never drops the ball. Your workflows keep running through
-            outages, retry automatically when something fails, and never lose track of where they left off.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          {capabilities.map((cap) => {
-            const Icon = cap.icon;
-            return (
-              <motion.div
-                key={cap.title}
-                variants={itemVariants}
-                className="card-neo rounded-xl p-8 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-signature/10 flex items-center justify-center mb-5 group-hover:bg-signature/20 transition-colors">
-                  <Icon className="w-6 h-6 text-signature" />
-                </div>
-                <p className="text-signature text-xs font-semibold uppercase tracking-wider mb-2">{cap.benefit}</p>
-                <h3 className="font-display text-xl text-foreground mb-3">{cap.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
-            Stop doing manually
-            <br />
-            what should run on autopilot.
-          </h2>
-          <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-            Build your first workflow in minutes. No code, no fragile integrations, no babysitting.
-          </p>
-          <a
-            href="https://app.ozzios.com/sign-up"
-            className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
-          >
-            Start automating
-            <ArrowRight className="w-5 h-5" />
-          </a>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span>256-bit Encryption</span>
-            <span className="hidden sm:inline text-border">|</span>
-            <span>GDPR Ready</span>
-            <span className="hidden sm:inline text-border">|</span>
-            <span>99.9% Uptime SLA</span>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Main Export
-// ---------------------------------------------------------------------------
+// ────────────────────────────────────────────────────────────────────────────
+// Main export
+// ────────────────────────────────────────────────────────────────────────────
 
 export function WorkflowsView() {
   return (
     <>
-      <HeroSection />
+      <FeatureHero
+        pillIcon={GitBranch}
+        pillLabel="Workflow Automation"
+        pillSubtitle="Durable execution, visual builder"
+        headlineLines={['Automate the work', 'that burns you out.']}
+        sub="Durable, visual workflows that connect your AI agents, triggers, and actions into automations that run 24/7 and never break silently."
+        primaryCta={{ label: 'Build your first workflow', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        stats={[
+          { value: '10', label: 'Node types' },
+          { value: '20+', label: 'Event triggers' },
+          { value: '24 / 7', label: 'Always running' },
+          { value: '3×', label: 'Auto-retry' },
+        ]}
+      />
+
       <DeferredSection>
-        <PainPointsSection />
+        <PainPointsBlock
+          eyebrow="The problem"
+          headlineLines={['Your automations', 'are held together with tape.']}
+          sub="Zapier chains, manual follow-ups, and 'I'll remember to do that' — until you don't."
+          points={painPoints}
+        />
       </DeferredSection>
+
       <DeferredSection>
         <NodeTypesSection />
       </DeferredSection>
+
       <DeferredSection>
         <TriggersSection />
       </DeferredSection>
+
       <DeferredSection>
-        <CapabilitiesSection />
+        <CapabilitiesBlock
+          eyebrow="Professional-grade"
+          headlineLines={['Automation that takes', 'itself seriously.']}
+          sub="Reliable automation that never drops the ball. Your workflows keep running through outages, retry automatically when something fails, and never lose track."
+          capabilities={capabilities}
+        />
       </DeferredSection>
+
       <DeferredSection>
-        <CTASection />
+        <FeatureCTABlock
+          eyebrow="Get automating"
+          headlineLines={['Stop doing manually', 'what should run on autopilot.']}
+          sub="Build your first workflow in minutes. No code, no fragile integrations, no babysitting."
+          primaryCta={{ label: 'Start automating', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          trust={[
+            { value: '256-bit', label: 'Encryption' },
+            { value: 'GDPR ready', label: 'Compliance' },
+            { value: '99.9%', label: 'Uptime SLA' },
+          ]}
+        />
       </DeferredSection>
     </>
   );

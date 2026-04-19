@@ -1,46 +1,32 @@
-'use client';
-
-import { DeferredSection } from '@/components/ui/lazy-section';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import {
-  ArrowRight,
-  CheckCircle2,
-  ListTodo,
-  Clock,
   AlertTriangle,
-  GitBranch,
-  Repeat,
-  LayoutGrid,
-  Tag,
-  Users,
   Bot,
   CalendarClock,
-  Zap,
-  Shield,
+  Clock,
+  GitBranch,
+  LayoutGrid,
+  ListTodo,
+  Repeat,
+  Tag,
+  Users,
 } from 'lucide-react';
+import { useRef } from 'react';
+import { DeferredSection } from '@/components/ui/lazy-section';
+import {
+  CapabilitiesBlock,
+  ChecklistBlock,
+  FeatureCTABlock,
+  FeatureHero,
+  PainPointsBlock,
+  SectionHeader,
+  innerContainerVariants,
+  innerItemVariants,
+  type Capability,
+  type PainPoint,
+} from '../../components/_landing-primitives';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
-
-const painPoints = [
+const painPoints: PainPoint[] = [
   {
     icon: AlertTriangle,
     title: 'Tasks fall through the cracks',
@@ -63,339 +49,105 @@ const painPoints = [
     icon: Repeat,
     title: 'Repetitive work stays manual',
     description:
-      'Customer onboarding, seasonal maintenance reminders, monthly reports -- the same task lists get recreated from scratch every time.',
+      'Customer onboarding, seasonal maintenance reminders, monthly reports — the same task lists get recreated from scratch every time.',
   },
 ];
 
-const capabilities = [
+const capabilities: Capability[] = [
   {
     icon: LayoutGrid,
-    title: 'Kanban + List Views',
-    description:
-      'Drag-and-drop kanban boards for visual workflows. Switch to list view for bulk operations. Your team picks the view that fits.',
+    title: 'Kanban + List views',
+    benefit: 'Pick the view that fits',
+    description: 'Drag-and-drop kanban boards for visual workflows. Switch to list view for bulk operations.',
   },
   {
     icon: GitBranch,
-    title: 'Task Dependencies',
-    description:
-      'Define what blocks what. Tasks auto-update when dependencies resolve. No more starting work that is not ready yet.',
+    title: 'Task dependencies',
+    benefit: 'Auto-update on resolution',
+    description: 'Define what blocks what. Tasks auto-update when dependencies resolve. No starting work that is not ready.',
   },
   {
     icon: CalendarClock,
-    title: 'Auto-Escalation',
-    description:
-      'Priority automatically increases as deadlines approach. 3 days out becomes high priority. Past due becomes urgent. No manual triage.',
+    title: 'Auto-escalation',
+    benefit: 'No manual triage',
+    description: 'Priority automatically increases as deadlines approach. 3 days out becomes high. Past due becomes urgent.',
   },
   {
     icon: Repeat,
-    title: 'Recurring Tasks',
-    description:
-      'Set tasks to repeat daily, weekly, or monthly. Customer follow-ups, equipment inspections, service reminders -- create once, run forever.',
+    title: 'Recurring tasks',
+    benefit: 'Create once, run forever',
+    description: 'Set tasks to repeat daily, weekly, or monthly. Customer follow-ups, equipment inspections, service reminders.',
   },
   {
     icon: Bot,
-    title: 'AI Agent Integration',
-    description:
-      'AI agents create, update, and complete tasks autonomously. Your campaign manager agent can spawn a full task list from a single brief.',
+    title: 'AI agent integration',
+    benefit: 'Tasks created autonomously',
+    description: 'AI agents create, update, and complete tasks. A campaign manager agent can spawn a full task list from a brief.',
   },
   {
     icon: Tag,
-    title: 'Templates & Tags',
-    description:
-      'Save reusable task templates for new jobs, onboarding, and inspections. Tag and filter to find anything in seconds.',
+    title: 'Templates & tags',
+    benefit: 'Find anything in seconds',
+    description: 'Reusable task templates for new jobs, onboarding, and inspections. Tag and filter for instant retrieval.',
   },
 ];
 
-const workflowSteps = [
-  {
-    step: '01',
-    title: 'Create from anywhere',
-    description:
-      'Tasks are created by your team, from channel conversations, from leads and contacts, or by AI agents autonomously. Every task tracks its source.',
-  },
-  {
-    step: '02',
-    title: 'Organize automatically',
-    description:
-      'Custom statuses, priorities, tags, and assignees keep your board clean. Drag between columns or let the system auto-assign based on rules.',
-  },
-  {
-    step: '03',
-    title: 'Escalate intelligently',
-    description:
-      'Configurable escalation rules bump priority as deadlines approach. Your team focuses on what matters most, not what they remembered to check.',
-  },
-  {
-    step: '04',
-    title: 'Complete and repeat',
-    description:
-      'Mark tasks done, trigger dependent tasks, and let recurring schedules regenerate the next cycle. The system remembers so you don\'t have to.',
-  },
-];
+// ────────────────────────────────────────────────────────────────────────────
+// Workflow steps section
+// ────────────────────────────────────────────────────────────────────────────
 
-function HeroSection() {
-  return (
-    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-30" />
-      <div className="relative z-10 mx-auto max-w-[900px] px-6 lg:px-8">
-        <motion.div initial="hidden" animate="visible" variants={containerVariants}>
-          <motion.div variants={itemVariants} className="text-center mb-8">
-            <div className="tag-neo rounded-full bg-signature/10 border-signature mb-6">
-              <ListTodo className="w-4 h-4 text-signature" />
-              <span className="text-[11px] font-semibold text-signature uppercase tracking-wider">
-                Task Management
-              </span>
-            </div>
-            <h1 className="text-display font-display text-foreground mb-6">
-              Stop losing work to{' '}
-              <span className="text-signature">broken processes</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Kanban boards, auto-escalation, dependencies, and AI-powered task creation.
-              Every task tracked, every deadline enforced, every handoff automatic.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-signature" />
-                37% fewer missed deadlines
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-signature" />
-                5hrs/week saved on follow-ups
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-signature" />
-                100% task visibility
-              </span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function PainPointsSection() {
+function WorkflowSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-neo text-signature mb-6 inline-block">The Problem</span>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Your task management is costing you customers
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Service businesses lose an average of 12% of revenue to missed appointments and poor
-            coordination. Here is why.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          {painPoints.map((point) => {
-            const Icon = point.icon;
-            return (
-              <motion.div
-                key={point.title}
-                variants={itemVariants}
-                className="card-neo rounded-xl p-8 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-signature/10 flex items-center justify-center mb-5 group-hover:bg-signature/20 transition-colors">
-                  <Icon className="w-6 h-6 text-signature" />
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-3">{point.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {point.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function SolutionSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-neo text-signature mb-6 inline-block">How It Works</span>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            From chaos to clarity in four steps
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            A task system that thinks ahead so your team can focus on doing the work.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {workflowSteps.map((item, index) => (
-            <motion.div
-              key={item.step}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-start gap-5"
-            >
-              <div className="w-14 h-14 rounded-lg bg-signature/10 flex items-center justify-center shrink-0">
-                <span className="font-display text-signature text-lg">{item.step}</span>
-              </div>
-              <div>
-                <h3 className="font-display text-xl text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CapabilitiesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-neo text-signature mb-6 inline-block">Capabilities</span>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Everything your team needs to ship on time
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Built for service companies that juggle dozens of customers and hundreds of jobs.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {capabilities.map((cap) => {
-            const Icon = cap.icon;
-            return (
-              <motion.div
-                key={cap.title}
-                variants={itemVariants}
-                className="bg-card border-2 border-border rounded-lg p-8 hover:border-signature/30 transition-colors duration-200 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-signature/10 flex items-center justify-center mb-5 group-hover:bg-signature/20 transition-colors">
-                  <Icon className="w-6 h-6 text-signature" />
-                </div>
-                <h3 className="font-display text-lg text-foreground mb-3">{cap.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {cap.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function DifferentiatorSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const comparisons = [
-    { feature: 'AI-powered task creation', ozzios: true, others: false },
-    { feature: 'Auto-priority escalation', ozzios: true, others: false },
-    { feature: 'Task dependency graph', ozzios: true, others: true },
-    { feature: 'Recurring task templates', ozzios: true, others: true },
-    { feature: 'Agent-to-task automation', ozzios: true, others: false },
-    { feature: 'Source tracking (leads, messages)', ozzios: true, others: false },
-    { feature: 'Built-in team collaboration', ozzios: true, others: true },
-    { feature: 'Real-time kanban + list views', ozzios: true, others: true },
+  const steps = [
+    { step: '01', title: 'Create from anywhere', description: 'Tasks are created by your team, from channel conversations, from leads and contacts, or by AI agents.' },
+    { step: '02', title: 'Organize automatically', description: 'Custom statuses, priorities, tags, and assignees keep your board clean. Drag between columns or auto-assign.' },
+    { step: '03', title: 'Escalate intelligently', description: 'Configurable escalation rules bump priority as deadlines approach. Focus on what matters most.' },
+    { step: '04', title: 'Complete and repeat', description: 'Mark tasks done, trigger dependent tasks, and let recurring schedules regenerate the next cycle.' },
   ];
 
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[900px] px-6 lg:px-8">
+    <section className="relative isolate overflow-hidden border-t border-border/50 py-24 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 lg:mb-14"
         >
-          <span className="tag-neo text-signature mb-6 inline-block">Why OzziOS</span>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight mb-4">
-            Not just another project board
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Most task tools are passive lists. OzziOS actively manages your workload with
-            AI agents, auto-escalation, and intelligent dependencies.
-          </p>
+          <SectionHeader
+            eyebrow="From creation to completion"
+            headlineLines={['Tasks that drive', 'themselves forward.']}
+            align="center"
+          />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-card border-2 border-border rounded-lg overflow-hidden"
+          variants={innerContainerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="grid gap-4 md:grid-cols-2 lg:gap-5"
         >
-          <div className="grid grid-cols-3 gap-0 border-b-2 border-border bg-muted/50 px-6 py-4">
-            <span className="text-sm font-semibold text-foreground">Feature</span>
-            <span className="text-sm font-semibold text-foreground text-center">OzziOS</span>
-            <span className="text-sm font-semibold text-muted-foreground text-center">
-              Generic Tools
-            </span>
-          </div>
-          {comparisons.map((row, i) => (
-            <div
-              key={row.feature}
-              className={`grid grid-cols-3 gap-0 px-6 py-4 ${i < comparisons.length - 1 ? 'border-b border-border' : ''}`}
+          {steps.map((item) => (
+            <motion.div
+              key={item.step}
+              variants={innerItemVariants}
+              className="rounded-xl border border-border/60 bg-background p-6"
             >
-              <span className="text-sm text-foreground">{row.feature}</span>
-              <div className="flex justify-center">
-                <CheckCircle2 className="w-5 h-5 text-mint" />
+              <div className="flex items-start gap-4">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-signature/25 bg-signature/10 font-mono text-[11px] font-semibold tabular-nums text-signature">
+                  {item.step}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[15px] font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-1.5 text-[13px] leading-[1.55] text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex justify-center">
-                {row.others ? (
-                  <CheckCircle2 className="w-5 h-5 text-muted-foreground/40" />
-                ) : (
-                  <span className="text-muted-foreground/40 text-sm">--</span>
-                )}
-              </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
@@ -403,71 +155,81 @@ function DifferentiatorSection() {
   );
 }
 
-function CTASection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="relative py-24 lg:py-32 bg-muted/50">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6">
-            Never miss a deadline
-            <br />
-            <span className="text-signature">again</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-            Start managing tasks with AI-powered automation, smart escalation, and
-            real-time visibility across your entire team.
-          </p>
-          <a
-            href="https://app.ozzios.com/sign-up"
-            className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
-          >
-            Get Early Access
-            <ArrowRight className="w-5 h-5" />
-          </a>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              256-bit Encryption
-            </span>
-            <span className="hidden sm:inline text-border">|</span>
-            <span>GDPR Ready</span>
-            <span className="hidden sm:inline text-border">|</span>
-            <span>99.9% Uptime SLA</span>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+// ────────────────────────────────────────────────────────────────────────────
+// Main export
+// ────────────────────────────────────────────────────────────────────────────
 
 export function TaskManagementView() {
   return (
-    <div className="min-h-screen bg-background">
-      <HeroSection />
+    <>
+      <FeatureHero
+        pillIcon={ListTodo}
+        pillLabel="Task Management"
+        pillSubtitle="Kanban + auto-escalation + dependencies"
+        headlineLines={['Stop losing work', 'to broken processes.']}
+        sub="Kanban boards, auto-escalation, dependencies, and AI-powered task creation. Every task tracked, every deadline enforced, every handoff automatic."
+        primaryCta={{ label: 'Start managing tasks', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        stats={[
+          { value: '37%', label: 'Fewer missed deadlines' },
+          { value: '5 hrs / wk', label: 'Saved on follow-ups' },
+          { value: '100%', label: 'Task visibility' },
+        ]}
+      />
+
       <DeferredSection>
-        <PainPointsSection />
+        <PainPointsBlock
+          eyebrow="The problem"
+          headlineLines={['Your task management', 'is costing you customers.']}
+          sub="Service businesses lose an average of 12% of revenue to missed appointments and poor coordination. Here is why."
+          points={painPoints}
+        />
       </DeferredSection>
+
       <DeferredSection>
-        <SolutionSection />
+        <WorkflowSection />
       </DeferredSection>
+
       <DeferredSection>
-        <CapabilitiesSection />
+        <CapabilitiesBlock
+          eyebrow="Capabilities"
+          headlineLines={['Tasks that work', 'for you.']}
+          sub="Not just a to-do list. A complete operations system that surfaces priorities, enforces deadlines, and integrates with every team member — human or AI."
+          capabilities={capabilities}
+        />
       </DeferredSection>
+
       <DeferredSection>
-        <DifferentiatorSection />
+        <ChecklistBlock
+          eyebrow="Built in"
+          headlineLines={['Everything', 'a team needs.']}
+          features={[
+            'Custom statuses, priorities, and labels',
+            'Drag-and-drop kanban with bulk actions',
+            'Subtasks and dependencies with auto-update',
+            'Recurring tasks with daily/weekly/monthly cycles',
+            'AI agent assignment and autonomous completion',
+            'Source tracking from contacts, leads, channels',
+            'Reusable templates for repeat workflows',
+            'Real-time collaboration and @mentions',
+          ]}
+        />
       </DeferredSection>
+
       <DeferredSection>
-        <CTASection />
+        <FeatureCTABlock
+          eyebrow="Get started"
+          headlineLines={['Every task tracked.', 'Every deadline met.']}
+          sub="Stop losing work to broken processes. Get a task system that drives itself forward — with humans and AI working in lockstep."
+          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          trust={[
+            { value: '256-bit', label: 'Encryption' },
+            { value: 'GDPR ready', label: 'Compliance' },
+            { value: '99.9%', label: 'Uptime SLA' },
+          ]}
+        />
       </DeferredSection>
-    </div>
+    </>
   );
 }

@@ -1,9 +1,15 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, type Variants } from 'framer-motion';
+import { ArrowRight, Check } from 'lucide-react';
 import { useRef } from 'react';
-import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useAudience, audienceContent } from '../contexts/AudienceContext';
+import { audienceContent, useAudience } from '../contexts/AudienceContext';
+import {
+  BackgroundField,
+  EASE_OUT,
+  Kbd,
+  SectionHeader,
+  SectionHeading,
+} from './_landing-primitives';
 
 const stepImages = [
   '/images/Gemini_Generated_Image_u6mqxnu6mqxnu6mq.webp',
@@ -12,23 +18,14 @@ const stepImages = [
   '/images/Gemini_Generated_Image_bj78nibj78nibj78.webp',
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT } },
 };
 
 export function FeaturesSection() {
@@ -38,39 +35,34 @@ export function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="how-it-works" className="relative overflow-hidden py-32 lg:py-40">
-      <div className="pointer-events-none absolute inset-x-0 top-32 h-80 bg-[radial-gradient(circle_at_top,rgba(196,88,63,0.08),transparent_60%)] blur-3xl" />
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
-        {/* Section header */}
+    <section id="how-it-works" className="relative isolate overflow-hidden py-28 lg:py-36">
+      <BackgroundField variant="top-right" />
+
+      <div className="relative z-10 mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
-          className="mb-20 max-w-5xl"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
+          className="mb-14 lg:mb-20"
         >
-          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-foreground/45">
-            {content.sectionLabel}
-          </p>
-          <h2 className="max-w-5xl text-[clamp(3rem,5.4vw,5.4rem)] font-display font-medium tracking-[-0.06em] text-foreground mb-6 leading-[0.92]">
-            {content.headline[0]}
-            <br />
-            <span className="text-muted-foreground/78">{content.headline[1]}</span>
-          </h2>
-          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            {content.subheadline}
-          </p>
+          <SectionHeader
+            eyebrow={content.sectionLabel}
+            headlineLines={[content.headline[0], content.headline[1]]}
+            sub={content.subheadline}
+          />
         </motion.div>
 
         {/* Steps */}
         <div className="relative mt-8">
-          {/* Animated Connection Line (Desktop only) */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden lg:block overflow-hidden">
-            <div className="w-full h-full bg-border/40" />
+          {/* Vertical rail (desktop only) */}
+          <div className="absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 overflow-hidden lg:block">
+            <div className="h-full w-full bg-border/50" />
             <motion.div
               initial={{ top: '-100%' }}
               animate={{ top: '100%' }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 w-full h-[30%] bg-gradient-to-b from-transparent via-signature to-transparent opacity-50"
+              transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+              className="absolute left-0 h-[28%] w-full bg-gradient-to-b from-transparent via-signature to-transparent opacity-60"
             />
           </div>
 
@@ -79,79 +71,86 @@ export function FeaturesSection() {
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             variants={containerVariants}
-            className="space-y-8 lg:space-y-24 relative z-10"
+            className="relative z-10 space-y-8 lg:space-y-20"
           >
-          {content.steps.map((step, index) => {
-            const image = stepImages[index];
-            const isEven = index % 2 === 0;
+            {content.steps.map((step, index) => {
+              const image = stepImages[index];
+              const isEven = index % 2 === 0;
 
-            return (
-              <motion.div
-                key={step.number}
-                variants={itemVariants}
-                className={cn(
-                  "relative group",
-                  isEven ? "lg:mr-[50%] lg:pr-12" : "lg:ml-[50%] lg:pl-12"
-                )}
-              >
-                {/* Node connector dot */}
-                <div className={cn(
-                  "absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-background bg-border hidden lg:block z-20 transition-colors duration-300 group-hover:bg-signature",
-                  isEven ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"
-                )} />
-
-                <div
-                  className="overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_20px_60px_rgba(56,40,29,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(56,40,29,0.12)]"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.94)' }}
+              return (
+                <motion.div
+                  key={step.number}
+                  variants={itemVariants}
+                  className={cn(
+                    'group/step relative',
+                    isEven ? 'lg:mr-[50%] lg:pr-10' : 'lg:ml-[50%] lg:pl-10',
+                  )}
                 >
-                <div className={cn(
-                  'flex flex-col lg:flex-row',
-                  !isEven && 'lg:flex-row-reverse'
-                )}>
-                  {/* Image side */}
-                  <div className="relative lg:w-2/5 h-48 lg:h-auto min-h-[200px]">
-                    <img
-                      src={image}
-                      alt={step.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className={cn(
-                      'absolute inset-0',
-                      isEven
-                        ? 'bg-gradient-to-r from-transparent via-transparent to-card'
-                        : 'bg-gradient-to-l from-transparent via-transparent to-card',
-                      'hidden lg:block'
-                    )} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent lg:hidden" />
+                  {/* Node dot */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      'absolute top-1/2 z-20 hidden h-3 w-3 -translate-y-1/2 rounded-full border-2 border-background bg-foreground/20 transition-colors duration-300 group-hover/step:bg-signature lg:block',
+                      isEven ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2',
+                    )}
+                  />
 
-                    {/* Step number overlay */}
-                    <div className={cn(
-                      'absolute top-6 font-bold text-[64px] leading-none text-foreground/[0.08]',
-                      isEven ? 'left-6' : 'right-6'
-                    )}>
-                      {String(index + 1).padStart(2, '0')}
-                    </div>
-                  </div>
+                  <div className="overflow-hidden rounded-xl border border-border/70 bg-background shadow-[0_18px_50px_-26px_rgba(34,27,22,0.30)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-[0_24px_60px_-22px_rgba(34,27,22,0.40)]">
+                    <div className={cn('flex flex-col lg:flex-row', !isEven && 'lg:flex-row-reverse')}>
+                      {/* Image */}
+                      <div className="relative h-48 min-h-[200px] overflow-hidden lg:h-auto lg:w-2/5">
+                        <img
+                          src={image}
+                          alt={step.title}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover/step:scale-[1.04]"
+                        />
+                        <div
+                          aria-hidden
+                          className={cn(
+                            'absolute inset-0 hidden lg:block',
+                            isEven
+                              ? 'bg-gradient-to-r from-transparent via-transparent to-background/95'
+                              : 'bg-gradient-to-l from-transparent via-transparent to-background/95',
+                          )}
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-transparent lg:hidden"
+                        />
 
-                  {/* Content side */}
-                  <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl lg:text-2xl font-display text-foreground mb-3">
+                        {/* Step number */}
+                        <div
+                          className={cn(
+                            'absolute top-4 font-display text-[3rem] font-semibold leading-none tracking-[-0.04em] text-foreground/[0.10]',
+                            isEven ? 'left-5' : 'right-5',
+                          )}
+                        >
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                      </div>
+
+                      {/* Body */}
+                      <div className="flex flex-1 flex-col justify-center p-7 lg:p-9">
+                        <div className="mb-4">
+                          <SectionHeading label={`Step ${String(index + 1).padStart(2, '0')}`} />
+                        </div>
+                        <h3 className="font-display text-[1.5rem] font-semibold leading-[1.05] tracking-[-0.025em] text-foreground sm:text-[1.7rem]">
                           {step.title}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-muted-foreground mb-4">
+                        <p className="mt-3 max-w-[42ch] text-[14px] leading-[1.6] text-muted-foreground">
                           {step.description}
                         </p>
 
                         {/* Benefits */}
-                        <div className="flex flex-wrap gap-4">
+                        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5">
                           {step.benefits.map((benefit) => (
                             <span
                               key={benefit}
-                            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground"
-                          >
-                              <Check className="h-3.5 w-3.5 text-signature" />
+                              className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground"
+                            >
+                              <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-signature/30 bg-signature/10">
+                                <Check className="h-2 w-2 text-signature" strokeWidth={3} />
+                              </span>
                               {benefit}
                             </span>
                           ))}
@@ -159,27 +158,31 @@ export function FeaturesSection() {
                       </div>
                     </div>
                   </div>
-                </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-16 flex justify-center"
         >
           <a
             href="https://app.ozzios.com/sign-up"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-medium text-white transition-all duration-200 group shadow-[0_18px_40px_rgba(41,30,23,0.16)] hover:bg-foreground/92"
+            className={cn(
+              'group/cta relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-md bg-foreground pl-5 pr-3 text-[14px] font-medium text-background',
+              'shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_14px_30px_-12px_rgba(34,27,22,0.45)]',
+              'transition-all duration-200 hover:bg-[#1a1410] active:translate-y-px',
+            )}
           >
-            Get Early Access
-            <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+            Get early access
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
+            <Kbd tone="dark">S</Kbd>
           </a>
         </motion.div>
       </div>

@@ -42,7 +42,7 @@ export const sidebarChannels = [
 ];
 
 export const sidebarTeam = [
-  { name: 'Jodi Elmore', isAgent: false, status: 'online', image: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png' },
+  { name: 'Jodi Elmore', isAgent: false, status: 'online', image: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp' },
   { name: 'SEO Specialist', isAgent: true, status: 'online', mp4: '/images/avatars/google-ozzi.mp4' },
   { name: 'Data Analyst', isAgent: true, status: 'online', mp4: '/images/avatars/firecrawl-ozzi.mp4' },
   { name: 'Graphic Designer', isAgent: true, status: 'online', mp4: '/images/avatars/openai-imagegen-ozzi.mp4' },
@@ -54,7 +54,7 @@ export const leadFollowUpMessages: ChatMessage[] = [
   {
     id: 1,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '8:15 AM',
     content: [
@@ -97,7 +97,7 @@ export const leadFollowUpMessages: ChatMessage[] = [
   {
     id: 4,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '8:17 AM',
     content: [
@@ -139,7 +139,7 @@ export const leadFollowUpMessages: ChatMessage[] = [
   {
     id: 7,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '8:19 AM',
     content: [
@@ -172,7 +172,7 @@ export const reviewsSeoMessages: ChatMessage[] = [
   {
     id: 1,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '9:30 AM',
     content: [
@@ -215,7 +215,7 @@ export const reviewsSeoMessages: ChatMessage[] = [
   {
     id: 4,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '9:32 AM',
     content: [
@@ -255,7 +255,7 @@ export const reviewsSeoMessages: ChatMessage[] = [
   {
     id: 7,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '9:34 AM',
     content: [
@@ -287,7 +287,7 @@ export const reportsMessages: ChatMessage[] = [
   {
     id: 1,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '2:30 PM',
     content: [
@@ -385,7 +385,7 @@ export const reportsMessages: ChatMessage[] = [
   {
     id: 8,
     user: 'Jodi Elmore',
-    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.png',
+    avatar: '/images/generation-d33b25da-6a41-40c4-90f9-45ee86a2360e.webp',
     isAgent: false,
     time: '2:35 PM',
     content: [
