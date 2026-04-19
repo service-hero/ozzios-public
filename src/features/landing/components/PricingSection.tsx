@@ -12,13 +12,16 @@ interface PricingFeature {
 
 interface PricingTier {
   name: string;
-  price: number;
+  /** Numeric monthly price, or null for custom/contact-sales pricing */
+  price: number | null;
   usage: string;
   description?: string;
   features: PricingFeature[];
   cta: string;
   href: string;
   recommended: boolean;
+  /** Renders as Enterprise dark card with "Custom" price */
+  custom?: boolean;
 }
 
 const pricingTiers: PricingTier[] = [
@@ -63,21 +66,25 @@ const pricingTiers: PricingTier[] = [
     recommended: true,
   },
   {
-    name: 'Scale',
-    price: 795,
-    usage: '15,000 AI credits / mo',
-    description: 'Messaging and voice ops for scaling teams',
+    name: 'Enterprise',
+    price: null,
+    usage: 'Custom AI credits',
+    description: 'Multi-location teams and high-volume operations',
+    custom: true,
     features: [
-      { label: 'Everything in Pro', description: 'Includes every feature from the Pro plan — workflows, video, integrations, and more.' },
-      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: '5 workspaces', description: 'Run multiple locations or projects from one login — each fully separate with its own team and settings.' },
-      { label: '15,000 AI credits', description: 'High-capacity AI for teams running campaigns, workflows, and automations at scale every day.' },
-      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what is working.' },
-      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality.' },
-      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach at scale.' },
+      { label: 'Everything in Pro', description: 'Every Pro feature — workflows, video, integrations, and more.' },
+      { label: 'Unlimited team members', description: 'Bring your entire organization. No per-seat limits, no surprises.' },
+      { label: 'Unlimited workspaces', description: 'As many locations, brands, or business units as you need — each fully isolated.' },
+      { label: 'Custom AI credit allocation', description: 'Negotiated capacity tailored to your workload. Burst credits for peak seasons.' },
+      { label: 'Email / SMS campaigns', description: 'Enterprise-volume sends with deliverability guarantees.' },
+      { label: 'Call center & voice ops', description: 'AI voice agents with recording, scoring, and outbound tooling.' },
+      { label: 'SSO, SAML & SCIM', description: 'Enterprise SSO with automated user provisioning.' },
+      { label: 'Custom integrations', description: 'Dedicated engineering builds the connectors your stack needs.' },
+      { label: 'Dedicated success manager', description: 'A named OzziOS expert running quarterly reviews and optimizations.' },
+      { label: 'Priority support & SLA', description: '24 / 7 priority support with a contractual response-time SLA.' },
     ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=starter',
+    cta: 'Talk to sales',
+    href: 'mailto:sales@ozzios.com?subject=Enterprise%20pricing',
     recommended: false,
   },
 ];
@@ -161,20 +168,38 @@ export function PricingSection() {
 // ────────────────────────────────────────────────────────────────────────────
 
 function PricingCard({ tier }: { tier: PricingTier }) {
+  // Three distinct visual treatments — Pro is the clear hero
+  //   - Basic       : light hairline card (neutral)
+  //   - Pro (★)     : dark filled ink card (the conversion target)
+  //   - Enterprise  : premium light card with signature radial wash + bordered CTA
+  const isPro = tier.recommended;
+  const isEnterprise = tier.custom;
+
   return (
     <div
       className={cn(
-        'relative flex w-full flex-col rounded-xl border bg-background transition-all duration-300',
-        tier.recommended
-          ? 'border-foreground/85 bg-foreground text-background shadow-[0_28px_70px_-26px_rgba(34,27,22,0.55)]'
-          : 'border-border/60 shadow-[0_12px_40px_-22px_rgba(34,27,22,0.20)] hover:-translate-y-0.5 hover:border-border hover:shadow-[0_22px_50px_-22px_rgba(34,27,22,0.32)]',
+        'relative flex w-full flex-col rounded-xl border transition-all duration-300',
+        isPro
+          ? 'border-foreground/85 bg-foreground text-background shadow-[0_28px_70px_-26px_rgba(34,27,22,0.55)] lg:scale-[1.02]'
+          : isEnterprise
+            ? 'border-signature/30 bg-[radial-gradient(circle_at_18%_12%,rgba(196,88,63,0.10),transparent_42%),linear-gradient(180deg,rgba(255,253,250,1),rgba(247,240,232,1))] shadow-[0_20px_60px_-26px_rgba(196,88,63,0.40)] hover:-translate-y-0.5'
+            : 'border-border/60 bg-background shadow-[0_12px_40px_-22px_rgba(34,27,22,0.20)] hover:-translate-y-0.5 hover:border-border hover:shadow-[0_22px_50px_-22px_rgba(34,27,22,0.32)]',
       )}
     >
-      {tier.recommended ? (
+      {/* Top badge */}
+      {isPro ? (
         <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
           <span className="inline-flex items-center gap-1 rounded-[5px] border border-signature/30 bg-signature px-2 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-white shadow-[0_8px_22px_-10px_rgba(196,88,63,0.6)]">
             <span className="h-1 w-1 rounded-full bg-white" />
             Most popular
+          </span>
+        </div>
+      ) : null}
+      {isEnterprise ? (
+        <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+          <span className="inline-flex items-center gap-1 rounded-[5px] border border-foreground/15 bg-background px-2 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-foreground/80 shadow-[0_4px_12px_-4px_rgba(34,27,22,0.18)]">
+            <span className="h-1 w-1 rounded-full bg-signature" />
+            Enterprise
           </span>
         </div>
       ) : null}
@@ -185,7 +210,7 @@ function PricingCard({ tier }: { tier: PricingTier }) {
           <h3
             className={cn(
               'text-[15px] font-semibold',
-              tier.recommended ? 'text-background' : 'text-foreground',
+              isPro ? 'text-background' : 'text-foreground',
             )}
           >
             {tier.name}
@@ -194,7 +219,7 @@ function PricingCard({ tier }: { tier: PricingTier }) {
             <p
               className={cn(
                 'mt-1 text-[12.5px] leading-[1.5]',
-                tier.recommended ? 'text-background/65' : 'text-muted-foreground',
+                isPro ? 'text-background/65' : 'text-muted-foreground',
               )}
             >
               {tier.description}
@@ -203,25 +228,38 @@ function PricingCard({ tier }: { tier: PricingTier }) {
         </div>
 
         {/* Price */}
-        <div className="mb-4 flex items-baseline gap-1">
-          <span
-            className={cn(
-              'font-display text-[2.5rem] font-semibold leading-none tabular-nums tracking-[-0.04em]',
-              tier.recommended ? 'text-background' : 'text-foreground',
-            )}
-          >
-            {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-          </span>
-          {tier.price > 0 ? (
-            <span
-              className={cn(
-                'font-mono text-[11px] uppercase tracking-wider',
-                tier.recommended ? 'text-background/55' : 'text-foreground/45',
-              )}
-            >
-              /mo
-            </span>
-          ) : null}
+        <div className="mb-4 flex items-baseline gap-2">
+          {isEnterprise || tier.price === null ? (
+            <>
+              <span className="font-display text-[2.5rem] font-semibold leading-none tracking-[-0.04em] text-foreground">
+                Custom
+              </span>
+              <span className="font-mono text-[10.5px] uppercase tracking-wider text-foreground/55">
+                tailored to you
+              </span>
+            </>
+          ) : (
+            <>
+              <span
+                className={cn(
+                  'font-display text-[2.5rem] font-semibold leading-none tabular-nums tracking-[-0.04em]',
+                  isPro ? 'text-background' : 'text-foreground',
+                )}
+              >
+                {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+              </span>
+              {tier.price && tier.price > 0 ? (
+                <span
+                  className={cn(
+                    'font-mono text-[11px] uppercase tracking-wider',
+                    isPro ? 'text-background/55' : 'text-foreground/45',
+                  )}
+                >
+                  /mo
+                </span>
+              ) : null}
+            </>
+          )}
         </div>
 
         {/* Credit badge */}
@@ -229,15 +267,17 @@ function PricingCard({ tier }: { tier: PricingTier }) {
           <span
             className={cn(
               'inline-flex items-center gap-1.5 rounded-[5px] border px-2 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider',
-              tier.recommended
+              isPro
                 ? 'border-white/15 bg-white/10 text-background/85'
-                : 'border-border/60 bg-muted text-foreground/70',
+                : isEnterprise
+                  ? 'border-signature/25 bg-signature/10 text-signature'
+                  : 'border-border/60 bg-muted text-foreground/70',
             )}
           >
             <span
               className={cn(
                 'h-1 w-1 rounded-full',
-                tier.recommended ? 'bg-signature' : 'bg-foreground/40',
+                isPro ? 'bg-signature' : isEnterprise ? 'bg-signature' : 'bg-foreground/40',
               )}
             />
             {tier.usage}
@@ -250,7 +290,7 @@ function PricingCard({ tier }: { tier: PricingTier }) {
             <span
               className={cn(
                 'font-mono text-[10px] uppercase tracking-[0.22em]',
-                tier.recommended ? 'text-background/55' : 'text-foreground/40',
+                isPro ? 'text-background/55' : 'text-foreground/40',
               )}
             >
               Included
@@ -258,7 +298,7 @@ function PricingCard({ tier }: { tier: PricingTier }) {
             <span
               className={cn(
                 'h-px flex-1',
-                tier.recommended ? 'bg-white/15' : 'bg-border/50',
+                isPro ? 'bg-white/15' : isEnterprise ? 'bg-signature/20' : 'bg-border/50',
               )}
             />
           </div>
@@ -274,24 +314,21 @@ function PricingCard({ tier }: { tier: PricingTier }) {
                   className={cn(
                     'flex h-4 w-4 shrink-0 items-center justify-center rounded-full border',
                     isEverything
-                      ? tier.recommended
+                      ? isPro
                         ? 'border-signature/50 bg-signature/20'
                         : 'border-signature/30 bg-signature/10'
-                      : tier.recommended
+                      : isPro
                         ? 'border-white/15 bg-white/5'
-                        : 'border-border/60 bg-muted/40',
+                        : 'border-border/60 bg-background',
                   )}
                 >
                   {isEverything ? (
-                    <Check
-                      className={cn('h-2.5 w-2.5', tier.recommended ? 'text-signature' : 'text-signature')}
-                      strokeWidth={3}
-                    />
+                    <Check className="h-2.5 w-2.5 text-signature" strokeWidth={3} />
                   ) : (
                     <Plus
                       className={cn(
                         'h-2 w-2',
-                        tier.recommended ? 'text-background/55' : 'text-foreground/45',
+                        isPro ? 'text-background/55' : 'text-foreground/45',
                       )}
                       strokeWidth={3}
                     />
@@ -301,10 +338,10 @@ function PricingCard({ tier }: { tier: PricingTier }) {
                   className={cn(
                     'text-[12.5px] leading-[1.45]',
                     isEverything
-                      ? tier.recommended
+                      ? isPro
                         ? 'font-medium text-background'
                         : 'font-medium text-foreground'
-                      : tier.recommended
+                      : isPro
                         ? 'text-background/80'
                         : 'text-muted-foreground',
                   )}
@@ -323,14 +360,16 @@ function PricingCard({ tier }: { tier: PricingTier }) {
             href={tier.href}
             className={cn(
               'group/cta relative flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-md text-[13px] font-medium transition-all duration-200 active:translate-y-px',
-              tier.recommended
+              isPro
                 ? 'bg-background text-foreground hover:bg-background/92 shadow-[0_14px_30px_-12px_rgba(0,0,0,0.4)]'
-                : 'border border-border/70 bg-background text-foreground hover:border-border hover:bg-muted/40',
+                : isEnterprise
+                  ? 'bg-foreground text-background hover:bg-[#1a1410] shadow-[0_14px_30px_-12px_rgba(34,27,22,0.4)]'
+                  : 'border border-border/70 bg-background text-foreground hover:border-border hover:bg-muted/40',
             )}
           >
             {tier.cta}
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
-            {tier.recommended ? <Kbd className="ml-1 h-[18px] min-w-[18px]">S</Kbd> : null}
+            {isPro ? <Kbd className="ml-1 h-[18px] min-w-[18px]">S</Kbd> : null}
           </a>
         </div>
       </div>

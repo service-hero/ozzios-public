@@ -266,10 +266,12 @@ export function Footer() {
                 '[filter:brightness(0)_invert(0)] opacity-[0.14]',
               )}
               style={{
+                // Smooth full fade so the wordmark vanishes completely before
+                // the bottom sliver overlaps it.
                 maskImage:
-                  'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.2) 92%, rgba(0,0,0,0) 100%)',
+                  'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 22%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 92%)',
                 WebkitMaskImage:
-                  'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.2) 92%, rgba(0,0,0,0) 100%)',
+                  'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 22%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 92%)',
               }}
             />
           </div>

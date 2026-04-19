@@ -6,7 +6,6 @@ import {
   Briefcase,
   Layers,
   Megaphone,
-  Shield,
   Users,
   Workflow,
   type LucideIcon,
@@ -310,24 +309,6 @@ export function BentoSection() {
               </BentoCard>
             </motion.div>
 
-            {/* Security (col-span-4) */}
-            <motion.div variants={itemVariants} className="col-span-12 sm:col-span-6 lg:col-span-4">
-              <BentoCard className="h-full">
-                <div className="flex h-full flex-col p-6">
-                  <BentoIcon Icon={Shield} />
-                  <h3 className="mt-5 text-[17px] font-semibold leading-tight text-foreground">
-                    {content.cards.security.title}
-                  </h3>
-                  <p className="mt-2 text-[13px] leading-[1.55] text-muted-foreground">
-                    {content.cards.security.description}
-                  </p>
-                  <div className="mt-auto pt-5 inline-flex items-center gap-2 self-start rounded-[5px] border border-signature/25 bg-signature/10 px-2 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-signature">
-                    <span className="h-1 w-1 rounded-full bg-signature" />
-                    Workspace-isolated
-                  </div>
-                </div>
-              </BentoCard>
-            </motion.div>
           </div>
 
           {/* Feature ledger callout */}

@@ -6,6 +6,7 @@ import {
   Palette,
   Search,
   Share2,
+  Sparkles,
   Video,
   Wrench,
   Zap,
@@ -90,17 +91,7 @@ export function AgentsSection() {
             <div className="grid min-h-[320px] grid-cols-1 lg:grid-cols-[2fr_3fr]">
               {/* Video */}
               <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-foreground lg:min-h-0">
-                <video
-                  src="/images/ozzi-avatar.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controlsList="nodownload"
-                  disablePictureInPicture
-                  onContextMenu={(e) => e.preventDefault()}
-                  className="h-full w-full object-cover"
-                />
+                <OzziSupervisorVideo />
                 <div
                   aria-hidden
                   className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-background/95 lg:block"
@@ -291,5 +282,71 @@ export function AgentsSection() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Ozzi supervisor video — with loading skeleton (mp4 download is heavy)
+// ────────────────────────────────────────────────────────────────────────────
+
+function OzziSupervisorVideo() {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <>
+      {/* Loading skeleton — visible until the video can play */}
+      {!loaded ? (
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4">
+          {/* Animated gradient backdrop */}
+          <div
+            aria-hidden
+            className="absolute inset-0 animate-pulse bg-[linear-gradient(135deg,rgba(36,28,22,1),rgba(50,36,27,1)_40%,rgba(196,88,63,0.18)_70%,rgba(36,28,22,1))]"
+          />
+          {/* Subtle dot grid for texture */}
+          <div
+            aria-hidden
+            className="absolute inset-0 opacity-[0.18]"
+            style={{
+              backgroundImage:
+                'radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }}
+          />
+
+          {/* Avatar placeholder + label */}
+          <div className="relative z-10 flex flex-col items-center gap-3">
+            <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] backdrop-blur">
+              <span
+                aria-hidden
+                className="absolute inset-0 animate-ping rounded-full border border-signature/40"
+                style={{ animationDuration: '2.4s' }}
+              />
+              <Sparkles className="h-5 w-5 text-signature" />
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
+              Loading Ozzi
+            </span>
+          </div>
+        </div>
+      ) : null}
+
+      <video
+        src="/images/ozzi-avatar.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        controlsList="nodownload"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
+        onCanPlay={() => setLoaded(true)}
+        onLoadedData={() => setLoaded(true)}
+        className={cn(
+          'h-full w-full object-cover transition-opacity duration-500 ease-out',
+          loaded ? 'opacity-100' : 'opacity-0',
+        )}
+      />
+    </>
   );
 }

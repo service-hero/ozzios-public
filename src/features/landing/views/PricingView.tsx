@@ -13,13 +13,17 @@ interface PricingFeature {
 
 interface PricingTier {
   name: string;
-  price: number;
+  /** Numeric monthly price, or null for custom/contact-sales pricing */
+  price: number | null;
+  /** Display string for usage line (or "Custom" for enterprise) */
   usage: string;
   description: string;
   features: PricingFeature[];
   cta: string;
   href: string;
   recommended: boolean;
+  /** Renders the price slot as "Custom" / "Talk to sales" rather than $X/mo */
+  custom?: boolean;
 }
 
 const pricingTiers: PricingTier[] = [
@@ -64,21 +68,26 @@ const pricingTiers: PricingTier[] = [
     recommended: true,
   },
   {
-    name: 'Scale',
-    price: 795,
-    usage: '15,000 AI credits/mo',
-    description: 'Messaging and voice ops for scaling teams',
+    name: 'Enterprise',
+    price: null,
+    usage: 'Custom AI credits',
+    description: 'Multi-location teams and high-volume operations',
+    custom: true,
     features: [
       { label: 'Everything in Pro', description: 'Includes every feature from the Pro plan — workflows, video, integrations, and more.' },
-      { label: 'Up to 5 team members', description: 'Bring your whole team into one place — no more scattered tools or missed handoffs.' },
-      { label: '5 workspaces', description: 'Run multiple locations or projects from one login — each fully separate with its own team and settings.' },
-      { label: '15,000 AI credits', description: 'High-capacity AI for teams running campaigns, workflows, and automations at scale every day.' },
-      { label: 'Email/SMS campaigns', description: 'Send professional email and text campaigns. Track opens, clicks, and conversions so you know what\'s working.' },
-      { label: 'Call center & voice ops', description: 'Handle inbound calls with AI voice agents that answer, qualify, and route — then review recordings and AI-scored call quality.' },
-      { label: 'Outbound call tooling', description: 'Let your AI agent make outbound calls on your behalf — for follow-ups, appointment reminders, and lead outreach at scale.' },
+      { label: 'Unlimited team members', description: 'Bring your entire organization into one workspace. No per-seat limits, no surprises.' },
+      { label: 'Unlimited workspaces', description: 'Run as many locations, brands, or business units as you need — each fully isolated.' },
+      { label: 'Custom AI credit allocation', description: 'Negotiated capacity tailored to your workload. Burst credits available for peak seasons.' },
+      { label: 'Email / SMS campaigns', description: 'Professional email and text campaigns at enterprise volume with deliverability guarantees.' },
+      { label: 'Call center & voice ops', description: 'AI voice agents that answer, qualify, and route — with recording, scoring, and outbound tooling.' },
+      { label: 'SSO & SAML', description: 'Enterprise-grade single sign-on with SAML 2.0. Provision users automatically via SCIM.' },
+      { label: 'Custom integrations & API access', description: 'Dedicated integration engineering. We build the connectors your stack needs.' },
+      { label: 'Dedicated success manager', description: 'A named OzziOS expert who knows your business, runs quarterly reviews, and optimizes your workflows.' },
+      { label: 'Priority support & SLA', description: '24 / 7 priority support with a contractual response-time SLA. Talk to a human, not a queue.' },
+      { label: 'Custom contracts & invoicing', description: 'Annual contracts, NET-30 / NET-60 invoicing, security questionnaires, and custom DPAs welcome.' },
     ],
-    cta: 'Get started',
-    href: 'https://app.ozzios.com/sign-up?plan=starter',
+    cta: 'Talk to sales',
+    href: 'mailto:sales@ozzios.com?subject=Enterprise%20pricing',
     recommended: false,
   },
 ];
@@ -87,49 +96,61 @@ const comparisonFeatures = [
   {
     category: 'Limits',
     features: [
-      { name: 'Team members', basic: '1', pro: '2', scale: '5' },
-      { name: 'Workspaces', basic: '1', pro: '2', scale: '5' },
-      { name: 'Monthly AI credits', basic: '1,000', pro: '5,000', scale: '15,000' },
+      { name: 'Team members', basic: '1', pro: '2', enterprise: 'Unlimited' },
+      { name: 'Workspaces', basic: '1', pro: '2', enterprise: 'Unlimited' },
+      { name: 'Monthly AI credits', basic: '1,000', pro: '5,000', enterprise: 'Custom' },
     ],
   },
   {
     category: 'Core',
     features: [
-      { name: 'Workspace, channels & inbox', basic: true, pro: true, scale: true },
-      { name: 'Tasks', basic: true, pro: true, scale: true },
-      { name: 'Basic CRM', basic: true, pro: true, scale: true },
-      { name: 'Basic integrations', basic: true, pro: true, scale: true },
+      { name: 'Workspace, channels & inbox', basic: true, pro: true, enterprise: true },
+      { name: 'Tasks', basic: true, pro: true, enterprise: true },
+      { name: 'Basic CRM', basic: true, pro: true, enterprise: true },
+      { name: 'Basic integrations', basic: true, pro: true, enterprise: true },
     ],
   },
   {
     category: 'Pro',
     features: [
-      { name: 'Social planner', basic: false, pro: true, scale: true },
-      { name: 'Email builder', basic: false, pro: true, scale: true },
-      { name: 'All integrations', basic: false, pro: true, scale: true },
-      { name: 'Forms builder', basic: false, pro: true, scale: true },
-      { name: 'Workflow builder', basic: false, pro: true, scale: true },
-      { name: 'Advanced CRM', basic: false, pro: true, scale: true },
-      { name: 'Chat widget', basic: false, pro: true, scale: true },
-      { name: 'Huddles', basic: false, pro: true, scale: true },
-      { name: 'App builder', basic: false, pro: true, scale: true },
-      { name: 'Local rank', basic: false, pro: true, scale: true },
-      { name: 'Claude Opus', basic: false, pro: true, scale: true },
-      { name: 'Advanced automation nodes', basic: false, pro: true, scale: true },
+      { name: 'Social planner', basic: false, pro: true, enterprise: true },
+      { name: 'Email builder', basic: false, pro: true, enterprise: true },
+      { name: 'All integrations', basic: false, pro: true, enterprise: true },
+      { name: 'Forms builder', basic: false, pro: true, enterprise: true },
+      { name: 'Workflow builder', basic: false, pro: true, enterprise: true },
+      { name: 'Advanced CRM', basic: false, pro: true, enterprise: true },
+      { name: 'Chat widget', basic: false, pro: true, enterprise: true },
+      { name: 'Huddles', basic: false, pro: true, enterprise: true },
+      { name: 'App builder', basic: false, pro: true, enterprise: true },
+      { name: 'Local rank', basic: false, pro: true, enterprise: true },
+      { name: 'Claude Opus', basic: false, pro: true, enterprise: true },
+      { name: 'Advanced automation nodes', basic: false, pro: true, enterprise: true },
     ],
   },
   {
-    category: 'Scale',
+    category: 'Communication',
     features: [
-      { name: 'Email/SMS campaigns', basic: false, pro: false, scale: true },
-      { name: 'Call center & voice ops', basic: false, pro: false, scale: true },
-      { name: 'Outbound call tooling', basic: false, pro: false, scale: true },
+      { name: 'Email / SMS campaigns', basic: false, pro: false, enterprise: true },
+      { name: 'Call center & voice ops', basic: false, pro: false, enterprise: true },
+      { name: 'Outbound call tooling', basic: false, pro: false, enterprise: true },
+    ],
+  },
+  {
+    category: 'Enterprise',
+    features: [
+      { name: 'SSO & SAML', basic: false, pro: false, enterprise: true },
+      { name: 'SCIM provisioning', basic: false, pro: false, enterprise: true },
+      { name: 'Custom integrations & API access', basic: false, pro: false, enterprise: true },
+      { name: 'Dedicated success manager', basic: false, pro: false, enterprise: true },
+      { name: 'Custom contracts & invoicing', basic: false, pro: false, enterprise: true },
     ],
   },
   {
     category: 'Support',
     features: [
-      { name: 'Email support', basic: true, pro: true, scale: true },
+      { name: 'Email support', basic: true, pro: true, enterprise: true },
+      { name: '24 / 7 priority support', basic: false, pro: false, enterprise: true },
+      { name: 'Contractual SLA', basic: false, pro: false, enterprise: true },
     ],
   },
 ];
@@ -265,67 +286,128 @@ function PricingCards() {
     <section className="relative py-24 lg:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8" ref={ref}>
         {/* Pricing cards */}
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 items-start max-w-4xl mx-auto">
-          {pricingTiers.filter(tier => tier.name !== 'Scale').map((tier, index) => (
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className={cn(
-                'relative rounded-2xl p-6 transition-all duration-300',
+                'relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300',
                 tier.recommended
                   ? 'border-2 border-signature bg-white'
-                  : 'border border-gray-200 bg-white hover:border-gray-300'
+                  : tier.custom
+                    ? 'border-2 border-black bg-black text-white'
+                    : 'border border-gray-200 bg-white hover:border-gray-300',
               )}
             >
-              {tier.recommended && (
+              {tier.recommended ? (
                 <div className="absolute -top-3 left-6">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-signature text-white">
                     Most Popular
                   </span>
                 </div>
-              )}
+              ) : null}
+              {tier.custom ? (
+                <div className="absolute -top-3 left-6">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-signature/30 bg-signature px-3 py-1 text-xs font-medium text-white">
+                    <span className="h-1 w-1 rounded-full bg-white" />
+                    Enterprise
+                  </span>
+                </div>
+              ) : null}
 
               {/* Tier header */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-black">
+                <h3
+                  className={cn(
+                    'text-lg font-semibold',
+                    tier.custom ? 'text-white' : 'text-black',
+                  )}
+                >
                   {tier.name}
                 </h3>
-                <p className="text-sm text-gray-500">{tier.description}</p>
+                <p
+                  className={cn(
+                    'text-sm',
+                    tier.custom ? 'text-white/65' : 'text-gray-500',
+                  )}
+                >
+                  {tier.description}
+                </p>
               </div>
 
               {/* Price */}
               <div className="mb-4">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-black tracking-tight">
-                    {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
-                  </span>
-                  {tier.price > 0 && (
-                    <span className="text-sm text-gray-400">/mo</span>
-                  )}
-                </div>
+                {tier.custom || tier.price === null ? (
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold tracking-tight text-white">
+                      Custom
+                    </span>
+                    <span className="text-sm text-white/55">tailored to your stack</span>
+                  </div>
+                ) : (
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-black tracking-tight">
+                      {tier.price === 0 ? 'Free' : `$${tier.price.toLocaleString()}`}
+                    </span>
+                    {tier.price > 0 && (
+                      <span className="text-sm text-gray-400">/mo</span>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Credit badge */}
               <div className="mb-6">
-                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">
+                <span
+                  className={cn(
+                    'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium border',
+                    tier.custom
+                      ? 'border-white/15 bg-white/10 text-white/85'
+                      : 'border-gray-200 bg-gray-100 text-gray-700',
+                  )}
+                >
                   {tier.usage}
                 </span>
               </div>
 
               {/* Features */}
-              <div className="space-y-2.5 mb-6">
+              <div className="mb-6 space-y-2.5">
                 {tier.features.map((feature, featureIndex) => {
                   const isEverything = feature.label.startsWith('Everything in');
                   return (
                     <div key={featureIndex} className="flex items-center gap-2.5">
                       {isEverything ? (
-                        <Check className="w-4 h-4 text-signature shrink-0" />
+                        <Check
+                          className={cn(
+                            'w-4 h-4 shrink-0',
+                            tier.custom ? 'text-signature' : 'text-signature',
+                          )}
+                        />
                       ) : (
-                        <span className="w-4 h-4 shrink-0 flex items-center justify-center text-[11px] font-bold text-gray-400">+</span>
+                        <span
+                          className={cn(
+                            'w-4 h-4 shrink-0 flex items-center justify-center text-[11px] font-bold',
+                            tier.custom ? 'text-white/45' : 'text-gray-400',
+                          )}
+                        >
+                          +
+                        </span>
                       )}
-                      <span className={`text-sm ${isEverything ? 'text-black font-medium' : 'text-gray-600'}`}>
+                      <span
+                        className={cn(
+                          'text-sm',
+                          isEverything
+                            ? tier.custom
+                              ? 'font-medium text-white'
+                              : 'font-medium text-black'
+                            : tier.custom
+                              ? 'text-white/80'
+                              : 'text-gray-600',
+                        )}
+                      >
                         {feature.label}
                       </span>
                       <FeatureTooltip description={feature.description} />
@@ -338,10 +420,12 @@ function PricingCards() {
               <a
                 href={tier.href}
                 className={cn(
-                  'flex items-center justify-center gap-2 w-full h-11 rounded-lg font-medium text-sm transition-all duration-200',
+                  'mt-auto flex items-center justify-center gap-2 w-full h-11 rounded-lg font-medium text-sm transition-all duration-200',
                   tier.recommended
                     ? 'bg-signature text-white hover:bg-signature/90'
-                    : 'bg-white text-black border border-gray-300 hover:bg-gray-50'
+                    : tier.custom
+                      ? 'bg-white text-black hover:bg-white/92'
+                      : 'bg-white text-black border border-gray-300 hover:bg-gray-50',
                 )}
               >
                 {tier.cta}
@@ -359,12 +443,12 @@ function PricingCards() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-gray-400">
-            Need a custom plan for your team?{' '}
+            Procurement, security review, or DPAs?{' '}
             <a
               href="mailto:sales@ozzios.com"
               className="text-signature hover:underline"
             >
-              Contact sales
+              Talk to our enterprise team
             </a>
           </p>
         </motion.div>
@@ -401,20 +485,22 @@ function ComparisonTable() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="overflow-x-auto"
         >
-          <table className="w-full min-w-[500px]">
+          <table className="w-full min-w-[640px]">
             {/* Header */}
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[40%]">
+                <th className="text-left py-4 pr-4 text-sm font-medium text-gray-500 w-[34%]">
                   Features
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[20%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[22%]">
                   Basic
                 </th>
-                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[20%]">
+                <th className="text-center py-4 px-3 text-sm font-semibold text-signature w-[22%]">
                   Pro
                 </th>
-                {/* Scale column temporarily hidden */}
+                <th className="text-center py-4 px-3 text-sm font-semibold text-black w-[22%]">
+                  Enterprise
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -422,7 +508,7 @@ function ComparisonTable() {
                 <>
                   <tr key={`cat-${category.category}`}>
                     <td
-                      colSpan={3}
+                      colSpan={4}
                       className="pt-8 pb-3 text-xs font-medium text-gray-400 uppercase tracking-widest"
                     >
                       {category.category}
@@ -442,7 +528,9 @@ function ComparisonTable() {
                       <td className="py-3.5 px-3 text-center">
                         <FeatureValue value={(feature as Record<string, boolean | string>).pro} />
                       </td>
-                      {/* Scale column temporarily hidden */}
+                      <td className="py-3.5 px-3 text-center">
+                        <FeatureValue value={(feature as Record<string, boolean | string>).enterprise} />
+                      </td>
                     </tr>
                   ))}
                 </>
