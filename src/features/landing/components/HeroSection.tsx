@@ -338,7 +338,7 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16"
+          className="grid w-full min-w-0 items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16"
         >
           {/* ── Left: copy stack ───────────────────────────────────── */}
           <motion.div variants={itemVariants} className="lg:col-span-6 xl:col-span-5">
@@ -432,7 +432,7 @@ export function HeroSection() {
           {/* ── Right: live product surface ───────────────────────── */}
           <motion.div
             variants={itemVariants}
-            className="relative lg:col-span-6 xl:col-span-7"
+            className="relative w-full min-w-0 max-w-full lg:col-span-6 xl:col-span-7"
           >
             {/* corner mark — top right */}
             <div className="pointer-events-none absolute -top-6 right-0 hidden items-center gap-2 lg:flex">
@@ -609,29 +609,37 @@ function DemoFrame(props: DemoFrameProps) {
   } = props;
 
   return (
-    <div className="relative">
-      {/* Soft glow under the frame */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -inset-x-6 -bottom-12 top-12 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_50%_100%,rgba(196,88,63,0.18),transparent_70%)] blur-3xl"
-      />
+    <div className="relative w-full min-w-0 max-w-full">
+      {/* Soft glow under the frame — clipped to its parent so it never expands the box */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
+        <div
+          aria-hidden
+          className="absolute -inset-x-2 -bottom-10 top-10 rounded-[2rem] bg-[radial-gradient(circle_at_50%_100%,rgba(196,88,63,0.18),transparent_70%)] blur-3xl sm:-inset-x-6 sm:-bottom-12 sm:top-12"
+        />
+      </div>
 
-      <div className="overflow-hidden rounded-xl border border-border/70 bg-background shadow-[0_30px_80px_-30px_rgba(34,27,22,0.35),0_2px_0_rgba(255,255,255,0.6)_inset] ring-1 ring-foreground/5">
+      <div className="w-full max-w-full overflow-hidden rounded-xl border border-border/70 bg-background shadow-[0_30px_80px_-30px_rgba(34,27,22,0.35),0_2px_0_rgba(255,255,255,0.6)_inset] ring-1 ring-foreground/5">
         {/* Window chrome */}
-        <div className="flex h-9 items-center gap-3 border-b border-border/60 bg-muted/30 px-3">
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#28CA41]" />
+        <div className="flex h-9 items-center gap-2 border-b border-border/60 bg-muted/30 px-2.5 sm:gap-3 sm:px-3">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-[#FF5F57] sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-[#FFBD2E] sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-[#28CA41] sm:h-2.5 sm:w-2.5" />
           </div>
           {/* Address / search bar */}
-          <div className="mx-auto flex h-6 w-full max-w-[420px] items-center gap-2 rounded-md border border-border/60 bg-background px-2 text-[11px]">
-            <span className="relative flex h-1.5 w-1.5">
+          <div className="mx-auto flex h-6 w-full min-w-0 max-w-[420px] items-center gap-1.5 rounded-md border border-border/60 bg-background px-2 text-[10.5px] sm:gap-2 sm:text-[11px]">
+            <span className="relative flex h-1.5 w-1.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint/60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mint" />
             </span>
-            <span className="truncate font-mono text-foreground/55">app.ozzios.com / channels / {activeChannel}</span>
-            <span className="ml-auto inline-flex items-center gap-1 text-foreground/40">
+            {/* Mobile: short channel-only URL · sm+: full path */}
+            <span className="truncate font-mono text-foreground/55 sm:hidden">
+              ozzios.com / {activeChannel}
+            </span>
+            <span className="hidden truncate font-mono text-foreground/55 sm:inline">
+              app.ozzios.com / channels / {activeChannel}
+            </span>
+            <span className="ml-auto hidden shrink-0 items-center gap-1 text-foreground/40 sm:inline-flex">
               <Command className="h-3 w-3" />
               <Kbd className="h-[16px] min-w-[16px] text-[9px]">K</Kbd>
             </span>
@@ -639,8 +647,9 @@ function DemoFrame(props: DemoFrameProps) {
           <div className="hidden h-2.5 w-12 sm:block" />
         </div>
 
-        {/* Body */}
-        <div className="relative flex aspect-[3/4] overflow-hidden bg-background sm:aspect-[4/3] md:aspect-[16/9]">
+        {/* Body — fixed mobile height (no aspect-ratio so width can't expand);
+              proper aspect ratios kick in from sm+ once layout stabilizes */}
+        <div className="relative flex h-[480px] w-full max-w-full overflow-hidden bg-background sm:h-auto sm:aspect-[4/3] md:aspect-[16/9]">
           <DemoSidebar
             activeChannel={activeChannel}
             onChannelChange={onChannelChange}
@@ -657,7 +666,7 @@ function DemoFrame(props: DemoFrameProps) {
 
             <div
               ref={messagesContainerRef}
-              className="scrollbar-hidden min-h-0 flex-1 space-y-4 overflow-y-auto overflow-x-hidden bg-background px-3 py-3 sm:px-4"
+              className="scrollbar-hidden min-h-0 flex-1 space-y-3 overflow-y-auto overflow-x-hidden bg-background px-2.5 py-2.5 sm:space-y-4 sm:px-4 sm:py-3"
             >
               <AnimatePresence mode="popLayout">
                 {currentMessages
@@ -843,21 +852,21 @@ function DemoChannelHeader({
   setMobileOpen: (v: boolean) => void;
 }) {
   return (
-    <div className="relative flex items-center justify-between border-b border-border/60 bg-background px-3 py-2 sm:px-4">
+    <div className="relative flex items-center justify-between gap-2 border-b border-border/60 bg-background px-3 py-2 sm:px-4">
       {/* Mobile toggle */}
       <button
         type="button"
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="-ml-1.5 flex items-center gap-2 rounded-md px-1.5 py-1 transition-colors hover:bg-muted md:hidden"
+        className="-ml-1 flex min-w-0 items-center gap-1.5 rounded-md px-1.5 py-1 transition-colors hover:bg-muted md:hidden"
       >
-        <Menu className="h-4 w-4 text-muted-foreground" />
-        <Hash className="h-3.5 w-3.5 text-muted-foreground" />
-        <span className="max-w-[120px] truncate text-[12px] font-semibold text-foreground">
+        <Menu className="h-4 w-4 shrink-0 text-muted-foreground" />
+        <Hash className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+        <span className="max-w-[140px] truncate text-[12px] font-semibold text-foreground">
           {activeChannel}
         </span>
         <ChevronDown
           className={cn(
-            'h-3 w-3 text-muted-foreground transition-transform',
+            'h-3 w-3 shrink-0 text-muted-foreground transition-transform',
             mobileOpen && 'rotate-180',
           )}
         />
@@ -874,7 +883,13 @@ function DemoChannelHeader({
         </span>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        {/* Compact mobile live badge */}
+        <span className="inline-flex items-center gap-1 rounded-[5px] border border-mint/30 bg-mint/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-mint md:hidden">
+          <span className="h-1 w-1 rounded-full bg-mint" />
+          Live
+        </span>
+
         <div className="hidden items-center -space-x-1.5 sm:flex">
           {sidebarTeam.slice(0, 3).map((m, i) => (
             <div key={m.name} className="rounded-full ring-2 ring-background" style={{ zIndex: 3 - i }}>
@@ -972,13 +987,13 @@ function DemoChannelHeader({
 
 function DemoTabs() {
   return (
-    <div className="flex items-center gap-0.5 border-b border-border/60 bg-background px-3 py-1.5">
+    <div className="scrollbar-hidden flex items-center gap-0.5 overflow-x-auto border-b border-border/60 bg-background px-2 py-1.5 sm:px-3">
       {demoTabs.map((tab, i) => (
         <button
           key={tab.label}
           type="button"
           className={cn(
-            'inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] transition-colors',
+            'inline-flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1 text-[11px] transition-colors sm:px-2.5',
             i === 0
               ? 'bg-foreground/[0.06] text-foreground'
               : 'text-muted-foreground hover:bg-foreground/[0.03] hover:text-foreground',
@@ -988,10 +1003,10 @@ function DemoTabs() {
           <span className="hidden sm:inline">{tab.label}</span>
         </button>
       ))}
-      <div className="ml-auto inline-flex items-center gap-1 text-[10px] text-foreground/40">
+      <div className="ml-auto hidden shrink-0 items-center gap-1 text-[10px] text-foreground/40 sm:inline-flex">
         <Kbd className="h-[16px] min-w-[16px] text-[9px]">⌘</Kbd>
         <Kbd className="h-[16px] min-w-[16px] text-[9px]">/</Kbd>
-        <span className="hidden sm:inline">switch view</span>
+        <span className="hidden md:inline">switch view</span>
       </div>
     </div>
   );
@@ -1001,8 +1016,8 @@ function DemoComposer({ activeChannel }: { activeChannel: string }) {
   const suggestions = channelSuggestions[activeChannel] ?? channelSuggestions['lead-follow-up'];
 
   return (
-    <div className="border-t border-border/60 bg-background px-3 pb-2.5 pt-2.5">
-      {/* Suggestion chips — emoji-free */}
+    <div className="border-t border-border/60 bg-background px-2.5 pb-2 pt-2 sm:px-3 sm:pb-2.5 sm:pt-2.5">
+      {/* Suggestion chips — emoji-free, scrollable on mobile */}
       <div className="scrollbar-hidden mb-2 flex items-center gap-1.5 overflow-x-auto">
         <span className="shrink-0 font-mono text-[9.5px] uppercase tracking-[0.18em] text-foreground/40">
           Try
@@ -1011,9 +1026,9 @@ function DemoComposer({ activeChannel }: { activeChannel: string }) {
           <button
             key={chip.label}
             type="button"
-            className="group/chip inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background px-2.5 py-1 text-[10.5px] text-muted-foreground transition-all duration-150 hover:-translate-y-0.5 hover:border-signature/30 hover:bg-signature/[0.06] hover:text-foreground"
+            className="group/chip inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background px-2.5 py-1.5 text-[10.5px] text-muted-foreground transition-all duration-150 hover:-translate-y-0.5 hover:border-signature/30 hover:bg-signature/[0.06] hover:text-foreground sm:py-1"
           >
-            <chip.icon className="h-3 w-3 text-foreground/45 transition-colors group-hover/chip:text-signature" />
+            <chip.icon className="h-3 w-3 shrink-0 text-foreground/45 transition-colors group-hover/chip:text-signature" />
             <span className="whitespace-nowrap">{chip.label}</span>
           </button>
         ))}
@@ -1021,9 +1036,14 @@ function DemoComposer({ activeChannel }: { activeChannel: string }) {
 
       {/* Composer input */}
       <div className="flex items-center gap-2 rounded-md border border-border/60 bg-muted/30 px-3 py-2">
-        <span className="text-[11px] text-muted-foreground">Message #{activeChannel}</span>
-        <div className="ml-auto flex items-center gap-2">
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-foreground/[0.05] text-[10px] text-foreground/55">@</span>
+        <span className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">
+          Message{' '}
+          <span className="text-foreground/55">#{activeChannel}</span>
+        </span>
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-foreground/[0.05] text-[10px] text-foreground/55">
+            @
+          </span>
           <Send className="h-4 w-4 text-muted-foreground/55" />
         </div>
       </div>
@@ -1081,8 +1101,8 @@ function MessageRow({
 
       {/* Body */}
       <div className="min-w-0 flex-1 overflow-hidden">
-        <div className="mb-1 flex flex-wrap items-center gap-1 sm:gap-2">
-          <span className="max-w-[120px] truncate text-[11px] font-semibold text-foreground sm:max-w-none sm:text-[12px]">
+        <div className="mb-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 sm:gap-x-2">
+          <span className="truncate text-[11px] font-semibold text-foreground sm:text-[12px]">
             {message.user}
           </span>
           {message.isAgent ? (
