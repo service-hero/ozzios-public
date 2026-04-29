@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, type LucideIcon } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { useRef, type ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { bookDemoTriggerProps, isDemoCta, useCalDemoInit } from './book-demo';
 
 // ────────────────────────────────────────────────────────────────────────────
 // Shared motion easing — framer-motion v12 strict tuple
@@ -249,7 +250,8 @@ export function PrimaryCTA({
         ? 'h-9 pl-3.5 pr-2 text-[13px]'
         : 'h-11 pl-4 pr-2.5 text-[13.5px]';
 
-  const isInternal = href.startsWith('/');
+  const isDemo = isDemoCta(href);
+  const isInternal = !isDemo && href.startsWith('/');
   const inner = (
     <>
       <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
@@ -271,6 +273,10 @@ export function PrimaryCTA({
     className,
   );
 
+  if (isDemo) {
+    return <DemoCTAButton className={classes}>{inner}</DemoCTAButton>;
+  }
+
   if (isInternal) {
     return (
       <Link to={href} className={classes}>
@@ -283,6 +289,24 @@ export function PrimaryCTA({
     <a href={href} className={classes}>
       {inner}
     </a>
+  );
+}
+
+// Internal trigger element shared by PrimaryCTA and SecondaryCTA when the
+// caller passes the demo sentinel href. Centralizes the Cal.com init so every
+// "Setup a demo" button on the page wires up identically.
+function DemoCTAButton({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) {
+  useCalDemoInit();
+  return (
+    <button type="button" className={className} {...bookDemoTriggerProps}>
+      {children}
+    </button>
   );
 }
 
@@ -304,7 +328,8 @@ export function SecondaryCTA({
   const sizing =
     size === 'lg' ? 'h-12 px-5 text-[14px]' : size === 'sm' ? 'h-9 px-3 text-[13px]' : 'h-11 px-4 text-[13.5px]';
 
-  const isInternal = href.startsWith('/') && !href.startsWith('//');
+  const isDemo = isDemoCta(href);
+  const isInternal = !isDemo && href.startsWith('/') && !href.startsWith('//');
   const classes = cn(
     'group/sec inline-flex items-center gap-2 rounded-md border border-border/70 bg-background/80 font-medium text-foreground backdrop-blur transition-all duration-200 hover:border-border hover:bg-background',
     sizing,
@@ -317,6 +342,10 @@ export function SecondaryCTA({
       <ArrowUpRight className="h-3 w-3 text-foreground/40 transition-transform duration-200 group-hover/sec:-translate-y-0.5 group-hover/sec:translate-x-0.5 group-hover/sec:text-foreground/70" />
     </>
   );
+
+  if (isDemo) {
+    return <DemoCTAButton className={classes}>{inner}</DemoCTAButton>;
+  }
 
   if (isInternal) {
     return (

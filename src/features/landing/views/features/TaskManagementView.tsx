@@ -25,6 +25,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -168,8 +169,8 @@ export function TaskManagementView() {
         pillSubtitle="Kanban + auto-escalation + dependencies"
         headlineLines={['Stop losing work', 'to broken processes.']}
         sub="Kanban boards, auto-escalation, dependencies, and AI-powered task creation. Every task tracked, every deadline enforced, every handoff automatic."
-        primaryCta={{ label: 'Start managing tasks', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '37%', label: 'Fewer missed deadlines' },
           { value: '5 hrs / wk', label: 'Saved on follow-ups' },
@@ -221,8 +222,8 @@ export function TaskManagementView() {
           eyebrow="Get started"
           headlineLines={['Every task tracked.', 'Every deadline met.']}
           sub="Stop losing work to broken processes. Get a task system that drives itself forward — with humans and AI working in lockstep."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

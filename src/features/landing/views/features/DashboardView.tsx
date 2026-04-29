@@ -30,6 +30,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -256,8 +257,8 @@ export function DashboardView() {
         pillSubtitle="One pane of glass for the workspace"
         headlineLines={['One dashboard.', 'Everything you need.']}
         sub="A customizable, real-time dashboard with 18 widget types that puts your entire operation — AI agents, customers, campaigns, and tasks — in one view."
-        primaryCta={{ label: 'See it in action', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '18', label: 'Widget types' },
           { value: '4-col', label: 'Responsive grid' },
@@ -297,8 +298,8 @@ export function DashboardView() {
           eyebrow="See everything"
           headlineLines={['See everything.', 'Control everything.']}
           sub="One dashboard for your AI agents, customers, campaigns, and operations. Customizable, real-time, and built for the way you work."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

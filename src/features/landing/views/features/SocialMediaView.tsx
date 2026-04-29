@@ -24,6 +24,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const platforms = ['Facebook', 'Instagram', 'LinkedIn', 'TikTok', 'X (Twitter)', 'Threads'];
 
@@ -281,8 +282,8 @@ export function SocialMediaView() {
         pillSubtitle="Organic + paid in one calendar"
         headlineLines={['6 platforms.', 'One command center.']}
         sub="Schedule, publish, and analyze content across Facebook, Instagram, LinkedIn, TikTok, X, and Threads. Manage organic posts and paid campaigns from a single content calendar."
-        primaryCta={{ label: 'Unify your social', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         rightSlot={<PlatformGrid />}
       />
 
@@ -317,8 +318,8 @@ export function SocialMediaView() {
           eyebrow="Get started"
           headlineLines={['Your social media,', 'under control.']}
           sub="Stop logging into 6 platforms. Manage your entire social presence — organic and paid — from one calendar."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

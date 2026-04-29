@@ -28,6 +28,7 @@ import {
   X,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { bookDemoTriggerProps, useCalDemoInit } from './book-demo';
 
 // ────────────────────────────────────────────────────────────────────────────
 // Types
@@ -161,7 +162,7 @@ const navItems: NavItem[] = [
       ],
     },
   },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Demo', href: '/pricing' },
 ];
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -238,6 +239,7 @@ function NavDestination({
 // ────────────────────────────────────────────────────────────────────────────
 
 export function Navigation() {
+  useCalDemoInit();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -469,8 +471,9 @@ export function Navigation() {
               Sign in
             </a>
 
-            <a
-              href="https://app.ozzios.com/sign-up"
+            <button
+              type="button"
+              {...bookDemoTriggerProps}
               className={cn(
                 'group relative hidden h-9 items-center gap-2 overflow-hidden rounded-md bg-foreground pl-3.5 pr-2 text-[13px] font-medium text-background',
                 'shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_1px_2px_rgba(34,27,22,0.18),0_8px_22px_-8px_rgba(34,27,22,0.35)]',
@@ -478,19 +481,20 @@ export function Navigation() {
               )}
             >
               <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-              Get started
+              Setup a demo
               <Kbd tone="dark" className="h-[18px]">
-                S
+                D
               </Kbd>
-            </a>
+            </button>
 
             {/* Mobile cluster */}
-            <a
-              href="https://app.ozzios.com/sign-up"
+            <button
+              type="button"
+              {...bookDemoTriggerProps}
               className="inline-flex h-9 items-center rounded-md bg-foreground px-3 text-[13px] font-medium text-background shadow-[0_8px_22px_-10px_rgba(34,27,22,0.4)] lg:hidden"
             >
-              Start
-            </a>
+              Demo
+            </button>
             <button
               type="button"
               onClick={() => setIsMobileOpen((v) => !v)}
@@ -665,7 +669,7 @@ export function Navigation() {
                     onClick={() => setActiveMenu(null)}
                     className="group/foot inline-flex items-center gap-1.5 text-[12px] font-medium text-foreground/70 transition-colors hover:text-foreground"
                   >
-                    See pricing
+                    Setup a demo
                     <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover/foot:translate-x-0.5" />
                   </Link>
                 </div>
@@ -732,15 +736,16 @@ export function Navigation() {
 
               {/* Drawer footer */}
               <div className="shrink-0 space-y-2 border-t border-border/60 bg-background/70 px-4 py-4 sm:px-5">
-                <a
-                  href="https://app.ozzios.com/sign-up"
+                <button
+                  type="button"
+                  {...bookDemoTriggerProps}
                   onClick={() => setIsMobileOpen(false)}
                   className="group/cta relative flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-md bg-foreground text-[13px] font-medium text-background shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-12px_rgba(34,27,22,0.4)]"
                 >
                   <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                  Get started
+                  Setup a demo
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
-                </a>
+                </button>
                 <div className="flex items-center gap-2">
                   <a
                     href="https://app.ozzios.com/sign-in"

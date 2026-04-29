@@ -25,6 +25,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -174,8 +175,8 @@ export function KnowledgeBaseView() {
         pillSubtitle="RAG-powered context for every agent"
         headlineLines={['Give your AI agents', 'your expertise.']}
         sub="Upload your product docs, FAQs, and web pages. Your AI agents use this knowledge in every conversation, giving answers as accurate as your best team member."
-        primaryCta={{ label: 'Upload your knowledge', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '3', label: 'Content types' },
           { value: '500K', label: 'Chars per PDF' },
@@ -225,8 +226,8 @@ export function KnowledgeBaseView() {
           eyebrow="Get started"
           headlineLines={['Make your AI agents', 'domain experts.']}
           sub="Upload your business knowledge once and every AI agent in your workspace becomes an expert on your products, services, and policies."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

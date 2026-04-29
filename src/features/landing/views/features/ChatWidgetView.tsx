@@ -35,6 +35,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -269,8 +270,8 @@ export function ChatWidgetView() {
         pillSubtitle="AI on your site · 24/7 lead capture"
         headlineLines={['Your website talks back.', 'And it actually helps.']}
         sub="An AI-powered chat widget with calendar booking, knowledge base access, and seamless human handoff. Embedded on any site with one script tag."
-        primaryCta={{ label: 'Add it to your site', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '24 / 7', label: 'AI coverage' },
           { value: '<2s', label: 'Response time' },
@@ -334,8 +335,8 @@ export function ChatWidgetView() {
           eyebrow="Get started"
           headlineLines={['Stop missing visitors.', 'Start capturing them.']}
           sub="Add an AI chat widget to any website in under 5 minutes. Every conversation flows into your CRM."
-          primaryCta={{ label: 'Start capturing leads', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

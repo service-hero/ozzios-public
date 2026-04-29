@@ -10,6 +10,7 @@ import {
   SectionHeader,
   SectionHeading,
 } from './_landing-primitives';
+import { bookDemoTriggerProps, useCalDemoInit } from './book-demo';
 
 // ────────────────────────────────────────────────────────────────────────────
 // Motion
@@ -149,6 +150,7 @@ function CommandTease() {
 // ────────────────────────────────────────────────────────────────────────────
 
 export function CTASection() {
+  useCalDemoInit();
   const { audience } = useAudience();
   const content = audienceContent[audience].cta;
   const ref = useRef(null);
@@ -181,8 +183,9 @@ export function CTASection() {
               variants={itemVariants}
               className="mt-8 flex flex-wrap items-center gap-2.5"
             >
-              <a
-                href="https://app.ozzios.com/sign-up"
+              <button
+                type="button"
+                {...bookDemoTriggerProps}
                 className={cn(
                   'group/cta relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-md bg-foreground pl-5 pr-3 text-[14px] font-medium text-background',
                   'shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_1px_2px_rgba(34,27,22,0.18),0_18px_38px_-14px_rgba(34,27,22,0.5)]',
@@ -190,10 +193,10 @@ export function CTASection() {
                 )}
               >
                 <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-                {content.primaryButton}
+                Setup a demo
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
-                <Kbd tone="dark">S</Kbd>
-              </a>
+                <Kbd tone="dark">D</Kbd>
+              </button>
 
               {content.secondaryButton ? (
                 <a

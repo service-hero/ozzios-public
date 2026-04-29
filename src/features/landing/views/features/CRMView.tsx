@@ -31,6 +31,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -237,8 +238,8 @@ export function CRMView() {
         pillSubtitle="Built around lead scoring + activity"
         headlineLines={['A CRM that actually', 'knows your contacts.']}
         sub="AI-scored leads, unified activity timelines, and automatic enrichment. Every interaction tracked, every contact scored, every opportunity surfaced."
-        primaryCta={{ label: 'Try the CRM free', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '25+', label: 'Activity types' },
           { value: '3', label: 'AI scores' },
@@ -291,8 +292,8 @@ export function CRMView() {
           eyebrow="Get started"
           headlineLines={['Stop guessing.', 'Start knowing.']}
           sub="A CRM that scores leads automatically, enriches contacts instantly, and shows you every interaction in one place."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

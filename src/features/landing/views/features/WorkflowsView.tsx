@@ -32,6 +32,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -259,8 +260,8 @@ export function WorkflowsView() {
         pillSubtitle="Durable execution, visual builder"
         headlineLines={['Automate the work', 'that burns you out.']}
         sub="Durable, visual workflows that connect your AI agents, triggers, and actions into automations that run 24/7 and never break silently."
-        primaryCta={{ label: 'Build your first workflow', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '10', label: 'Node types' },
           { value: '20+', label: 'Event triggers' },
@@ -300,8 +301,8 @@ export function WorkflowsView() {
           eyebrow="Get automating"
           headlineLines={['Stop doing manually', 'what should run on autopilot.']}
           sub="Build your first workflow in minutes. No code, no fragile integrations, no babysitting."
-          primaryCta={{ label: 'Start automating', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

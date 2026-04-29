@@ -26,6 +26,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -198,8 +199,8 @@ export function VoiceAgentsView() {
         pillSubtitle="Twilio + ElevenLabs · sub-second latency"
         headlineLines={['AI agents that', 'answer the phone.']}
         sub="Your phones ring 24/7. Now something intelligent picks up. AI-powered voice agents that handle inbound calls, make outbound calls, qualify leads, and book appointments — at $0.07/minute instead of $25/hour."
-        primaryCta={{ label: 'Deploy a voice agent', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '24 / 7', label: 'Availability' },
           { value: '$0.07', label: 'Per minute' },
@@ -257,8 +258,8 @@ export function VoiceAgentsView() {
           eyebrow="Get started"
           headlineLines={['Stop missing calls.', 'Start booking them.']}
           sub="Deploy a voice agent in minutes. Test it in the lab. Connect it to a Twilio number. Watch it book your next 100 appointments."
-          primaryCta={{ label: 'Deploy a voice agent', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

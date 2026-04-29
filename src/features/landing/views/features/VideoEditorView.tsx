@@ -30,6 +30,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -362,8 +363,8 @@ export function VideoEditorView() {
         pillSubtitle="AI clips · timeline · auto-captions"
         headlineLines={['Pro video, no editor.', 'No expensive software.']}
         sub="A multi-track timeline editor with AI video generation, voiceover, music, and auto-captions. Render in any aspect ratio for any platform."
-        primaryCta={{ label: 'Make a video', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         rightSlot={<TimelinePreview />}
       />
 
@@ -398,8 +399,8 @@ export function VideoEditorView() {
           eyebrow="Get started"
           headlineLines={['Stop outsourcing video.', 'Make it in minutes.']}
           sub="A complete AI-powered video studio in your browser. From prompt to rendered file — no After Effects required."
-          primaryCta={{ label: 'Make your first video', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '16:9 · 9:16 · 1:1', label: 'Aspect ratios' },
             { value: '1080p', label: 'Render quality' },

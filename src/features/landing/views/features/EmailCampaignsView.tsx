@@ -26,6 +26,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -259,8 +260,8 @@ export function EmailCampaignsView() {
         pillSubtitle="Targeted, tracked, controllable"
         headlineLines={['Email campaigns', 'that actually convert.']}
         sub="Build, segment, send, and track email campaigns from the same platform where your CRM, AI agents, and team live. No more juggling Mailchimp on the side."
-        primaryCta={{ label: 'Start sending campaigns', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '500', label: 'Per batch send' },
           { value: '5', label: 'Event types' },
@@ -299,7 +300,7 @@ export function EmailCampaignsView() {
           eyebrow="Ready to send"
           headlineLines={['Send smarter campaigns.', 'Close more deals.']}
           sub="Email campaigns that integrate with your CRM, your AI agents, and your entire business workflow. Start in minutes."
-          primaryCta={{ label: 'Start sending', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
           secondaryCta={{ label: 'Talk to our team', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },

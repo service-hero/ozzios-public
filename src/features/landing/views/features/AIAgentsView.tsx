@@ -25,6 +25,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 // ────────────────────────────────────────────────────────────────────────────
 // Data
@@ -344,8 +345,8 @@ export function AIAgentsView() {
         pillSubtitle="Inside the OzziOS workforce"
         headlineLines={['Stop hiring.', 'Start deploying.']}
         sub="An unlimited AI workforce that works 24/7, remembers everything, and shows you every action they take. Your entire back office, for a fraction of the cost."
-        primaryCta={{ label: 'Deploy your AI team', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '30+', label: 'AI agents' },
           { value: '127+', label: 'Built-in tools' },
@@ -405,8 +406,8 @@ export function AIAgentsView() {
           eyebrow="Deploy in minutes"
           headlineLines={['Your AI team is ready.', 'Are you?']}
           sub="Deploy your AI workforce in minutes. No hiring, no training, no turnover. Just results, 24/7."
-          primaryCta={{ label: 'Get early access', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

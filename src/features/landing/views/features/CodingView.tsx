@@ -36,6 +36,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -455,8 +456,8 @@ export function CodingView() {
         pillSubtitle="AI builds custom apps in a sandbox"
         headlineLines={['Reports that customers', 'actually open.']}
         sub="An AI agent writes a complete React app for every report you need — branded, interactive, and live at a unique URL. No developers required."
-        primaryCta={{ label: 'Generate a report', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         rightSlot={<CodingHeroPreview />}
       />
 
@@ -491,8 +492,8 @@ export function CodingView() {
           eyebrow="Get started"
           headlineLines={['Stop building reports.', 'Start sending live ones.']}
           sub="Generate your first interactive report in minutes. The AI writes the code, deploys the app, and gives you a shareable URL."
-          primaryCta={{ label: 'Generate a report', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'Secure', label: 'Sandbox' },

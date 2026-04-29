@@ -22,6 +22,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -191,8 +192,8 @@ export function FormsView() {
         pillSubtitle="Drag-and-drop · one-line embed"
         headlineLines={['Capture leads.', 'Not just form data.']}
         sub="Build forms visually, embed them anywhere with one line of code, and automatically create contacts, trigger workflows, and block spam. Forms that work for you."
-        primaryCta={{ label: 'Build your first form', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '1-line', label: 'Embed code' },
           { value: 'Edge', label: 'Global CDN' },
@@ -227,8 +228,8 @@ export function FormsView() {
           eyebrow="Get started"
           headlineLines={['Every form submission,', 'a new opportunity.']}
           sub="Stop losing leads between form submission and follow-up. Build forms that feed directly into your pipeline."
-          primaryCta={{ label: 'Start capturing leads', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

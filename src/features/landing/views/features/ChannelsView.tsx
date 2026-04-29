@@ -31,6 +31,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -309,8 +310,8 @@ export function ChannelsView() {
         pillSubtitle="Team + customers + AI in one hub"
         headlineLines={['One hub for your team,', 'customers, and AI.']}
         sub="Stop juggling Slack, email, and 5 other tools. OzziOS Channels brings your team, customers, and AI agents into one real-time workspace — with full context on every conversation."
-        primaryCta={{ label: 'Start for free', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '5', label: 'Channel types' },
           { value: '<50ms', label: 'Message latency' },
@@ -349,7 +350,7 @@ export function ChannelsView() {
           eyebrow="Get started"
           headlineLines={['Unify your team.', 'Unify your customers.']}
           sub="Replace your scattered communication tools with one intelligent workspace. Get started in minutes."
-          primaryCta={{ label: 'Start for free', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
           secondaryCta={{ label: 'Talk to our team', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },

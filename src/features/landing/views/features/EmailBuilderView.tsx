@@ -24,6 +24,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -215,8 +216,8 @@ export function EmailBuilderView() {
         pillSubtitle="16 blocks · live device preview"
         headlineLines={['Stop coding emails.', 'Start designing them.']}
         sub="A visual drag-and-drop email builder with 16 block types, live device preview, and dynamic personalization. Build emails that render perfectly everywhere — in minutes, not hours."
-        primaryCta={{ label: 'Build your first email', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '16', label: 'Block types' },
           { value: '3', label: 'Starter templates' },
@@ -255,8 +256,8 @@ export function EmailBuilderView() {
           eyebrow="Get started"
           headlineLines={['Your next email,', 'built in minutes.']}
           sub="Stop fighting HTML tables. Start building beautiful, responsive emails with a visual editor that just works."
-          primaryCta={{ label: 'Start building free', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-          secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+          secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
             { value: 'GDPR ready', label: 'Compliance' },

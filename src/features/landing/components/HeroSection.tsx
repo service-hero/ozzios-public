@@ -30,6 +30,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 import { audienceContent, useAudience } from '../contexts/AudienceContext';
+import { bookDemoTriggerProps, useCalDemoInit } from './book-demo';
 import {
   channelMessages,
   enterpriseLogos,
@@ -175,6 +176,7 @@ function HeadlineMark({ children }: { children: React.ReactNode }) {
 // ────────────────────────────────────────────────────────────────────────────
 
 export function HeroSection() {
+  useCalDemoInit();
   const { audience } = useAudience();
   const content = audienceContent[audience].hero;
 
@@ -377,8 +379,9 @@ export function HeroSection() {
               variants={itemVariants}
               className="mt-7 flex flex-wrap items-center gap-2.5"
             >
-              <a
-                href="https://app.ozzios.com/sign-up"
+              <button
+                type="button"
+                {...bookDemoTriggerProps}
                 className={cn(
                   'group/cta relative inline-flex h-11 items-center gap-2 overflow-hidden rounded-md bg-foreground pl-4 pr-2.5 text-[13.5px] font-medium text-background',
                   'shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_1px_2px_rgba(34,27,22,0.18),0_14px_30px_-12px_rgba(34,27,22,0.45)]',
@@ -386,10 +389,10 @@ export function HeroSection() {
                 )}
               >
                 <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-                Get early access
+                Setup a demo
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
-                <Kbd tone="dark">S</Kbd>
-              </a>
+                <Kbd tone="dark">D</Kbd>
+              </button>
 
               <button
                 type="button"

@@ -21,7 +21,7 @@ const footerColumns: Array<{ title: string; links: FooterLink[] }> = [
       { label: 'Chat Widget', href: '/features/chat-widget', badge: 'New' },
       { label: 'Task Management', href: '/features/tasks' },
       { label: 'Integrations', href: '/integrations' },
-      { label: 'Pricing', href: '/pricing' },
+      { label: 'Setup a demo', href: '/pricing' },
     ],
   },
   {

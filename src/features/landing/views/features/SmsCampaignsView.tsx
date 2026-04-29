@@ -20,6 +20,7 @@ import {
   type Capability,
   type PainPoint,
 } from '../../components/_landing-primitives';
+import { DEMO_CTA_HREF } from '../../components/book-demo';
 
 const painPoints: PainPoint[] = [
   {
@@ -102,8 +103,8 @@ export function SmsCampaignsView() {
         pillSubtitle="Twilio-powered · compliance built in"
         headlineLines={['SMS campaigns', 'that respect the rules.']}
         sub="98% open rate. 45% response rate. SMS is the most powerful channel in marketing — if you do it right. OzziOS handles compliance, rate limiting, and delivery so you focus on the message."
-        primaryCta={{ label: 'Start SMS campaigns', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact' }}
         stats={[
           { value: '98%', label: 'Open rate' },
           { value: '45%', label: 'Response rate' },
@@ -157,7 +158,7 @@ export function SmsCampaignsView() {
           eyebrow="Get started"
           headlineLines={['Reach every phone.', 'Stay compliant.']}
           sub="SMS campaigns with built-in compliance, intelligent rate limiting, and CRM-native targeting. Start sending today."
-          primaryCta={{ label: 'Start SMS campaigns', href: 'https://app.ozzios.com/sign-up', shortcut: 'S' }}
+          primaryCta={{ label: 'Setup a demo', href: DEMO_CTA_HREF, shortcut: 'D' }}
           secondaryCta={{ label: 'Talk to our team', href: '/contact' }}
           trust={[
             { value: '256-bit', label: 'Encryption' },
