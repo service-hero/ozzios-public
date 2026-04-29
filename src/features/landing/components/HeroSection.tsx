@@ -330,7 +330,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative isolate overflow-hidden pb-24 pt-28 sm:pt-32 lg:pb-32 lg:pt-36"
+      className="relative isolate overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16 lg:pt-36"
     >
       {/* Background — quiet, hairline grid + single coral radial */}
       <BackgroundField />
