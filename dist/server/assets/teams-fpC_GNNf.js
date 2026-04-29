@@ -124,27 +124,17 @@ function HeroSection() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-signature", children: "superpowers" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10", children: "Your team is talented but stretched thin. OzziOS adds an unlimited AI workforce to your roster -- handling back-office execution so your dispatchers, technicians, and office staff can focus on the work that actually moves the needle." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "a",
-          {
-            href: "https://app.ozzios.com/sign-up",
-            className: "inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200",
-            children: [
-              "Get Early Access",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5" })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: "/pricing",
-            className: "inline-flex items-center justify-center gap-2 h-14 px-8 border-2 border-border text-foreground font-medium text-base rounded-lg hover:border-signature/30 transition-colors duration-200",
-            children: "See pricing"
-          }
-        )
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "a",
+        {
+          href: "/pricing",
+          className: "inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200",
+          children: [
+            "Setup a demo",
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5" })
+          ]
+        }
+      ) })
     ] }) }) })
   ] });
 }
@@ -401,22 +391,14 @@ function CTASection() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "a",
           {
-            href: "https://app.ozzios.com/sign-up",
+            href: "/pricing",
             className: "inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200",
             children: [
-              "Get early access",
+              "Setup a demo",
               /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5" })
             ]
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: "/pricing",
-            className: "text-sm text-muted-foreground hover:text-foreground/80 transition-colors",
-            children: "View pricing plans"
-          }
-        ) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "w-3.5 h-3.5" }),

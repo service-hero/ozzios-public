@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports, m as motion, r as reactExports, u as useInView } from "./vendor-framer-DZFBeC81.js";
 import { L as LandingLayout } from "./LandingLayout-Dblq4RXp.js";
-import { R as Rocket, A as ArrowRight, B as Bug, Z as Zap, f as Sparkles } from "./vendor-icons-D94uOSxG.js";
+import { R as Rocket, B as Bug, Z as Zap, f as Sparkles } from "./vendor-icons-D94uOSxG.js";
 import "./vendor-react-MO5I_vdy.js";
 import "./vendor-router-DD_41qJ4.js";
 import "./vendor-radix-Bd9PM-r6.js";
@@ -191,25 +191,14 @@ function CTA() {
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tight mb-6", children: "Ready to get started?" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-gray-500 mb-10 max-w-lg mx-auto", children: "Join home service businesses already using OzziOS to automate their operations." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "a",
-          {
-            href: "https://app.ozzios.com/sign-up",
-            className: "inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200",
-            children: [
-              "Get Early Access",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5" })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "a",
           {
             href: "/integrations",
             className: "text-sm text-gray-500 hover:text-gray-700 transition-colors",
             children: "View all integrations"
           }
-        ) })
+        )
       ]
     }
   );

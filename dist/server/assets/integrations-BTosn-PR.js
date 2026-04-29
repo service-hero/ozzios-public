@@ -307,27 +307,17 @@ function IntegrationsView() {
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-2xl font-display text-foreground mb-4", children: "Need a custom integration?" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[15px] text-muted-foreground mb-8", children: "Our team can build custom integrations for your specific workflow. Let us know what you need." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "a",
-              {
-                href: "https://app.ozzios.com/sign-up",
-                className: "btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors",
-                children: [
-                  "Get Early Access",
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4" })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "a",
-              {
-                href: "#contact",
-                className: "btn-neo inline-flex items-center gap-2 px-6 py-4 rounded-full border-2 border-border text-[14px] font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all",
-                children: "Request integration"
-              }
-            )
-          ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: "/contact",
+              className: "btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors",
+              children: [
+                "Request integration",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4" })
+              ]
+            }
+          ) })
         ]
       }
     ) }) })

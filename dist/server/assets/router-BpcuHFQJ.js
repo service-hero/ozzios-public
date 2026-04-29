@@ -162,7 +162,7 @@ const Route$s = createFileRoute("/pricing")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$s, "component")
 });
-const $$splitComponentImporter$r = () => import("./integrations-CYZSjjek.js");
+const $$splitComponentImporter$r = () => import("./integrations-BTosn-PR.js");
 const Route$r = createFileRoute("/integrations")({
   head: () => createPageHead({
     title: "Integrations",
@@ -190,7 +190,7 @@ const Route$p = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$p, "component")
 });
-const $$splitComponentImporter$o = () => import("./changelog-BxjL4tW3.js");
+const $$splitComponentImporter$o = () => import("./changelog-CKUikIKN.js");
 const Route$o = createFileRoute("/changelog")({
   head: () => createPageHead({
     title: "Changelog",
@@ -217,7 +217,7 @@ const Route$m = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$m, "component")
 });
-const $$splitComponentImporter$l = () => import("./index-DWz44ueI.js");
+const $$splitComponentImporter$l = () => import("./index-ICDb5UAf.js");
 const Route$l = createFileRoute("/")({
   head: () => createPageHead({
     title: "Your First AI Employee",
@@ -226,7 +226,7 @@ const Route$l = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$l, "component")
 });
-const $$splitComponentImporter$k = () => import("./teams-CZjrRW2n.js");
+const $$splitComponentImporter$k = () => import("./teams-fpC_GNNf.js");
 const Route$k = createFileRoute("/solutions/teams")({
   head: () => createPageHead({
     title: "For Teams",

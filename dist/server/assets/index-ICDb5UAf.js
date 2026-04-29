@@ -655,7 +655,7 @@ function HeroSection() {
     "section",
     {
       id: "hero",
-      className: "relative isolate overflow-hidden pb-24 pt-28 sm:pt-32 lg:pb-32 lg:pt-36",
+      className: "relative isolate overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16 lg:pt-36",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BackgroundField, {}),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-10", children: [
@@ -1665,7 +1665,7 @@ const SavingsCalculatorSection = reactExports.lazy(
   }))
 );
 const FeaturesSection = reactExports.lazy(
-  () => import("./HowItWorksSection-CaOTH_72.js").then((m) => ({ default: m.FeaturesSection }))
+  () => import("./HowItWorksSection-CovBBYjX.js").then((m) => ({ default: m.FeaturesSection }))
 );
 const AgentsSection = reactExports.lazy(
   () => import("./AgentsSection-DPzpnrF1.js").then((m) => ({ default: m.AgentsSection }))
