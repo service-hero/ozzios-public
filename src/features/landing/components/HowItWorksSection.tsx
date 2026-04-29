@@ -164,27 +164,6 @@ export function FeaturesSection() {
           </motion.div>
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 flex justify-center"
-        >
-          <a
-            href="https://app.ozzios.com/sign-up"
-            className={cn(
-              'group/cta relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-md bg-foreground pl-5 pr-3 text-[14px] font-medium text-background',
-              'shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_14px_30px_-12px_rgba(34,27,22,0.45)]',
-              'transition-all duration-200 hover:bg-[#1a1410] active:translate-y-px',
-            )}
-          >
-            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-            Get early access
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
-            <Kbd tone="dark">S</Kbd>
-          </a>
-        </motion.div>
       </div>
     </section>
   );

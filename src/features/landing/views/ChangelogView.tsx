@@ -262,20 +262,11 @@ function CTA() {
         Join home service businesses already using OzziOS to automate their operations.
       </p>
       <a
-        href="https://app.ozzios.com/sign-up"
-        className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
+        href="/integrations"
+        className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
       >
-        Get Early Access
-        <ArrowRight className="w-5 h-5" />
+        View all integrations
       </a>
-      <div className="mt-6">
-        <a
-          href="/integrations"
-          className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-        >
-          View all integrations
-        </a>
-      </div>
     </motion.div>
   );
 }

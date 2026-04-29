@@ -170,17 +170,11 @@ function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://app.ozzios.com/sign-up"
+                href="/pricing"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
               >
-                Get Early Access
+                Setup a demo
                 <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/pricing"
-                className="inline-flex items-center justify-center gap-2 h-14 px-8 border-2 border-border text-foreground font-medium text-base rounded-lg hover:border-signature/30 transition-colors duration-200"
-              >
-                See pricing
               </a>
             </div>
           </motion.div>
@@ -477,20 +471,12 @@ function CTASection() {
             more headcount.
           </p>
           <a
-            href="https://app.ozzios.com/sign-up"
+            href="/pricing"
             className="inline-flex items-center justify-center gap-2 h-14 px-8 bg-signature text-white font-medium text-base rounded-lg hover:bg-signature/90 transition-colors duration-200"
           >
-            Get early access
+            Setup a demo
             <ArrowRight className="w-5 h-5" />
           </a>
-          <div className="mt-6">
-            <a
-              href="/pricing"
-              className="text-sm text-muted-foreground hover:text-foreground/80 transition-colors"
-            >
-              View pricing plans
-            </a>
-          </div>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" /> 256-bit Encryption</span>
             <span className="hidden sm:inline text-border">|</span>

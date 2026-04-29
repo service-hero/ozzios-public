@@ -379,17 +379,11 @@ export function IntegrationsView() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://app.ozzios.com/sign-up"
+                href="/contact"
                 className="btn-neo inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-colors"
               >
-                Get Early Access
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
-                className="btn-neo inline-flex items-center gap-2 px-6 py-4 rounded-full border-2 border-border text-[14px] font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
-              >
                 Request integration
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </motion.div>
